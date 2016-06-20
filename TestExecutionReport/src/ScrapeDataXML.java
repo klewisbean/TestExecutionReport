@@ -172,6 +172,7 @@ public class ScrapeDataXML {
     there is nothing to return but that can change if necessary
     */
     public void filterDevice(ArrayList<String[]> versionlist){
+        int total = 0;
 
         //hash maps to hold the device and the count of the device
         //the hash maps are divided into the cleanup and initial launch phases
@@ -185,7 +186,7 @@ public class ScrapeDataXML {
 
         //loop to iterate through all of the test executions in a given list
         for(int i = 0; i < versionlist.size(); i++){
-
+            total++;
             //string variable that holds the cycle
             String cycle = versionlist.get(i)[1];
 
@@ -312,12 +313,19 @@ public class ScrapeDataXML {
         devicemap.put("Mobile App", mobileapptotal);
         ////////////////////////////////////////////////////////////////////////////////
 
+
+
+        HashMap<String, Double> devicePercentageMap = createPercentages(combineHashMap(cleandevicemap, initdevicemap), total);
+
+
         //display the data and count the total
         System.out.println("Cleanup:");
         int countclean = printMap(cleandevicemap);
         System.out.println("\nInitial:");
         int countinit = printMap(initdevicemap);
         System.out.println("TOTAL: " + (countinit + countclean));
+
+
     }
 
     /*
@@ -328,6 +336,8 @@ public class ScrapeDataXML {
     there is nothing to return but that can change if necessary
     */
     public void filterPriority(ArrayList<String[]> versionlist){
+        int total = 0;
+
         //string array to hold the possible priorities
         String[] prioritylist = {"Critical", "Major", "Minor", "No Priority", "Trivial", "Blocker"};
 
@@ -338,6 +348,7 @@ public class ScrapeDataXML {
 
         //for loop to iterate through the test executions of the given list
         for(int i = 0; i < versionlist.size(); i++){
+            total++;
             //strings to hold the values of the priority and the cycle
             String priority = versionlist.get(i)[3];
             String cycle = versionlist.get(i)[1];
@@ -386,6 +397,9 @@ public class ScrapeDataXML {
 
         }
 
+
+        HashMap<String,Double> priorityPercentageMap = createPercentages(combineHashMap(cleanprioritymap, initprioritymap), total);
+
         //display the data and calculate the total
         System.out.println("Cleanup: ");
         int countclean = printMap(cleanprioritymap);
@@ -404,6 +418,7 @@ public class ScrapeDataXML {
      */
     public void filterPhase(ArrayList<String[]> versionlist){
 
+        int total = 0;
         //string array to hold the possible phase types
         String[] phasetype = {"PLS", "Testing Weeks", "Stage", "Launch"};
 
@@ -414,6 +429,7 @@ public class ScrapeDataXML {
 
         //iterate through the test executions
         for(int i = 0; i < versionlist.size(); i++){
+            total++;
             //string to hold the cycle name
             String phase = versionlist.get(i)[1];
 
@@ -427,9 +443,11 @@ public class ScrapeDataXML {
                         //already exists in the map
                         try{
                             cleanupphasemap.put(phasetype[j], cleanupphasemap.get(phasetype[j]) + 1);
+                            phasemap.put(phasetype[j], phasemap.get(phasetype[j]) + 1);
                         }
                         catch(NullPointerException e){
                             cleanupphasemap.put(phasetype[j], 1);
+                            phasemap.put(phasetype[j], 1);
                         }
                         break;
                     }
@@ -441,9 +459,11 @@ public class ScrapeDataXML {
                         //System.out.println("Cleanup Other: " + phase);
                         try{
                             cleanupphasemap.put("Testing Weeks", cleanupphasemap.get("Testing Weeks") + 1);
+                            phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
                         }
                         catch(NullPointerException e){
                             cleanupphasemap.put("Testing Weeks", 1);
+                            phasemap.put("Testing Weeks", 1);
                         }
                         break;
                     }
@@ -459,9 +479,11 @@ public class ScrapeDataXML {
                         //the phase already exists in the map
                         try{
                             initialphasemap.put(phasetype[j], initialphasemap.get(phasetype[j]) + 1);
+                            phasemap.put(phasetype[j], phasemap.get(phasetype[j]) + 1);
                         }
                         catch(NullPointerException e){
                             initialphasemap.put(phasetype[j], 1);
+                            phasemap.put(phasetype[j], 1);
                         }
                         break;
                     }
@@ -473,9 +495,11 @@ public class ScrapeDataXML {
                         //System.out.println("Initial Other: " + phase);
                         try{
                             initialphasemap.put("Testing Weeks", initialphasemap.get("Testing Weeks") + 1);
+                            phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
                         }
                         catch(NullPointerException e){
                             initialphasemap.put("Testing Weeks", 1);
+                            phasemap.put("Testing Weeks", 1);
                         }
                         break;
                     }
@@ -484,12 +508,20 @@ public class ScrapeDataXML {
 
         }
 
+        HashMap<String, Double> phaseMapPercents = createPercentages(combineHashMap(cleanupphasemap, initialphasemap), total);
+
         //display the data and count the total
         System.out.println("Cleanup:");
         int countclean = printMap(cleanupphasemap);
         System.out.println("\nInitial:");
         int countinit = printMap(initialphasemap);
         System.out.println("TOTAL: " + (countinit + countclean));
+
+
+
+
+
+
 
     }
 
@@ -505,10 +537,43 @@ public class ScrapeDataXML {
 
 
 
+    public HashMap<String, Integer> combineHashMap(HashMap<String, Integer> map1, HashMap<String, Integer> map2){
+        HashMap<String, Integer> newmap = new HashMap<>();
 
+        Iterator it1 = map1.entrySet().iterator();
+        Iterator it2 = map2.entrySet().iterator();
 
+        while(it1.hasNext()){
+            Map.Entry pair1 = (Map.Entry)it1.next();
+            Map.Entry pair2 = (Map.Entry)it2.next();
 
+            if(pair1.getKey().equals(pair2.getKey())){
+                int val = (Integer)pair1.getValue() + (Integer)pair2.getValue();
+                newmap.put((String) pair1.getKey(), val);
+            }
 
+        }
+
+        return newmap;
+    }
+
+    public HashMap<String, Double> createPercentages(HashMap<String, Integer> map, int total){
+
+        Iterator it = map.entrySet().iterator();
+
+        HashMap<String, Double> percentages = new HashMap<>();
+
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+
+            double percent = (double)((Integer)pair.getValue() * 100) / total;
+            percent = (double)Math.round(percent * 100) / 100;
+            percentages.put((String) pair.getKey(), percent);
+        }
+
+        return percentages;
+
+    }
 
     public HashMap<String, ArrayList<String[]>> splitIntoVersions(ArrayList<String[]> listsplit){
         HashMap<String, ArrayList<String[]>> versionmap = new HashMap<>();
@@ -537,6 +602,19 @@ public class ScrapeDataXML {
             }
             System.out.println();
         }
+    }
+
+    public int printMapDouble(HashMap<String, Double> map){
+        Iterator it = map.entrySet().iterator();
+        int count = 0;
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            count += (double)pair.getValue();
+            System.out.println(pair.getKey() + " = " + pair.getValue());
+            it.remove();
+        }
+
+        return count;
     }
 
     public int printMap(HashMap<String, Integer> map){
