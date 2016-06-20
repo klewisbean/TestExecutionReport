@@ -23,16 +23,12 @@ public class ScrapeDataXML {
     public HashMap<String, Integer> phasemap = new HashMap<>();
     public HashMap<String, Integer> prioritymap = new HashMap<>();
     public HashMap<String, Integer> devicemap = new HashMap<>();
-
     public HashMap<String, HashMap<String, Integer>> phases = new HashMap<>();
-
     public ArrayList<String[]> list = new ArrayList<>();
-
     public HashMap<String, Integer> phasepriority = new HashMap<>();
 
-    public static void main(String argv[]) throws FileNotFoundException {
+    public void run(File file1, File file2) throws FileNotFoundException {
         ScrapeDataXML main = new ScrapeDataXML();
-
         NodeList issueKeys = null;
         NodeList cycleNames = null;
         NodeList version = null;
@@ -47,11 +43,11 @@ public class ScrapeDataXML {
         NodeList executionStatus1 = null;
 
 
-        try {
+        /*try {
             main.readURLxmlAsString("http://383161b2.ngrok.io/ZFJ-Executions-06-17-2016.xml");
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
         main.fixXML("C:\\Users\\klewis\\Downloads\\ZFJ-Executions-06-17-2016.xml", "C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016.xml");
         //main.fixXML("https://383161b2.ngrok.io/ZFJ-Executions-06-17-2016.xml", "C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016.xml");
@@ -155,8 +151,9 @@ public class ScrapeDataXML {
         main.filterPriority(versionmap.get("R63-Baseline"));
         System.out.println("---------------------------------");*/
 
-
     }
+
+
 
 
 
