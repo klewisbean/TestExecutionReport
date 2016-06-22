@@ -23,6 +23,7 @@ public class FindFile {
         long newest = 0;
         long newest2 = 0;
         Date date = new Date();
+        System.out.println(dateformat.format(date));
         String filename = nameToFind + dateformat.format(date);
         File newestfile = new File(filename);
         File newestfile2 = new File(filename);
@@ -31,12 +32,13 @@ public class FindFile {
 
         File[] filesin = directory.listFiles();
 
+        System.out.println("nameToFind: " + nameToFind + "\nfilename: " + filename);
+
+
         for(File fil : filesin){
-
-
             if(fil.getName().contains(filename)){
-                System.out.println("File: " + fil.getName());
                 if(newest < fil.lastModified()){
+                    System.out.println(filename + " | " + fil);
                     newest = fil.lastModified();
                     newestfile = fil;
                 }
@@ -44,8 +46,10 @@ public class FindFile {
         }
 
         for(File fil : filesin){
-            if(fil.getName().contains(nameToFind)){
+            if(fil.getName().contains(filename)){
+                System.out.println(filename + " | " + fil);
                 if(newest2 < fil.lastModified() && newest > fil.lastModified()){
+
                     newest2 = fil.lastModified();
                     newestfile2 = fil;
                 }
@@ -55,12 +59,11 @@ public class FindFile {
 
         System.out.println("Newest file: " + newestfile.getName());
         System.out.println("Newest2 file: " + newestfile2.getName());
-        ScrapeDataXML scrape = new ScrapeDataXML();
-        try {
-            scrape.run(newestfile, newestfile2);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
+
+        GraphDataGUI gui = new GraphDataGUI(newestfile, newestfile2);
+        gui.setUp();
+
 
     }
 

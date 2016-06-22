@@ -6,6 +6,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
 
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
 import org.w3c.dom.*;
 
 import java.io.*;
@@ -20,15 +23,18 @@ import org.apache.commons.lang3.StringUtils;
 
 public class ScrapeDataXML {
 
+    public HashMap<String, ArrayList<String[]>> versionmap = new HashMap<>();
     public HashMap<String, Integer> phasemap = new HashMap<>();
     public HashMap<String, Integer> prioritymap = new HashMap<>();
     public HashMap<String, Integer> devicemap = new HashMap<>();
     public HashMap<String, HashMap<String, Integer>> phases = new HashMap<>();
     public ArrayList<String[]> list = new ArrayList<>();
     public HashMap<String, Integer> phasepriority = new HashMap<>();
+    public ArrayList<String> versions = new ArrayList<String>();
+
+    public String[] execstatus = {"Unexecuted", "Pass", "Fail", "WIP", "Blocker"};
 
     public void run(File file1, File file2) throws FileNotFoundException {
-        ScrapeDataXML main = new ScrapeDataXML();
         NodeList issueKeys = null;
         NodeList cycleNames = null;
         NodeList version = null;
@@ -43,15 +49,9 @@ public class ScrapeDataXML {
         NodeList executionStatus1 = null;
 
 
-        /*try {
-            main.readURLxmlAsString("http://383161b2.ngrok.io/ZFJ-Executions-06-17-2016.xml");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
 
-        main.fixXML("C:\\Users\\klewis\\Downloads\\ZFJ-Executions-06-17-2016.xml", "C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016.xml");
-        //main.fixXML("https://383161b2.ngrok.io/ZFJ-Executions-06-17-2016.xml", "C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016.xml");
-        main.fixXML("C:\\Users\\klewis\\Downloads\\ZFJ-Executions-06-17-2016 (1).xml", "C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016 (1).xml");
+        fixXML("C:\\Users\\klewis\\Downloads\\ZFJ-Executions-06-17-2016.xml", "C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016.xml");
+        fixXML("C:\\Users\\klewis\\Downloads\\ZFJ-Executions-06-17-2016 (1).xml", "C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016 (1).xml");
 
 
 
@@ -65,7 +65,6 @@ public class ScrapeDataXML {
 
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(xmlfile);
-
             Document doc1 = builder.parse(xmlfile2);
 
             doc.getDocumentElement().normalize();
@@ -98,7 +97,7 @@ public class ScrapeDataXML {
                     priorities.item(i).getTextContent(),
                     executedDate.item(i).getTextContent(),
                     executionStatus.item(i).getTextContent()};
-            main.list.add(temp);
+            list.add(temp);
         }
         for(int i = 0; i < issueKeys1.getLength(); i++){
             String[] temp = {issueKeys1.item(i).getTextContent(),
@@ -107,10 +106,10 @@ public class ScrapeDataXML {
                     priorities1.item(i).getTextContent(),
                     executedDate1.item(i).getTextContent(),
                     executionStatus1.item(i).getTextContent()};
-            main.list.add(temp);
+            list.add(temp);
         }
 
-        //main.printData(main.list);
+        printData(list);
 
 
 
@@ -125,18 +124,18 @@ public class ScrapeDataXML {
         /*
         testing
          */
-        HashMap<String, ArrayList<String[]>> versionmap = main.splitIntoVersions(main.list);
+        versionmap = splitIntoVersions(list);
+        getVersions(versionmap);
 
 
-
-        System.out.println("RELEASE 63 PHASE FILTER\n---------------------------------");
+        /*System.out.println("RELEASE 63 PHASE FILTER\n---------------------------------");
         main.filterPhase(main.list);
-        System.out.println("---------------------------------");
-        System.out.println("RELEASE 63 DEVICE FILTER\n---------------------------------");
+        System.out.println("---------------------------------");*/
+        /*System.out.println("RELEASE 63 DEVICE FILTER\n---------------------------------");
         main.filterDevice(main.list);
-        System.out.println("---------------------------------");
+        System.out.println("---------------------------------");*/
         System.out.println("RELEASE 63 PRIORITY FILTER\n---------------------------------");
-        main.filterPriority(main.list);
+        filterPriority(list);
         System.out.println("---------------------------------\n\n");
 
 
@@ -150,6 +149,12 @@ public class ScrapeDataXML {
         System.out.println("BASELINE-63 PRIORITY FILTER\n---------------------------------");
         main.filterPriority(versionmap.get("R63-Baseline"));
         System.out.println("---------------------------------");*/
+
+
+
+
+
+
 
     }
 
@@ -171,8 +176,11 @@ public class ScrapeDataXML {
     execution data
     there is nothing to return but that can change if necessary
     */
-    public void filterDevice(ArrayList<String[]> versionlist){
+    public HashMap<String, Double> filterDevice(ArrayList<String[]> versionlist){
+
         int total = 0;
+        int totalinit = 0;
+        int totalcleanup = 0;
 
         //hash maps to hold the device and the count of the device
         //the hash maps are divided into the cleanup and initial launch phases
@@ -180,6 +188,7 @@ public class ScrapeDataXML {
         HashMap<String, Integer> cleandevicemap = new HashMap<>();
         HashMap<String, Integer> initdevicemap = new HashMap<>();
         HashMap<String, Integer> devicemap = new HashMap<>();
+        HashMap<String, Integer> devicemapex = new HashMap<>();
 
         //list of all possible device names
         String[] devicelist = {"Tablet", "Desktop", "Mobile App", "Mobile Web", "mweb", "app"};
@@ -192,6 +201,7 @@ public class ScrapeDataXML {
 
             //check if the cycle is cleanup
             if(StringUtils.containsIgnoreCase(cycle, "Cleanup") || StringUtils.containsIgnoreCase(cycle, "Clean-up")){
+                totalcleanup++;
                 //loop to iterate through all of the possible device names
                 for(int j = 0; j < devicelist.length; j++){
 
@@ -231,6 +241,7 @@ public class ScrapeDataXML {
             }
             //when the launch is not cleanup but it is initial
             else{
+                totalinit++;
                 //loop to iterate through the device names
                 for(int j = 0; j < devicelist.length; j++){
                     //check if the cycle contains the device name
@@ -315,16 +326,22 @@ public class ScrapeDataXML {
 
 
 
+        HashMap<String, Double> deviceInitialPercentageMap = createPercentages(initdevicemap, totalinit);
+
+        HashMap<String, Double> deviceCleanupPercentageMap = createPercentages(cleandevicemap, totalcleanup);
+
         HashMap<String, Double> devicePercentageMap = createPercentages(combineHashMap(cleandevicemap, initdevicemap), total);
 
-
+        return devicePercentageMap;
         //display the data and count the total
-        System.out.println("Cleanup:");
+        /*System.out.println("Cleanup:");
         int countclean = printMap(cleandevicemap);
         System.out.println("\nInitial:");
         int countinit = printMap(initdevicemap);
         System.out.println("TOTAL: " + (countinit + countclean));
 
+        System.out.println("\n---------------------------------");
+        printMapDouble(devicePercentageMap);*/
 
     }
 
@@ -335,9 +352,9 @@ public class ScrapeDataXML {
     execution data
     there is nothing to return but that can change if necessary
     */
-    public void filterPriority(ArrayList<String[]> versionlist){
+    public HashMap<String, Double> filterPriority(ArrayList<String[]> versionlist){
         int total = 0;
-
+        int[] countex = {0,0,0,0,0};
         //string array to hold the possible priorities
         String[] prioritylist = {"Critical", "Major", "Minor", "No Priority", "Trivial", "Blocker"};
 
@@ -352,6 +369,7 @@ public class ScrapeDataXML {
             //strings to hold the values of the priority and the cycle
             String priority = versionlist.get(i)[3];
             String cycle = versionlist.get(i)[1];
+            String status = versionlist.get(i)[5];
 
             //check if the cycle is cleanup
             if(StringUtils.containsIgnoreCase(cycle, "Cleanup") || StringUtils.containsIgnoreCase(cycle, "Clean-up")){
@@ -371,6 +389,15 @@ public class ScrapeDataXML {
                             cleanprioritymap.put(priority, 1);
                         }
                     }
+
+                    for(int k = 0; k < execstatus.length; k++){
+
+                        if(status.equalsIgnoreCase(execstatus[k])){
+                            countex[k] += 1;
+                        }
+                    }
+
+
                 }
 
             }
@@ -392,6 +419,14 @@ public class ScrapeDataXML {
                             initprioritymap.put(priority, 1);
                         }
                     }
+
+                    for(int k = 0; k < execstatus.length; k++){
+
+
+                        if(status.equalsIgnoreCase(execstatus[k])){
+                            countex[k] += 1;
+                        }
+                    }
                 }
             }
 
@@ -400,12 +435,26 @@ public class ScrapeDataXML {
 
         HashMap<String,Double> priorityPercentageMap = createPercentages(combineHashMap(cleanprioritymap, initprioritymap), total);
 
+
+        for(int i = 0; i < execstatus.length; i++){
+            System.out.print(execstatus[i] + " | ");
+        }
+        System.out.println();
+        for(int i = 0; i < countex.length; i++){
+            System.out.print(countex[i] + " | ");
+        }
+        System.out.println();
+
+
+        return priorityPercentageMap;
+
+
         //display the data and calculate the total
-        System.out.println("Cleanup: ");
+        /*System.out.println("Cleanup: ");
         int countclean = printMap(cleanprioritymap);
         System.out.println("\nInitial: ");
         int countinit = printMap(initprioritymap);
-        System.out.println("TOTAL: " + (countinit + countclean));
+        System.out.println("TOTAL: " + (countinit + countclean));*/
     }
 
 
@@ -416,7 +465,7 @@ public class ScrapeDataXML {
     execution data
     there is nothing to return but that can change if necessary
      */
-    public void filterPhase(ArrayList<String[]> versionlist){
+    public HashMap<String, Double> filterPhase(ArrayList<String[]> versionlist){
 
         int total = 0;
         //string array to hold the possible phase types
@@ -510,19 +559,14 @@ public class ScrapeDataXML {
 
         HashMap<String, Double> phaseMapPercents = createPercentages(combineHashMap(cleanupphasemap, initialphasemap), total);
 
+        return phaseMapPercents;
+
         //display the data and count the total
-        System.out.println("Cleanup:");
+        /*System.out.println("Cleanup:");
         int countclean = printMap(cleanupphasemap);
         System.out.println("\nInitial:");
         int countinit = printMap(initialphasemap);
-        System.out.println("TOTAL: " + (countinit + countclean));
-
-
-
-
-
-
-
+        System.out.println("TOTAL: " + (countinit + countclean));*/
     }
 
     /*
@@ -724,5 +768,16 @@ public class ScrapeDataXML {
         writer.close();
     }
 
+    public void getVersions(HashMap<String, ArrayList<String[]>> versionm){
+        HashMap<String, ArrayList<String[]>> temp = versionm;
+        Iterator it = temp.entrySet().iterator();
+
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            versions.add((String)pair.getKey());
+
+            it.remove();
+        }
+    }
 
 }

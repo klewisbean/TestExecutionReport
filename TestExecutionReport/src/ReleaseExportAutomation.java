@@ -134,6 +134,12 @@ public class ReleaseExportAutomation {
         //find the xml export button from the drop down list
         WebElement xmlexport = driver.findElement(By.id("xmlExecutionId"));
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         //click the xml export button
         xmlexport.click();
 
