@@ -1,0 +1,30 @@
+{
+     "name": "Report Add-on",
+     "description": "Atlassian Connect add-on",
+     "key": "com.example.myaddon",
+     "baseUrl": "https://b927c415.ngrok.io",
+     "vendor": {
+         "name": "L.L.Bean",
+         "url": "http://example.com"
+     },
+     "authentication": {
+         "type": "none"
+     },
+     "apiVersion": 1,
+     "modules": {
+        "jiraDashboardItems":[
+		{
+			"description":{
+			"value":"Report dashboard item"
+			},
+			"url":"/add-on-html.html",
+			"configurable":true,
+			"thumbnailUrl": "atlassian-icon-16.png",
+			"name":{
+				"value":"title"
+			},
+			"key":"dashboard-item-key"
+		}
+		]
+     }
+ }
