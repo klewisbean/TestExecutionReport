@@ -61,8 +61,14 @@ public class FindFile {
         System.out.println("Newest2 file: " + newestfile2.getName());
 
 
-        GraphDataGUI gui = new GraphDataGUI(newestfile, newestfile2);
-        gui.setUp();
+        ScrapeDataXML scrape = new ScrapeDataXML();
+        try {
+            scrape.run(newestfile, newestfile2);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
 
 
     }
