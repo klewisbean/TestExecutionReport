@@ -22,6 +22,7 @@ import com.sun.corba.se.spi.orbutil.fsm.Input;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.apache.commons.lang3.StringUtils;
 
 
 import javax.net.ssl.HttpsURLConnection;
@@ -36,42 +37,90 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class XMLtoSheets {
 
-    public static void run() throws IOException {
+    public final static String SHEET_URL = "https://sheetsu.com/apis/v1.0/bb2e19ec323b";
+
+    public static void run(HashMap<String, HashMap<String, Double>> map) throws IOException {
         trustall();
 
         Client client = Client.create();
 
         WebResource webResource = client
-                .resource("https://sheetsu.com/apis/v1.0/bb2e19ec323b");
-
-        //input into the sheet
-        /*String input = "\"rows\": [" +
-                "{ \"Header 1\": \"data1\", \"Header 2\": \"data2\"}" +
-                " ]}";*/
-
-        String input = "{ \"rows\": [" +
-                "{ \"Quien\": \"6\", \"Para que\": \"Glenn\", \"email\": \"69\" }," +
-                " { \"Quien\": \"7\", \"Para que\": \"Joe\", \"email\": \"98\" }" +
-                " ]}";
-
-        ClientResponse response = webResource.type("application/json")
-                .post(ClientResponse.class, input);
+                .resource(SHEET_URL);
 
 
-        if(response.getStatus() != 201){
-            throw new RuntimeException("Failed : HTTP error code : " +
-                    response.getStatus());
+        ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
+
+        String output3 = response.getEntity(String.class);
+
+        System.out.println("\nOutput from Server .... ");
+        System.out.println(output3);
+        System.out.println("Status: " + response.getStatus());
+
+
+        clearSheet(output3, client);
+
+
+        //start the structure of the sheet using a string
+        String input = "{ \"rows\": [";
+        Iterator it = map.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            input += "{ \"Filter\": \"" + pair.getKey() + "\",";
+
+            HashMap<String, Integer> temp = (HashMap<String, Integer>) pair.getValue();
+            Iterator it2 = temp.entrySet().iterator();
+            while(it2.hasNext()){
+                Map.Entry pair2 = (Map.Entry)it2.next();
+                input += " \"" + pair2.getKey() + "\": \"" + pair2.getValue() + "\",";
+            }
+            input = input.substring(0, input.length()-1);
+            input += "},";
         }
+        input = input.substring(0, input.length()-1);
+        input += "]}";
+        //end structure of the sheet
 
-        String output = response.getEntity(String.class);
+        System.out.println(input);
+
+        response = webResource.type("application/json").post(ClientResponse.class, input);
+
+        String output2 = response.getEntity(String.class);
+
+        System.out.println("\nOutput from Server .... ");
+        System.out.println(output2);
+        System.out.println("Status: " + response.getStatus());
+
+
+
 
     }
 
+    public static void clearSheet(String sheetdata, Client client){
+        String filterurl = "/Filter/";
+        //System.out.println();
+        System.out.println();
+        String temp = sheetdata;
+        for(int i = 0; i < StringUtils.countMatches(sheetdata, "Filter"); i++){
+            temp = StringUtils.substring(temp, StringUtils.indexOf(temp, "Filter") + "Filter".length() + 1);
+
+            String sub = StringUtils.substringBetween(temp, "\"", "\"");
+            sub = sub.replaceAll("\\s", "%20");
+            WebResource webResource = client.resource(SHEET_URL + filterurl + sub);
+
+            ClientResponse response = webResource.type("application/json").delete(ClientResponse.class);
+
+            if(response.getStatus() == 204){
+                System.out.println(sub + " deleted");
+            }
+        }
+
+
+
+    }
 
     public static void trustall(){
 

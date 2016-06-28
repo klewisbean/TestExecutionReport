@@ -119,7 +119,7 @@ public class GraphDataGUI {
                     //run graphs for overall release filters
                     //device, phase, priority
                     System.out.println("button clicked with release selected");
-                    runForRelease();
+                    //runForRelease();
                 }
                 else if(versionRadio.isSelected()){
                     String versionSelected = (String)dropdown.getSelectedItem();
@@ -130,7 +130,7 @@ public class GraphDataGUI {
 
     }
 
-    public void runForRelease(){
+    /*public void runForRelease(){
         System.out.println("in release function");
         hashmaplist = new ArrayList<>();
 
@@ -149,7 +149,7 @@ public class GraphDataGUI {
         //create.setHashmaplist(hashmaplist);
         System.out.println("created CreateGraph instance, hashmaplist size: " + hashmaplist.size());
 
-    }
+    }*/
 
     public void runForVersion(String version){
 

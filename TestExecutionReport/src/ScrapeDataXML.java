@@ -14,6 +14,7 @@ import org.w3c.dom.*;
 
 import java.io.*;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -33,7 +34,14 @@ public class ScrapeDataXML {
     public HashMap<String, Integer> phasepriority = new HashMap<>();
     public ArrayList<String> versions = new ArrayList<String>();
 
+    public HashMap<String, HashMap<String, Integer>> phasestatus = new HashMap<>();
+    public HashMap<String, HashMap<String, Integer>> devicestatus = new HashMap<>();
+    public HashMap<String, HashMap<String, Integer>> prioritystatus = new HashMap<>();
+
+
     public String[] execstatus = {"Unexecuted", "Pass", "Fail", "WIP", "Blocked"};
+
+    public static int TOTAL = 0;
 
     public void run(File file1, File file2) throws FileNotFoundException {
         NodeList issueKeys = null;
@@ -157,10 +165,25 @@ public class ScrapeDataXML {
             System.out.println("---------------------------------");
         }*/
 
+        /*System.out.println("RELEASE 63 PHASE FILTER\n---------------------------------");
+        HashMap<String, Integer> pmap = filterPhase(list);
+        HashMap<String, Double> pmapperc = createPercentages(pmap, pmap.get("total"));
+        HashMap<String, HashMap<String, Double>> pmapstatusperc = createStatusPercentages(phasestatus, pmap.get("total"));
+        System.out.println("---------------------------------");
+        printMapDouble(pmapperc);
+        System.out.println("---------------------------------");
+        printNestedMap(pmapstatusperc);
+        System.out.println("---------------------------------");*/
+
+
+        /*HashMap<String, Integer> versiondmap = filterDevice(versionmap.get("R63-Baseline"));
+        HashMap<String, Double> versiondmapperc = createPercentages(versiondmap, versiondmap.get("total"));
+        HashMap<String, HashMap<String, Double>> versiondmappercstatus = createStatusPercentages(devicestatus, versiondmap.get("total"));*/
+
 
         XMLtoSheets sheets = new XMLtoSheets();
         try {
-            sheets.run();
+            sheets.run(filterPriority(list));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -186,7 +209,7 @@ public class ScrapeDataXML {
     execution data
     there is nothing to return but that can change if necessary
     */
-    public HashMap<String, Double> filterDevice(ArrayList<String[]> versionlist){
+    public HashMap<String, HashMap<String, Double>> filterDevice(ArrayList<String[]> versionlist){
 
         int total = 0;
         int totalinit = 0;
@@ -414,7 +437,13 @@ public class ScrapeDataXML {
             System.out.println(pair.getKey() + " | " + pair.getValue());
         }
 
-        return devicePercentageMap;
+
+        devicestatus = mapwithstatus;
+        TOTAL = total;
+
+        HashMap<String, Integer> tempmap = combineHashMap(cleandevicemap, initdevicemap);
+        tempmap.put("total", TOTAL);
+        return createStatusPercentages(mapwithstatus, TOTAL);
         //display the data and count the total
         /*System.out.println("Cleanup:");
         int countclean = printMap(cleandevicemap);
@@ -434,7 +463,7 @@ public class ScrapeDataXML {
     execution data
     there is nothing to return but that can change if necessary
     */
-    public HashMap<String, Double> filterPriority(ArrayList<String[]> versionlist){
+    public HashMap<String, HashMap<String, Double>> filterPriority(ArrayList<String[]> versionlist){
         int total = 0;
         int count2 = 0;
         int[] countex = {0,0,0,0,0};
@@ -566,9 +595,12 @@ public class ScrapeDataXML {
             Map.Entry pair = (Map.Entry)it.next();
             System.out.println(pair.getKey() + " | " + pair.getValue());
         }
+        HashMap<String, Integer> tempmap = combineHashMap(cleanprioritymap, initprioritymap);
+        prioritystatus = mapwithstatus;
 
-
-        return priorityPercentageMap;
+        TOTAL = total;
+        tempmap.put("total", TOTAL);
+        return createStatusPercentages(mapwithstatus, TOTAL);
 
 
         //display the data and calculate the total
@@ -587,7 +619,7 @@ public class ScrapeDataXML {
     execution data
     there is nothing to return but that can change if necessary
      */
-    public HashMap<String, Double> filterPhase(ArrayList<String[]> versionlist){
+    public HashMap<String, HashMap<String, Double>> filterPhase(ArrayList<String[]> versionlist){
 
         int total = 0;
         //string array to hold the possible phase types
@@ -717,20 +749,14 @@ public class ScrapeDataXML {
             }
 
         }
-
-        HashMap<String, Double> phaseMapPercents = createPercentages(combineHashMap(cleanupphasemap, initialphasemap), total);
-
-        //printMap(combineHashMap(cleanupphasemap, initialphasemap));
-
-        Iterator it = mapwithstatus.entrySet().iterator();
-
-        while(it.hasNext()){
-            Map.Entry pair = (Map.Entry)it.next();
-            System.out.println(pair.getKey() + " | " + pair.getValue());
-        }
+        phasestatus = mapwithstatus;
 
 
-        return phaseMapPercents;
+        HashMap<String, Integer> temp = combineHashMap(cleanupphasemap, initialphasemap);
+
+        TOTAL = total;
+        temp.put("total", TOTAL);
+        return createStatusPercentages(mapwithstatus, TOTAL);
 
         //display the data and count the total
         /*System.out.println("Cleanup:");
@@ -770,6 +796,43 @@ public class ScrapeDataXML {
         }
 
         return newmap;
+    }
+
+    public HashMap<String, HashMap<String,Double>> createStatusPercentages(HashMap<String, HashMap<String, Integer>> mws, int total){
+        HashMap<String, HashMap<String,Double>> percmap = new HashMap<>();
+        String[] execstatus = {"Unexecuted", "Pass", "Fail", "WIP", "Blocked"};
+        Iterator it = mws.entrySet().iterator();
+        DecimalFormat df = new DecimalFormat(".##");
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+
+            HashMap<String, Integer> temp = (HashMap<String, Integer>) pair.getValue();
+
+            Iterator it2 = temp.entrySet().iterator();
+            double totalex = 0;
+            int[] exarray = {0,0,0,0,0};
+            int count = 0;
+            while(it2.hasNext()){
+                Map.Entry pair2 = (Map.Entry)it2.next();
+                //System.out.println(pair2.getKey() + " | " + pair2.getValue());
+
+                totalex += (Integer)pair2.getValue();
+                exarray[count] = (Integer)pair2.getValue();
+                count++;
+            }
+
+            HashMap<String, Double> tempdub = new HashMap<>();
+            for(int i = 0; i < exarray.length; i++){
+                double percent = (exarray[i] / totalex) * 100;
+                tempdub.put(execstatus[i], (double)Math.round(percent * 100) / 100);
+            }
+            tempdub.put("total", totalex);
+            percmap.put((String) pair.getKey(), tempdub);
+
+        }
+
+
+        return percmap;
     }
 
     public HashMap<String, Double> createPercentages(HashMap<String, Integer> map, int total){
@@ -946,6 +1009,16 @@ public class ScrapeDataXML {
             versions.add((String)pair.getKey());
 
         }
+    }
+
+    public void printNestedMap(HashMap<String, HashMap<String, Double>> map){
+        Iterator it = map.entrySet().iterator();
+
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            System.out.println(pair.getKey() + " | " + pair.getValue());
+        }
+        System.out.println();
     }
 
 }
