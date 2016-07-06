@@ -2,6 +2,9 @@
  * Created by klewis on 6/7/2016.
  */
 
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.xml.bind.annotation.XmlAccessOrder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,6 +15,9 @@ import com.sun.jersey.api.client.WebResource;
 import main.java.XMLtoSheets;
 import org.w3c.dom.*;
 
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -38,9 +44,8 @@ public class ScrapeDataXML {
     public HashMap<String, HashMap<String, Integer>> devicestatus = new HashMap<>();
     public HashMap<String, HashMap<String, Integer>> prioritystatus = new HashMap<>();
 
-
     public String[] execstatus = {"Unexecuted", "Pass", "Fail", "WIP", "Blocked"};
-
+    public String release = "";
     public static int TOTAL = 0;
 
     public void run(File file1, File file2) throws FileNotFoundException {
@@ -59,16 +64,16 @@ public class ScrapeDataXML {
 
 
 
-        fixXML("C:\\Users\\klewis\\Downloads\\ZFJ-Executions-06-17-2016.xml", "C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016.xml");
-        fixXML("C:\\Users\\klewis\\Downloads\\ZFJ-Executions-06-17-2016 (1).xml", "C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016 (1).xml");
+        fixXML(file1.getPath(), file1.getPath());
+        fixXML(file2.getPath(), file2.getPath());
 
 
 
         try{
 
             //URL xmlfile = new URL("https://383161b2.ngrok.io/ZFJ-Executions-06-17-2016.xml");
-            File xmlfile = new File("C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016.xml");
-            File xmlfile2 = new File("C:\\JiraReportGadget-2\\ZFJ-Executions-06-17-2016 (1).xml");
+            File xmlfile = new File(file1.getPath());
+            File xmlfile2 = new File(file2.getPath());
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
 
@@ -118,7 +123,7 @@ public class ScrapeDataXML {
             list.add(temp);
         }
 
-        //printData(list);
+        printData(list);
 
 
 
@@ -134,6 +139,10 @@ public class ScrapeDataXML {
         testing
          */
         versionmap = splitIntoVersions(list);
+
+        String first = versionmap.entrySet().iterator().next().getKey();
+        release = first.substring(0,3);
+        System.out.println(release);
 
         //getVersions(versionmap);
 
@@ -181,10 +190,11 @@ public class ScrapeDataXML {
         HashMap<String, HashMap<String, Double>> versiondmappercstatus = createStatusPercentages(devicestatus, versiondmap.get("total"));*/
 
 
-        XMLtoSheets sheets = new XMLtoSheets();
+
         try {
-            sheets.run(filterPriority(list));
-        } catch (IOException e) {
+            //sheets.run(filterPriority(list));
+            setUpGUI();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -192,7 +202,185 @@ public class ScrapeDataXML {
     }
 
 
+    public void setUpGUI(){
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setTitle(release + " Data to Sheet");
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setSize(300, 300);
 
+        Border blackline = BorderFactory.createLineBorder(Color.black);
+        Border redline = BorderFactory.createLineBorder(Color.red);
+
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        JPanel toptop = new JPanel();
+        toptop.setLayout(new BoxLayout(toptop, BoxLayout.Y_AXIS));
+        JPanel botbot = new JPanel();
+
+        //////////////////////////////////////////////////////////////////
+        JPanel filterPanel = new JPanel();
+        filterPanel.setLayout(new BoxLayout(filterPanel, BoxLayout.Y_AXIS));
+        filterPanel.setBorder(blackline);
+        JLabel filterLabel = new JLabel("Select Filter");
+
+        JComboBox<String> filtercombox = new JComboBox();
+        filtercombox.addItem("Phase");
+        filtercombox.addItem("Priority");
+        filtercombox.addItem("Device");
+
+        filterPanel.add(filterLabel);
+        filterPanel.add(filtercombox);
+        //////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////
+        JPanel dataPanel = new JPanel();
+        dataPanel.setBorder(blackline);
+        dataPanel.setLayout(new BoxLayout(dataPanel, BoxLayout.Y_AXIS));
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
+        JLabel dataLabel = new JLabel("Select Data");
+
+        JRadioButton releaseRadio = new JRadioButton("Full Release");
+        JRadioButton versionRadio = new JRadioButton("Version");
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(releaseRadio);
+        group.add(versionRadio);
+
+        JComboBox datacombox = new JComboBox();
+        Iterator it = versionmap.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            datacombox.addItem(pair.getKey());
+        }
+        datacombox.setEnabled(false);
+        JPanel labelp = new JPanel();
+        labelp.add(dataLabel);
+
+        topPanel.add(releaseRadio);
+        topPanel.add(versionRadio);
+        bottomPanel.add(datacombox);
+
+        dataPanel.add(labelp);
+        dataPanel.add(topPanel);
+        dataPanel.add(bottomPanel);
+
+        //////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////
+        JPanel buttonPanel = new JPanel();
+
+        JButton action = new JButton("Add Data to Sheets API");
+        JButton clearsheet = new JButton("Clear the Sheet");
+        buttonPanel.add(action);
+        buttonPanel.add(clearsheet);
+
+        //////////////////////////////////////////////////////////////////
+
+
+        toptop.add(filterPanel);
+        toptop.add(dataPanel);
+
+        botbot.add(buttonPanel);
+
+        mainPanel.add(toptop);
+        mainPanel.add(botbot);
+
+
+        frame.add(mainPanel);
+        frame.setVisible(true);
+        frame.pack();
+
+
+        releaseRadio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(releaseRadio.isSelected()){
+                    datacombox.setEnabled(false);
+                }
+            }
+        });
+
+        versionRadio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(versionRadio.isSelected()){
+                    datacombox.setEnabled(true);
+                }
+            }
+        });
+
+        clearsheet.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                XMLtoSheets.clearSheet();
+            }
+        });
+
+        action.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String filterselection = (String)filtercombox.getSelectedItem();
+                String dataselection = (String)datacombox.getSelectedItem();
+                if(releaseRadio.isSelected()){
+                    if(filterselection.equalsIgnoreCase("Phase")){
+                        try {
+                            XMLtoSheets.run(filterPhase(list), release);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                    else if(filterselection.equalsIgnoreCase("Priority")){
+                        try {
+                            XMLtoSheets.run(filterPriority(list), release);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                    else if(filterselection.equalsIgnoreCase("Device")){
+                        try {
+                            XMLtoSheets.run(filterDevice(list), release);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+
+                }
+                else if(versionRadio.isSelected()){
+                    if(filterselection.equalsIgnoreCase("Phase")){
+                        try {
+                            XMLtoSheets.run(filterPhase(versionmap.get(dataselection)), dataselection);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                    else if(filterselection.equalsIgnoreCase("Priority")){
+                        try {
+                            XMLtoSheets.run(filterPriority(versionmap.get(dataselection)), dataselection);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                    else if(filterselection.equalsIgnoreCase("Device")){
+                        try {
+                            XMLtoSheets.run(filterDevice(versionmap.get(dataselection)), dataselection);
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                }
+                else{
+                    dataPanel.setBorder(redline);
+                }
+            }
+        });
+
+
+
+
+    }
 
 
 
@@ -623,7 +811,7 @@ public class ScrapeDataXML {
 
         int total = 0;
         //string array to hold the possible phase types
-        String[] phasetype = {"PLS", "Testing Weeks", "Stage", "Launch"};
+        String[] phasetype = {"PLS", "TestingWeeks", "Stage", "Launch"};
 
         //hashmaps to keep track of the phase counts depending on if
         //the cycle is clean up or initial
@@ -638,6 +826,8 @@ public class ScrapeDataXML {
             //string to hold the cycle name
             String phase = versionlist.get(i)[1];
             String status = versionlist.get(i)[5];
+
+            System.out.println("phase: " + phase + " | status: " + status);
 
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
@@ -756,6 +946,7 @@ public class ScrapeDataXML {
 
         TOTAL = total;
         temp.put("total", TOTAL);
+        printNestedMap(mapwithstatus);
         return createStatusPercentages(mapwithstatus, TOTAL);
 
         //display the data and count the total
@@ -1011,7 +1202,7 @@ public class ScrapeDataXML {
         }
     }
 
-    public void printNestedMap(HashMap<String, HashMap<String, Double>> map){
+    public void printNestedMap(HashMap<String, HashMap<String, Integer>> map){
         Iterator it = map.entrySet().iterator();
 
         while(it.hasNext()){

@@ -33,7 +33,7 @@ public class AutomateExportGUI {
     public String[] releases = {"60", "61", "62", "63", "64", "65"};
 
     public static void main(String[] args){
-        System.setProperty("webdriver.chrome.driver", "C:\\JiraReportGadget-2\\TestExecutionReport\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\TestExecutionReport\\drivers\\chromedriver.exe");
         AutomateExportGUI main = new AutomateExportGUI();
 
 

@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+
+
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -93,19 +95,28 @@ public class ReleaseExportAutomation {
 
         advanceInput.sendKeys(ZQL_SEARCH);
 
-        WebElement advanceSearchButton  = driver.findElement(By.className("navigator-container"))
-                                        .findElement(By.id("zqlcomponent"))
-                                        .findElement(By.className("contained-content"))
-                                        .findElement(By.id("navigator-wrapper"))
-                                        .findElement(By.className("zql-autocomplete"))
-                                        .findElement(By.className("search-wrap"))
-                                        .findElement(By.id("search-container"))
-                                        .findElement(By.className("search-options-container"))
-                                        .findElement(By.id("search-field-container"))
-                                        .findElement(By.className("advanced-search-container"))
-                                        .findElement(By.className("aui-group"))
-                                        .findElement(By.id("zephyr-transform-all"));
-
+        WebElement advanceSearchButton = null;
+        try {
+            advanceSearchButton = driver.findElement(By.className("navigator-container"))
+                    .findElement(By.id("zqlcomponent"))
+                    .findElement(By.className("contained-content"))
+                    .findElement(By.id("navigator-wrapper"))
+                    .findElement(By.className("zql-autocomplete"))
+                    .findElement(By.className("search-wrap"))
+                    .findElement(By.id("search-container"))
+                    .findElement(By.className("search-options-container"))
+                    .findElement(By.id("search-field-container"))
+                    .findElement(By.className("advanced-search-container"))
+                    .findElement(By.className("aui-group"))
+                    .findElement(By.id("zephyr-transform-all"));
+        }
+        catch (Exception e) {
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e2) {
+                e.printStackTrace();
+            }
+        }
         advanceSearchButton.click();
     }
 

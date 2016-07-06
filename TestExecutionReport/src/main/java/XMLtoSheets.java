@@ -41,44 +41,66 @@ import java.util.*;
 
 public class XMLtoSheets {
 
+    //actual api
     public final static String SHEET_URL = "https://sheetsu.com/apis/v1.0/bb2e19ec323b";
 
-    public static void run(HashMap<String, HashMap<String, Double>> map) throws IOException {
-        trustall();
+    //testing api
+    //public final static String SHEET_URL = "https://sheetsu.com/apis/v1.0/70989698b61a";
+    public static String rel;
 
-        Client client = Client.create();
+    public static Client client = Client.create();
+
+    public static void run(HashMap<String, HashMap<String, Double>> map, String release) throws IOException {
+        trustall();
 
         WebResource webResource = client
                 .resource(SHEET_URL);
-
+        rel = release;
 
         ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
         String output3 = response.getEntity(String.class);
 
-        System.out.println("\nOutput from Server .... ");
+        System.out.println("\nOutput from Server for the GET.... ");
         System.out.println(output3);
         System.out.println("Status: " + response.getStatus());
 
+        String rowde = "{\"Title\": \"" + release + "\"}";
+        response = webResource.type("application/json").post(ClientResponse.class, rowde);
 
-        clearSheet(output3, client);
+        String rowderesponse = response.getEntity(String.class);
+
+        System.out.println("\nOutput from Server for the POST .... ");
+        System.out.println(rowderesponse);
+        System.out.println("Status: " + response.getStatus());
 
 
         //start the structure of the sheet using a string
         String input = "{ \"rows\": [";
         Iterator it = map.entrySet().iterator();
+
         while(it.hasNext()){
             Map.Entry pair = (Map.Entry)it.next();
+
             input += "{ \"Filter\": \"" + pair.getKey() + "\",";
 
             HashMap<String, Integer> temp = (HashMap<String, Integer>) pair.getValue();
             Iterator it2 = temp.entrySet().iterator();
+            int count = 0;
             while(it2.hasNext()){
                 Map.Entry pair2 = (Map.Entry)it2.next();
-                input += " \"" + pair2.getKey() + "\": \"" + pair2.getValue() + "\",";
+                input += " \"" + pair2.getKey() + "\": \"" + pair2.getValue();
+                if(count!=0){
+                    input += "%\",";
+                }
+                else{
+                    input += "\",";
+                }
+                count++;
             }
             input = input.substring(0, input.length()-1);
             input += "},";
+
         }
         input = input.substring(0, input.length()-1);
         input += "]}";
@@ -90,7 +112,7 @@ public class XMLtoSheets {
 
         String output2 = response.getEntity(String.class);
 
-        System.out.println("\nOutput from Server .... ");
+        System.out.println("\nOutput from Server for the POST .... ");
         System.out.println(output2);
         System.out.println("Status: " + response.getStatus());
 
@@ -99,7 +121,27 @@ public class XMLtoSheets {
 
     }
 
-    public static void clearSheet(String sheetdata, Client client){
+    public static void clearSheet(){
+        trustall();
+
+        WebResource webResource = client
+                .resource(SHEET_URL);
+
+        //delete title
+        ClientResponse response = client.resource(SHEET_URL + "/Title/" + rel).type("application/json").delete(ClientResponse.class);
+        if(response.getStatus() == 204){
+            System.out.println(rel + " deleted");
+        }
+        //end delete title
+
+        response = webResource.type("application/json").get(ClientResponse.class);
+
+        String sheetdata = response.getEntity(String.class);
+
+        System.out.println("\nOutput from Server .... ");
+        System.out.println(sheetdata);
+        System.out.println("Status: " + response.getStatus());
+
         String filterurl = "/Filter/";
         //System.out.println();
         System.out.println();
@@ -109,9 +151,9 @@ public class XMLtoSheets {
 
             String sub = StringUtils.substringBetween(temp, "\"", "\"");
             sub = sub.replaceAll("\\s", "%20");
-            WebResource webResource = client.resource(SHEET_URL + filterurl + sub);
+            webResource = client.resource(SHEET_URL + filterurl + sub);
 
-            ClientResponse response = webResource.type("application/json").delete(ClientResponse.class);
+            response = webResource.type("application/json").delete(ClientResponse.class);
 
             if(response.getStatus() == 204){
                 System.out.println(sub + " deleted");

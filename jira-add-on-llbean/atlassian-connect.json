@@ -1,30 +1,29 @@
 {
-     "name": "Report Add-on",
-     "description": "Atlassian Connect add-on",
-     "key": "com.example.myaddon",
-     "baseUrl": "https://b927c415.ngrok.io",
-     "vendor": {
-         "name": "L.L.Bean",
-         "url": "http://example.com"
-     },
-     "authentication": {
-         "type": "none"
-     },
-     "apiVersion": 1,
-     "modules": {
-        "jiraDashboardItems":[
-		{
-			"description":{
-			"value":"Report dashboard item"
-			},
-			"url":"/add-on-html.html",
-			"configurable":true,
-			"thumbnailUrl": "atlassian-icon-16.png",
-			"name":{
-				"value":"title"
-			},
-			"key":"dashboard-item-key"
-		}
-		]
-     }
- }
+  "key": "kevins-addon",
+  "name": "Kevin's Report Add-on",
+  "version": "0.1",
+  "description": "Kevin's Atlassian Connect add-on",
+  "baseUrl": "https://5fcfeb67.ngrok.io",
+  "vendor": {
+    "name": "Kevin @ L.L.Bean",
+    "url": "http://www.llbean.com"
+  },
+  "authentication": {
+    "type": "none"
+  },
+  "apiVersion": 1,
+  "modules": {
+    "jiraDashboardItems":[{
+      "url": "/view.html",
+      "key": "kevins-dashboard-item",
+      "name": {
+        "value": "Kevin's Report Tool Add-On"
+      },
+      "description": {
+        "value": "Report dashboard item from Kevin"
+      },
+      "configurable": false,
+      "thumbnailUrl": "koala.jpg"
+    }]
+  }
+}
