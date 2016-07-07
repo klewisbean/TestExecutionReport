@@ -3,7 +3,7 @@
   "name": "Kevin's Report Add-on",
   "version": "0.1",
   "description": "Kevin's Atlassian Connect add-on",
-  "baseUrl": "https://5fcfeb67.ngrok.io",
+  "baseUrl": "https://8253712a.ngrok.io",
   "vendor": {
     "name": "Kevin @ L.L.Bean",
     "url": "http://www.llbean.com"

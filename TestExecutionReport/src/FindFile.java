@@ -23,8 +23,8 @@ public class FindFile {
         long newest = 0;
         long newest2 = 0;
         Date date = new Date();
-        System.out.println(dateformat.format(date));
-        String filename = nameToFind + dateformat.format(date);
+        //System.out.println(dateformat.format(date));
+        String filename = nameToFind;
         File newestfile = new File(filename);
         File newestfile2 = new File(filename);
 
@@ -32,13 +32,13 @@ public class FindFile {
 
         File[] filesin = directory.listFiles();
 
-        System.out.println("nameToFind: " + nameToFind + "\nfilename: " + filename);
+        //System.out.println("nameToFind: " + nameToFind + "\nfilename: " + filename);
 
 
         for(File fil : filesin){
             if(fil.getName().contains(filename)){
                 if(newest < fil.lastModified()){
-                    System.out.println(filename + " | " + fil);
+                    //System.out.println(filename + " | " + fil);
                     newest = fil.lastModified();
                     newestfile = fil;
                 }
@@ -47,7 +47,7 @@ public class FindFile {
 
         for(File fil : filesin){
             if(fil.getName().contains(filename)){
-                System.out.println(filename + " | " + fil);
+                //System.out.println(filename + " | " + fil);
                 if(newest2 < fil.lastModified() && newest > fil.lastModified()){
 
                     newest2 = fil.lastModified();

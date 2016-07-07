@@ -84,7 +84,7 @@ public class ScrapeDataXML {
             doc.getDocumentElement().normalize();
             doc1.getDocumentElement().normalize();
 
-            System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+            //System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
             System.out.println("----------------------------------");
 
             issueKeys = doc.getElementsByTagName("issueKey");
@@ -123,7 +123,7 @@ public class ScrapeDataXML {
             list.add(temp);
         }
 
-        printData(list);
+        //printData(list);
 
 
 
@@ -142,7 +142,7 @@ public class ScrapeDataXML {
 
         String first = versionmap.entrySet().iterator().next().getKey();
         release = first.substring(0,3);
-        System.out.println(release);
+        //System.out.println(release);
 
         //getVersions(versionmap);
 
@@ -630,8 +630,10 @@ public class ScrapeDataXML {
         TOTAL = total;
 
         HashMap<String, Integer> tempmap = combineHashMap(cleandevicemap, initdevicemap);
+
         tempmap.put("total", TOTAL);
-        return createStatusPercentages(mapwithstatus, TOTAL);
+        //printNestedMap(mapwithstatus);
+        return createStatusPercentages(mapwithstatus, total);
         //display the data and count the total
         /*System.out.println("Cleanup:");
         int countclean = printMap(cleandevicemap);
@@ -779,16 +781,16 @@ public class ScrapeDataXML {
 
         Iterator it = mapwithstatus.entrySet().iterator();
 
-        while(it.hasNext()){
+        /*while(it.hasNext()){
             Map.Entry pair = (Map.Entry)it.next();
             System.out.println(pair.getKey() + " | " + pair.getValue());
-        }
+        }*/
         HashMap<String, Integer> tempmap = combineHashMap(cleanprioritymap, initprioritymap);
         prioritystatus = mapwithstatus;
 
         TOTAL = total;
         tempmap.put("total", TOTAL);
-        return createStatusPercentages(mapwithstatus, TOTAL);
+        return createStatusPercentages(mapwithstatus, total);
 
 
         //display the data and calculate the total
@@ -827,7 +829,7 @@ public class ScrapeDataXML {
             String phase = versionlist.get(i)[1];
             String status = versionlist.get(i)[5];
 
-            System.out.println("phase: " + phase + " | status: " + status);
+            //System.out.println("phase: " + phase + " | status: " + status);
 
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
@@ -946,8 +948,8 @@ public class ScrapeDataXML {
 
         TOTAL = total;
         temp.put("total", TOTAL);
-        printNestedMap(mapwithstatus);
-        return createStatusPercentages(mapwithstatus, TOTAL);
+        //printNestedMap(mapwithstatus);
+        return createStatusPercentages(mapwithstatus, total);
 
         //display the data and count the total
         /*System.out.println("Cleanup:");

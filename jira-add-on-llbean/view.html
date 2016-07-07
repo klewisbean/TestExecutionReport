@@ -23,63 +23,138 @@
 
       <style>
         main {
-          margin-left: auto;
+          /*margin-left: auto;*/
           margin-right: auto;
-          width: 130px;
+          width: 100px;
           height: 200px;
         }
+
+        /*body {
+          margin: 0px;
+          padding: 0px:
+        }*/
       </style>
 
    </head>
    <body id="main-body">
      <main>
-       <button id="primary-action-button" class="aui-button aui-button-primary">Generate Graph</button>
-       <h1>Title</h1>
-
        <canvas id="chart" width = "400" height = "400"></canvas>
+       <h4>Total Cases: 0</h4>
+       <button id="primary-action-button" class="aui-button aui-button-primary">Generate Graph</button>
      </main>
      <script type="text/javascript">
 
        $('#primary-action-button').click(function () {
 
-         /*$.ajax('https://sheetsu.com/apis/v1.0/70989698b61a')
+         var filterArr = [];
+         var dataArr = [];
+         var data;
+         var title;
+         $.ajax('https://sheetsu.com/apis/v1.0/70989698b61a')
           .done(function(data) {
             var i;
-            var filterArr;
-            var dataArr;
+            var len = data.length;
+            var total = 0;
+            data = data;
+            var passArr = [];
+            var failArr = [];
+            var blockedArr = [];
+            var wipArr = [];
+            var unexecutedArr = [];
 
-            for (i = 0, len = data.length; i < len; ++i) {
+            for (i = 0, len; i < len; ++i) {
               if (i === 0) {
-                $('h1').text(data[i].Title);
+                //$('h1').text(data[i].Title);
+                title = data[i].Title;
               } else {
-                var tempArr;
-                filterarr.push(data[i].Filter);
-                tempArr.push(data[i].Pass);
-                tempArr.push(data[i].Fail);
-                tempArr.push(data[i].Blocked);
-                tempArr.push(data[i].WIP);
-                tempArr.push(data[i].Unexecuted);
-                dataArr.push(tempArr);
+                filterArr.push(data[i].Filter);
 
+                passArr.push(data[i].Pass);
+                failArr.push(data[i].Fail);
+                blockedArr.push(data[i].Blocked);
+                wipArr.push(data[i].WIP);
+                unexecutedArr.push(data[i].Unexecuted);
+
+                var parsed = parseInt(data[i].total);
+                total = parsed + total;
               }
             }
 
+            $('h4').text('Total Cases: ' + total);
 
-          });*/
-          $('h1').text('Button Clicked');
-          var barData = {
-            labels: ['label1', 'label2', 'label3'],
+            barData = {
+              labels: filterArr,
+              datasets: [
+                {
+                  label: 'Pass',
+                  backgroundColor: 'rgba(0,255,0,1)',
+                  data: passArr
+                },
+                {
+                  label: 'Fail',
+                  backgroundColor: 'rgba(255,0,0,1)',
+                  data: failArr
+                },
+                {
+                  label: 'Blocked',
+                  backgroundColor: 'rgba(255,255,102,1)',
+                  data: blockedArr
+                },
+                {
+                  label: 'WIP',
+                  backgroundColor: 'rgba(255,255,255,1)',
+                  data: wipArr
+                },
+                {
+                  label: 'Unexecuted',
+                  backgroundColor: 'rgba(204,102,153,1)',
+                  data: unexecutedArr
+                }
+              ]
+            }
+
+            var context = document.getElementById('chart').getContext('2d');
+            var chart = new Chart(context, {
+              type: 'bar',
+              data: barData,
+              options: {
+                title: {
+                  display: true,
+                  text: title,
+                  fontSize: 22
+                },
+                responsive: false
+              }
+            });
+
+          //console.log(filterArr);
+
+          /*var barData = {
+            labels: ['Pass', 'Fail', 'Blocked', 'WIP', 'Unexecuted'],
             datasets: [
               {
-                fillColor: '#382765',
+                label: filterArr[0],
+                backgroundColor: 'rgba(0,153,51)',
                 //data: [data[1].Pass, data[1].Fail, data[1].Blocked, data[1].WIP, data[1].Unexecuted]
-                data: [22, 40, 50]
+                data: dataArr[0]
+              },
+              {
+                label: filterArr[1],
+                backgroundColor: 'rgba(0,153,51)',
+                //data: [data[1].Pass, data[1].Fail, data[1].Blocked, data[1].WIP, data[1].Unexecuted]
+                data: dataArr[1]
+              },
+              {
+                label: filterArr[2],
+                backgroundColor: 'rgba(0,153,51)',
+                //data: [data[1].Pass, data[1].Fail, data[1].Blocked, data[1].WIP, data[1].Unexecuted]
+                data: dataArr[2]
               }
             ]
-          }
+          }*/
 
-          var context = document.getElementById('chart').getContext('2d');
-          var chart = new Chart(context).Bar(barData);
+
+          });
        });
 
      </script>

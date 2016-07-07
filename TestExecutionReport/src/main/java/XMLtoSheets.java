@@ -42,10 +42,9 @@ import java.util.*;
 public class XMLtoSheets {
 
     //actual api
-    public final static String SHEET_URL = "https://sheetsu.com/apis/v1.0/bb2e19ec323b";
+    public final static String SHEET_URL = "https://sheetsu.com/apis/v1.0/70989698b61a";
 
-    //testing api
-    //public final static String SHEET_URL = "https://sheetsu.com/apis/v1.0/70989698b61a";
+
     public static String rel;
 
     public static Client client = Client.create();
@@ -57,24 +56,32 @@ public class XMLtoSheets {
                 .resource(SHEET_URL);
         rel = release;
 
-        ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
+        /*ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
         String output3 = response.getEntity(String.class);
 
         System.out.println("\nOutput from Server for the GET.... ");
         System.out.println(output3);
-        System.out.println("Status: " + response.getStatus());
+        System.out.println("Status: " + response.getStatus());*/
+
+
+        ///////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+
 
         String rowde = "{\"Title\": \"" + release + "\"}";
-        response = webResource.type("application/json").post(ClientResponse.class, rowde);
+        System.out.println(rowde);
+        ClientResponse response = webResource.type("application/json").post(ClientResponse.class, rowde);
 
         String rowderesponse = response.getEntity(String.class);
 
         System.out.println("\nOutput from Server for the POST .... ");
-        System.out.println(rowderesponse);
+        System.out.println("rowderesponse: " + rowderesponse);
         System.out.println("Status: " + response.getStatus());
 
 
+        ///////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
         //start the structure of the sheet using a string
         String input = "{ \"rows\": [";
         Iterator it = map.entrySet().iterator();
@@ -91,7 +98,7 @@ public class XMLtoSheets {
                 Map.Entry pair2 = (Map.Entry)it2.next();
                 input += " \"" + pair2.getKey() + "\": \"" + pair2.getValue();
                 if(count!=0){
-                    input += "%\",";
+                    input += "\",";
                 }
                 else{
                     input += "\",";
@@ -106,16 +113,15 @@ public class XMLtoSheets {
         input += "]}";
         //end structure of the sheet
 
-        System.out.println(input);
-
         response = webResource.type("application/json").post(ClientResponse.class, input);
 
         String output2 = response.getEntity(String.class);
 
         System.out.println("\nOutput from Server for the POST .... ");
         System.out.println(output2);
-        System.out.println("Status: " + response.getStatus());
-
+        System.out.println("Status: " + response.getStatus() + "\n" + input);
+        ///////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
 
 
 
@@ -132,6 +138,9 @@ public class XMLtoSheets {
         if(response.getStatus() == 204){
             System.out.println(rel + " deleted");
         }
+        else{
+            System.out.println(SHEET_URL + "/Title/" + rel + " = " + response.getStatus());
+        }
         //end delete title
 
         response = webResource.type("application/json").get(ClientResponse.class);
@@ -143,8 +152,7 @@ public class XMLtoSheets {
         System.out.println("Status: " + response.getStatus());
 
         String filterurl = "/Filter/";
-        //System.out.println();
-        System.out.println();
+
         String temp = sheetdata;
         for(int i = 0; i < StringUtils.countMatches(sheetdata, "Filter"); i++){
             temp = StringUtils.substring(temp, StringUtils.indexOf(temp, "Filter") + "Filter".length() + 1);
@@ -157,6 +165,9 @@ public class XMLtoSheets {
 
             if(response.getStatus() == 204){
                 System.out.println(sub + " deleted");
+            }
+            else{
+                System.out.println(SHEET_URL + filterurl + sub + " = " + response.getStatus());
             }
         }
 

@@ -111,6 +111,7 @@ public class ReleaseExportAutomation {
                     .findElement(By.id("zephyr-transform-all"));
         }
         catch (Exception e) {
+            System.out.println("Element is not present yet");
             try {
                 Thread.sleep(10000);
             } catch (InterruptedException e2) {
