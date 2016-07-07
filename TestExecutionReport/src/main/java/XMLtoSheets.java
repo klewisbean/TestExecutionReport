@@ -56,13 +56,13 @@ public class XMLtoSheets {
                 .resource(SHEET_URL);
         rel = release;
 
-        /*ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
+        ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
         String output3 = response.getEntity(String.class);
 
         System.out.println("\nOutput from Server for the GET.... ");
         System.out.println(output3);
-        System.out.println("Status: " + response.getStatus());*/
+        System.out.println("Status: " + response.getStatus());
 
 
         ///////////////////////////////////////////////////////////////////
@@ -71,7 +71,7 @@ public class XMLtoSheets {
 
         String rowde = "{\"Title\": \"" + release + "\"}";
         System.out.println(rowde);
-        ClientResponse response = webResource.type("application/json").post(ClientResponse.class, rowde);
+        response = webResource.type("application/json").post(ClientResponse.class, rowde);
 
         String rowderesponse = response.getEntity(String.class);
 
@@ -83,13 +83,13 @@ public class XMLtoSheets {
         ///////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
         //start the structure of the sheet using a string
-        String input = "{ \"rows\": [";
+        String input = "{\"rows\": [";
         Iterator it = map.entrySet().iterator();
 
         while(it.hasNext()){
             Map.Entry pair = (Map.Entry)it.next();
 
-            input += "{ \"Filter\": \"" + pair.getKey() + "\",";
+            input += "{\"Filter\": \"" + pair.getKey() + "\",";
 
             HashMap<String, Integer> temp = (HashMap<String, Integer>) pair.getValue();
             Iterator it2 = temp.entrySet().iterator();
@@ -132,6 +132,8 @@ public class XMLtoSheets {
 
         WebResource webResource = client
                 .resource(SHEET_URL);
+
+        rel = rel.replace("\\s", "%20");
 
         //delete title
         ClientResponse response = client.resource(SHEET_URL + "/Title/" + rel).type("application/json").delete(ClientResponse.class);

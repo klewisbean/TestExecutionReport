@@ -23,12 +23,19 @@
 
       <style>
         main {
-          /*margin-left: auto;*/
-          margin-right: auto;
-          width: 100px;
-          height: 200px;
+          margin: auto;
+          width: 50%;
+          padding: 10px;
         }
-
+        h5 {
+          display: inline;
+          padding: 12px;
+        }
+        canvas {
+          width: 100%;
+          height: 100%;
+          margin: 0px;
+        }
         /*body {
           margin: 0px;
           padding: 0px:
@@ -38,9 +45,14 @@
    </head>
    <body id="main-body">
      <main>
-       <canvas id="chart" width = "400" height = "400"></canvas>
-       <h4>Total Cases: 0</h4>
-       <button id="primary-action-button" class="aui-button aui-button-primary">Generate Graph</button>
+       <canvas id="chart" width = "425" height = "500"></canvas>
+       <div style="text-align:center;">
+         <div id="filter-labels">
+
+         </div>
+         <h4>Total Cases: 0</h4>
+         <button id="primary-action-button" class="aui-button aui-button-primary">Generate Graph</button>
+       </div>
      </main>
      <script type="text/javascript">
 
@@ -56,6 +68,7 @@
             var len = data.length;
             var total = 0;
             data = data;
+            var totalArr = [];
             var passArr = [];
             var failArr = [];
             var blockedArr = [];
@@ -76,9 +89,11 @@
                 unexecutedArr.push(data[i].Unexecuted);
 
                 var parsed = parseInt(data[i].total);
+                totalArr.push(data[i].total);
                 total = parsed + total;
               }
             }
+
 
             $('h4').text('Total Cases: ' + total);
 
@@ -102,7 +117,7 @@
                 },
                 {
                   label: 'WIP',
-                  backgroundColor: 'rgba(255,255,255,1)',
+                  backgroundColor: 'rgba(0,0,255,1)',
                   data: wipArr
                 },
                 {

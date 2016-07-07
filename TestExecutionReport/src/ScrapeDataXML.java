@@ -415,6 +415,8 @@ public class ScrapeDataXML {
         //list of all possible device names
         String[] devicelist = {"Tablet", "Desktop", "Mobile App", "Mobile Web", "mweb", "app"};
 
+        release = release + " Device";
+
         //loop to iterate through all of the test executions in a given list
         for(int i = 0; i < versionlist.size(); i++){
             total++;
@@ -669,6 +671,8 @@ public class ScrapeDataXML {
 
         HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
 
+        release = release + " Priority";
+
         //for loop to iterate through the test executions of the given list
         for(int i = 0; i < versionlist.size(); i++){
             total++;
@@ -821,6 +825,8 @@ public class ScrapeDataXML {
         HashMap<String, Integer> initialphasemap = new HashMap<>();
 
         HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+
+        release = release + " Phase";
 
         //iterate through the test executions
         for(int i = 0; i < versionlist.size(); i++){
