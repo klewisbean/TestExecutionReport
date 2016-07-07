@@ -23,7 +23,7 @@
         "value": "Report dashboard item from Kevin"
       },
       "configurable": false,
-      "thumbnailUrl": "koala.jpg"
+      "thumbnailUrl": "https://raw.githubusercontent.com/klewisbean/TestExecutionReport/master/jira-add-on-llbean/Koala.jpg"
     }]
   }
 }
