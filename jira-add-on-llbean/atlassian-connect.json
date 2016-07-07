@@ -14,7 +14,7 @@
   "apiVersion": 1,
   "modules": {
     "jiraDashboardItems":[{
-      "url": "/view.html",
+      "url": "https://raw.githubusercontent.com/klewisbean/TestExecutionReport/master/jira-add-on-llbean/view.html",
       "key": "kevins-dashboard-item",
       "name": {
         "value": "Kevin's Report Tool Add-On"
