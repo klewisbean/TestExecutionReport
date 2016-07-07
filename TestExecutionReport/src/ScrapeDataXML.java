@@ -201,8 +201,9 @@ public class ScrapeDataXML {
 
     }
 
-
+    //this function will setup the GUI for the data the user wants in the api
     public void setUpGUI(){
+        //creates the frame and it's structure
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle(release + " Data to Sheet");
@@ -210,15 +211,18 @@ public class ScrapeDataXML {
         frame.setResizable(false);
         frame.setSize(300, 300);
 
+        //borders
         Border blackline = BorderFactory.createLineBorder(Color.black);
         Border redline = BorderFactory.createLineBorder(Color.red);
 
+        //larger panels
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         JPanel toptop = new JPanel();
         toptop.setLayout(new BoxLayout(toptop, BoxLayout.Y_AXIS));
         JPanel botbot = new JPanel();
 
+        //filter panel
         //////////////////////////////////////////////////////////////////
         JPanel filterPanel = new JPanel();
         filterPanel.setLayout(new BoxLayout(filterPanel, BoxLayout.Y_AXIS));
@@ -232,6 +236,8 @@ public class ScrapeDataXML {
 
         filterPanel.add(filterLabel);
         filterPanel.add(filtercombox);
+
+        //data panel
         //////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////
         JPanel dataPanel = new JPanel();
@@ -268,6 +274,7 @@ public class ScrapeDataXML {
         dataPanel.add(topPanel);
         dataPanel.add(bottomPanel);
 
+        //button panel
         //////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////
         JPanel buttonPanel = new JPanel();
@@ -280,6 +287,7 @@ public class ScrapeDataXML {
         //////////////////////////////////////////////////////////////////
 
 
+        //add panels to larger panels
         toptop.add(filterPanel);
         toptop.add(dataPanel);
 
@@ -289,11 +297,15 @@ public class ScrapeDataXML {
         mainPanel.add(botbot);
 
 
+        //finish frame
         frame.add(mainPanel);
         frame.setVisible(true);
         frame.pack();
 
 
+        //action listeners
+        //if the release radio button is selected, disable the version
+        //combo box
         releaseRadio.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -303,6 +315,8 @@ public class ScrapeDataXML {
             }
         });
 
+        //if the version radio button is selected, enable the version
+        //combo box
         versionRadio.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -312,6 +326,7 @@ public class ScrapeDataXML {
             }
         });
 
+        //add the clearsheet button action
         clearsheet.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -319,6 +334,8 @@ public class ScrapeDataXML {
             }
         });
 
+        //will run XMLtoSheets.java based on what data the user wants
+        //to post to the api
         action.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

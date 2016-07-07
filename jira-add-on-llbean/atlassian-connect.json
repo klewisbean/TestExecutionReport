@@ -3,7 +3,7 @@
   "name": "Kevin's Report Add-on",
   "version": "0.1",
   "description": "Kevin's Atlassian Connect add-on",
-  "baseUrl": "https://github.com/klewisbean/TestExecutionReport/tree/master/jira-add-on-llbean",
+  "baseUrl": "https://a9c8f7c2.ngrok.io",
   "vendor": {
     "name": "Kevin @ L.L.Bean",
     "url": "http://www.llbean.com"
@@ -14,7 +14,7 @@
   "apiVersion": 1,
   "modules": {
     "jiraDashboardItems":[{
-      "url": "https://raw.githubusercontent.com/klewisbean/TestExecutionReport/master/jira-add-on-llbean/view.html",
+      "url": "/view.html",
       "key": "kevins-dashboard-item",
       "name": {
         "value": "Kevin's Report Tool Add-On"
@@ -23,7 +23,7 @@
         "value": "Report dashboard item from Kevin"
       },
       "configurable": false,
-      "thumbnailUrl": "https://raw.githubusercontent.com/klewisbean/TestExecutionReport/master/jira-add-on-llbean/Koala.jpg"
+      "thumbnailUrl": "Koala.jpg"
     }]
   }
 }
