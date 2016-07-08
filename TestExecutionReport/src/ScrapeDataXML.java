@@ -367,6 +367,7 @@ public class ScrapeDataXML {
 
                 }
                 else if(versionRadio.isSelected()){
+                    XMLtoSheets.SHEET_URL = "https://sheetsu.com/apis/v1.0/43863b5d51be";
                     if(filterselection.equalsIgnoreCase("Phase")){
                         try {
                             XMLtoSheets.run(filterPhase(versionmap.get(dataselection)), dataselection);

@@ -42,7 +42,7 @@ import java.util.*;
 public class XMLtoSheets {
 
     //actual api
-    public final static String SHEET_URL = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
+    public static String SHEET_URL = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
 
     //variable to store the release string globally
     public static String rel;
@@ -178,7 +178,7 @@ public class XMLtoSheets {
 
         for(int i = 0; i < title.size(); i++){
             //attempt to delete title
-            
+
             response = client.resource(SHEET_URL + "/Title/" + title.get(i).replace(" ", "%20"))
                     .type("application/json")
                     .delete(ClientResponse.class);

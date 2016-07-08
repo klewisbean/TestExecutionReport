@@ -13,17 +13,32 @@
   },
   "apiVersion": 1,
   "modules": {
-    "jiraDashboardItems":[{
-      "url": "/view-radiobuttons.html",
-      "key": "kevins-dashboard-item",
-      "name": {
-        "value": "Report Tool Add-On"
+    "jiraDashboardItems":[
+      {
+        "url": "/view-radiobuttons.html",
+        "key": "kevins-dashboard-item-A",
+        "name": {
+          "value": "Report Tool Add-On Whole Release"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin"
+        },
+        "configurable": false,
+        "thumbnailUrl": "/tom.jpg"
       },
-      "description": {
-        "value": "Report dashboard item from Kevin"
-      },
-      "configurable": false,
-      "thumbnailUrl": "/Koala.jpg"
-    }]
+      {
+        "url": "/view-radiobuttons.html",
+        "key": "kevins-dashboard-item-B",
+        "name": {
+          "value": "Report Tool Add-On Version"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin"
+        },
+        "configurable": false,
+        "thumbnailUrl": "/jerry.jpg"
+      }
+
+  ]
   }
 }
