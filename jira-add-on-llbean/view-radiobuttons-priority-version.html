@@ -47,20 +47,14 @@
      <main>
        <canvas id="chart" width = "425" height = "500"></canvas>
        <div style="text-align:center;">
-         <div id="filter-labels">
-
-         </div>
+         
          <h1>GADGET B</h1>
          <h4>Total Cases: 0</h4>
          <!--button id="primary-action-button" class="aui-button aui-button-primary">Generate Graph</button-->
        </div>
      </main>
-     <script type="text/javascript">
+     <!--script type="text/javascript">
        var chart;
-
-       var phaseRadio = document.getElementById("phase");
-       phaseRadio.checked = true;
-       check("Phase");
 
        function check(filter) {
          selection = filter;
@@ -71,7 +65,7 @@
          var data;
          var title;
 
-         $.ajax('https://sheetsu.com/apis/v1.0/43863b5d51be')
+         /*$.ajax('https://sheetsu.com/apis/v1.0/43863b5d51be')
           .done(function(data) {
             console.log(data);
             var i;
@@ -120,7 +114,7 @@
             }
 
 
-            $('h4').text('Total Cases: ' + total);
+            /*$('h4').text('Total Cases: ' + total);
 
             barData = {
               labels: filterArr,
@@ -170,9 +164,9 @@
                 responsive: false
               }
             });
-          });
+          });*/
        }
 
-     </script>
+     </script-->
    </body>
 </html>

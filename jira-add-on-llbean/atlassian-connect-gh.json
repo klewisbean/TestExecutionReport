@@ -24,7 +24,7 @@
           "value": "Report dashboard item from Kevin"
         },
         "configurable": false,
-        "thumbnailUrl": "/tom.jpg"
+        "thumbnailUrl": "/tom.png"
       },
       {
         "url": "/view-radiobuttons-priority-version.html",
@@ -36,7 +36,7 @@
           "value": "Report dashboard item from Kevin"
         },
         "configurable": false,
-        "thumbnailUrl": "/jerry.jpg"
+        "thumbnailUrl": "/jerry.png"
       }
 
   ]
