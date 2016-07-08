@@ -155,22 +155,42 @@ public class XMLtoSheets {
         //get the response
         String output = response.getEntity(String.class);
 
-        String title = StringUtils.substringBetween(output.substring(output.indexOf("Title") + 7), "\"", "\"");
-        title = title.replaceAll(" ", "%20");
+        ArrayList<String> title = new ArrayList<>();
+        StringUtils.substringsBetween(output.substring(output.indexOf("Title") + 7), "\"", "\"");
+        int index = output.indexOf("Title");
+        title.add(StringUtils.substringBetween(output.substring(index + 7), "\"", "\""));
+        while(index >= 0){
 
-
-        //attempt to delete title
-        response = client.resource(SHEET_URL + "/Title/" + title)
-                .type("application/json")
-                .delete(ClientResponse.class);
-
-        if(response.getStatus() == 204){
-            System.out.println(release + " deleted");
+            index = output.indexOf("Title", index + 1);
+            title.add(StringUtils.substringBetween(output.substring(index + 7), "\"", "\""));
         }
-        else{
-            System.out.println(SHEET_URL + "/Title/" + title + " = " + response.getStatus());
+
+        for(int i = 0; i < title.size(); i++){
+            if(title.get(i).length() < 5 || title.get(i) == null){
+                title.remove(i);
+            }
         }
-        //end delete title
+
+        for(int i = 0; i < title.size(); i++){
+            System.out.println("\"" + title.get(i) + "\"");
+        }
+        System.out.println(title.size());
+
+        for(int i = 0; i < title.size(); i++){
+            //attempt to delete title
+            
+            response = client.resource(SHEET_URL + "/Title/" + title.get(i).replace(" ", "%20"))
+                    .type("application/json")
+                    .delete(ClientResponse.class);
+
+            if(response.getStatus() == 204){
+                System.out.println(release + " deleted");
+            }
+            else{
+                System.out.println(SHEET_URL + "/Title/" + title + " = " + response.getStatus());
+            }
+            //end delete title
+        }
 
         //get the rest of the current data from the api to delete
         response = webResource.type("application/json").get(ClientResponse.class);
