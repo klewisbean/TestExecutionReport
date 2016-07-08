@@ -1,9 +1,9 @@
 {
-  "key": "kevins-addon",
-  "name": "Kevin's Report Add-on",
+  "key": "kevins-addon-github-url",
+  "name": "Report Add-on",
   "version": "0.1",
-  "description": "Kevin's Atlassian Connect add-on",
-  "baseUrl": "https://2442bb8c.ngrok.io",
+  "description": "Atlassian Connect add-on",
+  "baseUrl": "https://rawgit.com/klewisbean/TestExecutionReport/master/jira-add-on-llbean",
   "vendor": {
     "name": "Kevin @ L.L.Bean",
     "url": "http://www.llbean.com"
@@ -17,13 +17,13 @@
       "url": "/view-radiobuttons.html",
       "key": "kevins-dashboard-item",
       "name": {
-        "value": "Kevin's Report Tool Add-On"
+        "value": "Report Tool Add-On"
       },
       "description": {
         "value": "Report dashboard item from Kevin"
       },
       "configurable": false,
-      "thumbnailUrl": "Koala.jpg"
+      "thumbnailUrl": "/Koala.jpg"
     }]
   }
 }

@@ -42,7 +42,7 @@ import java.util.*;
 public class XMLtoSheets {
 
     //actual api
-    public final static String SHEET_URL = "https://sheetsu.com/apis/v1.0/70989698b61a";
+    public final static String SHEET_URL = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
 
     //variable to store the release string globally
     public static String rel;
@@ -50,7 +50,7 @@ public class XMLtoSheets {
     //create the client
     public static Client client = Client.create();
 
-    public static void run(HashMap<String, HashMap<String, Double>> map, String release) throws IOException {
+    public static void run(HashMap<String, HashMap<String, Integer>> map, String release) throws IOException {
         //trust all certificates
         trustall();
 
@@ -60,6 +60,8 @@ public class XMLtoSheets {
 
         //store the release variable
         rel = release;
+
+
 
         ///////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
@@ -77,7 +79,7 @@ public class XMLtoSheets {
         String rowderesponse = response.getEntity(String.class);
 
         //print the response
-        System.out.println("\nOutput from Server for the POST .... ");
+        System.out.println("\nOutput from Server for the POST of title.... ");
         System.out.println("rowderesponse: " + rowderesponse);
         System.out.println("Status: " + response.getStatus());
 
@@ -124,7 +126,7 @@ public class XMLtoSheets {
         String output2 = response.getEntity(String.class);
 
         //print out the response
-        System.out.println("\nOutput from Server for the POST .... ");
+        System.out.println("\nOutput from Server for the POST of the data .... ");
         System.out.println(output2);
         System.out.println("Status: " + response.getStatus() + "\n" + input);
         ///////////////////////////////////////////////////////////////////
@@ -135,7 +137,7 @@ public class XMLtoSheets {
     }
 
     //this function will clear the sheet api
-    public static void clearSheet(){
+    public static void clearSheet(String release){
         //trust all certificates
         trustall();
 
@@ -144,18 +146,29 @@ public class XMLtoSheets {
                 .resource(SHEET_URL);
 
         //get release
-        rel = rel.replace("\\s", "%20");
+        release = release.replace(" ", "%20");
+
+
+        ClientResponse response = webResource.type("application/json")
+                .get(ClientResponse.class);
+
+        //get the response
+        String output = response.getEntity(String.class);
+
+        String title = StringUtils.substringBetween(output.substring(output.indexOf("Title") + 7), "\"", "\"");
+        title = title.replaceAll(" ", "%20");
+
 
         //attempt to delete title
-        ClientResponse response = client.resource(SHEET_URL + "/Title/" + rel)
+        response = client.resource(SHEET_URL + "/Title/" + title)
                 .type("application/json")
                 .delete(ClientResponse.class);
 
         if(response.getStatus() == 204){
-            System.out.println(rel + " deleted");
+            System.out.println(release + " deleted");
         }
         else{
-            System.out.println(SHEET_URL + "/Title/" + rel + " = " + response.getStatus());
+            System.out.println(SHEET_URL + "/Title/" + title + " = " + response.getStatus());
         }
         //end delete title
 
