@@ -331,7 +331,15 @@ public class ScrapeDataXML {
         clearsheet.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                XMLtoSheets.clearSheet(release);
+                if(releaseRadio.isSelected()){
+                    String api = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
+                    XMLtoSheets.clearSheet(release, api);
+                }
+                else if(versionRadio.isSelected()){
+                    String api = "https://sheetsu.com/apis/v1.0/43863b5d51be";
+                    XMLtoSheets.clearSheet(release, api);
+                }
+
             }
         });
 
@@ -343,23 +351,24 @@ public class ScrapeDataXML {
                 String filterselection = (String)filtercombox.getSelectedItem();
                 String dataselection = (String)datacombox.getSelectedItem();
                 if(releaseRadio.isSelected()){
+                    String api = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
                     if(filterselection.equalsIgnoreCase("Phase")){
                         try {
-                            XMLtoSheets.run(filterPhase(list), tempRelease);
+                            XMLtoSheets.run(filterPhase(list), tempRelease, api);
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }
                     }
                     else if(filterselection.equalsIgnoreCase("Priority")){
                         try {
-                            XMLtoSheets.run(filterPriority(list), tempRelease);
+                            XMLtoSheets.run(filterPriority(list), tempRelease, api);
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }
                     }
                     else if(filterselection.equalsIgnoreCase("Device")){
                         try {
-                            XMLtoSheets.run(filterDevice(list), tempRelease);
+                            XMLtoSheets.run(filterDevice(list), tempRelease, api);
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }
@@ -367,24 +376,24 @@ public class ScrapeDataXML {
 
                 }
                 else if(versionRadio.isSelected()){
-                    XMLtoSheets.SHEET_URL = "https://sheetsu.com/apis/v1.0/43863b5d51be";
+                    String api = "https://sheetsu.com/apis/v1.0/43863b5d51be";
                     if(filterselection.equalsIgnoreCase("Phase")){
                         try {
-                            XMLtoSheets.run(filterPhase(versionmap.get(dataselection)), dataselection);
+                            XMLtoSheets.run(filterPhase(versionmap.get(dataselection)), dataselection, api);
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }
                     }
                     else if(filterselection.equalsIgnoreCase("Priority")){
                         try {
-                            XMLtoSheets.run(filterPriority(versionmap.get(dataselection)), dataselection);
+                            XMLtoSheets.run(filterPriority(versionmap.get(dataselection)), dataselection, api);
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }
                     }
                     else if(filterselection.equalsIgnoreCase("Device")){
                         try {
-                            XMLtoSheets.run(filterDevice(versionmap.get(dataselection)), dataselection);
+                            XMLtoSheets.run(filterDevice(versionmap.get(dataselection)), dataselection, api);
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }

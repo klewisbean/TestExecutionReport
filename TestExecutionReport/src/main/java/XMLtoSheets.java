@@ -44,13 +44,17 @@ public class XMLtoSheets {
     //actual api
     public static String SHEET_URL = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
 
+    //https://sheetsu.com/apis/v1.0/bb2e19ec323b --> version
+
     //variable to store the release string globally
     public static String rel;
 
     //create the client
     public static Client client = Client.create();
 
-    public static void run(HashMap<String, HashMap<String, Integer>> map, String release) throws IOException {
+    public static void run(HashMap<String, HashMap<String, Integer>> map, String release, String api) throws IOException {
+        SHEET_URL = api;
+        System.out.println(SHEET_URL);
         //trust all certificates
         trustall();
 
@@ -137,7 +141,8 @@ public class XMLtoSheets {
     }
 
     //this function will clear the sheet api
-    public static void clearSheet(String release){
+    public static void clearSheet(String release, String api){
+        SHEET_URL = api;
         //trust all certificates
         trustall();
 
@@ -156,42 +161,46 @@ public class XMLtoSheets {
         String output = response.getEntity(String.class);
 
         ArrayList<String> title = new ArrayList<>();
-        StringUtils.substringsBetween(output.substring(output.indexOf("Title") + 7), "\"", "\"");
-        int index = output.indexOf("Title");
-        title.add(StringUtils.substringBetween(output.substring(index + 7), "\"", "\""));
-        while(index >= 0){
-
-            index = output.indexOf("Title", index + 1);
+        //StringUtils.substringsBetween(output.substring(output.indexOf("Title") + 7), "\"", "\"");
+        System.out.println(output.length());
+        if(output.length() < 7){
+            System.out.println("sheet is already empty");
+        }
+        else {
+            int index = output.indexOf("Title");
             title.add(StringUtils.substringBetween(output.substring(index + 7), "\"", "\""));
-        }
+            while (index >= 0) {
 
-        for(int i = 0; i < title.size(); i++){
-            if(title.get(i).length() < 5 || title.get(i) == null){
-                title.remove(i);
+                index = output.indexOf("Title", index + 1);
+                title.add(StringUtils.substringBetween(output.substring(index + 7), "\"", "\""));
+            }
+
+            for (int i = 0; i < title.size(); i++) {
+                if (title.get(i).length() < 5 || title.get(i) == null) {
+                    title.remove(i);
+                }
+            }
+
+            for (int i = 0; i < title.size(); i++) {
+                System.out.println("\"" + title.get(i) + "\"");
+            }
+            System.out.println(title.size());
+
+            for (int i = 0; i < title.size(); i++) {
+                //attempt to delete title
+
+                response = client.resource(SHEET_URL + "/Title/" + title.get(i).replace(" ", "%20"))
+                        .type("application/json")
+                        .delete(ClientResponse.class);
+
+                if (response.getStatus() == 204) {
+                    System.out.println(release + " deleted");
+                } else {
+                    System.out.println(SHEET_URL + "/Title/" + title + " = " + response.getStatus());
+                }
+                //end delete title
             }
         }
-
-        for(int i = 0; i < title.size(); i++){
-            System.out.println("\"" + title.get(i) + "\"");
-        }
-        System.out.println(title.size());
-
-        for(int i = 0; i < title.size(); i++){
-            //attempt to delete title
-
-            response = client.resource(SHEET_URL + "/Title/" + title.get(i).replace(" ", "%20"))
-                    .type("application/json")
-                    .delete(ClientResponse.class);
-
-            if(response.getStatus() == 204){
-                System.out.println(release + " deleted");
-            }
-            else{
-                System.out.println(SHEET_URL + "/Title/" + title + " = " + response.getStatus());
-            }
-            //end delete title
-        }
-
         //get the rest of the current data from the api to delete
         response = webResource.type("application/json").get(ClientResponse.class);
 
