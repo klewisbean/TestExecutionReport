@@ -55,6 +55,8 @@
      <script type="text/javascript">
        var chart;
 
+       check('phase');
+
        function check(filter) {
          selection = filter;
          console.log('selection: ' + selection);
@@ -80,35 +82,26 @@
             var count = 0;
             var start = 0;
             var end = 0;
-            for (i = 0, len; i < len; ++i) {
-
-              if (data[i].Title.indexOf(selection) >= 0) {
-                start = i;
-                break;
-              }
-            }
 
             console.log('start: ' + start);
             var j = start;
-            for(j; j < data.length; j++){
-              if(j == start){
-                title = data[j].Title;
-              } else {
-                if(data[j].Filter == ""){
-                  break;
-                } else {
-                  filterArr.push(data[j].Filter + ': ' + data[j].total);
 
-                  passArr.push(data[j].Pass);
-                  failArr.push(data[j].Fail);
-                  blockedArr.push(data[j].Blocked);
-                  wipArr.push(data[j].WIP);
-                  unexecutedArr.push(data[j].Unexecuted);
+            for(i = 0; i < len; i++){
+              if(i == 0){
+                title = data[0].Title;
+              }
+              else{
+                filterArr.push(data[i].Filter + ': ' + data[i].total);
 
-                  var parsed = parseInt(data[j].total);
-                  totalArr.push(data[j].total);
-                  total = parsed + total;
-                }
+                passArr.push(data[i].Pass);
+                failArr.push(data[i].Fail);
+                blockedArr.push(data[i].Blocked);
+                wipArr.push(data[i].WIP);
+                unexecutedArr.push(data[i].Unexecuted);
+
+                var parsed = parseInt(data[i].total);
+                totalArr.push(data[i].total);
+                total = parsed + total;
               }
             }
 
