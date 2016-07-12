@@ -10,15 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/TestFBget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ExecutionReport/ExecutionReport.jar" afterPath="$PROJECT_DIR$/out/artifacts/ExecutionReport/ExecutionReport.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TestExecutionReport/main/java/XMLtoSheets$1.class" afterPath="$PROJECT_DIR$/out/production/TestExecutionReport/main/java/XMLtoSheets$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TestExecutionReport/main/java/XMLtoSheets.class" afterPath="$PROJECT_DIR$/out/production/TestExecutionReport/main/java/XMLtoSheets.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_sun_jersey_jersey_client_1_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_sun_jersey_jersey_client_1_8.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/TestExecutionReport.iml" afterPath="$PROJECT_DIR$/TestExecutionReport/TestExecutionReport.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/ScrapeDataXML.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/ScrapeDataXML.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/XMLtoSheets.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/XMLtoSheets.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jira-add-on-llbean/testfirebase.html" afterPath="$PROJECT_DIR$/jira-add-on-llbean/testfirebase.html" />
     </list>
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -753,7 +746,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1929" y="-9" width="1938" height="1098" extended-state="7" />
+    <frame x="-1929" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

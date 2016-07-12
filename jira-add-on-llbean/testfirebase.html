@@ -46,13 +46,12 @@
    </head>
    <body id="main-body">
      <main>
-       <h1>Test</h1>
        <canvas id="chart" width = "425" height = "500"></canvas>
        <h4>Total: 0</h4>
-       <div id="filter-div">
+       <div id="filter-div" style="text-align:center;">
          <input type="radio" id="phase" name="filter" onclick="check(this.value)" value="phase">Phase
          <input type="radio" id="priority" name="filter" onclick="check(this.value)" value="priority">Priority
-         <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device
+         <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device</input>
          <button id="primary-action-button" class="aui-button aui-button-primary" onclick="del()">Clear Database</button>
        </div>
      </main>
