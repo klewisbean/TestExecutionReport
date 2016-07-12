@@ -10,6 +10,7 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.Json;
 import com.google.api.client.json.jackson2.JacksonFactory;
@@ -22,16 +23,19 @@ import com.sun.corba.se.spi.orbutil.fsm.Input;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import com.sun.org.apache.xml.internal.utils.StringBufferPool;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
 
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
@@ -54,7 +58,7 @@ public class XMLtoSheets {
 
     public static void run(HashMap<String, HashMap<String, Integer>> map, String release, String api) throws IOException {
         SHEET_URL = api;
-        System.out.println(SHEET_URL);
+        //System.out.println(SHEET_URL);
         //trust all certificates
         trustall();
 
@@ -119,8 +123,12 @@ public class XMLtoSheets {
 
         }
         input = input.substring(0, input.length()-1);
+        input += ",{\"Title\": \"" + release + "\"}";
         input += "]}";
         //end structure of the sheet
+
+        //postToBlob(input);
+        postFB(input, SHEET_URL);
 
         //attempt to post the data to the api
         response = webResource.type("application/json")
@@ -159,10 +167,10 @@ public class XMLtoSheets {
 
         //get the response
         String output = response.getEntity(String.class);
-
+        //System.out.println(output);
         ArrayList<String> title = new ArrayList<>();
         //StringUtils.substringsBetween(output.substring(output.indexOf("Title") + 7), "\"", "\"");
-        System.out.println(output.length());
+        //System.out.println(output.length());
         if(output.length() < 7){
             System.out.println("sheet is already empty");
         }
@@ -181,24 +189,29 @@ public class XMLtoSheets {
                 }
             }
 
-            for (int i = 0; i < title.size(); i++) {
+            /*for (int i = 0; i < title.size(); i++) {
                 System.out.println("\"" + title.get(i) + "\"");
             }
-            System.out.println(title.size());
+            System.out.println(title.size());*/
 
             for (int i = 0; i < title.size(); i++) {
                 //attempt to delete title
-
-                response = client.resource(SHEET_URL + "/Title/" + title.get(i).replace(" ", "%20"))
-                        .type("application/json")
-                        .delete(ClientResponse.class);
-
-                if (response.getStatus() == 204) {
-                    System.out.println(release + " deleted");
-                } else {
-                    System.out.println(SHEET_URL + "/Title/" + title + " = " + response.getStatus());
+                if(title.get(i).length() < 3){
+                    System.out.println(title.get(i) + " is not a title");
                 }
-                //end delete title
+                else{
+                    response = client.resource(SHEET_URL + "/Title/" + title.get(i).replace(" ", "%20"))
+                            .type("application/json")
+                            .delete(ClientResponse.class);
+
+                    if (response.getStatus() == 204) {
+                        System.out.println(release + " deleted");
+                    } else {
+                        System.out.println(SHEET_URL + "/Title/" + title + " = " + response.getStatus());
+                    }
+                    //end delete title
+                }
+
             }
         }
         //get the rest of the current data from the api to delete
@@ -218,25 +231,90 @@ public class XMLtoSheets {
 
         //iterate through the data stored in the sheet and delete each row
         String temp = sheetdata;
+        String deleted = "";
         for(int i = 0; i < StringUtils.countMatches(sheetdata, "Filter"); i++){
             temp = StringUtils.substring(temp, StringUtils.indexOf(temp, "Filter") + "Filter".length() + 1);
 
             String sub = StringUtils.substringBetween(temp, "\"", "\"");
             sub = sub.replaceAll("\\s", "%20");
-            webResource = client.resource(SHEET_URL + filterurl + sub);
-
-            response = webResource.type("application/json").delete(ClientResponse.class);
-
-            if(response.getStatus() == 204){
-                System.out.println(sub + " deleted");
+            if(deleted.contains(sub)){
+                System.out.println(sub + " has already been deleted");
             }
             else{
-                System.out.println(SHEET_URL + filterurl + sub + " = " + response.getStatus());
+                if(sub.length() < 2){
+                    System.out.println(sub + " :sub is less then 2");
+                }
+                else{
+                    webResource = client.resource(SHEET_URL + filterurl + sub);
+
+                    response = webResource.type("application/json").delete(ClientResponse.class);
+
+                    if(response.getStatus() == 204){
+                        System.out.println(sub + " deleted");
+                        deleted = deleted + sub;
+
+                    }
+                    else{
+                        System.out.println(SHEET_URL + filterurl + sub + " = " + response.getStatus());
+                    }
+                }
             }
         }
+    }
+
+    public static void postFB(String input, String url) throws IOException {
+        System.out.println("POSTFIREBASE");
+        trustall();
+        //create websource from the api url
+        WebResource webResource = client
+                .resource(url + ".json");
+
+        ClientResponse response = webResource.type("application/json")
+                .post(ClientResponse.class, input);
+
+        //get the response
+        String output = response.getEntity(String.class);
+        System.out.println("output: " + output);
+        //TestFBget.run();
+
+        System.out.println("POSTFIREBASE");
+    }
+
+    public static void postToBlob(String input) throws IOException {
+        System.out.println("+++++++++++POSTTOBLOB++++++++++++");
+        trustall();
+
+        HttpClient client = HttpClientBuilder.create().build();
+        String bloburl = "http://jsonblob.com/api/jsonBlob/";
+
+        HttpPost request = new HttpPost(bloburl);
+        StringEntity params = null;
+
+        try {
+            params = new StringEntity(input);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        request.addHeader("content-type", "application/json");
+        request.setEntity(params);
+
+        org.apache.http.HttpResponse response = client.execute(request);
 
 
+        System.out.println(response.getStatusLine());
+        BufferedReader br = new BufferedReader(
+                new InputStreamReader((response.getEntity().getContent())));
+        StringBuffer responsebuffer = new StringBuffer();
+        String line = "";
+        while(br.readLine() != null){
+            line = br.readLine();
+            responsebuffer.append(line);
+        }
+        br.close();
 
+        System.out.println(responsebuffer);
+        System.out.println("+++++++++++POSTTOBLOB++++++++++++");
     }
 
     //this method will trust all certificates

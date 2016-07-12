@@ -354,21 +354,21 @@ public class ScrapeDataXML {
                     String api = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
                     if(filterselection.equalsIgnoreCase("Phase")){
                         try {
-                            XMLtoSheets.run(filterPhase(list), tempRelease, api);
+                            XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase");
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }
                     }
                     else if(filterselection.equalsIgnoreCase("Priority")){
                         try {
-                            XMLtoSheets.run(filterPriority(list), tempRelease, api);
+                            XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority");
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }
                     }
                     else if(filterselection.equalsIgnoreCase("Device")){
                         try {
-                            XMLtoSheets.run(filterDevice(list), tempRelease, api);
+                            XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device");
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }

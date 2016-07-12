@@ -37,6 +37,18 @@
         },
         "configurable": false,
         "thumbnailUrl": "/jerry.png"
+      },
+      {
+        "url": "/testfirebase.html",
+        "key": "kevins-dashboard-item-fbapi",
+        "name": {
+          "value": "Report Tool Add-On Version"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin - Using Firebase database"
+        },
+        "configurable": false,
+        "thumbnailUrl": "/fire.jpg"
       }
 
   ]

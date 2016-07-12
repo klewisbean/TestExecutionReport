@@ -12,5 +12,6 @@
     <orderEntry type="library" name="com.google.oauth-client:google-oauth-client-jetty:1.22.0" level="project" />
     <orderEntry type="library" name="com.google.apis:google-api-services-sheets:v4-rev8-1.22.0" level="project" />
     <orderEntry type="library" name="org.seleniumhq.selenium:selenium-java:2.53.0" level="project" />
+    <orderEntry type="library" name="com.google.firebase:firebase-server-sdk:3.0.1" level="project" />
   </component>
 </module>
