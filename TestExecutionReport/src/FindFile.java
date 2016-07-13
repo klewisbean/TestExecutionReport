@@ -1,5 +1,4 @@
-import org.apache.commons.lang3.StringUtils;
-
+//imports
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
@@ -9,6 +8,8 @@ import java.util.Date;
 /**
  * Created by klewis on 6/20/2016.
  */
+
+//finds the latest files holding the zephyr executions on the local system
 public class FindFile {
 
     DateFormat dateformat = new SimpleDateFormat("MM-dd-yyyy");

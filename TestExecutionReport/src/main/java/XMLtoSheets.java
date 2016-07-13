@@ -3,40 +3,16 @@ package main.java;
 /**
  * Created by klewis on 6/22/2016.
  */
-import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
-import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
-import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
-import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.json.Json;
-import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.util.store.FileDataStoreFactory;
-import com.google.api.services.sheets.v4.SheetsScopes;
-import com.google.api.services.sheets.v4.model.*;
-import com.google.api.services.sheets.v4.Sheets;
-import com.sun.corba.se.spi.orbutil.fsm.Input;
+
+//imports
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-import com.sun.org.apache.xml.internal.utils.StringBufferPool;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.HttpClientBuilder;
-
-
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import java.io.*;
-import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
@@ -45,10 +21,8 @@ import java.util.*;
 
 public class XMLtoSheets {
 
-    //actual api
-    public static String SHEET_URL = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
-
-    //https://sheetsu.com/apis/v1.0/bb2e19ec323b --> version
+    //api url variable
+    public static String SHEET_URL = "";
 
     //variable to store the release string globally
     public static String rel;
@@ -56,40 +30,17 @@ public class XMLtoSheets {
     //create the client
     public static Client client = Client.create();
 
+    //method to create the json structure of the input
+    //posts to firebase
     public static void run(HashMap<String, HashMap<String, Integer>> map, String release, String api) throws IOException {
         SHEET_URL = api;
-        //System.out.println(SHEET_URL);
+
         //trust all certificates
         trustall();
 
-        //create websource from the sheetsu api url
-        WebResource webResource = client
-                .resource(SHEET_URL);
 
         //store the release variable
         rel = release;
-
-
-
-        ///////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
-
-
-        //create the title row
-        String rowde = "{\"Title\": \"" + release + "\"}";
-        System.out.println(rowde);
-
-        //attempt to post the title row to the api
-        ClientResponse response = webResource.type("application/json")
-                .post(ClientResponse.class, rowde);
-
-        //get the response
-        String rowderesponse = response.getEntity(String.class);
-
-        //print the response
-        System.out.println("\nOutput from Server for the POST of title.... ");
-        System.out.println("rowderesponse: " + rowderesponse);
-        System.out.println("Status: " + response.getStatus());
 
 
         ///////////////////////////////////////////////////////////////////
@@ -127,7 +78,7 @@ public class XMLtoSheets {
         input += "]}";
         //end structure of the sheet
 
-        //postToBlob(input);
+        //call method to post to firebase
         postFB(input, SHEET_URL);
 
 
@@ -138,126 +89,15 @@ public class XMLtoSheets {
 
     }
 
-    //this function will clear the sheet api
-    public static void clearSheet(String release, String api){
-        SHEET_URL = api;
-        //trust all certificates
-        trustall();
-
-        //create websource from the api url
-        WebResource webResource = client
-                .resource(SHEET_URL);
-
-        //get release
-        release = release.replace(" ", "%20");
-
-
-        ClientResponse response = webResource.type("application/json")
-                .get(ClientResponse.class);
-
-        //get the response
-        String output = response.getEntity(String.class);
-        //System.out.println(output);
-        ArrayList<String> title = new ArrayList<>();
-        //StringUtils.substringsBetween(output.substring(output.indexOf("Title") + 7), "\"", "\"");
-        //System.out.println(output.length());
-        if(output.length() < 7){
-            System.out.println("sheet is already empty");
-        }
-        else {
-            int index = output.indexOf("Title");
-            title.add(StringUtils.substringBetween(output.substring(index + 7), "\"", "\""));
-            while (index >= 0) {
-
-                index = output.indexOf("Title", index + 1);
-                title.add(StringUtils.substringBetween(output.substring(index + 7), "\"", "\""));
-            }
-
-            for (int i = 0; i < title.size(); i++) {
-                if (title.get(i).length() < 5 || title.get(i) == null) {
-                    title.remove(i);
-                }
-            }
-
-            /*for (int i = 0; i < title.size(); i++) {
-                System.out.println("\"" + title.get(i) + "\"");
-            }
-            System.out.println(title.size());*/
-
-            for (int i = 0; i < title.size(); i++) {
-                //attempt to delete title
-                if(title.get(i).length() < 3){
-                    System.out.println(title.get(i) + " is not a title");
-                }
-                else{
-                    response = client.resource(SHEET_URL + "/Title/" + title.get(i).replace(" ", "%20"))
-                            .type("application/json")
-                            .delete(ClientResponse.class);
-
-                    if (response.getStatus() == 204) {
-                        System.out.println(release + " deleted");
-                    } else {
-                        System.out.println(SHEET_URL + "/Title/" + title + " = " + response.getStatus());
-                    }
-                    //end delete title
-                }
-
-            }
-        }
-        //get the rest of the current data from the api to delete
-        response = webResource.type("application/json").get(ClientResponse.class);
-
-        //get response
-        String sheetdata = response.getEntity(String.class);
-
-
-        //print the response
-        System.out.println("\nOutput from Server .... ");
-        System.out.println(sheetdata);
-        System.out.println("Status: " + response.getStatus());
-
-        //beginning of string structure to delete
-        String filterurl = "/Filter/";
-
-        //iterate through the data stored in the sheet and delete each row
-        String temp = sheetdata;
-        String deleted = "";
-        for(int i = 0; i < StringUtils.countMatches(sheetdata, "Filter"); i++){
-            temp = StringUtils.substring(temp, StringUtils.indexOf(temp, "Filter") + "Filter".length() + 1);
-
-            String sub = StringUtils.substringBetween(temp, "\"", "\"");
-            sub = sub.replaceAll("\\s", "%20");
-            if(deleted.contains(sub)){
-                System.out.println(sub + " has already been deleted");
-            }
-            else{
-                if(sub.length() < 2){
-                    System.out.println(sub + " :sub is less then 2");
-                }
-                else{
-                    webResource = client.resource(SHEET_URL + filterurl + sub);
-
-                    response = webResource.type("application/json").delete(ClientResponse.class);
-
-                    if(response.getStatus() == 204){
-                        System.out.println(sub + " deleted");
-                        deleted = deleted + sub;
-
-                    }
-                    else{
-                        System.out.println(SHEET_URL + filterurl + sub + " = " + response.getStatus());
-                    }
-                }
-            }
-        }
-    }
-
-
+    //this method will clear the firebase database
     public static void clearFB(String url){
+        System.out.println("\nCLEARFIREBASE");
         trustall();
 
+        //database roots
         String[] selArr = {"device", "phase", "priority"};
 
+        //iterate through the database roots to delete each entry
         for(int i = 0; i < selArr.length; i++){
             WebResource webResource = client
                     .resource(url + selArr[i] + ".json");
@@ -265,13 +105,15 @@ public class XMLtoSheets {
             ClientResponse response = webResource.type("application/json")
                     .delete(ClientResponse.class);
 
-            String output = response.getEntity(String.class);
-            System.out.println("output from delete: " + output);
+            //print the status of the delete to the console
+            System.out.println("status from delete: " + response.getStatus());
         }
+        System.out.println("CLEARFIREBASE");
     }
 
+    //this method will post a json structure to the firebase database
     public static void postFB(String input, String url) throws IOException {
-        System.out.println("POSTFIREBASE");
+        System.out.println("\nPOSTFIREBASE");
         trustall();
         //create websource from the api url
         WebResource webResource = client
@@ -283,46 +125,10 @@ public class XMLtoSheets {
         //get the response
         String output = response.getEntity(String.class);
         System.out.println("output: " + output);
-        //TestFBget.run();
 
+        //print the status of the post
+        System.out.println("status: " + response.getStatus());
         System.out.println("POSTFIREBASE");
-    }
-
-    public static void postToBlob(String input) throws IOException {
-        System.out.println("+++++++++++POSTTOBLOB++++++++++++");
-        trustall();
-
-        HttpClient client = HttpClientBuilder.create().build();
-        String bloburl = "http://jsonblob.com/api/jsonBlob/";
-
-        HttpPost request = new HttpPost(bloburl);
-        StringEntity params = null;
-
-        try {
-            params = new StringEntity(input);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        request.addHeader("content-type", "application/json");
-        request.setEntity(params);
-
-        org.apache.http.HttpResponse response = client.execute(request);
-
-
-        System.out.println(response.getStatusLine());
-        BufferedReader br = new BufferedReader(
-                new InputStreamReader((response.getEntity().getContent())));
-        StringBuffer responsebuffer = new StringBuffer();
-        String line = "";
-        while(br.readLine() != null){
-            line = br.readLine();
-            responsebuffer.append(line);
-        }
-        br.close();
-
-        System.out.println(responsebuffer);
-        System.out.println("+++++++++++POSTTOBLOB++++++++++++");
     }
 
     //this method will trust all certificates

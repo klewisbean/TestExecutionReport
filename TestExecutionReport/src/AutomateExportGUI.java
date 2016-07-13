@@ -104,6 +104,7 @@ public class AutomateExportGUI {
         versionList.setLayoutOrientation(JList.VERTICAL);
 
 
+
         JScrollPane listScroller = new JScrollPane(versionList);
         listScroller.setPreferredSize(new Dimension(300,90));
 
@@ -150,13 +151,8 @@ public class AutomateExportGUI {
                     versionDropdown.setBorder(redline);
                 }
                 else {
-                    if (selected == null) {
-                        frame.dispose();
-                        runReleaseAuto(username, password, (String) versionDropdown.getSelectedItem(), vMap.get(versionDropdown.getSelectedItem()));
-                    } else {
-                        frame.dispose();
-                        runVersionAuto(username, password, selected);
-                    }
+                    frame.dispose();
+                    runReleaseAuto(username, password, (String) versionDropdown.getSelectedItem(), vMap.get(versionDropdown.getSelectedItem()));
                 }
 
 

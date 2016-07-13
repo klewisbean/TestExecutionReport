@@ -2,20 +2,13 @@
  * Created by klewis on 6/7/2016.
  */
 
+//imports
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.xml.bind.annotation.XmlAccessOrder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.ParserConfigurationException;
-
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import main.java.XMLtoSheets;
 import org.w3c.dom.*;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,8 +20,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
-
-
 
 public class ScrapeDataXML {
 
@@ -70,10 +61,9 @@ public class ScrapeDataXML {
         fixXML(file2.getPath(), file2.getPath());
 
 
-
+        //sorts through the xml file and refine the file into and array list
         try{
 
-            //URL xmlfile = new URL("https://383161b2.ngrok.io/ZFJ-Executions-06-17-2016.xml");
             File xmlfile = new File(file1.getPath());
             File xmlfile2 = new File(file2.getPath());
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -86,7 +76,7 @@ public class ScrapeDataXML {
             doc.getDocumentElement().normalize();
             doc1.getDocumentElement().normalize();
 
-            //System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
+
             System.out.println("----------------------------------");
 
             issueKeys = doc.getElementsByTagName("issueKey");
@@ -125,73 +115,10 @@ public class ScrapeDataXML {
             list.add(temp);
         }
 
-        //printData(list);
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        testing
-         */
         versionmap = splitIntoVersions(list);
 
         String first = versionmap.entrySet().iterator().next().getKey();
         release = first.substring(0,3);
-        //System.out.println(release);
-
-        //getVersions(versionmap);
-
-
-        /*System.out.println("RELEASE 63 PHASE FILTER\n---------------------------------");
-        filterPhase(list);
-        System.out.println("---------------------------------");
-        System.out.println("RELEASE 63 DEVICE FILTER\n---------------------------------");
-        filterDevice(list);
-        System.out.println("---------------------------------");
-        System.out.println("RELEASE 63 PRIORITY FILTER\n---------------------------------");
-        filterPriority(list);
-        System.out.println("---------------------------------\n\n");*/
-
-
-        /*Iterator it = versionmap.entrySet().iterator();
-        while(it.hasNext()){
-            Map.Entry pair = (Map.Entry)it.next();
-
-            //test versions
-            System.out.println(pair.getKey().toString().toUpperCase() + " PHASE FILTER\n---------------------------------");
-            filterPhase((ArrayList<String[]>) pair.getValue());
-            System.out.println("---------------------------------");
-            System.out.println(pair.getKey().toString().toUpperCase() + " DEVICE FILTER\n---------------------------------");
-            filterDevice((ArrayList<String[]>) pair.getValue());
-            System.out.println("---------------------------------");
-            System.out.println(pair.getKey().toString().toUpperCase() + " PRIORITY FILTER\n---------------------------------");
-            filterPriority((ArrayList<String[]>) pair.getValue());
-            System.out.println("---------------------------------");
-        }*/
-
-        /*System.out.println("RELEASE 63 PHASE FILTER\n---------------------------------");
-        HashMap<String, Integer> pmap = filterPhase(list);
-        HashMap<String, Double> pmapperc = createPercentages(pmap, pmap.get("total"));
-        HashMap<String, HashMap<String, Double>> pmapstatusperc = createStatusPercentages(phasestatus, pmap.get("total"));
-        System.out.println("---------------------------------");
-        printMapDouble(pmapperc);
-        System.out.println("---------------------------------");
-        printNestedMap(pmapstatusperc);
-        System.out.println("---------------------------------");*/
-
-
-        /*HashMap<String, Integer> versiondmap = filterDevice(versionmap.get("R63-Baseline"));
-        HashMap<String, Double> versiondmapperc = createPercentages(versiondmap, versiondmap.get("total"));
-        HashMap<String, HashMap<String, Double>> versiondmappercstatus = createStatusPercentages(devicestatus, versiondmap.get("total"));*/
-
-
 
         try {
             //sheets.run(filterPriority(list));
@@ -597,7 +524,7 @@ public class ScrapeDataXML {
 
             mapwithstatus.put("Mobile Web", combweb);
         }catch(Exception e){
-            System.out.println("could not combine");
+            //System.out.println("could not combine");
         }
 
 
@@ -610,14 +537,14 @@ public class ScrapeDataXML {
             mapwithstatus.put("Mobile App", combapp);
 
         }catch(Exception e){
-            System.out.println("could not combine");
+            //System.out.println("could not combine");
         }
-        Iterator it = mapwithstatus.entrySet().iterator();
+        /*Iterator it = mapwithstatus.entrySet().iterator();
 
         while(it.hasNext()){
             Map.Entry pair = (Map.Entry)it.next();
             System.out.println(pair.getKey() + " | " + pair.getValue());
-        }
+        }*/
 
 
         devicestatus = mapwithstatus;
@@ -968,9 +895,12 @@ public class ScrapeDataXML {
     #########################################################################################################
      */
 
-
+    //method to automatically post without GUI if need be
     public void fbpostfunction(){
+        //clear the firebase database first
         XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
+
+        //try posting each filter
         try {
             XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase");
         } catch (IOException e1) {
@@ -1130,6 +1060,72 @@ public class ScrapeDataXML {
         return versionmap;
     }
 
+    public ArrayList<String> readXmlAsString(File xmlfile){
+        ArrayList<String> stringbuilds = new ArrayList<>();
+        try(BufferedReader reader = new BufferedReader(new FileReader(xmlfile))){
+            String line;
+            while((line = reader.readLine()) != null){
+                //System.out.println(line);
+                stringbuilds.add(line);
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+
+        return stringbuilds;
+    }
+
+    public void fixXML(String path, String toPath) throws FileNotFoundException {
+        File xmlfile = new File(path);
+        ArrayList<String> xml = readXmlAsString(xmlfile);
+        ArrayList<String> newxml = new ArrayList<>();
+        String amp = "& ";
+        for(int i = 0; i < xml.size(); i++){
+            if(xml.get(i).contains("<testSummary>")) {
+                xml.remove(i);
+            }
+
+        }
+
+
+
+        /*PrintWriter writer = new PrintWriter("ZFJ-Executions-06-13-2016-new.xml");
+        for(int i = 0; i < xml.size(); i++){
+            writer.println(xml.get(i));
+        }*/
+        try {
+            writeFile(xml, toPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void writeFile(ArrayList<String> list, String path) throws IOException {
+        File file = new File(path);
+        if(!file.exists()){
+            file.createNewFile();
+        }
+
+        FileWriter write = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter writer = new BufferedWriter(write);
+
+        for(int i = 0; i < list.size(); i++){
+            writer.write(list.get(i));
+            writer.newLine();
+        }
+
+        writer.close();
+    }
+
+
+
+
+
+    //deprecated methods -- could still be useful
     public void printData(ArrayList<String[]> listToPrint) {
         for(int i = 0; i < listToPrint.size(); i++){
             String[] temp = listToPrint.get(i);
@@ -1195,67 +1191,6 @@ public class ScrapeDataXML {
 
 
 
-    }
-
-    public ArrayList<String> readXmlAsString(File xmlfile){
-        ArrayList<String> stringbuilds = new ArrayList<>();
-        try(BufferedReader reader = new BufferedReader(new FileReader(xmlfile))){
-            String line;
-            while((line = reader.readLine()) != null){
-                //System.out.println(line);
-                stringbuilds.add(line);
-            }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-
-
-        return stringbuilds;
-    }
-
-    public void fixXML(String path, String toPath) throws FileNotFoundException {
-        File xmlfile = new File(path);
-        ArrayList<String> xml = readXmlAsString(xmlfile);
-        ArrayList<String> newxml = new ArrayList<>();
-        String amp = "& ";
-        for(int i = 0; i < xml.size(); i++){
-            if(xml.get(i).contains("<testSummary>")) {
-                xml.remove(i);
-            }
-
-        }
-
-
-
-        /*PrintWriter writer = new PrintWriter("ZFJ-Executions-06-13-2016-new.xml");
-        for(int i = 0; i < xml.size(); i++){
-            writer.println(xml.get(i));
-        }*/
-        try {
-            writeFile(xml, toPath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    public void writeFile(ArrayList<String> list, String path) throws IOException {
-        File file = new File(path);
-        if(!file.exists()){
-            file.createNewFile();
-        }
-
-        FileWriter write = new FileWriter(file.getAbsoluteFile());
-        BufferedWriter writer = new BufferedWriter(write);
-
-        for(int i = 0; i < list.size(); i++){
-            writer.write(list.get(i));
-            writer.newLine();
-        }
-
-        writer.close();
     }
 
     public void getVersions(HashMap<String, ArrayList<String[]>> versionm){
