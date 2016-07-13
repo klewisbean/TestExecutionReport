@@ -48,6 +48,7 @@
    <body id="main-body">
      <main>
        <canvas id="chart" width = "425" height = "500"></canvas>
+       <canvas id="total-chart" width = "425" height = "500"></canvas>
        <div style="text-align:center;">
          <h4>Total: 0</h4>
          <div id="filter-div" style="text-align:center;">
@@ -61,6 +62,7 @@
      </main>
      <script type="text/javascript">
        var chart;
+       var chart2;
        var datanew;
        var title;
        var selArr = ['device', 'phase', 'priority'];
@@ -140,14 +142,6 @@
                  }
                }
              }
-             passArr.push(totalPass);
-             failArr.push(totalFail);
-             blockedArr.push(totalBlock);
-             wipArr.push(totalwip);
-             unexecutedArr.push(totalUn);
-             filterArr.push('Total');
-             console.log("filterarr: " + filterArr);
-             console.log("passarr: " + passArr);
 
 
              $('h4').text('Total Cases: ' + (total + cnt));
@@ -184,6 +178,37 @@
                ]
              }
 
+             barDataTotal = {
+               labels: "Total",
+               datasets: [
+                 {
+                   label: 'Pass',
+                   backgroundColor: 'rgba(117,176,0,1)',
+                   data: totalPass
+                 },
+                 {
+                   label: 'Fail',
+                   backgroundColor: 'rgba(204,51,0,1)',
+                   data: totalFail
+                 },
+                 {
+                   label: 'Blocked',
+                   backgroundColor: 'rgba(102,147,176,1)',
+                   data: totalBlock
+                 },
+                 {
+                   label: 'WIP',
+                   backgroundColor: 'rgba(242,176,0,1)',
+                   data: totalwip
+                 },
+                 {
+                   label: 'Unexecuted',
+                   backgroundColor: 'rgba(160,160,160,1)',
+                   data: totalUn
+                 }
+               ]
+             }
+
 
              var context = document.getElementById('chart').getContext('2d');
              if (chart && typeof chart === 'object') {
@@ -197,6 +222,24 @@
                  title: {
                    display: true,
                    text: title,
+                   fontSize: 22
+                 },
+                 responsive: false
+               }
+             });
+
+             var context2 = document.getElementById('total-chart').getContext('2d');
+             if (chart2 && typeof chart2 === 'object') {
+               chart2.destroy();
+             }
+
+             chart2 = new Chart(context, {
+               type: 'bar',
+               data: barDataTotal,
+               options: {
+                 title: {
+                   display: true,
+                   text: title + " Total",
                    fontSize: 22
                  },
                  responsive: false
