@@ -1,9 +1,9 @@
 {
-  "key": "kevins-addon",
-  "name": "Kevin's Report Add-on",
-  "version": "0.1",
-  "description": "Kevin's Atlassian Connect add-on",
-  "baseUrl": "https://2442bb8c.ngrok.io",
+  "key": "kevins-addon-github-url",
+  "name": "Report Add-on",
+  "version": "0.2",
+  "description": "Atlassian Connect add-on",
+  "baseUrl": "https://rawgit.com/klewisbean/TestExecutionReport/master/jira-add-on-llbean",
   "vendor": {
     "name": "Kevin @ L.L.Bean",
     "url": "http://www.llbean.com"
@@ -13,17 +13,20 @@
   },
   "apiVersion": 1,
   "modules": {
-    "jiraDashboardItems":[{
-      "url": "/view-radiobuttons.html",
-      "key": "kevins-dashboard-item",
-      "name": {
-        "value": "Kevin's Report Tool Add-On"
-      },
-      "description": {
-        "value": "Report dashboard item from Kevin"
-      },
-      "configurable": false,
-      "thumbnailUrl": "Koala.jpg"
-    }]
+    "jiraDashboardItems":[
+      {
+        "url": "/view-fb.html",
+        "key": "dashboard-item-release",
+        "name": {
+          "value": "Report Tool Add-On for Release"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin - Using Firebase database"
+        },
+        "configurable": false,
+        "thumbnailUrl": "/fire.jpg"
+      }
+
+  ]
   }
 }
