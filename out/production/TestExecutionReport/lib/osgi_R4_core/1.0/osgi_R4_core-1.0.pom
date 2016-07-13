@@ -1,0 +1,10 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.osgi</groupId>
+  <artifactId>osgi_R4_core</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <name>OSGi R4 core</name>
+  <url>http://www.osgi.org</url>
+  <description>OSGi R4 core</description>
+</project> 
