@@ -77,7 +77,7 @@
          var wipArr = [];
          var unexecutedArr = [];
          var total = 0;
-
+         var cnt;
          var selection = filter;
          console.log(api + selection + '.json');
          $.ajax({
@@ -99,11 +99,14 @@
                for(var key in value){
                  var value2 = value[key];
                  console.log('value2: ' + value2);
+                 cnt = 0;
                  for(var key in value2){
+
                    var value3 = value2[key];
                    if(value3.Filter === undefined){
                      title = value3.Title;
                    } else {
+                     cnt++;
                      filterArr.push(value3.Filter);
 
                      passArr.push(value3.Pass);
@@ -122,7 +125,7 @@
              console.log(filterArr);
 
 
-             $('h4').text('Total Cases: ' + total);
+             $('h4').text('Total Cases: ' + (total + cnt));
 
 
              barData = {

@@ -115,7 +115,7 @@ public class ScrapeDataXML {
             list.add(temp);
         }
 
-       printData(list);
+        //printData(list);
 
         versionmap = splitIntoVersions(list);
 
@@ -320,7 +320,7 @@ public class ScrapeDataXML {
     public HashMap<String, HashMap<String, Integer>> filterDevice(ArrayList<String[]> versionlist){
 
         tempRelease = "";
-        int total = 1;
+        int total = 0;
         int totalinit = 1;
         int totalcleanup = 1;
 
@@ -370,6 +370,12 @@ public class ScrapeDataXML {
                                 mapwithstatus.put(devicelist[l], new HashMap<>());
                             }
 
+                        } else if(!StringUtils.containsIgnoreCase(status, execstatus[0])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[1])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[2])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[3])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[4])){
+                            System.out.println(status + " | " + execstatus[r]);
                         }
                     }
 
@@ -554,10 +560,12 @@ public class ScrapeDataXML {
 
         HashMap<String, Integer> tempmap = combineHashMap(cleandevicemap, initdevicemap);
 
+        //System.out.println("device total: " + (totalinit + totalcleanup));
+
         tempmap.put("total", TOTAL);
         //printMap(tempmap);
-
-        return createStatusTotals(mapwithstatus, total);
+        //System.out.println("mapwithstatus size: " + mapwithstatus.size());
+        return createStatusTotals(mapwithstatus, total + mapwithstatus.size());
         //display the data and count the total
         /*System.out.println("Cleanup:");
         int countclean = printMap(cleandevicemap);
@@ -579,7 +587,7 @@ public class ScrapeDataXML {
     */
     public HashMap<String, HashMap<String, Integer>> filterPriority(ArrayList<String[]> versionlist){
         tempRelease = "";
-        int total = 1;
+        int total = 0;
         int count2 = 0;
         int[] countex = {0,0,0,0,0};
         //string array to hold the possible priorities
@@ -598,7 +606,7 @@ public class ScrapeDataXML {
 
         //for loop to iterate through the test executions of the given list
         for(int i = 0; i < versionlist.size(); i++){
-            total++;
+
             //strings to hold the values of the priority and the cycle
             String priority = versionlist.get(i)[3];
             String cycle = versionlist.get(i)[1];
@@ -651,13 +659,22 @@ public class ScrapeDataXML {
                         //add the priority to the map or increment the count if the
                         //priority already exists in the map
                         try{
+                            total++;
                             prioritymap.put(priority, prioritymap.get(priority) + 1);
                             cleanprioritymap.put(priority, cleanprioritymap.get(priority) + 1);
                         }
                         catch(NullPointerException e){
+                            total++;
                             prioritymap.put(priority, 1);
                             cleanprioritymap.put(priority, 1);
                         }
+                    } else if(!StringUtils.containsIgnoreCase(priority, prioritylist[0])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[1])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[2])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[3])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[4])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[5])){
+                        System.out.println(prioritylist[j] + " | " + priority);
                     }
 
                     for(int k = 0; k < execstatus.length; k++){
@@ -680,13 +697,22 @@ public class ScrapeDataXML {
                         //add the priority to the map or increment the count if the
                         //priority already exists in the map
                         try{
+                            total++;
                             prioritymap.put(priority, prioritymap.get(priority) + 1);
                             initprioritymap.put(priority, initprioritymap.get(priority) + 1);
                         }
                         catch(NullPointerException e){
+                            total++;
                             prioritymap.put(priority, 1);
                             initprioritymap.put(priority, 1);
                         }
+                    } else if(!StringUtils.containsIgnoreCase(priority, prioritylist[0])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[1])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[2])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[3])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[4])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[5])){
+                        System.out.println(prioritylist[j] + " | " + priority);
                     }
 
                     for(int k = 0; k < execstatus.length; k++){
@@ -714,10 +740,11 @@ public class ScrapeDataXML {
         }*/
         HashMap<String, Integer> tempmap = combineHashMap(cleanprioritymap, initprioritymap);
         prioritystatus = mapwithstatus;
-
+        System.out.println("priority total: " + total);
         TOTAL = total;
         tempmap.put("total", TOTAL);
-        return createStatusTotals(mapwithstatus, total);
+        //System.out.println("mapwithstatus size: " + mapwithstatus.size());
+        return createStatusTotals(mapwithstatus, total + mapwithstatus.size());
 
 
         //display the data and calculate the total
@@ -739,7 +766,7 @@ public class ScrapeDataXML {
     public HashMap<String, HashMap<String, Integer>> filterPhase(ArrayList<String[]> versionlist){
 
         tempRelease = "";
-        int total = 1;
+        int total = 0;
         //string array to hold the possible phase types
         String[] phasetype = {"PLS", "TestingWeeks", "Stage", "Launch"};
 
@@ -754,7 +781,7 @@ public class ScrapeDataXML {
 
         //iterate through the test executions
         for(int i = 0; i < versionlist.size(); i++){
-            total++;
+
             //string to hold the cycle name
             String phase = versionlist.get(i)[1];
             String status = versionlist.get(i)[5];
@@ -806,10 +833,12 @@ public class ScrapeDataXML {
                         //add the phase to the map or increment the phase count if the phase
                         //already exists in the map
                         try{
+                            total++;
                             cleanupphasemap.put(phasetype[j], cleanupphasemap.get(phasetype[j]) + 1);
                             phasemap.put(phasetype[j], phasemap.get(phasetype[j]) + 1);
                         }
                         catch(NullPointerException e){
+                            total++;
                             cleanupphasemap.put(phasetype[j], 1);
                             phasemap.put(phasetype[j], 1);
                         }
@@ -820,12 +849,14 @@ public class ScrapeDataXML {
                     else if(!StringUtils.containsIgnoreCase(phase, phasetype[0]) && !StringUtils.containsIgnoreCase(phase, phasetype[1])
                             && !StringUtils.containsIgnoreCase(phase, phasetype[2])
                             && !StringUtils.containsIgnoreCase(phase, phasetype[3])){
-                        //System.out.println("Cleanup Other: " + phase);
+                        System.out.println("Cleanup Other: " + phase);
                         try{
+                            total++;
                             cleanupphasemap.put("Testing Weeks", cleanupphasemap.get("Testing Weeks") + 1);
                             phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
                         }
                         catch(NullPointerException e){
+                            total++;
                             cleanupphasemap.put("Testing Weeks", 1);
                             phasemap.put("Testing Weeks", 1);
                         }
@@ -842,10 +873,12 @@ public class ScrapeDataXML {
                         //add the phase to the map or increment the phase count if
                         //the phase already exists in the map
                         try{
+                            total++;
                             initialphasemap.put(phasetype[j], initialphasemap.get(phasetype[j]) + 1);
                             phasemap.put(phasetype[j], phasemap.get(phasetype[j]) + 1);
                         }
                         catch(NullPointerException e){
+                            total++;
                             initialphasemap.put(phasetype[j], 1);
                             phasemap.put(phasetype[j], 1);
                         }
@@ -856,12 +889,14 @@ public class ScrapeDataXML {
                     else if(!StringUtils.containsIgnoreCase(phase, phasetype[0]) && !StringUtils.containsIgnoreCase(phase, phasetype[1])
                             && !StringUtils.containsIgnoreCase(phase, phasetype[2])
                             && !StringUtils.containsIgnoreCase(phase, phasetype[3])){
-                        //System.out.println("Initial Other: " + phase);
+                        System.out.println("Initial Other: " + phase);
                         try{
+                            total++;
                             initialphasemap.put("Testing Weeks", initialphasemap.get("Testing Weeks") + 1);
                             phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
                         }
                         catch(NullPointerException e){
+                            total++;
                             initialphasemap.put("Testing Weeks", 1);
                             phasemap.put("Testing Weeks", 1);
                         }
@@ -876,12 +911,14 @@ public class ScrapeDataXML {
 
         HashMap<String, Integer> temp = combineHashMap(cleanupphasemap, initialphasemap);
 
+        System.out.println("phase total: " + total );
+        //System.out.println("mapwithstatus size: " + mapwithstatus.size());
         TOTAL = total;
         temp.put("total", TOTAL);
 
 
         //printNestedMap(createStatusTotals(mapwithstatus, total));
-        return createStatusTotals(mapwithstatus, total);
+        return createStatusTotals(mapwithstatus, total + mapwithstatus.size());
 
         //display the data and count the total
         /*System.out.println("Cleanup:");
