@@ -12,6 +12,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import main.java.XMLtoSheets;
 import org.w3c.dom.*;
 
@@ -210,7 +211,7 @@ public class ScrapeDataXML {
         frame.setTitle(release + " Data to Sheet");
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        frame.setSize(300, 300);
+        frame.setSize(300, 100);
 
         //borders
         Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -289,57 +290,53 @@ public class ScrapeDataXML {
 
 
         //add panels to larger panels
-        toptop.add(filterPanel);
-        toptop.add(dataPanel);
+        //toptop.add(filterPanel);
+        //toptop.add(dataPanel);
 
         botbot.add(buttonPanel);
 
-        mainPanel.add(toptop);
+        //mainPanel.add(toptop);
         mainPanel.add(botbot);
 
 
         //finish frame
         frame.add(mainPanel);
         frame.setVisible(true);
-        frame.pack();
+
 
 
         //action listeners
         //if the release radio button is selected, disable the version
         //combo box
-        releaseRadio.addActionListener(new ActionListener() {
+        /*releaseRadio.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(releaseRadio.isSelected()){
                     datacombox.setEnabled(false);
                 }
             }
-        });
+        });*/
 
         //if the version radio button is selected, enable the version
         //combo box
-        versionRadio.addActionListener(new ActionListener() {
+        /*versionRadio.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(versionRadio.isSelected()){
                     datacombox.setEnabled(true);
                 }
             }
-        });
+        });*/
 
         //add the clearsheet button action
         clearsheet.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(releaseRadio.isSelected()){
-                    String api = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
-                    XMLtoSheets.clearSheet(release, api);
+                try {
+                    XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
+                } catch (Exception e1){
+                    e1.printStackTrace();
                 }
-                else if(versionRadio.isSelected()){
-                    String api = "https://sheetsu.com/apis/v1.0/43863b5d51be";
-                    XMLtoSheets.clearSheet(release, api);
-                }
-
             }
         });
 
@@ -348,59 +345,24 @@ public class ScrapeDataXML {
         action.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String filterselection = (String)filtercombox.getSelectedItem();
-                String dataselection = (String)datacombox.getSelectedItem();
-                if(releaseRadio.isSelected()){
-                    String api = "https://sheetsu.com/apis/v1.0/ff05010c60f3";
-                    if(filterselection.equalsIgnoreCase("Phase")){
-                        try {
-                            XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase");
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                    else if(filterselection.equalsIgnoreCase("Priority")){
-                        try {
-                            XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority");
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                    else if(filterselection.equalsIgnoreCase("Device")){
-                        try {
-                            XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device");
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
+                try {
+                    XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
 
+
+                try {
+                    XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
                 }
-                else if(versionRadio.isSelected()){
-                    String api = "https://sheetsu.com/apis/v1.0/43863b5d51be";
-                    if(filterselection.equalsIgnoreCase("Phase")){
-                        try {
-                            XMLtoSheets.run(filterPhase(versionmap.get(dataselection)), dataselection, api);
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                    else if(filterselection.equalsIgnoreCase("Priority")){
-                        try {
-                            XMLtoSheets.run(filterPriority(versionmap.get(dataselection)), dataselection, api);
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                    else if(filterselection.equalsIgnoreCase("Device")){
-                        try {
-                            XMLtoSheets.run(filterDevice(versionmap.get(dataselection)), dataselection, api);
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                }
-                else{
-                    dataPanel.setBorder(redline);
+
+
+                try {
+                    XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
                 }
             }
         });

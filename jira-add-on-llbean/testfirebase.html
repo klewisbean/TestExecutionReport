@@ -63,6 +63,7 @@
        var chart;
        var datanew;
        var title;
+       var selArr = ['device', 'phase', 'priority'];
        var api = 'https://test-execution-report.firebaseio.com/';
        //$('#button-tooltip').tooltip();
 
@@ -75,7 +76,7 @@
          var wipArr = [];
          var unexecutedArr = [];
          var total = 0;
-         var selArr = ['device', 'phase', 'priority'];
+
          var selection = filter;
          console.log(api + selection + '.json');
          $.ajax({

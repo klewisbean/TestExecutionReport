@@ -130,17 +130,7 @@ public class XMLtoSheets {
         //postToBlob(input);
         postFB(input, SHEET_URL);
 
-        //attempt to post the data to the api
-        response = webResource.type("application/json")
-                .post(ClientResponse.class, input);
 
-        //get the response
-        String output2 = response.getEntity(String.class);
-
-        //print out the response
-        System.out.println("\nOutput from Server for the POST of the data .... ");
-        System.out.println(output2);
-        System.out.println("Status: " + response.getStatus() + "\n" + input);
         ///////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
 
@@ -259,6 +249,24 @@ public class XMLtoSheets {
                     }
                 }
             }
+        }
+    }
+
+
+    public static void clearFB(String url){
+        trustall();
+
+        String[] selArr = {"device", "phase", "priority"};
+
+        for(int i = 0; i < selArr.length; i++){
+            WebResource webResource = client
+                    .resource(url + selArr[0] + ".json");
+
+            ClientResponse response = webResource.type("application/json")
+                    .delete(ClientResponse.class);
+
+            String output = response.getEntity(String.class);
+            System.out.println("output from delete: " + output);
         }
     }
 
