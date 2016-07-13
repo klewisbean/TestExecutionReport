@@ -181,9 +181,10 @@
          var i;
          var len = selArr.length;
          for(i = 0; i < len; i++){
+           console.log(api + selArr[i] + '.json');
            $.ajax({
              type: "DELETE",
-             url: api + selArr[0] + '.json',
+             url: api + selArr[i] + '.json',
              success: function(result) {
                console.log('result: ' + result);
              }

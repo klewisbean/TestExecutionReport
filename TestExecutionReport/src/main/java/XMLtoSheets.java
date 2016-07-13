@@ -260,7 +260,7 @@ public class XMLtoSheets {
 
         for(int i = 0; i < selArr.length; i++){
             WebResource webResource = client
-                    .resource(url + selArr[0] + ".json");
+                    .resource(url + selArr[i] + ".json");
 
             ClientResponse response = webResource.type("application/json")
                     .delete(ClientResponse.class);
