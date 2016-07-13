@@ -69,6 +69,7 @@
        check('phase');
 
        function check(filter){
+         var totarr = [];
          var filterArr = [];
          var totalArr = [];
          var passArr = [];
@@ -77,6 +78,11 @@
          var wipArr = [];
          var unexecutedArr = [];
          var total = 0;
+         var totalPass = 0;
+         var totalFail = 0;
+         var totalBlock = 0;
+         var totalwip = 0;
+         var totalUn = 0;
          var cnt;
          var selection = filter;
          console.log(api + selection + '.json');
@@ -117,12 +123,31 @@
 
                      var parsed = parseInt(value3.total);
                      totalArr.push(parsed);
+
+                     var temp = parseInt(value3.Pass);
+                     totalPass = totalPass + temp;
+                     var temp = parseInt(value3.Fail);
+                     totalFail = totalFail + temp;
+                     var temp = parseInt(value3.Block);
+                     totalBlock = totalBlock + temp;
+                     var temp = parseInt(value3.WIP);
+                     totalwip = totalwip + temp;
+                     var temp = parseInt(value3.Unexecuted);
+                     totalUn = totalUn + temp;
+
                      total = total + parsed;
                    }
                  }
                }
              }
-             console.log(filterArr);
+             passArr.push(totalPass);
+             failArr.push(totalFail);
+             blockedArr.push(totalBlock);
+             wipArr.push(totalwip);
+             unexecutedArr.push(totalUn);
+             filterArr.push('Total');
+             console.log("filterarr: " + filterArr);
+             console.log("passarr: " + passArr);
 
 
              $('h4').text('Total Cases: ' + (total + cnt));
