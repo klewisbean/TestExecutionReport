@@ -47,7 +47,7 @@
    <body id="main-body">
      <main>
        <canvas id="chart" width = "425" height = "500"></canvas>
-       <div>
+       <div style="text-align:center;">
          <h4>Total: 0</h4>
          <div id="filter-div" style="text-align:center;">
            <input type="radio" id="phase" name="filter" onclick="check(this.value)" value="phase">Phase
@@ -55,7 +55,7 @@
            <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device
          </div>
          <button id="primary-action-button" class="aui-button aui-button-primary" onclick="del()">Clear Database</button>
-         <a id="button-tooltip" href="#primary-action-button" title="tooltip"></a>
+         <!--a id="button-tooltip" href="#primary-action-button" title="tooltip"></a-->
        </div>
      </main>
      <script type="text/javascript">
@@ -63,7 +63,7 @@
        var datanew;
        var title;
        var api = 'https://test-execution-report.firebaseio.com/';
-       $('#button-tooltip').tooltip();
+       //$('#button-tooltip').tooltip();
 
        function check(filter){
          var filterArr = [];
