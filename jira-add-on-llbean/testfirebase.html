@@ -47,12 +47,15 @@
    <body id="main-body">
      <main>
        <canvas id="chart" width = "425" height = "500"></canvas>
-       <h4>Total: 0</h4>
-       <div id="filter-div" style="text-align:center;">
-         <input type="radio" id="phase" name="filter" onclick="check(this.value)" value="phase">Phase
-         <input type="radio" id="priority" name="filter" onclick="check(this.value)" value="priority">Priority
-         <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device</input>
+       <div>
+         <h4>Total: 0</h4>
+         <div id="filter-div" style="text-align:center;">
+           <input type="radio" id="phase" name="filter" onclick="check(this.value)" value="phase">Phase
+           <input type="radio" id="priority" name="filter" onclick="check(this.value)" value="priority">Priority
+           <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device
+         </div>
          <button id="primary-action-button" class="aui-button aui-button-primary" onclick="del()">Clear Database</button>
+         <a id="button-tooltip" href="#primary-action-button" title="tooltip"></a>
        </div>
      </main>
      <script type="text/javascript">
@@ -60,6 +63,7 @@
        var datanew;
        var title;
        var api = 'https://test-execution-report.firebaseio.com/';
+       AJS.$('#button-tooltip').tooltip();
 
        function check(filter){
          var filterArr = [];
@@ -70,6 +74,7 @@
          var wipArr = [];
          var unexecutedArr = [];
          var total = 0;
+         var selArr = ['device', 'phase', 'priority'];
          var selection = filter;
          console.log(api + selection + '.json');
          $.ajax({
@@ -170,14 +175,18 @@
          })
        }
 
-       function del(){
-         $.ajax({
-           type: "DELETE",
-           url: api + datanew + '.json',
-           success: function(result) {
-             console.log('result: ' + result);
-           }
-         })
+       function del() {
+         var i;
+         var len = selArr.length;
+         for(i = 0; i < len; i++){
+           $.ajax({
+             type: "DELETE",
+             url: api + selArr[0] + '.json',
+             success: function(result) {
+               console.log('result: ' + result);
+             }
+           })
+         }
        }
 
 
