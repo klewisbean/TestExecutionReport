@@ -2,6 +2,9 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientRequest;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -34,6 +37,8 @@ public class AutomateExportGUI {
 
     public static void main(String[] args){
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\TestExecutionReport\\drivers\\chromedriver.exe");
+
+
         AutomateExportGUI main = new AutomateExportGUI();
 
 

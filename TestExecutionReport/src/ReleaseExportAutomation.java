@@ -11,11 +11,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 
 
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +27,8 @@ import java.util.concurrent.TimeUnit;
 public class ReleaseExportAutomation {
 
 
-    public WebDriver driver = new ChromeDriver();
+    public WebDriver driver = setUpDriver();
+
     public String atlassianllbeanhome = "https://llbean.atlassian.net/";
     public String searchtestexecutions = "plugins/servlet/ac/com.thed.zephyr.je/general-executions-enav?project.key=CTTCM&project.id=13000#!view=list&offset=1";
     public String ZQL_SEARCH = "";
@@ -39,6 +44,21 @@ public class ReleaseExportAutomation {
         testExecutionNav();
         exportData();
 
+    }
+
+    public WebDriver setUpDriver(){
+        //String downloadFilepath = "C:\\" + System.getProperty("user.home") + "\\Downloads";
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("profile.default_content_settings.popups", 0);
+        //chromePrefs.put("download.default_directory", downloadFilepath);
+        chromePrefs.put("safebrowsing.enabled", "true");
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", chromePrefs);
+        DesiredCapabilities cap = DesiredCapabilities.chrome();
+        cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+        cap.setCapability(ChromeOptions.CAPABILITY, options);
+        WebDriver driver = new ChromeDriver(cap);
+        return driver;
     }
 
     public void login(String username, String password){
