@@ -42,7 +42,7 @@
         "url": "/testfirebase.html",
         "key": "kevins-dashboard-item-fbapi",
         "name": {
-          "value": "Report Tool Add-On Version"
+          "value": "Report Tool Add-On Release - Firebase"
         },
         "description": {
           "value": "Report dashboard item from Kevin - Using Firebase database"
