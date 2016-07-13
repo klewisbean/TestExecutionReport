@@ -55,7 +55,7 @@
            <input type="radio" id="priority" name="filter" onclick="check(this.value)" value="priority">Priority
            <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device
          </div>
-         <button id="primary-action-button" class="aui-button aui-button-primary" onclick="del()">Clear Database</button>
+         <!--button id="primary-action-button" class="aui-button aui-button-primary" onclick="del()">Clear Database</button-->
          <!--a id="button-tooltip" href="#primary-action-button" title="tooltip"></a-->
        </div>
      </main>
@@ -66,6 +66,7 @@
        var selArr = ['device', 'phase', 'priority'];
        var api = 'https://test-execution-report.firebaseio.com/';
        //$('#button-tooltip').tooltip();
+       check('phase');
 
        function check(filter){
          var filterArr = [];

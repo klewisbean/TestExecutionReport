@@ -284,7 +284,7 @@ public class ScrapeDataXML {
         JButton action = new JButton("Add Data to Sheets API");
         JButton clearsheet = new JButton("Clear the Sheet");
         buttonPanel.add(action);
-        buttonPanel.add(clearsheet);
+        //buttonPanel.add(clearsheet);
 
         //////////////////////////////////////////////////////////////////
 
@@ -329,7 +329,7 @@ public class ScrapeDataXML {
         });*/
 
         //add the clearsheet button action
-        clearsheet.addActionListener(new ActionListener() {
+        /*clearsheet.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -338,13 +338,14 @@ public class ScrapeDataXML {
                     e1.printStackTrace();
                 }
             }
-        });
+        });*/
 
         //will run XMLtoSheets.java based on what data the user wants
         //to post to the api
         action.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
                 try {
                     XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase");
                 } catch (IOException e1) {
@@ -968,9 +969,34 @@ public class ScrapeDataXML {
      */
 
 
+    public void fbpostfunction(){
+        XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
+        try {
+            XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
 
 
+        try {
+            XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
 
+
+        try {
+            XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    /*
+    #########################################################################################################
+    #########################################################################################################
+    #########################################################################################################
+     */
 
 
     public HashMap<String, Integer> combineHashMap(HashMap<String, Integer> map1, HashMap<String, Integer> map2){
