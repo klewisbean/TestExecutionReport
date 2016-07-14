@@ -123,8 +123,11 @@ public class ScrapeDataXML {
         release = first.substring(0,3);
 
         try {
-            //sheets.run(filterPriority(list));
             setUpGUI();
+
+
+            //if the GUI is not needed just uncomment this method call
+            //fbpostfunction();
         } catch (Exception e) {
             e.printStackTrace();
         }
