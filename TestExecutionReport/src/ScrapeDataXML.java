@@ -123,11 +123,10 @@ public class ScrapeDataXML {
         release = first.substring(0,3);
 
         try {
-            setUpGUI();
-
+            //setUpGUI();
 
             //if the GUI is not needed just uncomment this method call
-            //fbpostfunction();
+            fbpostfunction();
         } catch (Exception e) {
             e.printStackTrace();
         }

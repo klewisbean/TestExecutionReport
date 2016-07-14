@@ -80,7 +80,7 @@ public class ReleaseExportAutomation {
         driver.switchTo().frame(0);
 
         try {
-            Thread.sleep(25000);
+            Thread.sleep(35000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
