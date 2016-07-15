@@ -10,10 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/src/Extrator/VersionExportAutomation.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/pom.xml" afterPath="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jira-add-on-llbean/view-fb.html" afterPath="$PROJECT_DIR$/jira-add-on-llbean/view-fb.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/build.gradle" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/gradlew" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/gradlew.bat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/settings.gradle" afterPath="" />
     </list>
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,9 +39,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1188">
               <caret line="58" column="57" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,6 +60,7 @@
             <state relative-caret-position="154">
               <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
                 <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
                 <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -90,8 +89,11 @@
             <state relative-caret-position="154">
               <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="method#clearFB#0;class#XMLtoSheets#0" expanded="false" />
                 <element signature="method#trustall#0;class#XMLtoSheets#0" expanded="false" />
+                <element signature="e#4899#4900#0" expanded="false" />
+                <element signature="e#4976#4977#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -745,6 +747,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -804,6 +807,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -863,6 +867,7 @@
         <state relative-caret-position="374">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -923,6 +928,7 @@
         <state relative-caret-position="220">
           <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -958,6 +964,7 @@
         <state relative-caret-position="220">
           <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -993,6 +1000,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -1065,6 +1073,7 @@
         <state relative-caret-position="154">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -1099,8 +1108,11 @@
         <state relative-caret-position="154">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#clearFB#0;class#XMLtoSheets#0" expanded="false" />
             <element signature="method#trustall#0;class#XMLtoSheets#0" expanded="false" />
+            <element signature="e#4899#4900#0" expanded="false" />
+            <element signature="e#4976#4977#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1125,9 +1137,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1188">
           <caret line="58" column="57" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
