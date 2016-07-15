@@ -12,7 +12,7 @@ import java.util.Date;
 //finds the latest files holding the zephyr executions on the local system
 public class FindFile {
 
-    DateFormat dateformat = new SimpleDateFormat("MM-dd-yyyy");
+    DateFormat dateformat = new SimpleDateFormat("MM-dd-yyyy HH:mm");
     String FILENAME = "ZFJ-Executions-";
 
     public static void main(String[] args){
@@ -24,7 +24,8 @@ public class FindFile {
         long newest = 0;
         long newest2 = 0;
         Date date = new Date();
-        //System.out.println(dateformat.format(date));
+        System.out.println(dateformat.format(date));
+        String dateStr = dateformat.format(date);
         String filename = nameToFind;
         File newestfile = new File(filename);
         File newestfile2 = new File(filename);
@@ -62,7 +63,7 @@ public class FindFile {
 
         ScrapeDataXML scrape = new ScrapeDataXML();
         try {
-            scrape.run(newestfile, newestfile2);
+            scrape.run(newestfile, newestfile2, dateStr);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

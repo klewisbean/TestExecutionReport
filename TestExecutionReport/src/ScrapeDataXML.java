@@ -39,9 +39,10 @@ public class ScrapeDataXML {
     public String[] execstatus = {"Unexecuted", "Pass", "Fail", "WIP", "Blocked"};
     public String release = "";
     public String tempRelease = "";
+    //public String date = "";
     public static int TOTAL = 0;
 
-    public void run(File file1, File file2) throws FileNotFoundException {
+    public void run(File file1, File file2, String date) throws FileNotFoundException {
         NodeList issueKeys = null;
         NodeList cycleNames = null;
         NodeList version = null;
@@ -122,11 +123,12 @@ public class ScrapeDataXML {
         String first = versionmap.entrySet().iterator().next().getKey();
         release = first.substring(0,3);
 
+
         try {
             //setUpGUI();
 
             //if the GUI is not needed just uncomment this method call
-            fbpostfunction();
+            fbpostfunction(date);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -135,7 +137,7 @@ public class ScrapeDataXML {
     }
 
     //this function will setup the GUI for the data the user wants in the api
-    public void setUpGUI(){
+    public void setUpGUI(String date){
         //creates the frame and it's structure
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -278,21 +280,21 @@ public class ScrapeDataXML {
             public void actionPerformed(ActionEvent e) {
                 XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
                 try {
-                    XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase");
+                    XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase", date);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
 
 
                 try {
-                    XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority");
+                    XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority", date);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
 
 
                 try {
-                    XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device");
+                    XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device", date);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
@@ -937,27 +939,27 @@ public class ScrapeDataXML {
      */
 
     //method to automatically post without GUI if need be
-    public void fbpostfunction(){
+    public void fbpostfunction(String date){
         //clear the firebase database first
         XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
 
         //try posting each filter
         try {
-            XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase");
+            XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase", date);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
 
         try {
-            XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority");
+            XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority", date);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
 
         try {
-            XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device");
+            XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device", date);
         } catch (IOException e1) {
             e1.printStackTrace();
         }

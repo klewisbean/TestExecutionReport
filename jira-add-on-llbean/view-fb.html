@@ -47,6 +47,7 @@
    </head>
    <body id="main-body">
      <main>
+       <h6>As of: </h6>
        <canvas id="chart" width = "425" height = "500"></canvas>
        <div style="text-align:center;">
          <h4>Total: 0</h4>
@@ -65,6 +66,7 @@
        var title;
        var selArr = ['device', 'phase', 'priority'];
        var api = 'https://test-execution-report.firebaseio.com/';
+       var date;
        //$('#button-tooltip').tooltip();
        check('phase');
 
@@ -84,6 +86,7 @@
          var totalwip = 0;
          var totalUn = 0;
          var cnt;
+
          var selection = filter;
          console.log(api + selection + '.json');
          $.ajax({
@@ -110,7 +113,12 @@
 
                    var value3 = value2[key];
                    if(value3.Filter === undefined){
-                     title = value3.Title;
+                     if(value3.Title === undefined){
+                       date = value3.Date;
+                     }
+                     if(value3.Date === undefined){
+                       title = value3.Title;
+                     }
                    } else {
                      cnt++;
                      filterArr.push(value3.Filter);
@@ -143,7 +151,7 @@
 
 
              $('h4').text('Total Cases: ' + (total + cnt));
-
+             $('h6').text('As of: ' + date);
 
              barData = {
                labels: filterArr,
