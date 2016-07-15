@@ -1,4 +1,4 @@
-/**
+package Extrator; /**
  * Created by klewis on 6/7/2016.
  */
 
@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
-import main.java.XMLtoSheets;
+
 import org.w3c.dom.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -266,14 +266,14 @@ public class ScrapeDataXML {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
+                    Extrator.XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
                 } catch (Exception e1){
                     e1.printStackTrace();
                 }
             }
         });*/
 
-        //will run XMLtoSheets.java based on what data the user wants
+        //will run Extrator.XMLtoSheets.java based on what data the user wants
         //to post to the api
         action.addActionListener(new ActionListener() {
             @Override

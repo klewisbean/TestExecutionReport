@@ -1,6 +1,4 @@
-package main.java;
-
-/**
+package Extrator; /**
  * Created by klewis on 6/22/2016.
  */
 
