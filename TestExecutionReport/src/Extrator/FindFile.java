@@ -56,14 +56,15 @@ public class FindFile {
             }
         }
 
-
+        Date newestd = new Date(newestfile.lastModified());
         System.out.println("Newest file: " + newestfile.getName());
         System.out.println("Newest2 file: " + newestfile2.getName());
+        System.out.println("newest file time: " + newestd);
 
 
         ScrapeDataXML scrape = new ScrapeDataXML();
         try {
-            scrape.run(newestfile, newestfile2, dateStr);
+            scrape.run(newestfile, newestfile2, newestd.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
