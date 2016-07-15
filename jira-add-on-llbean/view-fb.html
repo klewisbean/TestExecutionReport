@@ -38,16 +38,12 @@
           height: 100%;
           margin: 0px;
         }
-        /*body {
-          margin: 0px;
-          padding: 0px:
-        }*/
       </style>
 
    </head>
    <body id="main-body">
      <main>
-       <h6>As of: </h6>
+       <h5 class="aui-badge">As of: </h5>
        <canvas id="chart" width = "425" height = "500"></canvas>
        <div style="text-align:center;">
          <h4>Total: 0</h4>
@@ -151,7 +147,7 @@
 
 
              $('h4').text('Total Cases: ' + (total + cnt));
-             $('h6').text('As of: ' + date);
+             $('h5').text('<mark>As of: ' + date + '</mark>');
 
              barData = {
                labels: filterArr,
