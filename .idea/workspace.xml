@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/src/Extrator/VersionExportAutomation.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/pom.xml" afterPath="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jira-add-on-llbean/view-fb.html" afterPath="$PROJECT_DIR$/jira-add-on-llbean/view-fb.html" />
     </list>
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,7 +25,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -32,10 +34,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="FindFile.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FindFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
+            <state relative-caret-position="1188">
               <caret line="58" column="57" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -44,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReleaseExportAutomation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="22">
+              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -60,7 +62,6 @@
             <state relative-caret-position="154">
               <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
-                <element signature="e#0#51095#0" expanded="true" />
                 <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
                 <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
                 <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -83,16 +84,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VersionExportAutomation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/VersionExportAutomation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="XMLtoSheets.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -101,24 +92,6 @@
               <folding>
                 <element signature="method#clearFB#0;class#XMLtoSheets#0" expanded="false" />
                 <element signature="method#trustall#0;class#XMLtoSheets#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AutomateExportGUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
-                <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
-                <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
-                <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-                <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
-                <element signature="method#printArray#0;class#AutomateExportGUI#0" expanded="false" />
-                <element signature="method#createOtherVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -160,7 +133,6 @@
         <option value="$PROJECT_DIR$/TestExecutionReport/src/SheetsQuickstart.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/TestFBget.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/TestFBget.java" />
-        <option value="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/ReleaseExportAutomation.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/FindFile.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/XMLtoSheets.java" />
@@ -169,6 +141,7 @@
         <option value="$PROJECT_DIR$/TestExecutionReport/src/XMLtoSheets.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java" />
+        <option value="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
       </list>
     </option>
   </component>
@@ -392,11 +365,19 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
-      <method />
+      <method>
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
@@ -412,9 +393,17 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <method />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <method>
+        <option name="Make" enabled="true" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -678,32 +667,32 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1929" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2867804" sideWeight="0.50429183" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28838176" sideWeight="0.49570817" order="5" side_tool="false" content_ui="tabs" x="-1633" y="511" width="1044" height="445" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2889126" sideWeight="0.49570817" order="5" side_tool="false" content_ui="tabs" x="-1633" y="511" width="1044" height="445" />
-      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.052038625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.051557466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20869099" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20837809" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -740,8 +729,8 @@
         <state relative-caret-position="3960">
           <caret line="353" column="49" selection-start-line="353" selection-start-column="49" selection-end-line="354" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
+            <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
@@ -756,7 +745,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#51095#0" expanded="true" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -800,8 +788,8 @@
         <state relative-caret-position="3960">
           <caret line="353" column="49" selection-start-line="353" selection-start-column="49" selection-end-line="354" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
+            <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
@@ -816,7 +804,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#51095#0" expanded="true" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -860,8 +847,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
+            <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
@@ -876,7 +863,6 @@
         <state relative-caret-position="374">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="e#0#51095#0" expanded="true" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -920,8 +906,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
+            <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
             <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
@@ -937,7 +923,6 @@
         <state relative-caret-position="220">
           <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
           <folding>
-            <element signature="e#0#51095#0" expanded="true" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -973,7 +958,6 @@
         <state relative-caret-position="220">
           <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
           <folding>
-            <element signature="e#0#51095#0" expanded="true" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -1009,7 +993,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#51095#0" expanded="true" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -1045,7 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,14 +1052,6 @@
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/TestFBget.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/SelectFilterGUI.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/CreateGraph.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1091,7 +1065,6 @@
         <state relative-caret-position="154">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
-            <element signature="e#0#51095#0" expanded="true" />
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
@@ -1134,7 +1107,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="154">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
             <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
@@ -1150,11 +1123,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
+        <state relative-caret-position="1188">
           <caret line="58" column="57" selection-start-line="58" selection-start-column="57" selection-end-line="58" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
