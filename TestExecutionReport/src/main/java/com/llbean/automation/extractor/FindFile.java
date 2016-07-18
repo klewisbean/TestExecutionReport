@@ -1,4 +1,4 @@
-package Extrator;//imports
+package com.llbean.automation.extractor;//imports
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
@@ -17,7 +17,7 @@ public class FindFile {
 
     public static void main(String[] args){
         FindFile main = new FindFile();
-        main.findFile(main.FILENAME, "C:/users/klewis/downloads");
+        main.findFile(main.FILENAME, "/Users/llbean/Desktop");
     }
 
     public void findFile(String nameToFind, String directoryToSearch){

@@ -9,12 +9,36 @@
     <artifactId>TestExecutionReport</artifactId>
     <version>1.0</version>
 
-
-    <!--
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>com.llbean.automation.extractor.FindFile</mainClass>
 
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
-    -->
 
     <dependencies>
         <dependency>
@@ -37,11 +61,7 @@
             <artifactId>selenium-java</artifactId>
             <version>2.53.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.atlassian.jira</groupId>
-            <artifactId>jira-rest-java-client</artifactId>
-            <version>Version of the library you use</version>
-        </dependency>
+
         <dependency>
             <groupId>com.google.gdata</groupId>
             <artifactId>core</artifactId>

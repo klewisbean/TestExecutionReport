@@ -1,4 +1,4 @@
-package Extrator;
+package com.llbean.automation.extractor;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -52,7 +52,7 @@ public class AutomateExportGUI {
     /*
     PRE: takes a username and a password as strings
     POST: returns nothing
-    BRIEF: creates an instance of the Extrator.ReleaseExportAutomation class
+    BRIEF: creates an instance of the java.Extrator.ReleaseExportAutomation class
      */
     public void runReleaseAuto(String username, String password, String release, ArrayList<String> releaseList){
         ArrayList<String> half1 = new ArrayList<>();

@@ -1,4 +1,4 @@
-package Extrator; /**
+package com.llbean.automation.extractor; /**
  * Created by klewis on 6/7/2016.
  */
 
@@ -266,14 +266,14 @@ public class ScrapeDataXML {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Extrator.XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
+                    java.Extrator.XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
                 } catch (Exception e1){
                     e1.printStackTrace();
                 }
             }
         });*/
 
-        //will run Extrator.XMLtoSheets.java based on what data the user wants
+        //will run java.Extrator.XMLtoSheets.java based on what data the user wants
         //to post to the api
         action.addActionListener(new ActionListener() {
             @Override
