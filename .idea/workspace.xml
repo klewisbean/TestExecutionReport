@@ -5,19 +5,11 @@
       <artifact name="TestExecutionReport:jar" />
     </artifacts-to-build>
   </component>
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java" line="403" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/.gradle/2.14/taskArtifacts/cache.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/.gradle/2.14/taskArtifacts/cache.properties.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/.gradle/2.14/taskArtifacts/fileHashes.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/.gradle/2.14/taskArtifacts/fileSnapshots.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/.gradle/2.14/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/.gradle/2.14/taskArtifacts/taskArtifacts.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/gradle/wrapper/gradle-wrapper.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/gradle/wrapper/gradle-wrapper.properties" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_sun_jersey_jersey_client_1_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_sun_jersey_jersey_client_1_8.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" />
     </list>
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,65 +30,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="FindFile.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="51" column="54" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+            <state relative-caret-position="449">
+              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java">
+      <file leaf-file-name="FindFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding>
-                <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#splitIntoVersions#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
-                <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="462">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XMLtoSheets.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java">
+      <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="method#clearFB#0;class#XMLtoSheets#0" expanded="false" />
-                <element signature="method#trustall#0;class#XMLtoSheets#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="271">
+              <caret line="73" column="77" selection-start-line="73" selection-start-column="77" selection-end-line="73" selection-end-column="77" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -146,6 +105,7 @@
         <option value="$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
+        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" />
       </list>
     </option>
   </component>
@@ -187,19 +147,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test-execution-report" />
+              <option name="myItemId" value="TestExecutionReport" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test-execution-report" />
+              <option name="myItemId" value="TestExecutionReport" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -209,21 +169,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test-execution-report" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="TestExecutionReport" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test-execution-report" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -235,17 +181,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Extrator" />
+              <option name="myItemId" value="extractor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/dev/PDPAutomation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/TestExecutionReport" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.26838234" />
@@ -264,7 +210,7 @@
       <recent name="C:\JiraReportGadget-2\TestExecutionReport" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FindFile">
+  <component name="RunManager" selected="Maven.Unnamed">
     <configuration default="false" name="AutomateExportGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Extrator.AutomateExportGUI" />
@@ -283,9 +229,9 @@
     <configuration default="false" name="FindFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Extrator.FindFile" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -536,6 +482,28 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -600,12 +568,38 @@
       <listeners />
       <method />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.AutomateExportGUI" />
-      <item index="1" class="java.lang.String" itemvalue="Application.FindFile" />
-      <item index="2" class="java.lang.String" itemvalue="Application.CreateGraph" />
-      <item index="3" class="java.lang.String" itemvalue="Application.XMLtoSheets" />
-      <item index="4" class="java.lang.String" itemvalue="Application.SheetsQuickstart" />
+    <configuration default="false" name="Unnamed" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="test" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/TestExecutionReport" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Maven.Unnamed" />
+      <item index="1" class="java.lang.String" itemvalue="Application.AutomateExportGUI" />
+      <item index="2" class="java.lang.String" itemvalue="Application.FindFile" />
+      <item index="3" class="java.lang.String" itemvalue="Application.CreateGraph" />
+      <item index="4" class="java.lang.String" itemvalue="Application.XMLtoSheets" />
+      <item index="5" class="java.lang.String" itemvalue="Application.SheetsQuickstart" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -671,18 +665,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1929" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2867804" sideWeight="0.50429183" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28770053" sideWeight="0.49570817" order="5" side_tool="false" content_ui="tabs" x="-1633" y="511" width="1044" height="445" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28663102" sideWeight="0.49570817" order="5" side_tool="false" content_ui="tabs" x="-1633" y="511" width="1044" height="445" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.051557466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.052094523" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20837809" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -692,6 +685,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -728,275 +722,27 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="353" column="49" selection-start-line="353" selection-start-column="49" selection-end-line="354" selection-end-column="28" />
-          <folding>
-            <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createOtherVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#splitIntoVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/ScrapeData.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/VersionExportAutomation.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="353" column="49" selection-start-line="353" selection-start-column="49" selection-end-line="354" selection-end-column="28" />
-          <folding>
-            <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createOtherVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#splitIntoVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java" />
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/ScrapeData.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/VersionExportAutomation.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createOtherVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#splitIntoVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java" />
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/ScrapeData.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="23" column="63" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/VersionExportAutomation.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createOtherVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/ScrapeData.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
-          <folding>
-            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#splitIntoVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java" />
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/ScrapeData.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
-          <folding>
-            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#splitIntoVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java" />
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/ScrapeData.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#splitIntoVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/ScrapeData.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/ScrapeData.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/ScrapeData.java" />
@@ -1008,13 +754,7 @@
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/old.txt" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/Sheets.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/build.gradle" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/resources/client_secret.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="432" selection-start-line="0" selection-start-column="432" selection-end-line="0" selection-end-column="432" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/resources/client_secret.json" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/GraphDataGUI.java" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/javax/swing/plaf/basic/BasicButtonListener.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1029,83 +769,41 @@
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/TestFBget.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/SelectFilterGUI.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/CreateGraph.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ReleaseExportAutomation.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/VersionExportAutomation.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java">
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/AutomateExportGUI.java" />
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java" />
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java" />
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java" />
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/XMLtoSheets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="method#createZQLSearch#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#getJiraVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#organizeData#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printVersions#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#printArray#0;class#AutomateExportGUI#0" expanded="false" />
-            <element signature="method#createOtherVersionArray#0;class#AutomateExportGUI#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-2420">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="51" column="54" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+        <state relative-caret-position="449">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java">
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#splitIntoVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="462">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java">
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="method#clearFB#0;class#XMLtoSheets#0" expanded="false" />
-            <element signature="method#trustall#0;class#XMLtoSheets#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="271">
+          <caret line="73" column="77" selection-start-line="73" selection-start-column="77" selection-end-line="73" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>

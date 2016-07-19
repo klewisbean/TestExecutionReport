@@ -1,0 +1,7 @@
+com\llbean\automation\extractor\ReleaseExportAutomation.class
+com\llbean\automation\extractor\AutomateExportGUI.class
+com\llbean\automation\extractor\ScrapeDataXML.class
+com\llbean\automation\extractor\ScrapeDataXML$1.class
+com\llbean\automation\extractor\FindFile.class
+com\llbean\automation\extractor\XMLtoSheets$1.class
+com\llbean\automation\extractor\XMLtoSheets.class

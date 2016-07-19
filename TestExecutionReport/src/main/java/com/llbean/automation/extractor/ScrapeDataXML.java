@@ -71,8 +71,8 @@ public class ScrapeDataXML {
 
 
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(xmlfile);
-            Document doc1 = builder.parse(xmlfile2);
+            Document doc = builder.parse(new FileInputStream(xmlfile), "UTF-8");
+            Document doc1 = builder.parse(new FileInputStream(xmlfile2), "UTF-8");
 
             doc.getDocumentElement().normalize();
             doc1.getDocumentElement().normalize();
