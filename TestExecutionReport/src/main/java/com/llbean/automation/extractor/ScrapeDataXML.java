@@ -473,7 +473,6 @@ public class ScrapeDataXML {
                     }
                 }
             }
-
         }
 
         //variables and code to combine the different names for Mobile Web
