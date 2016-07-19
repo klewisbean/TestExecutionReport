@@ -17,7 +17,7 @@ public class FindFile {
 
     public static void main(String[] args){
         FindFile main = new FindFile();
-        main.findFile(main.FILENAME, "/Users/llbean/Desktop");
+        main.findFile(main.FILENAME, System.getProperty("user.dir"));
     }
 
     public void findFile(String nameToFind, String directoryToSearch){
