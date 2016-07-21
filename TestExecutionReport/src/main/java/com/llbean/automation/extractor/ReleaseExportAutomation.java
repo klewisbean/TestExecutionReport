@@ -2,6 +2,7 @@ package com.llbean.automation.extractor; /**
  * Created by klewis on 6/8/2016.
  */
 
+import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebElement;
@@ -68,7 +69,12 @@ public class ReleaseExportAutomation {
       //navigate to the "search test execution page"
         driver.get(atlassianllbeanhome + searchtestexecutions);
 
-        driver.switchTo().frame(0);
+        try {
+            driver.switchTo().frame(0);
+        }
+        catch(NoSuchFrameException e){
+            System.out.println("no such frame");
+        }
 
         try {
             Thread.sleep(35000);
