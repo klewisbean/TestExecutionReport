@@ -63,9 +63,13 @@ public class ReleaseExportAutomation {
         //click the log in button
         driver.findElement(By.id("login")).click();
 
+
+
     }
 
     public void testExecutionNav(){
+        System.out.println("Login Successful");
+        System.out.println("Title: " + driver.getTitle() + " URL: " + driver.getCurrentUrl());
       //navigate to the "search test execution page"
         driver.get(atlassianllbeanhome + searchtestexecutions);
 
@@ -82,21 +86,17 @@ public class ReleaseExportAutomation {
             e.printStackTrace();
         }
 
-        WebElement navitatorContainer = null;
-        try {
-             navitatorContainer = driver.findElement(By.className("navigator-container"))
-                    .findElement(By.id("zqlcomponent"))
-                    .findElement(By.className("contained-content"))
-                    .findElement(By.id("navigator-wrapper"))
-                    .findElement(By.className("zql-autocomplete"))
-                    .findElement(By.className("search-wrap"))
-                    .findElement(By.id("search-container"))
-                    .findElement(By.className("search-options-container"))
-                    .findElement(By.className("mode-switcher"))
-                    .findElement(By.id("search-mode-advanced"));
-        } catch (Exception e){
-            System.out.println("Exception");
-        }
+
+        WebElement navitatorContainer = driver.findElement(By.className("navigator-container"))
+                                            .findElement(By.id("zqlcomponent"))
+                                            .findElement(By.className("contained-content"))
+                                            .findElement(By.id("navigator-wrapper"))
+                                            .findElement(By.className("zql-autocomplete"))
+                                            .findElement(By.className("search-wrap"))
+                                            .findElement(By.id("search-container"))
+                                            .findElement(By.className("search-options-container"))
+                                            .findElement(By.className("mode-switcher"))
+                                            .findElement(By.id("search-mode-advanced"));
 
         //click the advanced search button
         navitatorContainer.click();
