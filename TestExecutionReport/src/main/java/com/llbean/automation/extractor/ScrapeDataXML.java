@@ -43,6 +43,7 @@ public class ScrapeDataXML {
     public static int TOTAL = 0;
 
     public void run(File file1, File file2, String date) throws FileNotFoundException {
+        System.out.println("RUN SCRAPEDATAXML");
         NodeList issueKeys = null;
         NodeList cycleNames = null;
         NodeList version = null;
