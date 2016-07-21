@@ -67,7 +67,7 @@ public class FindFile {
         logger.trace("before scrape initialization");
         ScrapeDataXML scrape = new ScrapeDataXML();
         try {
-            System.out.println("before scrape run");
+            logger.trace("before scrape run");
             scrape.run(newestfile, newestfile2, newestd.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();

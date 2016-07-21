@@ -1167,7 +1167,7 @@ public class ScrapeDataXML {
     }
 
     public void fixXML(String path, String toPath) throws FileNotFoundException {
-        System.out.println("Fixing XML......");
+        logger.trace("Fixing XML......");
         File xmlfile = new File(path);
         ArrayList<String> xml = readXmlAsString(xmlfile);
         ArrayList<String> newxml = new ArrayList<>();

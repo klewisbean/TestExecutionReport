@@ -30,7 +30,6 @@ public class AutomateExportGUI {
     final static Logger logger = Logger.getLogger(AutomateExportGUI.class);
 
     public static void main(String[] args){
-        logger.error("test");
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
 
 
