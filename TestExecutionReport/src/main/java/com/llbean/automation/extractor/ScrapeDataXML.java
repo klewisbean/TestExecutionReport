@@ -280,21 +280,21 @@ public class ScrapeDataXML {
             public void actionPerformed(ActionEvent e) {
                 XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
                 try {
-                    XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase", date);
+                    XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase", date, TOTAL);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
 
 
                 try {
-                    XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority", date);
+                    XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority", date, TOTAL);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
 
 
                 try {
-                    XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device", date);
+                    XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device", date, TOTAL);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
@@ -789,6 +789,10 @@ public class ScrapeDataXML {
             String phase = versionlist.get(i)[1];
             String status = versionlist.get(i)[5];
 
+            if(StringUtils.containsIgnoreCase(phase, "launch") || StringUtils.containsIgnoreCase(phase, "prod")){
+                System.out.println(phase);
+            }
+
             //System.out.println("phase: " + phase + " | status: " + status);
 
             ///////////////////////////////////////////////////////////////
@@ -831,6 +835,28 @@ public class ScrapeDataXML {
             if(StringUtils.containsIgnoreCase(phase, "Cleanup") || StringUtils.containsIgnoreCase(phase, "Clean-up")){
                 //iterate through the possible phases
                 for(int j = 0; j < phasetype.length; j++){
+
+                    for(int r = 0; r < execstatus.length; r++){
+
+                        //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                        if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                            try{
+                                HashMap<String, Integer> temp = mapwithstatus.get(phasetype[j]);
+                                try{
+                                    temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                }
+                                catch(Exception e){
+                                    temp.put(execstatus[r], 1);
+                                }
+                                mapwithstatus.put(phasetype[j], temp);
+                            }catch(Exception e){
+                                mapwithstatus.put(phasetype[j], new HashMap<>());
+                            }
+
+                        }
+                    }
+
                     //check if the test execution is a certain phase
                     if(StringUtils.containsIgnoreCase(phase, phasetype[j])){
                         //add the phase to the map or increment the phase count if the phase
@@ -892,18 +918,34 @@ public class ScrapeDataXML {
                     else if(!StringUtils.containsIgnoreCase(phase, phasetype[0]) && !StringUtils.containsIgnoreCase(phase, phasetype[1])
                             && !StringUtils.containsIgnoreCase(phase, phasetype[2])
                             && !StringUtils.containsIgnoreCase(phase, phasetype[3])){
-                        System.out.println("Initial Other: " + phase);
-                        try{
-                            total++;
-                            initialphasemap.put("Testing Weeks", initialphasemap.get("Testing Weeks") + 1);
-                            phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
+                        //System.out.println("Initial Other: " + phase);
+                        if(StringUtils.containsIgnoreCase(phase, "prod")){
+                            try{
+                                total++;
+                                initialphasemap.put("Launch", initialphasemap.get("Launch") + 1);
+                                phasemap.put("Launch", phasemap.get("Launch") + 1);
+                            }
+                            catch(NullPointerException e){
+                                total++;
+                                initialphasemap.put("Launch", 1);
+                                phasemap.put("Launch", 1);
+                            }
+                            break;
+                        }else{
+                            System.out.println("Initial Other: " + phase);
+                            try{
+                                total++;
+                                initialphasemap.put("Testing Weeks", initialphasemap.get("Testing Weeks") + 1);
+                                phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
+                            }
+                            catch(NullPointerException e){
+                                total++;
+                                initialphasemap.put("Testing Weeks", 1);
+                                phasemap.put("Testing Weeks", 1);
+                            }
+                            break;
                         }
-                        catch(NullPointerException e){
-                            total++;
-                            initialphasemap.put("Testing Weeks", 1);
-                            phasemap.put("Testing Weeks", 1);
-                        }
-                        break;
+
                     }
                 }
             }
@@ -919,6 +961,7 @@ public class ScrapeDataXML {
         TOTAL = total;
         temp.put("total", TOTAL);
 
+        System.out.println(mapwithstatus);
 
         //printNestedMap(createStatusTotals(mapwithstatus, total));
         return createStatusTotals(mapwithstatus, total + mapwithstatus.size());
@@ -944,21 +987,21 @@ public class ScrapeDataXML {
 
         //try posting each filter
         try {
-            XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase", date);
+            XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase", date, TOTAL);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
 
         try {
-            XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority", date);
+            XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority", date, TOTAL);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
 
         try {
-            XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device", date);
+            XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device", date, TOTAL);
         } catch (IOException e1) {
             e1.printStackTrace();
         }

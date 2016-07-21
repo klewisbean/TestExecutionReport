@@ -30,7 +30,7 @@ public class XMLtoSheets {
 
     //method to create the json structure of the input
     //posts to firebase
-    public static void run(HashMap<String, HashMap<String, Integer>> map, String release, String api, String date) throws IOException {
+    public static void run(HashMap<String, HashMap<String, Integer>> map, String release, String api, String date, int total) throws IOException {
         SHEET_URL = api;
 
         //trust all certificates
@@ -74,6 +74,7 @@ public class XMLtoSheets {
         input = input.substring(0, input.length()-1);
         input += ",{\"Title\": \"" + release + "\"}";
         input += ",{\"Date\": \"" + date + "\"}";
+        //input += ",{\"Total\": \"" + total + "\"}";
         input += "]}";
         //end structure of the sheet
 
