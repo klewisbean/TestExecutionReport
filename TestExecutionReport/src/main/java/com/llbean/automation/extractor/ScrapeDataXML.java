@@ -8,6 +8,7 @@ import javax.swing.border.Border;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -41,6 +42,8 @@ public class ScrapeDataXML {
     public String tempRelease = "";
     //public String date = "";
     public static int TOTAL = 0;
+
+    final static Logger logger = Logger.getLogger(AutomateExportGUI.class);
 
     public void run(File file1, File file2, String date) throws FileNotFoundException {
         System.out.println("RUN SCRAPEDATAXML");
@@ -1164,7 +1167,7 @@ public class ScrapeDataXML {
     }
 
     public void fixXML(String path, String toPath) throws FileNotFoundException {
-        System.out.println("Fixing XML......")
+        System.out.println("Fixing XML......");
         File xmlfile = new File(path);
         ArrayList<String> xml = readXmlAsString(xmlfile);
         ArrayList<String> newxml = new ArrayList<>();

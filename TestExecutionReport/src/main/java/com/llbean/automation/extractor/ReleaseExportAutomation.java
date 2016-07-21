@@ -2,6 +2,7 @@ package com.llbean.automation.extractor; /**
  * Created by klewis on 6/8/2016.
  */
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,6 +26,7 @@ public class ReleaseExportAutomation {
     public String atlassianllbeanhome = "https://llbean.atlassian.net/";
     public String searchtestexecutions = "plugins/servlet/ac/com.thed.zephyr.je/general-executions-enav?project.key=CTTCM&project.id=13000#!view=list&offset=1";
     public String ZQL_SEARCH = "";
+    final static Logger logger = Logger.getLogger(ReleaseExportAutomation.class);
     public ReleaseExportAutomation(String username, String password, String zqlsearch, int count){
 
         COUNT = count;
@@ -195,6 +197,7 @@ public class ReleaseExportAutomation {
     }
 
     public static void waitfordownload(){
+        logger.trace("count:"+COUNT);
         //IJavaScriptExecutor javascript = driver as IJavaScriptExecutor;
         if(COUNT == 1){
             for(int i = 1; i < 96; i++){

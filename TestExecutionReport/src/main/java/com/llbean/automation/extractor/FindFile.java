@@ -1,4 +1,6 @@
 package com.llbean.automation.extractor;//imports
+import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
@@ -14,10 +16,11 @@ public class FindFile {
 
     DateFormat dateformat = new SimpleDateFormat("MM-dd-yyyy HH:mm");
     String FILENAME = "ZFJ-Executions-";
+    final static Logger logger = Logger.getLogger(FindFile.class);
 
     public static void main(String[] args){
         FindFile main = new FindFile();
-        System.out.println("user.dir: " + System.getProperty("user.dir"));
+        logger.trace("user.dir: " + System.getProperty("user.dir"));
         main.findFile(main.FILENAME, System.getProperty("user.dir"));
     }
 
@@ -25,7 +28,7 @@ public class FindFile {
         long newest = 0;
         long newest2 = 0;
         Date date = new Date();
-        System.out.println(dateformat.format(date));
+        logger.trace("date: " + dateformat.format(date));
         String dateStr = dateformat.format(date);
         String filename = nameToFind;
         File newestfile = new File(filename);
@@ -58,10 +61,10 @@ public class FindFile {
         }
 
         Date newestd = new Date(newestfile.lastModified());
-        System.out.println("Newest file: " + newestfile.getName());
-        System.out.println("Newest2 file: " + newestfile2.getName());
-        System.out.println("newest file time: " + newestd);
-        System.out.println("before scrape initialization");
+        logger.trace("Newest file: " + newestfile.getName());
+        logger.trace("Newest2 file: " + newestfile2.getName());
+        logger.trace("newest file time: " + newestd);
+        logger.trace("before scrape initialization");
         ScrapeDataXML scrape = new ScrapeDataXML();
         try {
             System.out.println("before scrape run");

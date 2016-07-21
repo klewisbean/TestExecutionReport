@@ -3,6 +3,7 @@ package com.llbean.automation.extractor;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +27,10 @@ public class AutomateExportGUI {
 
     public String[] releases = {"60", "61", "62", "63", "64", "65"};
 
+    final static Logger logger = Logger.getLogger(AutomateExportGUI.class);
+
     public static void main(String[] args){
+        logger.error("test");
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
 
 

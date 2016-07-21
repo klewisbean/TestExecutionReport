@@ -6,6 +6,8 @@ package com.llbean.automation.extractor; /**
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.apache.log4j.Logger;
+
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
@@ -18,6 +20,8 @@ import java.security.cert.X509Certificate;
 import java.util.*;
 
 public class XMLtoSheets {
+
+    final static Logger logger = Logger.getLogger(AutomateExportGUI.class);
 
     //api url variable
     public static String SHEET_URL = "";
