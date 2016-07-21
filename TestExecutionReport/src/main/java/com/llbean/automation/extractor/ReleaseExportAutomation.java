@@ -82,16 +82,21 @@ public class ReleaseExportAutomation {
             e.printStackTrace();
         }
 
-        WebElement navitatorContainer = driver.findElement(By.className("navigator-container"))
-                                            .findElement(By.id("zqlcomponent"))
-                                            .findElement(By.className("contained-content"))
-                                            .findElement(By.id("navigator-wrapper"))
-                                            .findElement(By.className("zql-autocomplete"))
-                                            .findElement(By.className("search-wrap"))
-                                            .findElement(By.id("search-container"))
-                                            .findElement(By.className("search-options-container"))
-                                            .findElement(By.className("mode-switcher"))
-                                            .findElement(By.id("search-mode-advanced"));
+        WebElement navitatorContainer = null;
+        try {
+             navitatorContainer = driver.findElement(By.className("navigator-container"))
+                    .findElement(By.id("zqlcomponent"))
+                    .findElement(By.className("contained-content"))
+                    .findElement(By.id("navigator-wrapper"))
+                    .findElement(By.className("zql-autocomplete"))
+                    .findElement(By.className("search-wrap"))
+                    .findElement(By.id("search-container"))
+                    .findElement(By.className("search-options-container"))
+                    .findElement(By.className("mode-switcher"))
+                    .findElement(By.id("search-mode-advanced"));
+        } catch (Exception e){
+            System.out.println("Exception");
+        }
 
         //click the advanced search button
         navitatorContainer.click();
