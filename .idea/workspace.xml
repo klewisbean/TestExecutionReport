@@ -62,8 +62,8 @@
       <file leaf-file-name="FindFile.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
+            <state relative-caret-position="232">
+              <caret line="64" column="59" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -72,9 +72,14 @@
       <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="-2100">
               <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
-              <folding />
+              <folding>
+                <element signature="method#setUpGUI#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -848,16 +853,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="-2100">
           <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
-          <folding />
+          <folding>
+            <element signature="method#setUpGUI#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
+        <state relative-caret-position="232">
+          <caret line="64" column="59" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
           <folding />
         </state>
       </provider>

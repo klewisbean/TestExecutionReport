@@ -17,7 +17,7 @@ public class FindFile {
 
     public static void main(String[] args){
         FindFile main = new FindFile();
-        System.out.println(System.getProperty("user.dir"));
+        System.out.println("user.dir: " + System.getProperty("user.dir"));
         main.findFile(main.FILENAME, System.getProperty("user.dir"));
     }
 
@@ -62,7 +62,7 @@ public class FindFile {
         System.out.println("Newest2 file: " + newestfile2.getName());
         System.out.println("newest file time: " + newestd);
 
-
+        System.out.println("before scrape initialization");
         ScrapeDataXML scrape = new ScrapeDataXML();
         try {
             System.out.println("before scrape run");
