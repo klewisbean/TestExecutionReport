@@ -170,8 +170,8 @@ public class ReleaseExportAutomation {
             System.out.println(e.getMessage());
             try {
                 Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException j) {
+                j.printStackTrace();
             }
             exportdropdown.click();
         }
