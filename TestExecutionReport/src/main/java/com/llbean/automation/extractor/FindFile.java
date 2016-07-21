@@ -17,8 +17,8 @@ public class FindFile {
 
     public static void main(String[] args){
         FindFile main = new FindFile();
-        System.out.println(System.getProperty("user.home"));
-        main.findFile(main.FILENAME, System.getProperty("user.home") + "/Downloads");
+        System.out.println(System.getProperty("user.dir"));
+        main.findFile(main.FILENAME, System.getProperty("user.dir"));
     }
 
     public void findFile(String nameToFind, String directoryToSearch){

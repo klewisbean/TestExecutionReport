@@ -190,11 +190,11 @@ public class ReleaseExportAutomation {
         //click the xml export button
         xmlexport.click();
         waitfordownload();
-        try {
+        /*try {
             push();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public static void waitfordownload(){
@@ -235,6 +235,7 @@ public class ReleaseExportAutomation {
 
     }
 
+    
 
 
 
