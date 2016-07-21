@@ -38,7 +38,6 @@
                     </execution>
                     <execution>
                         <id>post</id>
-                        <phase>compile</phase>
                         <goals>
                             <goal>java</goal>
                         </goals>
