@@ -49,7 +49,7 @@ public class ReleaseExportAutomation {
         DesiredCapabilities cap = DesiredCapabilities.chrome();
         cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
         cap.setCapability(ChromeOptions.CAPABILITY, options);
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver(cap);
         return driver;
     }
 
@@ -163,7 +163,18 @@ public class ReleaseExportAutomation {
                 .findElement(By.className("operations"))
                 .findElement(By.id("enav-export-wrapper"))
                 .findElement(By.id("export-dropdown2-link"));
-        exportdropdown.click();
+
+        try{
+            exportdropdown.click();
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            exportdropdown.click();
+        }
 
         //find the xml export button from the drop down list
         WebElement xmlexport = driver.findElement(By.id("xmlExecutionId"));
@@ -178,6 +189,10 @@ public class ReleaseExportAutomation {
         xmlexport.click();
 
 
+    }
+
+    public static void waitfordownload(){
+        //IJavaScriptExecutor javascript = driver as IJavaScriptExecutor;
     }
 
 
