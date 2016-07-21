@@ -53,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="303">
-              <caret line="229" column="74" selection-start-line="229" selection-start-column="74" selection-end-line="229" selection-end-column="74" />
+              <caret line="229" column="67" selection-start-line="229" selection-start-column="67" selection-end-line="229" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -834,7 +834,7 @@
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
-          <caret line="229" column="74" selection-start-line="229" selection-start-column="74" selection-end-line="229" selection-end-column="74" />
+          <caret line="229" column="67" selection-start-line="229" selection-start-column="67" selection-end-line="229" selection-end-column="67" />
           <folding />
         </state>
       </provider>
