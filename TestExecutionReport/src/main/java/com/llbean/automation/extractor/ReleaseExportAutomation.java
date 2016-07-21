@@ -190,11 +190,8 @@ public class ReleaseExportAutomation {
         //click the xml export button
         xmlexport.click();
         waitfordownload();
-        /*try {
-            push();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+
+
     }
 
     public static void waitfordownload(){
@@ -225,17 +222,8 @@ public class ReleaseExportAutomation {
     }
 
 
-    public void push() throws IOException {
-        Runtime rt = Runtime.getRuntime();
-        System.out.println("cd " + System.getProperty("user.dir"));
-        Process changedir = rt.exec("cd " + System.getProperty("user.dir"));
-        Process addall = rt.exec("git add --all");
-        Process commit = rt.exec("git commit -m \"commit xml files\"");
-        Process pushgit = rt.exec("git push");
 
-    }
 
-    
 
 
 

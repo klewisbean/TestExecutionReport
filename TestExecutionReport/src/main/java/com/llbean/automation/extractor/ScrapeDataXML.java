@@ -57,9 +57,9 @@ public class ScrapeDataXML {
         NodeList executionStatus1 = null;
 
 
-
-        fixXML(file1.getPath(), file1.getPath());
-        fixXML(file2.getPath(), file2.getPath());
+        System.out.println("file1 path: " + file1.getPath());
+        fixXML(file1.getPath(), file1.getPath() + "fix");
+        fixXML(file2.getPath(), file2.getPath() + "fix");
 
 
         //sorts through the xml file and refine the file into and array list
@@ -1163,6 +1163,7 @@ public class ScrapeDataXML {
     }
 
     public void fixXML(String path, String toPath) throws FileNotFoundException {
+        System.out.println("Fixing XML......")
         File xmlfile = new File(path);
         ArrayList<String> xml = readXmlAsString(xmlfile);
         ArrayList<String> newxml = new ArrayList<>();
