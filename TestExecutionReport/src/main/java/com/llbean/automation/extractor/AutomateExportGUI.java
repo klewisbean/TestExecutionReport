@@ -70,8 +70,8 @@ public class AutomateExportGUI {
         String zqlsearch1 = createZQLSearch(half1);
         String zqlsearch2 = createZQLSearch(half2);
 
-        ReleaseExportAutomation releaseAuto1 = new ReleaseExportAutomation(username, password, zqlsearch1);
-        ReleaseExportAutomation releaseAuto2 = new ReleaseExportAutomation(username, password, zqlsearch2);
+        ReleaseExportAutomation releaseAuto1 = new ReleaseExportAutomation(username, password, zqlsearch1, 1);
+        ReleaseExportAutomation releaseAuto2 = new ReleaseExportAutomation(username, password, zqlsearch2, 2);
     }
 
     //creates a zql string in order to search zql given a list of versions

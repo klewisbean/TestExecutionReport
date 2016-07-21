@@ -18,15 +18,15 @@ import java.util.HashMap;
 
 public class ReleaseExportAutomation {
 
-
+    public static int COUNT;
     public WebDriver driver = setUpDriver();
 
     public String atlassianllbeanhome = "https://llbean.atlassian.net/";
     public String searchtestexecutions = "plugins/servlet/ac/com.thed.zephyr.je/general-executions-enav?project.key=CTTCM&project.id=13000#!view=list&offset=1";
     public String ZQL_SEARCH = "";
-    public ReleaseExportAutomation(String username, String password, String zqlsearch){
+    public ReleaseExportAutomation(String username, String password, String zqlsearch, int count){
 
-
+        COUNT = count;
         driver.get("https://llbean.atlassian.net/login");
         ZQL_SEARCH = zqlsearch;
 
@@ -39,10 +39,11 @@ public class ReleaseExportAutomation {
     }
 
     public WebDriver setUpDriver(){
-        //String downloadFilepath = "C:\\" + System.getProperty("user.home") + "\\Downloads";
+        System.out.println("user dir: " + System.getProperty("user.dir"));
+        String downloadFilepath = System.getProperty("user.dir");
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("profile.default_content_settings.popups", 0);
-        //chromePrefs.put("download.default_directory", downloadFilepath);
+        chromePrefs.put("download.default_directory", downloadFilepath);
         chromePrefs.put("safebrowsing.enabled", "true");
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
@@ -187,12 +188,34 @@ public class ReleaseExportAutomation {
 
         //click the xml export button
         xmlexport.click();
-
-
+        waitfordownload();
     }
 
     public static void waitfordownload(){
         //IJavaScriptExecutor javascript = driver as IJavaScriptExecutor;
+        if(COUNT == 1){
+            for(int i = 1; i < 96; i++){
+                System.out.println((5*i) + " seconds");
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("done");
+        }
+        else if(COUNT == 2){
+            for(int i = 1; i < 30; i++){
+                System.out.println((5*i) + " seconds");
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("done");
+        }
+
     }
 
 
