@@ -36,7 +36,7 @@
 
                         </configuration>
                     </execution>
-                    <execution>
+                    <!--execution>
                         <id>post</id>
                         <phase>compile</phase>
                         <goals>
@@ -46,7 +46,7 @@
                             <mainClass>com.llbean.automation.extractor.FindFile</mainClass>
 
                         </configuration>
-                    </execution>
+                    </execution-->
                 </executions>
             </plugin>
         </plugins>
