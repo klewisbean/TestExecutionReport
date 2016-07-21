@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 
@@ -189,6 +190,11 @@ public class ReleaseExportAutomation {
         //click the xml export button
         xmlexport.click();
         waitfordownload();
+        try {
+            push();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void waitfordownload(){
@@ -215,6 +221,16 @@ public class ReleaseExportAutomation {
             }
             System.out.println("done");
         }
+
+    }
+
+
+    public void push() throws IOException {
+        Runtime rt = Runtime.getRuntime();
+        Process changedir = rt.exec("cd C:\\Users\\Kevin\\test-k\\TestExecutionReport");
+        Process addall = rt.exec("git add --all");
+        Process commit = rt.exec("git commit -m \"commit xml files\"");
+        Process pushgit = rt.exec("git push");
 
     }
 
