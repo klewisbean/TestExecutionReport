@@ -227,7 +227,7 @@ public class ReleaseExportAutomation {
 
     public void push() throws IOException {
         Runtime rt = Runtime.getRuntime();
-        Process changedir = rt.exec("cd C:\\Users\\Kevin\\test-k\\TestExecutionReport");
+        Process changedir = rt.exec("cd " + System.getProperty("user.dir"));
         Process addall = rt.exec("git add --all");
         Process commit = rt.exec("git commit -m \"commit xml files\"");
         Process pushgit = rt.exec("git push");

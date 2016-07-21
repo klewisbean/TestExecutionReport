@@ -52,8 +52,8 @@
       <file leaf-file-name="ReleaseExportAutomation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="197" column="5" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
+            <state relative-caret-position="303">
+              <caret line="229" column="74" selection-start-line="229" selection-start-column="74" selection-end-line="229" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -833,8 +833,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="197" column="5" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
+        <state relative-caret-position="303">
+          <caret line="229" column="74" selection-start-line="229" selection-start-column="74" selection-end-line="229" selection-end-column="74" />
           <folding />
         </state>
       </provider>
