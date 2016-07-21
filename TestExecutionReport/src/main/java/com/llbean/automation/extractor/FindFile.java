@@ -60,8 +60,8 @@ public class FindFile {
         Date newestd = new Date(newestfile.lastModified());
         System.out.println("Newest file: " + newestfile.getName());
         System.out.println("Newest2 file: " + newestfile2.getName());
+        System.out.println("test");
         System.out.println("newest file time: " + newestd);
-
         System.out.println("before scrape initialization");
         ScrapeDataXML scrape = new ScrapeDataXML();
         try {
