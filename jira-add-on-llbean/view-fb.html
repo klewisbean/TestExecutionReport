@@ -33,16 +33,22 @@
    </head>
    <body id="main-body">
      <main>
-       <h5 class="aui-badge">As of: </h5>
-       <div id="div1" style="float: left;">
-          <canvas id="chart" width = "250" height = "250"></canvas>
+       <div id="header">
+         <h5 class="aui-badge">As of: </h5>
        </div>
-       <div id="div2" style="float: right;">
-         <canvas id="chart-initial" width = "250" height = "250"></canvas>
-         <canvas id="chart-clean" width = "250" height = "250"></canvas>
+       <div id="chart-div">
+         <div id="left-div" style="float: left;">
+            <canvas id="chart" width = "250" height = "250"></canvas>
+            <h4 id="loz-total-cases-release" class="aui-lozenge">Total Cases: 0</h4>
+         </div>
+         <div id="right div" style="float: right;">
+           <canvas id="chart-initial" width = "250" height = "250"></canvas>
+           <h4 id="loz-total-cases-initial" class="aui-lozenge">Total Cases: 0</h4>
+           <canvas id="chart-clean" width = "250" height = "250"></canvas>
+           <h4 id="loz-total-cases-clean" class="aui-lozenge">Total Cases: 0</h4>
+         </div>
        </div>
-       <div style="text-align:center;">
-         <h4 class="aui-lozenge">Total Cases: 0</h4>
+       <div id="bottom-div" style="text-align:center;">
          <div id="filter-div" style="text-align:center;">
            <input type="radio" id="phase" name="filter" onclick="check(this.value)" value="phase" checked="checked">Phase
            <input type="radio" id="priority" name="filter" onclick="check(this.value)" value="priority">Priority
