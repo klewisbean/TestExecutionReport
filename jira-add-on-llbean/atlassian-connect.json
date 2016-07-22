@@ -3,7 +3,7 @@
   "name": "Report Add-on",
   "version": "0.2",
   "description": "Atlassian Connect add-on",
-  "baseUrl": "https://rawgit.com/klewisbean/TestExecutionReport/test-k/jira-add-on-llbean/atlassian-connect.json",
+  "baseUrl": "https://rawgit.com/klewisbean/TestExecutionReport/test-k/jira-add-on-llbean",
   "vendor": {
     "name": "Kevin @ L.L.Bean",
     "url": "http://www.llbean.com"
