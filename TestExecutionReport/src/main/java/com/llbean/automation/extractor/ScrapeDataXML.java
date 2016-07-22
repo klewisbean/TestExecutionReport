@@ -344,6 +344,8 @@ public class ScrapeDataXML {
         HashMap<String, Integer> devicemap = new HashMap<>();
 
         HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
 
         //list of all possible device names
         String[] devicelist = {"Tablet", "Desktop", "Mobile App", "Mobile Web", "mweb", "app"};
@@ -411,6 +413,34 @@ public class ScrapeDataXML {
                     //check if the test execution matches one of the devices
                     //then add it to the map under it's name and increment the count
                     if(StringUtils.containsIgnoreCase(cycle, devicelist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = cleanmapwithstatus.get(devicelist[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    cleanmapwithstatus.put(devicelist[j], temp);
+                                }catch(Exception e){
+                                    cleanmapwithstatus.put(devicelist[j], new HashMap<>());
+                                }
+
+                            } else if(!StringUtils.containsIgnoreCase(status, execstatus[0])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[1])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[2])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[3])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[4])){
+                                System.out.println(status + " | " + execstatus[r]);
+                            }
+                        }
+
                         try{
                             cleandevicemap.put(devicelist[j], cleandevicemap.get(devicelist[j]) + 1);
                             devicemap.put(devicelist[j], devicemap.get(devicelist[j]) + 1);
@@ -449,6 +479,34 @@ public class ScrapeDataXML {
                 for(int j = 0; j < devicelist.length; j++){
                     //check if the cycle contains the device name
                     if(StringUtils.containsIgnoreCase(cycle, devicelist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = initmapwithstatus.get(devicelist[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    initmapwithstatus.put(devicelist[j], temp);
+                                }catch(Exception e){
+                                    initmapwithstatus.put(devicelist[j], new HashMap<>());
+                                }
+
+                            } else if(!StringUtils.containsIgnoreCase(status, execstatus[0])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[1])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[2])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[3])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[4])){
+                                System.out.println(status + " | " + execstatus[r]);
+                            }
+                        }
+
                         //add the device to the map or increment the count if the device already
                         //exists in the map
                         try{
@@ -558,34 +616,11 @@ public class ScrapeDataXML {
         }catch(Exception e){
             //System.out.println("could not combine");
         }
-        /*Iterator it = mapwithstatus.entrySet().iterator();
-
-        while(it.hasNext()){
-            Map.Entry pair = (Map.Entry)it.next();
-            System.out.println(pair.getKey() + " | " + pair.getValue());
-        }*/
 
 
         devicestatus = mapwithstatus;
         TOTAL = total;
-
-        HashMap<String, Integer> tempmap = combineHashMap(cleandevicemap, initdevicemap);
-
-        //System.out.println("device total: " + (totalinit + totalcleanup));
-
-        tempmap.put("total", TOTAL);
-        //printMap(tempmap);
-        //System.out.println("mapwithstatus size: " + mapwithstatus.size());
         return createStatusTotals(mapwithstatus, total + mapwithstatus.size());
-        //display the data and count the total
-        /*System.out.println("Cleanup:");
-        int countclean = printMap(cleandevicemap);
-        System.out.println("\nInitial:");
-        int countinit = printMap(initdevicemap);
-        System.out.println("TOTAL: " + (countinit + countclean));
-
-        System.out.println("\n---------------------------------");
-        printMapDouble(devicePercentageMap);*/
 
     }
 
@@ -612,6 +647,8 @@ public class ScrapeDataXML {
 
 
         HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
 
         tempRelease = release + " Priority";
 
@@ -663,10 +700,34 @@ public class ScrapeDataXML {
             //check if the cycle is cleanup
             if(StringUtils.containsIgnoreCase(cycle, "Cleanup") || StringUtils.containsIgnoreCase(cycle, "Clean-up")){
 
+
+
                 //loop to iterate through the different priorities
                 for(int j = 0; j < prioritylist.length; j++){
                     //check if the test execution has a certain priority
                     if(StringUtils.containsIgnoreCase(priority, prioritylist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = cleanmapwithstatus.get(priority);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    cleanmapwithstatus.put(priority, temp);
+                                }catch(Exception e){
+                                    cleanmapwithstatus.put(priority, new HashMap<>());
+                                }
+
+                            }
+                        }
+
                         //add the priority to the map or increment the count if the
                         //priority already exists in the map
                         try{
@@ -688,13 +749,6 @@ public class ScrapeDataXML {
                         System.out.println(prioritylist[j] + " | " + priority);
                     }
 
-                    for(int k = 0; k < execstatus.length; k++){
-
-                        if(status.equalsIgnoreCase(execstatus[k])){
-                            countex[k] += 1;
-                        }
-                    }
-
                 }
 
             }
@@ -705,6 +759,28 @@ public class ScrapeDataXML {
 
                     //check if the priority matches the test execution
                     if(StringUtils.containsIgnoreCase(priority, prioritylist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = initmapwithstatus.get(priority);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    initmapwithstatus.put(priority, temp);
+                                }catch(Exception e){
+                                    initmapwithstatus.put(priority, new HashMap<>());
+                                }
+
+                            }
+                        }
+
                         //add the priority to the map or increment the count if the
                         //priority already exists in the map
                         try{
@@ -737,33 +813,9 @@ public class ScrapeDataXML {
 
         }
 
-
-        HashMap<String,Double> priorityPercentageMap = createPercentages(combineHashMap(cleanprioritymap, initprioritymap), total);
-
-
-        //printMap(combineHashMap(cleanprioritymap, initprioritymap));
-
-        Iterator it = mapwithstatus.entrySet().iterator();
-
-        /*while(it.hasNext()){
-            Map.Entry pair = (Map.Entry)it.next();
-            System.out.println(pair.getKey() + " | " + pair.getValue());
-        }*/
-        HashMap<String, Integer> tempmap = combineHashMap(cleanprioritymap, initprioritymap);
         prioritystatus = mapwithstatus;
-        System.out.println("priority total: " + total);
         TOTAL = total;
-        tempmap.put("total", TOTAL);
-        //System.out.println("mapwithstatus size: " + mapwithstatus.size());
         return createStatusTotals(mapwithstatus, total + mapwithstatus.size());
-
-
-        //display the data and calculate the total
-        /*System.out.println("Cleanup: ");
-        int countclean = printMap(cleanprioritymap);
-        System.out.println("\nInitial: ");
-        int countinit = printMap(initprioritymap);
-        System.out.println("TOTAL: " + (countinit + countclean));*/
     }
 
 
@@ -787,6 +839,8 @@ public class ScrapeDataXML {
         HashMap<String, Integer> initialphasemap = new HashMap<>();
 
         HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
 
         tempRelease = release + " Phase";
 
@@ -797,9 +851,9 @@ public class ScrapeDataXML {
             String phase = versionlist.get(i)[1];
             String status = versionlist.get(i)[5];
 
-            if(StringUtils.containsIgnoreCase(phase, "launch") || StringUtils.containsIgnoreCase(phase, "prod")){
+            /*if(StringUtils.containsIgnoreCase(phase, "launch") || StringUtils.containsIgnoreCase(phase, "prod")){
                 System.out.println(phase);
-            }
+            }*/
 
             //System.out.println("phase: " + phase + " | status: " + status);
 
@@ -844,29 +898,30 @@ public class ScrapeDataXML {
                 //iterate through the possible phases
                 for(int j = 0; j < phasetype.length; j++){
 
-                    for(int r = 0; r < execstatus.length; r++){
-
-                        //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
-                        if(StringUtils.containsIgnoreCase(status, execstatus[r])){
-
-                            try{
-                                HashMap<String, Integer> temp = mapwithstatus.get(phasetype[j]);
-                                try{
-                                    temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
-                                }
-                                catch(Exception e){
-                                    temp.put(execstatus[r], 1);
-                                }
-                                mapwithstatus.put(phasetype[j], temp);
-                            }catch(Exception e){
-                                mapwithstatus.put(phasetype[j], new HashMap<>());
-                            }
-
-                        }
-                    }
-
                     //check if the test execution is a certain phase
                     if(StringUtils.containsIgnoreCase(phase, phasetype[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = cleanmapwithstatus.get(phasetype[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    cleanmapwithstatus.put(phasetype[j], temp);
+                                }catch(Exception e){
+                                    cleanmapwithstatus.put(phasetype[j], new HashMap<>());
+                                }
+
+                            }
+                        }
+
                         //add the phase to the map or increment the phase count if the phase
                         //already exists in the map
                         try{
@@ -907,6 +962,28 @@ public class ScrapeDataXML {
                 for(int j = 0; j < phasetype.length; j++){
                     //check if the phase is correct
                     if(StringUtils.containsIgnoreCase(phase, phasetype[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = initmapwithstatus.get(phasetype[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    initmapwithstatus.put(phasetype[j], temp);
+                                }catch(Exception e){
+                                    initmapwithstatus.put(phasetype[j], new HashMap<>());
+                                }
+
+                            }
+                        }
+
                         //add the phase to the map or increment the phase count if
                         //the phase already exists in the map
                         try{
@@ -960,26 +1037,1422 @@ public class ScrapeDataXML {
 
         }
         phasestatus = mapwithstatus;
-
-
-        HashMap<String, Integer> temp = combineHashMap(cleanupphasemap, initialphasemap);
-
-        System.out.println("phase total: " + total );
-        //System.out.println("mapwithstatus size: " + mapwithstatus.size());
         TOTAL = total;
-        temp.put("total", TOTAL);
-
-        System.out.println(mapwithstatus);
-
-        //printNestedMap(createStatusTotals(mapwithstatus, total));
         return createStatusTotals(mapwithstatus, total + mapwithstatus.size());
+    }
 
-        //display the data and count the total
-        /*System.out.println("Cleanup:");
-        int countclean = printMap(cleanupphasemap);
-        System.out.println("\nInitial:");
-        int countinit = printMap(initialphasemap);
-        System.out.println("TOTAL: " + (countinit + countclean));*/
+    /*
+    #########################################################################################################
+    #########################################################################################################
+    #########################################################################################################
+     */
+
+    public HashMap<String, HashMap<String, Integer>> filterPriorityclean(ArrayList<String[]> versionlist){
+        tempRelease = "";
+        int total = 0;
+        int count2 = 0;
+        int[] countex = {0,0,0,0,0};
+        //string array to hold the possible priorities
+        String[] prioritylist = {"Critical", "Major", "Minor", "No Priority", "Trivial", "Blocker"};
+
+        //hashmaps to hold the data according by the priority and the corresponding count value
+        HashMap<String, Integer> prioritymap = new HashMap<>();
+        HashMap<String, Integer> cleanprioritymap = new HashMap<>();
+        HashMap<String, Integer> initprioritymap = new HashMap<>();
+
+
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
+
+        tempRelease = release + " Priority";
+
+        //for loop to iterate through the test executions of the given list
+        for(int i = 0; i < versionlist.size(); i++){
+
+            //strings to hold the values of the priority and the cycle
+            String priority = versionlist.get(i)[3];
+            String cycle = versionlist.get(i)[1];
+            String status = versionlist.get(i)[5];
+
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+            for(int l = 0; l < prioritylist.length; l++){
+                if(StringUtils.containsIgnoreCase(priority, prioritylist[l])){
+
+                    for(int r = 0; r < execstatus.length; r++){
+
+                        //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                        if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                            try{
+                                HashMap<String, Integer> temp = mapwithstatus.get(priority);
+                                try{
+                                    temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                }
+                                catch(Exception e){
+                                    temp.put(execstatus[r], 1);
+                                }
+                                mapwithstatus.put(priority, temp);
+                            }catch(Exception e){
+                                mapwithstatus.put(priority, new HashMap<>());
+                            }
+
+                        }
+                    }
+
+                }
+            }
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+
+
+
+            //check if the cycle is cleanup
+            if(StringUtils.containsIgnoreCase(cycle, "Cleanup") || StringUtils.containsIgnoreCase(cycle, "Clean-up")){
+
+
+
+                //loop to iterate through the different priorities
+                for(int j = 0; j < prioritylist.length; j++){
+                    //check if the test execution has a certain priority
+                    if(StringUtils.containsIgnoreCase(priority, prioritylist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = cleanmapwithstatus.get(priority);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    cleanmapwithstatus.put(priority, temp);
+                                }catch(Exception e){
+                                    cleanmapwithstatus.put(priority, new HashMap<>());
+                                }
+
+                            }
+                        }
+
+                        //add the priority to the map or increment the count if the
+                        //priority already exists in the map
+                        try{
+                            total++;
+                            prioritymap.put(priority, prioritymap.get(priority) + 1);
+                            cleanprioritymap.put(priority, cleanprioritymap.get(priority) + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            prioritymap.put(priority, 1);
+                            cleanprioritymap.put(priority, 1);
+                        }
+                    } else if(!StringUtils.containsIgnoreCase(priority, prioritylist[0])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[1])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[2])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[3])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[4])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[5])){
+                        System.out.println(prioritylist[j] + " | " + priority);
+                    }
+
+                }
+
+            }
+            //when the cycle is an initial launch
+            else{
+                //iterate through the possible priorities
+                for(int j = 0; j < prioritylist.length; j++){
+
+                    //check if the priority matches the test execution
+                    if(StringUtils.containsIgnoreCase(priority, prioritylist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = initmapwithstatus.get(priority);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    initmapwithstatus.put(priority, temp);
+                                }catch(Exception e){
+                                    initmapwithstatus.put(priority, new HashMap<>());
+                                }
+
+                            }
+                        }
+
+                        //add the priority to the map or increment the count if the
+                        //priority already exists in the map
+                        try{
+                            total++;
+                            prioritymap.put(priority, prioritymap.get(priority) + 1);
+                            initprioritymap.put(priority, initprioritymap.get(priority) + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            prioritymap.put(priority, 1);
+                            initprioritymap.put(priority, 1);
+                        }
+                    } else if(!StringUtils.containsIgnoreCase(priority, prioritylist[0])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[1])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[2])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[3])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[4])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[5])){
+                        System.out.println(prioritylist[j] + " | " + priority);
+                    }
+
+                    for(int k = 0; k < execstatus.length; k++){
+
+                        if(status.equalsIgnoreCase(execstatus[k])){
+                            countex[k] += 1;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        prioritystatus = mapwithstatus;
+        TOTAL = total;
+        return createStatusTotals(cleanmapwithstatus, total);
+    }
+
+    public HashMap<String, HashMap<String, Integer>> filterPriorityinit(ArrayList<String[]> versionlist){
+        tempRelease = "";
+        int total = 0;
+        int count2 = 0;
+        int[] countex = {0,0,0,0,0};
+        //string array to hold the possible priorities
+        String[] prioritylist = {"Critical", "Major", "Minor", "No Priority", "Trivial", "Blocker"};
+
+        //hashmaps to hold the data according by the priority and the corresponding count value
+        HashMap<String, Integer> prioritymap = new HashMap<>();
+        HashMap<String, Integer> cleanprioritymap = new HashMap<>();
+        HashMap<String, Integer> initprioritymap = new HashMap<>();
+
+
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
+
+        tempRelease = release + " Priority";
+
+        //for loop to iterate through the test executions of the given list
+        for(int i = 0; i < versionlist.size(); i++){
+
+            //strings to hold the values of the priority and the cycle
+            String priority = versionlist.get(i)[3];
+            String cycle = versionlist.get(i)[1];
+            String status = versionlist.get(i)[5];
+
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+            for(int l = 0; l < prioritylist.length; l++){
+                if(StringUtils.containsIgnoreCase(priority, prioritylist[l])){
+
+                    for(int r = 0; r < execstatus.length; r++){
+
+                        //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                        if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                            try{
+                                HashMap<String, Integer> temp = mapwithstatus.get(priority);
+                                try{
+                                    temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                }
+                                catch(Exception e){
+                                    temp.put(execstatus[r], 1);
+                                }
+                                mapwithstatus.put(priority, temp);
+                            }catch(Exception e){
+                                mapwithstatus.put(priority, new HashMap<>());
+                            }
+
+                        }
+                    }
+
+                }
+            }
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+
+
+
+            //check if the cycle is cleanup
+            if(StringUtils.containsIgnoreCase(cycle, "Cleanup") || StringUtils.containsIgnoreCase(cycle, "Clean-up")){
+
+
+
+                //loop to iterate through the different priorities
+                for(int j = 0; j < prioritylist.length; j++){
+                    //check if the test execution has a certain priority
+                    if(StringUtils.containsIgnoreCase(priority, prioritylist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = cleanmapwithstatus.get(priority);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    cleanmapwithstatus.put(priority, temp);
+                                }catch(Exception e){
+                                    cleanmapwithstatus.put(priority, new HashMap<>());
+                                }
+
+                            }
+                        }
+
+                        //add the priority to the map or increment the count if the
+                        //priority already exists in the map
+                        try{
+                            total++;
+                            prioritymap.put(priority, prioritymap.get(priority) + 1);
+                            cleanprioritymap.put(priority, cleanprioritymap.get(priority) + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            prioritymap.put(priority, 1);
+                            cleanprioritymap.put(priority, 1);
+                        }
+                    } else if(!StringUtils.containsIgnoreCase(priority, prioritylist[0])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[1])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[2])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[3])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[4])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[5])){
+                        System.out.println(prioritylist[j] + " | " + priority);
+                    }
+
+                }
+
+            }
+            //when the cycle is an initial launch
+            else{
+                //iterate through the possible priorities
+                for(int j = 0; j < prioritylist.length; j++){
+
+                    //check if the priority matches the test execution
+                    if(StringUtils.containsIgnoreCase(priority, prioritylist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = initmapwithstatus.get(priority);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    initmapwithstatus.put(priority, temp);
+                                }catch(Exception e){
+                                    initmapwithstatus.put(priority, new HashMap<>());
+                                }
+
+                            }
+                        }
+
+                        //add the priority to the map or increment the count if the
+                        //priority already exists in the map
+                        try{
+                            total++;
+                            prioritymap.put(priority, prioritymap.get(priority) + 1);
+                            initprioritymap.put(priority, initprioritymap.get(priority) + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            prioritymap.put(priority, 1);
+                            initprioritymap.put(priority, 1);
+                        }
+                    } else if(!StringUtils.containsIgnoreCase(priority, prioritylist[0])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[1])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[2])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[3])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[4])
+                            && !StringUtils.containsIgnoreCase(priority, prioritylist[5])){
+                        System.out.println(prioritylist[j] + " | " + priority);
+                    }
+
+                    for(int k = 0; k < execstatus.length; k++){
+
+                        if(status.equalsIgnoreCase(execstatus[k])){
+                            countex[k] += 1;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        prioritystatus = mapwithstatus;
+        TOTAL = total;
+        return createStatusTotals(initmapwithstatus, total);
+    }
+
+
+    /*
+    #########################################################################################################
+    #########################################################################################################
+    #########################################################################################################
+     */
+
+    public HashMap<String, HashMap<String, Integer>> filterPhaseclean(ArrayList<String[]> versionlist){
+
+        tempRelease = "";
+        int total = 0;
+        //string array to hold the possible phase types
+        String[] phasetype = {"PLS", "TestingWeeks", "Stage", "Launch"};
+
+        //hashmaps to keep track of the phase counts depending on if
+        //the cycle is clean up or initial
+        HashMap<String, Integer> cleanupphasemap = new HashMap<>();
+        HashMap<String, Integer> initialphasemap = new HashMap<>();
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
+
+        tempRelease = release + " Phase";
+
+        //iterate through the test executions
+        for(int i = 0; i < versionlist.size(); i++){
+
+            //string to hold the cycle name
+            String phase = versionlist.get(i)[1];
+            String status = versionlist.get(i)[5];
+
+            /*if(StringUtils.containsIgnoreCase(phase, "launch") || StringUtils.containsIgnoreCase(phase, "prod")){
+                System.out.println(phase);
+            }*/
+
+            //System.out.println("phase: " + phase + " | status: " + status);
+
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+            for(int l = 0; l < phasetype.length; l++){
+                if(StringUtils.containsIgnoreCase(phase, phasetype[l])){
+
+                    for(int r = 0; r < execstatus.length; r++){
+
+                        //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                        if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                            try{
+                                HashMap<String, Integer> temp = mapwithstatus.get(phasetype[l]);
+                                try{
+                                    temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                }
+                                catch(Exception e){
+                                    temp.put(execstatus[r], 1);
+                                }
+                                mapwithstatus.put(phasetype[l], temp);
+                            }catch(Exception e){
+                                mapwithstatus.put(phasetype[l], new HashMap<>());
+                            }
+
+                        }
+                    }
+
+                }
+            }
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+
+
+            //if the test execution is cleanup
+            if(StringUtils.containsIgnoreCase(phase, "Cleanup") || StringUtils.containsIgnoreCase(phase, "Clean-up")){
+                //iterate through the possible phases
+                for(int j = 0; j < phasetype.length; j++){
+
+                    //check if the test execution is a certain phase
+                    if(StringUtils.containsIgnoreCase(phase, phasetype[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = cleanmapwithstatus.get(phasetype[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    cleanmapwithstatus.put(phasetype[j], temp);
+                                }catch(Exception e){
+                                    cleanmapwithstatus.put(phasetype[j], new HashMap<>());
+                                }
+
+                            }
+                        }
+
+                        //add the phase to the map or increment the phase count if the phase
+                        //already exists in the map
+                        try{
+                            total++;
+                            cleanupphasemap.put(phasetype[j], cleanupphasemap.get(phasetype[j]) + 1);
+                            phasemap.put(phasetype[j], phasemap.get(phasetype[j]) + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            cleanupphasemap.put(phasetype[j], 1);
+                            phasemap.put(phasetype[j], 1);
+                        }
+                        break;
+                    }
+                    //when the phase cannot be determined
+                    //add print statement to determine why
+                    else if(!StringUtils.containsIgnoreCase(phase, phasetype[0]) && !StringUtils.containsIgnoreCase(phase, phasetype[1])
+                            && !StringUtils.containsIgnoreCase(phase, phasetype[2])
+                            && !StringUtils.containsIgnoreCase(phase, phasetype[3])){
+                        System.out.println("Cleanup Other: " + phase);
+                        try{
+                            total++;
+                            cleanupphasemap.put("Testing Weeks", cleanupphasemap.get("Testing Weeks") + 1);
+                            phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            cleanupphasemap.put("Testing Weeks", 1);
+                            phasemap.put("Testing Weeks", 1);
+                        }
+                        break;
+                    }
+                }
+            }
+            //phase is initial
+            else{
+                //iterate through the possible phase types
+                for(int j = 0; j < phasetype.length; j++){
+                    //check if the phase is correct
+                    if(StringUtils.containsIgnoreCase(phase, phasetype[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = initmapwithstatus.get(phasetype[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    initmapwithstatus.put(phasetype[j], temp);
+                                }catch(Exception e){
+                                    initmapwithstatus.put(phasetype[j], new HashMap<>());
+                                }
+
+                            }
+                        }
+
+                        //add the phase to the map or increment the phase count if
+                        //the phase already exists in the map
+                        try{
+                            total++;
+                            initialphasemap.put(phasetype[j], initialphasemap.get(phasetype[j]) + 1);
+                            phasemap.put(phasetype[j], phasemap.get(phasetype[j]) + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            initialphasemap.put(phasetype[j], 1);
+                            phasemap.put(phasetype[j], 1);
+                        }
+                        break;
+                    }
+                    //if the phase cannot be determined
+                    //add print statement to troubleshoot
+                    else if(!StringUtils.containsIgnoreCase(phase, phasetype[0]) && !StringUtils.containsIgnoreCase(phase, phasetype[1])
+                            && !StringUtils.containsIgnoreCase(phase, phasetype[2])
+                            && !StringUtils.containsIgnoreCase(phase, phasetype[3])){
+                        //System.out.println("Initial Other: " + phase);
+                        if(StringUtils.containsIgnoreCase(phase, "prod")){
+                            try{
+                                total++;
+                                initialphasemap.put("Launch", initialphasemap.get("Launch") + 1);
+                                phasemap.put("Launch", phasemap.get("Launch") + 1);
+                            }
+                            catch(NullPointerException e){
+                                total++;
+                                initialphasemap.put("Launch", 1);
+                                phasemap.put("Launch", 1);
+                            }
+                            break;
+                        }else{
+                            System.out.println("Initial Other: " + phase);
+                            try{
+                                total++;
+                                initialphasemap.put("Testing Weeks", initialphasemap.get("Testing Weeks") + 1);
+                                phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
+                            }
+                            catch(NullPointerException e){
+                                total++;
+                                initialphasemap.put("Testing Weeks", 1);
+                                phasemap.put("Testing Weeks", 1);
+                            }
+                            break;
+                        }
+
+                    }
+                }
+            }
+
+        }
+        phasestatus = mapwithstatus;
+        TOTAL = total;
+        return createStatusTotals(cleanmapwithstatus, total);
+    }
+
+    public HashMap<String, HashMap<String, Integer>> filterPhaseinit(ArrayList<String[]> versionlist){
+
+        tempRelease = "";
+        int total = 0;
+        //string array to hold the possible phase types
+        String[] phasetype = {"PLS", "TestingWeeks", "Stage", "Launch"};
+
+        //hashmaps to keep track of the phase counts depending on if
+        //the cycle is clean up or initial
+        HashMap<String, Integer> cleanupphasemap = new HashMap<>();
+        HashMap<String, Integer> initialphasemap = new HashMap<>();
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
+
+        tempRelease = release + " Phase";
+
+        //iterate through the test executions
+        for(int i = 0; i < versionlist.size(); i++){
+
+            //string to hold the cycle name
+            String phase = versionlist.get(i)[1];
+            String status = versionlist.get(i)[5];
+
+            /*if(StringUtils.containsIgnoreCase(phase, "launch") || StringUtils.containsIgnoreCase(phase, "prod")){
+                System.out.println(phase);
+            }*/
+
+            //System.out.println("phase: " + phase + " | status: " + status);
+
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+            for(int l = 0; l < phasetype.length; l++){
+                if(StringUtils.containsIgnoreCase(phase, phasetype[l])){
+
+                    for(int r = 0; r < execstatus.length; r++){
+
+                        //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                        if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                            try{
+                                HashMap<String, Integer> temp = mapwithstatus.get(phasetype[l]);
+                                try{
+                                    temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                }
+                                catch(Exception e){
+                                    temp.put(execstatus[r], 1);
+                                }
+                                mapwithstatus.put(phasetype[l], temp);
+                            }catch(Exception e){
+                                mapwithstatus.put(phasetype[l], new HashMap<>());
+                            }
+
+                        }
+                    }
+
+                }
+            }
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+
+
+            //if the test execution is cleanup
+            if(StringUtils.containsIgnoreCase(phase, "Cleanup") || StringUtils.containsIgnoreCase(phase, "Clean-up")){
+                //iterate through the possible phases
+                for(int j = 0; j < phasetype.length; j++){
+
+                    //check if the test execution is a certain phase
+                    if(StringUtils.containsIgnoreCase(phase, phasetype[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = cleanmapwithstatus.get(phasetype[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    cleanmapwithstatus.put(phasetype[j], temp);
+                                }catch(Exception e){
+                                    cleanmapwithstatus.put(phasetype[j], new HashMap<>());
+                                }
+
+                            }
+                        }
+
+                        //add the phase to the map or increment the phase count if the phase
+                        //already exists in the map
+                        try{
+                            total++;
+                            cleanupphasemap.put(phasetype[j], cleanupphasemap.get(phasetype[j]) + 1);
+                            phasemap.put(phasetype[j], phasemap.get(phasetype[j]) + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            cleanupphasemap.put(phasetype[j], 1);
+                            phasemap.put(phasetype[j], 1);
+                        }
+                        break;
+                    }
+                    //when the phase cannot be determined
+                    //add print statement to determine why
+                    else if(!StringUtils.containsIgnoreCase(phase, phasetype[0]) && !StringUtils.containsIgnoreCase(phase, phasetype[1])
+                            && !StringUtils.containsIgnoreCase(phase, phasetype[2])
+                            && !StringUtils.containsIgnoreCase(phase, phasetype[3])){
+                        System.out.println("Cleanup Other: " + phase);
+                        try{
+                            total++;
+                            cleanupphasemap.put("Testing Weeks", cleanupphasemap.get("Testing Weeks") + 1);
+                            phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            cleanupphasemap.put("Testing Weeks", 1);
+                            phasemap.put("Testing Weeks", 1);
+                        }
+                        break;
+                    }
+                }
+            }
+            //phase is initial
+            else{
+                //iterate through the possible phase types
+                for(int j = 0; j < phasetype.length; j++){
+                    //check if the phase is correct
+                    if(StringUtils.containsIgnoreCase(phase, phasetype[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = initmapwithstatus.get(phasetype[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    initmapwithstatus.put(phasetype[j], temp);
+                                }catch(Exception e){
+                                    initmapwithstatus.put(phasetype[j], new HashMap<>());
+                                }
+
+                            }
+                        }
+
+                        //add the phase to the map or increment the phase count if
+                        //the phase already exists in the map
+                        try{
+                            total++;
+                            initialphasemap.put(phasetype[j], initialphasemap.get(phasetype[j]) + 1);
+                            phasemap.put(phasetype[j], phasemap.get(phasetype[j]) + 1);
+                        }
+                        catch(NullPointerException e){
+                            total++;
+                            initialphasemap.put(phasetype[j], 1);
+                            phasemap.put(phasetype[j], 1);
+                        }
+                        break;
+                    }
+                    //if the phase cannot be determined
+                    //add print statement to troubleshoot
+                    else if(!StringUtils.containsIgnoreCase(phase, phasetype[0]) && !StringUtils.containsIgnoreCase(phase, phasetype[1])
+                            && !StringUtils.containsIgnoreCase(phase, phasetype[2])
+                            && !StringUtils.containsIgnoreCase(phase, phasetype[3])){
+                        //System.out.println("Initial Other: " + phase);
+                        if(StringUtils.containsIgnoreCase(phase, "prod")){
+                            try{
+                                total++;
+                                initialphasemap.put("Launch", initialphasemap.get("Launch") + 1);
+                                phasemap.put("Launch", phasemap.get("Launch") + 1);
+                            }
+                            catch(NullPointerException e){
+                                total++;
+                                initialphasemap.put("Launch", 1);
+                                phasemap.put("Launch", 1);
+                            }
+                            break;
+                        }else{
+                            System.out.println("Initial Other: " + phase);
+                            try{
+                                total++;
+                                initialphasemap.put("Testing Weeks", initialphasemap.get("Testing Weeks") + 1);
+                                phasemap.put("Testing Weeks", phasemap.get("Testing Weeks") + 1);
+                            }
+                            catch(NullPointerException e){
+                                total++;
+                                initialphasemap.put("Testing Weeks", 1);
+                                phasemap.put("Testing Weeks", 1);
+                            }
+                            break;
+                        }
+
+                    }
+                }
+            }
+
+        }
+        phasestatus = mapwithstatus;
+        TOTAL = total;
+        return createStatusTotals(initmapwithstatus, total);
+    }
+
+
+    /*
+    #########################################################################################################
+    #########################################################################################################
+    #########################################################################################################
+     */
+
+    public HashMap<String, HashMap<String, Integer>> filterDeviceclean(ArrayList<String[]> versionlist){
+
+        tempRelease = "";
+        int total = 0;
+        int totalinit = 1;
+        int totalcleanup = 1;
+
+        //hash maps to hold the device and the count of the device
+        //the hash maps are divided into the cleanup and initial launch phases
+        //and then one map for a combination of both cleanup and initial
+        HashMap<String, Integer> cleandevicemap = new HashMap<>();
+        HashMap<String, Integer> initdevicemap = new HashMap<>();
+        HashMap<String, Integer> devicemap = new HashMap<>();
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
+
+        //list of all possible device names
+        String[] devicelist = {"Tablet", "Desktop", "Mobile App", "Mobile Web", "mweb", "app"};
+
+        tempRelease = release + " Device";
+
+        //loop to iterate through all of the test executions in a given list
+        for(int i = 0; i < versionlist.size(); i++){
+            total++;
+            //string variable that holds the cycle
+            String cycle = versionlist.get(i)[1];
+            String status = versionlist.get(i)[5];
+
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+            for(int l = 0; l < devicelist.length; l++){
+                if(StringUtils.containsIgnoreCase(cycle, devicelist[l])){
+
+                    for(int r = 0; r < execstatus.length; r++){
+
+                        //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                        if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                            try{
+                                HashMap<String, Integer> temp = mapwithstatus.get(devicelist[l]);
+                                try{
+                                    temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                }
+                                catch(Exception e){
+                                    temp.put(execstatus[r], 1);
+                                }
+                                mapwithstatus.put(devicelist[l], temp);
+                            }catch(Exception e){
+                                mapwithstatus.put(devicelist[l], new HashMap<>());
+                            }
+
+                        } else if(!StringUtils.containsIgnoreCase(status, execstatus[0])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[1])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[2])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[3])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[4])){
+                            System.out.println(status + " | " + execstatus[r]);
+                        }
+                    }
+
+                }
+            }
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+
+
+
+
+
+            //check if the cycle is cleanup
+            if(StringUtils.containsIgnoreCase(cycle, "Cleanup") || StringUtils.containsIgnoreCase(cycle, "Clean-up")){
+                totalcleanup++;
+                //loop to iterate through all of the possible device names
+                for(int j = 0; j < devicelist.length; j++){
+
+                    //check if the test execution matches one of the devices
+                    //then add it to the map under it's name and increment the count
+                    if(StringUtils.containsIgnoreCase(cycle, devicelist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = cleanmapwithstatus.get(devicelist[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    cleanmapwithstatus.put(devicelist[j], temp);
+                                }catch(Exception e){
+                                    cleanmapwithstatus.put(devicelist[j], new HashMap<>());
+                                }
+
+                            } else if(!StringUtils.containsIgnoreCase(status, execstatus[0])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[1])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[2])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[3])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[4])){
+                                System.out.println(status + " | " + execstatus[r]);
+                            }
+                        }
+
+                        try{
+                            cleandevicemap.put(devicelist[j], cleandevicemap.get(devicelist[j]) + 1);
+                            devicemap.put(devicelist[j], devicemap.get(devicelist[j]) + 1);
+                        }
+                        catch(NullPointerException e){
+                            cleandevicemap.put(devicelist[j], 1);
+                            devicemap.put(devicelist[j], 1);
+                        }
+                        break;
+                    }
+
+                    //if the cycle does not contain any of the device names
+                    else if(!StringUtils.containsIgnoreCase(cycle, devicelist[0])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[1])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[2])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[3])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[4])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[5])){
+                        //System.out.println("Cleanup: " + cycle + " | " + versionlist.get(i)[2]);
+                        try{
+                            cleandevicemap.put("Desktop", cleandevicemap.get("Desktop") + 1);
+                            devicemap.put("Desktop", devicemap.get("Desktop") + 1);
+                        }
+                        catch(NullPointerException e){
+                            devicemap.put("Desktop", 1);
+                            cleandevicemap.put("Desktop", 1);
+                        }
+                        break;
+                    }
+                }
+            }
+            //when the launch is not cleanup but it is initial
+            else{
+                totalinit++;
+                //loop to iterate through the device names
+                for(int j = 0; j < devicelist.length; j++){
+                    //check if the cycle contains the device name
+                    if(StringUtils.containsIgnoreCase(cycle, devicelist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = initmapwithstatus.get(devicelist[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    initmapwithstatus.put(devicelist[j], temp);
+                                }catch(Exception e){
+                                    initmapwithstatus.put(devicelist[j], new HashMap<>());
+                                }
+
+                            } else if(!StringUtils.containsIgnoreCase(status, execstatus[0])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[1])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[2])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[3])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[4])){
+                                System.out.println(status + " | " + execstatus[r]);
+                            }
+                        }
+
+                        //add the device to the map or increment the count if the device already
+                        //exists in the map
+                        try{
+                            initdevicemap.put(devicelist[j], initdevicemap.get(devicelist[j]) + 1);
+                            devicemap.put(devicelist[j], devicemap.get(devicelist[j]) + 1);
+                        }
+                        catch(NullPointerException e){
+                            initdevicemap.put(devicelist[j], 1);
+                            devicemap.put(devicelist[j], 1);
+                        }
+                        break;
+                    }
+                    //if the cycle does not contain any of the device names
+                    else if(!StringUtils.containsIgnoreCase(cycle, devicelist[0])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[1])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[2])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[3])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[4])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[5])){
+                        //System.out.println("Initial: " + cycle + " | " + versionlist.get(i)[2]);
+                        try{
+                            initdevicemap.put("Desktop", initdevicemap.get("Desktop") + 1);
+                            devicemap.put("Desktop", devicemap.get("Desktop") + 1);
+                        }
+                        catch(NullPointerException e){
+                            initdevicemap.put("Desktop", 1);
+                            devicemap.put("Desktop", 1);
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        //variables and code to combine the different names for Mobile Web
+        //do the same for Mobile App
+        int mwebinit = 0;
+        int mwebclean = 0;
+        int bigminit = 0;
+        int bigmclean = 0;
+        try{mwebinit = initdevicemap.get("mweb");}catch(Exception e){initdevicemap.put("mweb", 0);}
+        try{mwebclean = cleandevicemap.get("mweb");}catch(Exception e){cleandevicemap.put("mweb", 0);}
+        try{bigminit = initdevicemap.get("Mobile Web");}catch(Exception e){initdevicemap.put("Mobile Web", 0);}
+        try{bigmclean = cleandevicemap.get("Mobile Web");}catch(Exception e){cleandevicemap.put("Mobile Web", 0);}
+
+        int mobilewebtotal = mwebinit + mwebclean + bigminit + bigmclean;
+
+        cleandevicemap.remove("mweb");
+        cleandevicemap.put("Mobile Web", mwebclean + bigmclean);
+
+        initdevicemap.remove("mweb");
+        initdevicemap.put("Mobile Web", mwebinit + bigminit);
+
+        devicemap.remove("mweb");
+        devicemap.put("Mobile Web", mobilewebtotal);
+
+        int appinit = 0;
+        int appclean = 0;
+        int mappinit = 0;
+        int mappclean = 0;
+        try{appinit = initdevicemap.get("app");}catch(Exception e){initdevicemap.put("app", 0);}
+        try{appclean = cleandevicemap.get("app");}catch(Exception e){cleandevicemap.put("app", 0);}
+        try{mappinit = initdevicemap.get("Mobile App");}catch(Exception e){initdevicemap.put("Mobile App", 0);}
+        try{mappclean = cleandevicemap.get("Mobile App");}catch(Exception e){cleandevicemap.put("Mobile App", 0);}
+
+        int mobileapptotal = appinit + appclean + mappinit + mappclean;
+
+        cleandevicemap.remove("app");
+        cleandevicemap.put("Mobile App", appclean + mappclean);
+
+        initdevicemap.remove("app");
+        initdevicemap.put("Mobile App", appinit + mappinit);
+
+        devicemap.remove("app");
+        devicemap.put("Mobile App", mobileapptotal);
+        ////////////////////////////////////////////////////////////////////////////////
+
+
+
+        HashMap<String, Double> deviceInitialPercentageMap = createPercentages(initdevicemap, totalinit);
+
+        HashMap<String, Double> deviceCleanupPercentageMap = createPercentages(cleandevicemap, totalcleanup);
+
+        HashMap<String, Double> devicePercentageMap = createPercentages(combineHashMap(cleandevicemap, initdevicemap), total);
+
+        //printMap(combineHashMap(cleandevicemap, initdevicemap));
+
+        try{
+            HashMap<String, Integer> combweb = combineHashMap(mapwithstatus.get("mweb"), mapwithstatus.get("Mobile Web"));
+
+            mapwithstatus.remove("mweb");
+
+            mapwithstatus.put("Mobile Web", combweb);
+        }catch(Exception e){
+            //System.out.println("could not combine");
+        }
+
+
+        try {
+            HashMap<String, Integer> combapp = combineHashMap(mapwithstatus.get("app"), mapwithstatus.get("Mobile App"));
+
+
+            mapwithstatus.remove("app");
+
+            mapwithstatus.put("Mobile App", combapp);
+
+        }catch(Exception e){
+            //System.out.println("could not combine");
+        }
+
+
+        devicestatus = mapwithstatus;
+        TOTAL = total;
+        return createStatusTotals(cleanmapwithstatus, total);
+
+    }
+
+    public HashMap<String, HashMap<String, Integer>> filterDeviceinit(ArrayList<String[]> versionlist){
+
+        tempRelease = "";
+        int total = 0;
+        int totalinit = 1;
+        int totalcleanup = 1;
+
+        //hash maps to hold the device and the count of the device
+        //the hash maps are divided into the cleanup and initial launch phases
+        //and then one map for a combination of both cleanup and initial
+        HashMap<String, Integer> cleandevicemap = new HashMap<>();
+        HashMap<String, Integer> initdevicemap = new HashMap<>();
+        HashMap<String, Integer> devicemap = new HashMap<>();
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
+
+        //list of all possible device names
+        String[] devicelist = {"Tablet", "Desktop", "Mobile App", "Mobile Web", "mweb", "app"};
+
+        tempRelease = release + " Device";
+
+        //loop to iterate through all of the test executions in a given list
+        for(int i = 0; i < versionlist.size(); i++){
+            total++;
+            //string variable that holds the cycle
+            String cycle = versionlist.get(i)[1];
+            String status = versionlist.get(i)[5];
+
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+            for(int l = 0; l < devicelist.length; l++){
+                if(StringUtils.containsIgnoreCase(cycle, devicelist[l])){
+
+                    for(int r = 0; r < execstatus.length; r++){
+
+                        //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                        if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                            try{
+                                HashMap<String, Integer> temp = mapwithstatus.get(devicelist[l]);
+                                try{
+                                    temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                }
+                                catch(Exception e){
+                                    temp.put(execstatus[r], 1);
+                                }
+                                mapwithstatus.put(devicelist[l], temp);
+                            }catch(Exception e){
+                                mapwithstatus.put(devicelist[l], new HashMap<>());
+                            }
+
+                        } else if(!StringUtils.containsIgnoreCase(status, execstatus[0])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[1])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[2])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[3])
+                                && !StringUtils.containsIgnoreCase(status, execstatus[4])){
+                            System.out.println(status + " | " + execstatus[r]);
+                        }
+                    }
+
+                }
+            }
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+
+
+
+
+
+            //check if the cycle is cleanup
+            if(StringUtils.containsIgnoreCase(cycle, "Cleanup") || StringUtils.containsIgnoreCase(cycle, "Clean-up")){
+                totalcleanup++;
+                //loop to iterate through all of the possible device names
+                for(int j = 0; j < devicelist.length; j++){
+
+                    //check if the test execution matches one of the devices
+                    //then add it to the map under it's name and increment the count
+                    if(StringUtils.containsIgnoreCase(cycle, devicelist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = cleanmapwithstatus.get(devicelist[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    cleanmapwithstatus.put(devicelist[j], temp);
+                                }catch(Exception e){
+                                    cleanmapwithstatus.put(devicelist[j], new HashMap<>());
+                                }
+
+                            } else if(!StringUtils.containsIgnoreCase(status, execstatus[0])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[1])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[2])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[3])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[4])){
+                                System.out.println(status + " | " + execstatus[r]);
+                            }
+                        }
+
+                        try{
+                            cleandevicemap.put(devicelist[j], cleandevicemap.get(devicelist[j]) + 1);
+                            devicemap.put(devicelist[j], devicemap.get(devicelist[j]) + 1);
+                        }
+                        catch(NullPointerException e){
+                            cleandevicemap.put(devicelist[j], 1);
+                            devicemap.put(devicelist[j], 1);
+                        }
+                        break;
+                    }
+
+                    //if the cycle does not contain any of the device names
+                    else if(!StringUtils.containsIgnoreCase(cycle, devicelist[0])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[1])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[2])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[3])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[4])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[5])){
+                        //System.out.println("Cleanup: " + cycle + " | " + versionlist.get(i)[2]);
+                        try{
+                            cleandevicemap.put("Desktop", cleandevicemap.get("Desktop") + 1);
+                            devicemap.put("Desktop", devicemap.get("Desktop") + 1);
+                        }
+                        catch(NullPointerException e){
+                            devicemap.put("Desktop", 1);
+                            cleandevicemap.put("Desktop", 1);
+                        }
+                        break;
+                    }
+                }
+            }
+            //when the launch is not cleanup but it is initial
+            else{
+                totalinit++;
+                //loop to iterate through the device names
+                for(int j = 0; j < devicelist.length; j++){
+                    //check if the cycle contains the device name
+                    if(StringUtils.containsIgnoreCase(cycle, devicelist[j])){
+
+                        for(int r = 0; r < execstatus.length; r++){
+
+                            //System.out.println(status + " | " + execstatus[r] + " = " + (status.equalsIgnoreCase(execstatus[r])));
+                            if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                                try{
+                                    HashMap<String, Integer> temp = initmapwithstatus.get(devicelist[j]);
+                                    try{
+                                        temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
+                                    }
+                                    catch(Exception e){
+                                        temp.put(execstatus[r], 1);
+                                    }
+                                    initmapwithstatus.put(devicelist[j], temp);
+                                }catch(Exception e){
+                                    initmapwithstatus.put(devicelist[j], new HashMap<>());
+                                }
+
+                            } else if(!StringUtils.containsIgnoreCase(status, execstatus[0])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[1])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[2])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[3])
+                                    && !StringUtils.containsIgnoreCase(status, execstatus[4])){
+                                System.out.println(status + " | " + execstatus[r]);
+                            }
+                        }
+
+                        //add the device to the map or increment the count if the device already
+                        //exists in the map
+                        try{
+                            initdevicemap.put(devicelist[j], initdevicemap.get(devicelist[j]) + 1);
+                            devicemap.put(devicelist[j], devicemap.get(devicelist[j]) + 1);
+                        }
+                        catch(NullPointerException e){
+                            initdevicemap.put(devicelist[j], 1);
+                            devicemap.put(devicelist[j], 1);
+                        }
+                        break;
+                    }
+                    //if the cycle does not contain any of the device names
+                    else if(!StringUtils.containsIgnoreCase(cycle, devicelist[0])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[1])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[2])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[3])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[4])
+                            && !StringUtils.containsIgnoreCase(cycle, devicelist[5])){
+                        //System.out.println("Initial: " + cycle + " | " + versionlist.get(i)[2]);
+                        try{
+                            initdevicemap.put("Desktop", initdevicemap.get("Desktop") + 1);
+                            devicemap.put("Desktop", devicemap.get("Desktop") + 1);
+                        }
+                        catch(NullPointerException e){
+                            initdevicemap.put("Desktop", 1);
+                            devicemap.put("Desktop", 1);
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        //variables and code to combine the different names for Mobile Web
+        //do the same for Mobile App
+        int mwebinit = 0;
+        int mwebclean = 0;
+        int bigminit = 0;
+        int bigmclean = 0;
+        try{mwebinit = initdevicemap.get("mweb");}catch(Exception e){initdevicemap.put("mweb", 0);}
+        try{mwebclean = cleandevicemap.get("mweb");}catch(Exception e){cleandevicemap.put("mweb", 0);}
+        try{bigminit = initdevicemap.get("Mobile Web");}catch(Exception e){initdevicemap.put("Mobile Web", 0);}
+        try{bigmclean = cleandevicemap.get("Mobile Web");}catch(Exception e){cleandevicemap.put("Mobile Web", 0);}
+
+        int mobilewebtotal = mwebinit + mwebclean + bigminit + bigmclean;
+
+        cleandevicemap.remove("mweb");
+        cleandevicemap.put("Mobile Web", mwebclean + bigmclean);
+
+        initdevicemap.remove("mweb");
+        initdevicemap.put("Mobile Web", mwebinit + bigminit);
+
+        devicemap.remove("mweb");
+        devicemap.put("Mobile Web", mobilewebtotal);
+
+        int appinit = 0;
+        int appclean = 0;
+        int mappinit = 0;
+        int mappclean = 0;
+        try{appinit = initdevicemap.get("app");}catch(Exception e){initdevicemap.put("app", 0);}
+        try{appclean = cleandevicemap.get("app");}catch(Exception e){cleandevicemap.put("app", 0);}
+        try{mappinit = initdevicemap.get("Mobile App");}catch(Exception e){initdevicemap.put("Mobile App", 0);}
+        try{mappclean = cleandevicemap.get("Mobile App");}catch(Exception e){cleandevicemap.put("Mobile App", 0);}
+
+        int mobileapptotal = appinit + appclean + mappinit + mappclean;
+
+        cleandevicemap.remove("app");
+        cleandevicemap.put("Mobile App", appclean + mappclean);
+
+        initdevicemap.remove("app");
+        initdevicemap.put("Mobile App", appinit + mappinit);
+
+        devicemap.remove("app");
+        devicemap.put("Mobile App", mobileapptotal);
+        ////////////////////////////////////////////////////////////////////////////////
+
+
+
+        HashMap<String, Double> deviceInitialPercentageMap = createPercentages(initdevicemap, totalinit);
+
+        HashMap<String, Double> deviceCleanupPercentageMap = createPercentages(cleandevicemap, totalcleanup);
+
+        HashMap<String, Double> devicePercentageMap = createPercentages(combineHashMap(cleandevicemap, initdevicemap), total);
+
+        //printMap(combineHashMap(cleandevicemap, initdevicemap));
+
+        try{
+            HashMap<String, Integer> combweb = combineHashMap(mapwithstatus.get("mweb"), mapwithstatus.get("Mobile Web"));
+
+            mapwithstatus.remove("mweb");
+
+            mapwithstatus.put("Mobile Web", combweb);
+        }catch(Exception e){
+            //System.out.println("could not combine");
+        }
+
+
+        try {
+            HashMap<String, Integer> combapp = combineHashMap(mapwithstatus.get("app"), mapwithstatus.get("Mobile App"));
+
+
+            mapwithstatus.remove("app");
+
+            mapwithstatus.put("Mobile App", combapp);
+
+        }catch(Exception e){
+            //System.out.println("could not combine");
+        }
+
+
+        devicestatus = mapwithstatus;
+        TOTAL = total;
+        return createStatusTotals(initmapwithstatus, total);
+
     }
 
     /*
@@ -994,25 +2467,79 @@ public class ScrapeDataXML {
         XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
 
         //try posting each filter
+        /*
+        PHASE
+         */
         try {
             XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase", date, TOTAL);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
+        try {
+            XMLtoSheets.run(filterPhaseclean(list), tempRelease + " Clean", "https://test-execution-report.firebaseio.com/phase/clean", date, TOTAL);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
 
+        try {
+            XMLtoSheets.run(filterPhaseinit(list), tempRelease + " Initial", "https://test-execution-report.firebaseio.com/phase/initial", date, TOTAL);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        /*
+        PHASE
+         */
+
+
+        /*
+        PRIORITY
+         */
         try {
             XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority", date, TOTAL);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
+        try {
+            XMLtoSheets.run(filterPriorityclean(list), tempRelease + " Clean", "https://test-execution-report.firebaseio.com/priority/clean", date, TOTAL);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
 
+        try {
+            XMLtoSheets.run(filterPriorityinit(list), tempRelease + " Initial", "https://test-execution-report.firebaseio.com/priority/initial", date, TOTAL);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
+        /*
+        PRIORITY
+         */
+
+        /*
+        DEVICE
+         */
         try {
             XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device", date, TOTAL);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+
+        try {
+            XMLtoSheets.run(filterDeviceclean(list), tempRelease + " Clean", "https://test-execution-report.firebaseio.com/device/clean", date, TOTAL);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
+        try {
+            XMLtoSheets.run(filterDeviceinit(list), tempRelease + " Initial", "https://test-execution-report.firebaseio.com/device/initial", date, TOTAL);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        /*
+        DEVICE
+         */
     }
 
     /*

@@ -2,11 +2,11 @@
 <html lang="en">
    <head>
       <!-- jQuery -->
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
       <!-- Atlassian User Interface (AUI) -->
-      <link rel="stylesheet" href="//aui-cdn.atlassian.com/aui-adg/5.9.24/css/aui.min.css" media="all">
-      <script src="//aui-cdn.atlassian.com/aui-adg/5.9.24/js/aui.min.js"></script>
+      <link rel="stylesheet" href="https://aui-cdn.atlassian.com/aui-adg/5.9.24/css/aui.min.css" media="all">
+      <script src="https://aui-cdn.atlassian.com/aui-adg/5.9.24/js/aui.min.js"></script>
 
       <!-- Helper Javascript lib -->
       <script src="utils.js" type="text/javascript"></script>
@@ -27,24 +27,20 @@
           width: 50%;
           padding: 10px;
         }
-        canvas {
-          width: 100%;
-          height: 100%;
-          margin: 0px;
 
-        }
-        div {
-          width: 100%;
-          height: 100%;
-          margin: 0px;
-        }
       </style>
 
    </head>
    <body id="main-body">
      <main>
        <h5 class="aui-badge">As of: </h5>
-       <canvas id="chart" width = "425" height = "500"></canvas>
+       <div id="div1" style="float: left;">
+          <canvas id="chart" width = "250" height = "250"></canvas>
+       </div>
+       <div id="div2" style="float: right;">
+         <canvas id="chart-initial" width = "250" height = "250"></canvas>
+         <canvas id="chart-clean" width = "250" height = "250"></canvas>
+       </div>
        <div style="text-align:center;">
          <h4 class="aui-lozenge">Total Cases: 0</h4>
          <div id="filter-div" style="text-align:center;">
@@ -52,37 +48,27 @@
            <input type="radio" id="priority" name="filter" onclick="check(this.value)" value="priority">Priority
            <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device
          </div>
-         <!--button id="primary-action-button" class="aui-button aui-button-primary" onclick="del()">Clear Database</button-->
-         <!--a id="button-tooltip" href="#primary-action-button" title="tooltip"></a-->
        </div>
      </main>
      <script type="text/javascript">
        var chart;
+       var chart2;
+       var chart3;
        var datanew;
-       var title;
+
        var selArr = ['device', 'phase', 'priority'];
        var api = 'https://test-execution-report.firebaseio.com/';
-       var date;
+
        //$('#button-tooltip').tooltip();
        check('phase');
 
        function check(filter){
-         var totarr = [];
-         var filterArr = [];
-         var totalArr = [];
-         var passArr = [];
-         var failArr = [];
-         var blockedArr = [];
-         var wipArr = [];
-         var unexecutedArr = [];
-         var total = 0;
-         var totalPass = 0;
-         var totalFail = 0;
-         var totalBlock = 0;
-         var totalwip = 0;
-         var totalUn = 0;
-         var cnt;
 
+         var total = 0;
+         var cnt;
+         var barData;
+         var barData2;
+         var barData3;
          var selection = filter;
          console.log(api + selection + '.json');
          $.ajax({
@@ -91,62 +77,60 @@
            url: api + selection + '.json',
            success: function(data) {
              console.log(data);
-             datanew = Object.keys(data);
-             console.log('datanew: ' + datanew);
-
+             var title;
+             var date;
+             var totarr = [];
+             var filterArr = [];
+             var totalArr = [];
+             var passArr = [];
+             var failArr = [];
+             var blockedArr = [];
+             var wipArr = [];
+             var unexecutedArr = [];
              var rows = [];
              var len = 0;
              var i;
 
-             for(var key in data){
-               var value = data[key];
-               console.log('value: ' + value);
-               for(var key in value){
-                 var value2 = value[key];
-                 console.log('value2: ' + value2);
-                 cnt = 0;
-                 for(var key in value2){
+             //var obj;
 
-                   var value3 = value2[key];
-                   if(value3.Filter === undefined){
-                     if(value3.Title === undefined){
-                       date = value3.Date;
+             for(var value in data){
+               if(len == 0){
+                 console.log(data[value]);
+                 for(var val in data[value]){
+                   console.log(data[value][val]);
+                   for(var v in data[value][val]){
+
+                     var obj = data[value][val][v];
+                     if(obj.Filter == undefined){
+                       if(obj.Title == undefined){
+                         date = obj.Date;
+                       } else {
+                         title = obj.Title;
+                       }
+                     } else {
+                       filterArr.push(obj.Filter);
+
+                       passArr.push(obj.Pass);
+                       failArr.push(obj.Fail);
+                       blockedArr.push(obj.Blocked);
+                       wipArr.push(obj.WIP);
+                       unexecutedArr.push(obj.Unexecuted);
+
+                       var parsed = parseInt(obj.total);
+                       totalArr.push(parsed);
+
+                       total = total + parsed;
                      }
-                     if(value3.Date === undefined){
-                       title = value3.Title;
-                     }
-                   } else {
-                     cnt++;
-                     filterArr.push(value3.Filter);
-
-                     passArr.push(value3.Pass);
-                     failArr.push(value3.Fail);
-                     blockedArr.push(value3.Blocked);
-                     wipArr.push(value3.WIP);
-                     unexecutedArr.push(value3.Unexecuted);
-
-                     var parsed = parseInt(value3.total);
-                     totalArr.push(parsed);
-
-                     var temp = parseInt(value3.Pass);
-                     totalPass = totalPass + temp;
-                     var temp = parseInt(value3.Fail);
-                     totalFail = totalFail + temp;
-                     var temp = parseInt(value3.Block);
-                     totalBlock = totalBlock + temp;
-                     var temp = parseInt(value3.WIP);
-                     totalwip = totalwip + temp;
-                     var temp = parseInt(value3.Unexecuted);
-                     totalUn = totalUn + temp;
-
-                     total = total + parsed;
                    }
                  }
+                 break;
                }
              }
 
 
-             $('h4').text('Total Cases: ' + (total + cnt));
+
+
+             $('h4').text('Total Cases: ' + (total));
              $('h5').text('As of: ' + date);
 
              barData = {
@@ -181,8 +165,6 @@
              }
 
 
-
-
              var context = document.getElementById('chart').getContext('2d');
              if (chart && typeof chart === 'object') {
                chart.destroy();
@@ -202,9 +184,241 @@
              });
 
 
-           }
-         })
-       }
+
+
+           }//end success function
+         })//end first ajax call
+
+
+         $.ajax({
+           type: "GET",
+           dataType: 'jsonp',
+           url: api + selection + "/clean" + '.json',
+           success: function(data) {
+             console.log(data);
+             datanew = Object.keys(data);
+             console.log('datanew: ' + datanew);
+
+             var totarr = [];
+             var filterArr = [];
+             var totalArr = [];
+             var passArr = [];
+             var failArr = [];
+             var blockedArr = [];
+             var wipArr = [];
+             var unexecutedArr = [];
+             var rows = [];
+             var len = 0;
+             var i;
+
+             for(var key in data){
+               var value = data[key];
+               console.log('value: ' + value);
+               for(var key in value){
+                 var value2 = value[key];
+                 console.log('value2: ' + value2);
+                 cnt = 0;
+                 for(var key in value2){
+
+                   var value3 = value2[key];
+                   if(value3.Filter === undefined){
+                     if(value3.Title === undefined){
+                       date = value3.Date;
+                     }
+                     if(value3.Date === undefined){
+                       title = value3.Title;
+                     }
+                   } else {
+                     cnt++;
+                     filterArr.push(value3.Filter);
+
+                     passArr.push(value3.Pass);
+                     failArr.push(value3.Fail);
+                     blockedArr.push(value3.Blocked);
+                     wipArr.push(value3.WIP);
+                     unexecutedArr.push(value3.Unexecuted);
+
+                     var parsed = parseInt(value3.total);
+                     totalArr.push(parsed);
+
+                     total = total + parsed;
+                   }
+                 }
+               }
+             }
+
+
+             $('h4').text('Total Cases: ' + (total + cnt));
+             $('h5').text('As of: ' + date);
+
+             barData2 = {
+               labels: filterArr,
+               datasets: [
+                 {
+                   label: 'Pass',
+                   backgroundColor: 'rgba(117,176,0,1)',
+                   data: passArr
+                 },
+                 {
+                   label: 'Fail',
+                   backgroundColor: 'rgba(204,51,0,1)',
+                   data: failArr
+                 },
+                 {
+                   label: 'Blocked',
+                   backgroundColor: 'rgba(102,147,176,1)',
+                   data: blockedArr
+                 },
+                 {
+                   label: 'WIP',
+                   backgroundColor: 'rgba(242,176,0,1)',
+                   data: wipArr
+                 },
+                 {
+                   label: 'Unexecuted',
+                   backgroundColor: 'rgba(160,160,160,1)',
+                   data: unexecutedArr
+                 }
+               ]
+             }
+
+             var context2 = document.getElementById('chart-clean').getContext('2d');
+             if (chart2 && typeof chart2 === 'object') {
+               chart2.destroy();
+             }
+
+             chart2 = new Chart(context2, {
+               type: 'bar',
+               data: barData2,
+               options: {
+                 title: {
+                   display: true,
+                   text: title,
+                   fontSize: 22
+                 },
+                 responsive: true
+               }
+             });
+           }//end success function
+         })//end second ajax call
+
+
+         $.ajax({
+           type: "GET",
+           dataType: 'jsonp',
+           url: api + selection + "/initial" + '.json',
+           success: function(data) {
+             console.log(data);
+             datanew = Object.keys(data);
+             console.log('datanew: ' + datanew);
+
+             var totarr = [];
+             var filterArr = [];
+             var totalArr = [];
+             var passArr = [];
+             var failArr = [];
+             var blockedArr = [];
+             var wipArr = [];
+             var unexecutedArr = [];
+             var rows = [];
+             var len = 0;
+             var i;
+
+             for(var key in data){
+               var value = data[key];
+               console.log('value: ' + value);
+               for(var key in value){
+                 var value2 = value[key];
+                 console.log('value2: ' + value2);
+                 cnt = 0;
+                 for(var key in value2){
+
+                   var value3 = value2[key];
+                   if(value3.Filter === undefined){
+                     if(value3.Title === undefined){
+                       date = value3.Date;
+                     }
+                     if(value3.Date === undefined){
+                       title = value3.Title;
+                     }
+                   } else {
+                     cnt++;
+                     filterArr.push(value3.Filter);
+
+                     passArr.push(value3.Pass);
+                     failArr.push(value3.Fail);
+                     blockedArr.push(value3.Blocked);
+                     wipArr.push(value3.WIP);
+                     unexecutedArr.push(value3.Unexecuted);
+
+                     var parsed = parseInt(value3.total);
+                     totalArr.push(parsed);
+
+                     total = total + parsed;
+                   }
+                 }
+               }
+             }
+
+
+             $('h4').text('Total Cases: ' + (total + cnt));
+             $('h5').text('As of: ' + date);
+
+             barData3 = {
+               labels: filterArr,
+               datasets: [
+                 {
+                   label: 'Pass',
+                   backgroundColor: 'rgba(117,176,0,1)',
+                   data: passArr
+                 },
+                 {
+                   label: 'Fail',
+                   backgroundColor: 'rgba(204,51,0,1)',
+                   data: failArr
+                 },
+                 {
+                   label: 'Blocked',
+                   backgroundColor: 'rgba(102,147,176,1)',
+                   data: blockedArr
+                 },
+                 {
+                   label: 'WIP',
+                   backgroundColor: 'rgba(242,176,0,1)',
+                   data: wipArr
+                 },
+                 {
+                   label: 'Unexecuted',
+                   backgroundColor: 'rgba(160,160,160,1)',
+                   data: unexecutedArr
+                 }
+               ]
+             }
+
+             var context3 = document.getElementById('chart-initial').getContext('2d');
+             if (chart3 && typeof chart3 === 'object') {
+               chart3.destroy();
+             }
+
+             chart3 = new Chart(context3, {
+               type: 'bar',
+               data: barData3,
+               options: {
+                 title: {
+                   display: true,
+                   text: title,
+                   fontSize: 22
+                 },
+                 responsive: true
+               }
+             });
+           }//end success function
+         })//end third ajax call
+
+
+
+       }//end check()
+
 
        function del() {
          var i;

@@ -1,0 +1,56 @@
+2016-07-22 10:03:34 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:03:34 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-22-2016.xml
+2016-07-22 10:03:34 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:03:34 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-22 10:03:37 INFO  ScrapeDataXML:144 - 
+---------------------------------------------------
+finished
+2016-07-22 10:04:40 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:04:40 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-22-2016.xml
+2016-07-22 10:04:40 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:04:40 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-22 10:04:44 INFO  ScrapeDataXML:144 - 
+---------------------------------------------------
+finished
+2016-07-22 10:11:53 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:11:53 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-22-2016.xml
+2016-07-22 10:11:53 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:11:53 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-22 10:11:56 INFO  ScrapeDataXML:144 - 
+---------------------------------------------------
+finished
+2016-07-22 10:31:50 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:31:50 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-22-2016.xml
+2016-07-22 10:31:50 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:31:50 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-22 10:31:55 INFO  ScrapeDataXML:144 - 
+---------------------------------------------------
+finished
+2016-07-22 10:43:11 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:43:11 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-22-2016.xml
+2016-07-22 10:43:11 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:43:11 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-22 10:43:16 INFO  ScrapeDataXML:144 - 
+---------------------------------------------------
+finished
+2016-07-22 10:43:43 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:43:43 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-22-2016.xml
+2016-07-22 10:43:43 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:43:43 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-22 10:43:47 INFO  ScrapeDataXML:144 - 
+---------------------------------------------------
+finished
+2016-07-22 10:44:14 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:44:14 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-22-2016.xml
+2016-07-22 10:44:14 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:44:14 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-22 10:44:18 INFO  ScrapeDataXML:144 - 
+---------------------------------------------------
+finished
+2016-07-22 10:44:42 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:44:42 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-22-2016.xml
+2016-07-22 10:44:42 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-22-2016 (1).xml
+2016-07-22 10:44:42 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-22 10:44:46 INFO  ScrapeDataXML:144 - 
+---------------------------------------------------
+finished
