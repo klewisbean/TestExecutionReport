@@ -43,10 +43,10 @@ public class ScrapeDataXML {
     //public String date = "";
     public static int TOTAL = 0;
 
-    final static Logger logger = Logger.getLogger(AutomateExportGUI.class);
+    final static Logger logger = Logger.getLogger(ScrapeDataXML.class);
 
     public void run(File file1, File file2, String date) throws FileNotFoundException {
-        System.out.println("RUN SCRAPEDATAXML");
+
         NodeList issueKeys = null;
         NodeList cycleNames = null;
         NodeList version = null;
@@ -60,17 +60,17 @@ public class ScrapeDataXML {
         NodeList executedDate1 = null;
         NodeList executionStatus1 = null;
 
-
-        System.out.println("file1 path: " + file1.getPath());
-        fixXML(file1.getPath(), file1.getPath() + "fix");
-        fixXML(file2.getPath(), file2.getPath() + "fix");
+        logger.info("file1 path: " + file1.getPath());
+        logger.error("file1 parent: " + file1.getParent());
+        fixXML(file1.getPath(), file1.getParent() + "\\fix1.xml");
+        fixXML(file2.getPath(), file2.getParent() + "\\fix2.xml");
 
 
         //sorts through the xml file and refine the file into and array list
         try{
 
-            File xmlfile = new File(file1.getPath());
-            File xmlfile2 = new File(file2.getPath());
+            File xmlfile = new File(file1.getParent() + "\\fix1.xml");
+            File xmlfile2 = new File(file1.getParent() + "\\fix1.xml");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
 
@@ -137,7 +137,11 @@ public class ScrapeDataXML {
             e.printStackTrace();
         }
 
-
+        File f = new File(file1.getParent() + "\\fix1.xml");
+        f.delete();
+        f = new File(file2.getParent() + "\\fix2.xml");
+        f.delete();
+        logger.info("\n---------------------------------------------------\nfinished");
     }
 
     //this function will setup the GUI for the data the user wants in the api

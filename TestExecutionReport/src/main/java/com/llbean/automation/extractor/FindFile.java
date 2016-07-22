@@ -1,5 +1,6 @@
 package com.llbean.automation.extractor;//imports
 import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -61,13 +62,12 @@ public class FindFile {
         }
 
         Date newestd = new Date(newestfile.lastModified());
-        logger.trace("Newest file: " + newestfile.getName());
-        logger.trace("Newest2 file: " + newestfile2.getName());
-        logger.trace("newest file time: " + newestd);
-        logger.trace("before scrape initialization");
+        logger.info("Newest file: " + newestfile.getName());
+        logger.info("Newest2 file: " + newestfile2.getName());
+
         ScrapeDataXML scrape = new ScrapeDataXML();
         try {
-            logger.trace("before scrape run");
+
             scrape.run(newestfile, newestfile2, newestd.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();

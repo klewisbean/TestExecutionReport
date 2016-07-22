@@ -21,7 +21,7 @@ import java.util.*;
 
 public class XMLtoSheets {
 
-    final static Logger logger = Logger.getLogger(AutomateExportGUI.class);
+    final static Logger logger = Logger.getLogger(XMLtoSheets.class);
 
     //api url variable
     public static String SHEET_URL = "";
