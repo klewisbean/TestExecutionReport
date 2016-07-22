@@ -27,25 +27,32 @@
           width: 50%;
           padding: 10px;
         }
+        div {
+          text-align: center;
+        }
 
       </style>
 
    </head>
    <body id="main-body">
-     <main>
-       <div id="header">
+     <div id="container">
+       <header id="header">
          <h5 class="aui-badge">As of: </h5>
-       </div>
+       </header>
        <div id="chart-div">
          <div id="left-div" style="float: left;">
             <canvas id="chart" width = "250" height = "250"></canvas>
             <h4 id="loz-total-cases-release" class="aui-lozenge">Total Cases: 0</h4>
          </div>
          <div id="right div" style="float: right;">
-           <canvas id="chart-initial" width = "250" height = "250"></canvas>
-           <h4 id="loz-total-cases-initial" class="aui-lozenge">Total Cases: 0</h4>
-           <canvas id="chart-clean" width = "250" height = "250"></canvas>
-           <h4 id="loz-total-cases-clean" class="aui-lozenge">Total Cases: 0</h4>
+           <div style="float: left;">
+             <canvas id="chart-initial" width = "250" height = "250"></canvas>
+             <h4 id="loz-total-cases-initial" class="aui-lozenge">Total Cases: 0</h4>
+           </div>
+           <div style="float: right;">
+             <canvas id="chart-clean" width = "250" height = "250"></canvas>
+             <h4 id="loz-total-cases-clean" class="aui-lozenge">Total Cases: 0</h4>
+           </div>
          </div>
        </div>
        <div id="bottom-div" style="text-align:center;">
@@ -55,7 +62,7 @@
            <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device
          </div>
        </div>
-     </main>
+     </div>
      <script type="text/javascript">
        var chart;
        var chart2;
