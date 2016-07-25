@@ -551,3 +551,17 @@ finished
 2016-07-25 11:32:13 INFO  ScrapeDataXML:154 - 
 ---------------------------------------------------
 finished
+2016-07-25 12:04:11 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-25-2016 (1).xml
+2016-07-25 12:04:11 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-25-2016.xml
+2016-07-25 12:04:11 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-25-2016 (1).xml
+2016-07-25 12:04:11 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-25 12:04:12 INFO  ScrapeDataXML:154 - 
+---------------------------------------------------
+finished
+2016-07-25 12:04:24 INFO  FindFile:65 - Newest file: ZFJ-Executions-07-25-2016 (1).xml
+2016-07-25 12:04:24 INFO  FindFile:66 - Newest2 file: ZFJ-Executions-07-25-2016.xml
+2016-07-25 12:04:24 INFO  ScrapeDataXML:63 - file1 path: C:\Users\klewis\test-k\TestExecutionReport\ZFJ-Executions-07-25-2016 (1).xml
+2016-07-25 12:04:24 ERROR ScrapeDataXML:64 - file1 parent: C:\Users\klewis\test-k\TestExecutionReport
+2016-07-25 12:04:29 INFO  ScrapeDataXML:154 - 
+---------------------------------------------------
+finished

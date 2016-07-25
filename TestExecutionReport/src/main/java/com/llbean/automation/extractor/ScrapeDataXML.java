@@ -136,13 +136,13 @@ public class ScrapeDataXML {
             //filterPriorityinit(list);
             //filterPhaseclean(list);
             //filterPhaseinit(list);
-            filterDeviceclean(list);
-            filterDeviceinit(list);
+            //filterDeviceclean(list);
+            //filterDeviceinit(list);
             //filterPhase(list);
             //filterPriority(list);
             //filterDevice(list);
             //if the GUI is not needed just uncomment this method call
-            //fbpostfunction(date);
+            fbpostfunction(date);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -288,7 +288,6 @@ public class ScrapeDataXML {
 
         System.out.println("total cases in filterDevice(): " + total);
         System.out.println("DEVICE\n" + mapwithstatus);
-        devicestatus = mapwithstatus;
         TOTAL = total;
         return createStatusTotals(mapwithstatus, total);
 
@@ -368,7 +367,6 @@ public class ScrapeDataXML {
 
         System.out.println("total cases in filterPriority(): " + total);
         System.out.println(mapwithstatus);
-        prioritystatus = mapwithstatus;
         TOTAL = total;
         return createStatusTotals(mapwithstatus, total);
     }
@@ -495,7 +493,6 @@ public class ScrapeDataXML {
         }
         System.out.println("total cases in filterPhase(): " + total);
         System.out.println(mapwithstatus);
-        phasestatus = mapwithstatus;
         TOTAL = total;
         return createStatusTotals(mapwithstatus, total);
     }
@@ -710,7 +707,6 @@ public class ScrapeDataXML {
 
         System.out.println("total init: " + totalinit);
         System.out.println(initmapwithstatus);
-        TOTAL = total;
         return createStatusTotals(initmapwithstatus, totalinit);
     }
 
@@ -825,7 +821,6 @@ public class ScrapeDataXML {
         }
         System.out.println("total clean: " + totalclean);
         System.out.println(cleanmapwithstatus);
-        TOTAL = total;
         return createStatusTotals(cleanmapwithstatus, totalclean);
     }
 
@@ -967,7 +962,6 @@ public class ScrapeDataXML {
         }
         System.out.println("total init: " + totalinit);
         System.out.println(initmapwithstatus);
-        TOTAL = total;
         return createStatusTotals(initmapwithstatus, totalinit);
     }
 
@@ -1092,7 +1086,6 @@ public class ScrapeDataXML {
 
         System.out.println("total cleanup: " + totalcleanup);
         System.out.println(cleanmapwithstatus);
-        TOTAL = total;
         return createStatusTotals(cleanmapwithstatus, totalcleanup);
 
     }
@@ -1212,7 +1205,6 @@ public class ScrapeDataXML {
 
         System.out.println("total init: " + totalinit);
         System.out.println(initmapwithstatus);
-        TOTAL = total;
         return createStatusTotals(initmapwithstatus, totalinit);
 
     }

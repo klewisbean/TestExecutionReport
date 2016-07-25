@@ -7,19 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/ZFJ-Executions-07-19-2016 (1).xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/ZFJ-Executions-07-19-2016.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TestExecutionReport/target/classes/com/llbean/automation/extractor/ScrapeDataXML$1.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/target/classes/com/llbean/automation/extractor/ReleaseExportAutomation.class" afterPath="$PROJECT_DIR$/TestExecutionReport/target/classes/com/llbean/automation/extractor/ReleaseExportAutomation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/target/classes/com/llbean/automation/extractor/ScrapeDataXML.class" afterPath="$PROJECT_DIR$/TestExecutionReport/target/classes/com/llbean/automation/extractor/ScrapeDataXML.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/target/classes/com/llbean/automation/extractor/XMLtoSheets.class" afterPath="$PROJECT_DIR$/TestExecutionReport/target/classes/com/llbean/automation/extractor/XMLtoSheets.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/com_sun_jersey_jersey_client_1_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_sun_jersey_jersey_client_1_8.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/XMLtoSheets.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/XMLtoSheets.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/automation.log" afterPath="$PROJECT_DIR$/automation.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jira-add-on-llbean/view-fb.html" afterPath="$PROJECT_DIR$/jira-add-on-llbean/view-fb.html" />
     </list>
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,9 +43,11 @@
       <file leaf-file-name="AutomateExportGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="32" column="109" selection-start-line="32" selection-start-column="109" selection-end-line="32" selection-end-column="109" />
-              <folding />
+            <state relative-caret-position="-1518">
+              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,11 +55,9 @@
       <file leaf-file-name="ReleaseExportAutomation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4268">
-              <caret line="207" column="40" selection-start-line="207" selection-start-column="40" selection-end-line="207" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="54">
+              <caret line="202" column="34" selection-start-line="202" selection-start-column="34" selection-end-line="202" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,8 +91,8 @@
       <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4026">
-              <caret line="831" column="101" selection-start-line="831" selection-start-column="101" selection-end-line="831" selection-end-column="101" />
+            <state relative-caret-position="263">
+              <caret line="137" column="26" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="27" />
               <folding>
                 <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
                 <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
@@ -853,7 +842,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="32" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -939,24 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="32" column="109" selection-start-line="32" selection-start-column="109" selection-end-line="32" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4268">
-          <caret line="207" column="40" selection-start-line="207" selection-start-column="40" selection-end-line="207" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -967,10 +938,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1518">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="202" column="34" selection-start-line="202" selection-start-column="34" selection-end-line="202" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4026">
-          <caret line="831" column="101" selection-start-line="831" selection-start-column="101" selection-end-line="831" selection-end-column="101" />
+        <state relative-caret-position="263">
+          <caret line="137" column="26" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="27" />
           <folding>
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
