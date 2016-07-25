@@ -42,7 +42,6 @@ public class ReleaseExportAutomation {
     }
 
     public WebDriver setUpDriver(){
-        System.out.println("user dir: " + System.getProperty("user.dir"));
         logger.info("user dir: " + System.getProperty("user.dir"));
         String downloadFilepath = System.getProperty("user.dir");
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -73,8 +72,8 @@ public class ReleaseExportAutomation {
     }
 
     public void testExecutionNav(){
-        logger.trace("Login Successful");
-        logger.trace("Title: " + driver.getTitle() + " URL: " + driver.getCurrentUrl());
+        logger.info("Login Successful");
+        logger.info("Title: " + driver.getTitle() + " URL: " + driver.getCurrentUrl());
       //navigate to the "search test execution page"
         driver.get(atlassianllbeanhome + searchtestexecutions);
 

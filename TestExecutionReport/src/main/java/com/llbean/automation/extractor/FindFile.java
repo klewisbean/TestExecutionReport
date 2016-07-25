@@ -21,7 +21,7 @@ public class FindFile {
 
     public static void main(String[] args){
         FindFile main = new FindFile();
-        logger.trace("user.dir: " + System.getProperty("user.dir"));
+        logger.info("user.dir: " + System.getProperty("user.dir"));
         main.findFile(main.FILENAME, System.getProperty("user.dir"));
     }
 
@@ -29,7 +29,7 @@ public class FindFile {
         long newest = 0;
         long newest2 = 0;
         Date date = new Date();
-        logger.trace("date: " + dateformat.format(date));
+        logger.info("date: " + dateformat.format(date));
         String dateStr = dateformat.format(date);
         String filename = nameToFind;
         File newestfile = new File(filename);
