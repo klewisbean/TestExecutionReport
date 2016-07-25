@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="" />
+    <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties" />
+    </list>
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -79,7 +81,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -95,6 +97,16 @@
                 <element signature="method#filterDeviceclean#0;class#ScrapeDataXML#0" expanded="false" />
                 <element signature="method#filterDeviceinit#0;class#ScrapeDataXML#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -144,13 +156,13 @@
         <option value="$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
-        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/automation.log" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/XMLtoSheets.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" />
+        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties" />
       </list>
     </option>
   </component>
@@ -885,13 +897,6 @@
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/automation.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -956,6 +961,14 @@
             <element signature="method#filterDeviceclean#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterDeviceinit#0;class#ScrapeDataXML#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
