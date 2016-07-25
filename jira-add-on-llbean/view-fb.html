@@ -78,6 +78,8 @@
        function check(filter){
 
          var total = 0;
+         var totalclean = 0;
+         var totalinitial = 0;
          var cnt;
          var barData;
          var barData2;
@@ -89,7 +91,7 @@
            dataType: 'jsonp',
            url: api + selection + '.json',
            success: function(data) {
-             console.log(data);
+             //console.log(data);
              var title;
              var date;
              var totarr = [];
@@ -108,9 +110,9 @@
 
              for(var value in data){
                if(len == 0){
-                 console.log(data[value]);
+                 //console.log(data[value]);
                  for(var val in data[value]){
-                   console.log(data[value][val]);
+                   //console.log(data[value][val]);
                    for(var v in data[value][val]){
 
                      var obj = data[value][val][v];
@@ -130,7 +132,6 @@
                        unexecutedArr.push(obj.Unexecuted);
 
                        var parsed = parseInt(obj.total);
-                       totalArr.push(parsed);
 
                        total = total + parsed;
                      }
@@ -208,11 +209,7 @@
            dataType: 'jsonp',
            url: api + selection + "/clean" + '.json',
            success: function(data) {
-             console.log(data);
-             datanew = Object.keys(data);
-             console.log('datanew: ' + datanew);
 
-             var totarr = [];
              var filterArr = [];
              var totalArr = [];
              var passArr = [];
@@ -226,13 +223,10 @@
 
              for(var key in data){
                var value = data[key];
-               console.log('value: ' + value);
                for(var key in value){
                  var value2 = value[key];
-                 console.log('value2: ' + value2);
                  cnt = 0;
                  for(var key in value2){
-
                    var value3 = value2[key];
                    if(value3.Filter === undefined){
                      if(value3.Title === undefined){
@@ -252,16 +246,15 @@
                      unexecutedArr.push(value3.Unexecuted);
 
                      var parsed = parseInt(value3.total);
-                     totalArr.push(parsed);
 
-                     total = total + parsed;
+                     totalclean = totalclean + parsed;
                    }
                  }
                }
              }
 
 
-             $('h4').text('Total Cases: ' + (total + cnt));
+             $('h4').text('Total Cases: ' + (totalclean));
              $('h5').text('As of: ' + date);
 
              barData2 = {
@@ -321,9 +314,6 @@
            dataType: 'jsonp',
            url: api + selection + "/initial" + '.json',
            success: function(data) {
-             console.log(data);
-             datanew = Object.keys(data);
-             console.log('datanew: ' + datanew);
 
              var totarr = [];
              var filterArr = [];
@@ -339,10 +329,10 @@
 
              for(var key in data){
                var value = data[key];
-               console.log('value: ' + value);
+               console.log('initial value: ' + value);
                for(var key in value){
                  var value2 = value[key];
-                 console.log('value2: ' + value2);
+                 console.log('initial value2: ' + value2);
                  cnt = 0;
                  for(var key in value2){
 
@@ -365,16 +355,15 @@
                      unexecutedArr.push(value3.Unexecuted);
 
                      var parsed = parseInt(value3.total);
-                     totalArr.push(parsed);
 
-                     total = total + parsed;
+                     totalinitial = totalinitial + parsed;
                    }
                  }
                }
              }
 
 
-             $('h4').text('Total Cases: ' + (total + cnt));
+             $('h4').text('Total Cases: ' + (totalinitial));
              $('h5').text('As of: ' + date);
 
              barData3 = {

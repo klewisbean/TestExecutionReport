@@ -34,7 +34,7 @@ public class XMLtoSheets {
 
     //method to create the json structure of the input
     //posts to firebase
-    public static void run(HashMap<String, HashMap<String, Integer>> map, String release, String api, String date, int total) throws IOException {
+    public static void run(HashMap<String, HashMap<String, Integer>> map, String release, String api, String date) throws IOException {
         SHEET_URL = api;
 
         //trust all certificates

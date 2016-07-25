@@ -200,7 +200,7 @@ public class ReleaseExportAutomation {
         logger.trace("count:"+COUNT);
         //IJavaScriptExecutor javascript = driver as IJavaScriptExecutor;
         if(COUNT == 1){
-            for(int i = 1; i < 96; i++){
+            for(int i = 1; i < 87; i++){
                 System.out.println((5*i) + " seconds");
                 try {
                     Thread.sleep(5000);
@@ -211,7 +211,7 @@ public class ReleaseExportAutomation {
             System.out.println("done");
         }
         else if(COUNT == 2){
-            for(int i = 1; i < 30; i++){
+            for(int i = 1; i < 35; i++){
                 System.out.println((5*i) + " seconds");
                 try {
                     Thread.sleep(5000);
