@@ -1452,7 +1452,7 @@ public class ScrapeDataXML {
     }
 
     public void fixXML(String path, String toPath) throws FileNotFoundException {
-        logger.trace("Fixing XML......");
+        logger.info("Fixing XML......");
         File xmlfile = new File(path);
         ArrayList<String> xml = readXmlAsString(xmlfile);
         ArrayList<String> newxml = new ArrayList<>();
