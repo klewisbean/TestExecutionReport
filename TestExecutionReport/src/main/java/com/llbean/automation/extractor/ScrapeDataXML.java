@@ -73,8 +73,8 @@ public class ScrapeDataXML {
             File xmlfile2 = new File(file2.getParent() + "\\fix2.xml");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
-            logger.info(xmlfile.getName());
-            logger.info(xmlfile2.getName());
+            logger.info("file to parse: " + xmlfile.getName());
+            logger.info("file to parse: " + xmlfile2.getName());
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(new FileInputStream(xmlfile), "UTF-8");
             Document doc1 = builder.parse(new FileInputStream(xmlfile2), "UTF-8");
