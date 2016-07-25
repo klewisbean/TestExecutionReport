@@ -22,6 +22,7 @@ public class FindFile {
     public static void main(String[] args){
         logger.info("----------------START------------------");
         FindFile main = new FindFile();
+        logger.info("user.home: " + System.getProperty("user.home"));
         logger.info("user.dir: " + System.getProperty("user.dir"));
         main.findFile(main.FILENAME, System.getProperty("user.dir"));
     }
