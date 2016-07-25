@@ -73,7 +73,8 @@ public class ScrapeDataXML {
             File xmlfile2 = new File(file2.getParent() + "\\fix2.xml");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
-
+            logger.info(xmlfile.getName());
+            logger.info(xmlfile2.getName());
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(new FileInputStream(xmlfile), "UTF-8");
             Document doc1 = builder.parse(new FileInputStream(xmlfile2), "UTF-8");
@@ -1464,12 +1465,6 @@ public class ScrapeDataXML {
 
         }
 
-
-
-        /*PrintWriter writer = new PrintWriter("ZFJ-Executions-06-13-2016-new.xml");
-        for(int i = 0; i < xml.size(); i++){
-            writer.println(xml.get(i));
-        }*/
         try {
             writeFile(xml, toPath);
         } catch (IOException e) {

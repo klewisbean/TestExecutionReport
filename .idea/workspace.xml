@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" />
     </list>
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FindFile.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FindFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+            <state relative-caret-position="-921">
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -81,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="1450" column="28" selection-start-line="1450" selection-start-column="28" selection-end-line="1450" selection-end-column="28" />
+            <state relative-caret-position="443">
+              <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
               <folding>
                 <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
                 <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
@@ -150,9 +150,9 @@
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/XMLtoSheets.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ReleaseExportAutomation.java" />
-        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java" />
+        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" />
       </list>
     </option>
   </component>
@@ -877,24 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="1450" column="28" selection-start-line="1450" selection-start-column="28" selection-end-line="1450" selection-end-column="28" />
-          <folding>
-            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriorityclean#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriorityinit#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhaseclean#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhaseinit#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterDeviceclean#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterDeviceinit#0;class#ScrapeDataXML#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -913,9 +895,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        <state relative-caret-position="-921">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
+          <folding>
+            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPriorityclean#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPriorityinit#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPhaseclean#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPhaseinit#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterDeviceclean#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterDeviceinit#0;class#ScrapeDataXML#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
