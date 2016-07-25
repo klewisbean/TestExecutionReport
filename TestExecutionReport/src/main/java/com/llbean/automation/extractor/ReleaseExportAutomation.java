@@ -42,6 +42,7 @@ public class ReleaseExportAutomation {
     }
 
     public WebDriver setUpDriver(){
+        System.out.println("user dir: " + System.getProperty("user.dir"));
         logger.info("user dir: " + System.getProperty("user.dir"));
         String downloadFilepath = System.getProperty("user.dir");
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
