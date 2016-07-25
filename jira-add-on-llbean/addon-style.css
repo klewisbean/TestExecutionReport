@@ -12,8 +12,8 @@
 
 .left-div, .right-div {
   border: 3px solid #a0a0a0;
-  padding: 5px;
-  margin: 5px;
+  padding: 10px;
+  margin: 10px;
   float: left;
 }
 
