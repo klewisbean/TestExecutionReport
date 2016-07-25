@@ -20,6 +20,7 @@ public class FindFile {
     final static Logger logger = Logger.getLogger(FindFile.class);
 
     public static void main(String[] args){
+        logger.info("----------------START------------------");
         FindFile main = new FindFile();
         logger.info("user.dir: " + System.getProperty("user.dir"));
         main.findFile(main.FILENAME, System.getProperty("user.dir"));
