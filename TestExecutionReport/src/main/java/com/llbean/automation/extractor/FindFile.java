@@ -44,6 +44,7 @@ public class FindFile {
 
 
         for(File fil : filesin){
+            System.out.println(fil.getName());
             if(fil.getName().contains(filename)){
                 if(newest < fil.lastModified()){
                     newest = fil.lastModified();
@@ -53,6 +54,7 @@ public class FindFile {
         }
 
         for(File fil : filesin){
+            System.out.println(fil.getName());
             if(fil.getName().contains(filename)){
                 if(newest2 < fil.lastModified() && newest > fil.lastModified()){
 
