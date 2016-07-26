@@ -1475,13 +1475,13 @@ public class ScrapeDataXML {
             }
 
         }
-
         try {
             writeFile(xml, toPath);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        logger.info("XML fixed at path: " + toPath);
 
     }
 
