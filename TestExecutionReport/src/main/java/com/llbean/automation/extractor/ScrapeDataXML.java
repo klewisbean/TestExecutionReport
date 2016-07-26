@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
+import org.xml.sax.InputSource;
 
 public class ScrapeDataXML {
 
@@ -89,9 +90,12 @@ public class ScrapeDataXML {
             Document doc = null;
             Document doc1 = null;
             try{
-                logger.info("trying to parse...");
-                doc = builder.parse(new FileInputStream(xmlfile));
+                logger.info("trying to parse doc...");
+                doc = builder.parse(new InputSource(new StringReader(xmlfile.toString())));
+                logger.info("parsing doc success...");
+                logger.info("trying to parse doc1...");
                 doc1 = builder.parse(new FileInputStream(xmlfile2));
+                logger.info("parsing doc1 success...");
             }
             catch (Exception ex){
                 logger.info("parsing failed...");
