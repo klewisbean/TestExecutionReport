@@ -31,7 +31,7 @@ public class FindFile {
         long newest2 = 0;
         Date date = new Date();
         logger.info("date: " + dateformat.format(date));
-        directoryToSearch = directoryToSearch.substring(0, directoryToSearch.lastIndexOf("\\"));
+        //directoryToSearch = directoryToSearch.substring(0, directoryToSearch.lastIndexOf("\\"));
         logger.info("new directoryToSearch: " + directoryToSearch);
         String dateStr = dateformat.format(date);
         String filename = nameToFind;

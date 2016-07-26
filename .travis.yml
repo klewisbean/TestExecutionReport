@@ -1,4 +1,0 @@
-language: java
-
-script: cd TestExecutionReport
-script: mvn clean test
