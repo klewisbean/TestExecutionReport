@@ -90,7 +90,7 @@ public class ScrapeDataXML {
             Document doc1 = null;
             try{
                 logger.info("trying to parse doc...");
-                doc = builder.parse(new File(file1.getParent() + "\\fix1.xml"));
+                doc = builder.parse(new FileInputStream(xmlfile));
                 logger.info("parsing doc success...");
                 logger.info("trying to parse doc1...");
                 doc1 = builder.parse(new FileInputStream(xmlfile2));
