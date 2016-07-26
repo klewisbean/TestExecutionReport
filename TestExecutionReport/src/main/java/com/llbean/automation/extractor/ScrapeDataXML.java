@@ -94,6 +94,9 @@ public class ScrapeDataXML {
             is1.setEncoding("UTF-8");
             is2.setEncoding("UTF-8");
 
+            System.out.println("is1 encoding: " + is1.getEncoding());
+            System.out.println("is2 encoding: " + is2.getEncoding());
+
             logger.info("file to parse: " + file1.getParent() + "\\fix1.xml");
             logger.info("file to parse: " + file1.getParent() + "\\fix2.xml");
             Document doc = null;
