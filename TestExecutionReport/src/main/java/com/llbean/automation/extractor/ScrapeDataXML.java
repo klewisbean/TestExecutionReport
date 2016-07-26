@@ -8,6 +8,7 @@ import javax.swing.border.Border;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
+import com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultDocument;
 import org.apache.log4j.Logger;
 import org.w3c.dom.*;
 import java.awt.*;
@@ -85,8 +86,15 @@ public class ScrapeDataXML {
             logger.info("file to parse: " + xmlfile.getName());
             logger.info("file to parse: " + xmlfile2.getName());
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(new FileInputStream(xmlfile));
-            Document doc1 = builder.parse(new FileInputStream(xmlfile2));
+            Document doc = null;
+            Document doc1 = null;
+            try{
+                doc = builder.parse(new FileInputStream(xmlfile));
+                doc1 = builder.parse(new FileInputStream(xmlfile2));
+            }
+            catch (Exception ex){
+                ex.printStackTrace();
+            }
 
             doc.getDocumentElement().normalize();
             doc1.getDocumentElement().normalize();
