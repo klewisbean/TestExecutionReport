@@ -65,7 +65,16 @@ public class ScrapeDataXML {
         fixXML(file1.getPath(), file1.getParent() + "\\fix1.xml");
         fixXML(file2.getPath(), file2.getParent() + "\\fix2.xml");
 
+        File directory = new File(System.getProperty("user.dir"));
 
+        File[] filesin = directory.listFiles();
+
+        //System.out.println("nameToFind: " + nameToFind + "\nfilename: " + filename);
+
+
+        for(File fil : filesin){
+            System.out.println(fil.getName());
+        }
         //sorts through the xml file and refine the file into and array list
         try{
 
