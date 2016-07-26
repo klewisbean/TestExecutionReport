@@ -85,8 +85,8 @@ public class ScrapeDataXML {
             logger.info("file to parse: " + xmlfile.getName());
             logger.info("file to parse: " + xmlfile2.getName());
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(new FileInputStream(xmlfile), "UTF-8");
-            Document doc1 = builder.parse(new FileInputStream(xmlfile2), "UTF-8");
+            Document doc = builder.parse(new FileInputStream(xmlfile));
+            Document doc1 = builder.parse(new FileInputStream(xmlfile2));
 
             doc.getDocumentElement().normalize();
             doc1.getDocumentElement().normalize();
@@ -108,11 +108,6 @@ public class ScrapeDataXML {
             executedDate1 = doc1.getElementsByTagName("executedOn");
             executionStatus1 = doc1.getElementsByTagName("executedStatus");
 
-            logger.info(issueKeys);
-            logger.info("issuekeys length: " + issueKeys.getLength());
-
-            System.out.println(issueKeys);
-            System.out.println(issueKeys.getLength());
 
 
         } catch (Exception e) {
