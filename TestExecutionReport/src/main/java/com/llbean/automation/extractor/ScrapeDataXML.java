@@ -80,20 +80,19 @@ public class ScrapeDataXML {
         //sorts through the xml file and refine the file into and array list
         try{
 
-            File xmlfile = new File(file1.getParent() + "\\fix1.xml");
-            File xmlfile2 = new File(file2.getParent() + "\\fix2.xml");
+
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
-            logger.info("file to parse: " + xmlfile.getName());
-            logger.info("file to parse: " + xmlfile2.getName());
+            logger.info("file to parse: " + file1.getParent() + "\\fix1.xml");
+            logger.info("file to parse: " + file1.getParent() + "\\fix2.xml");
             Document doc = null;
             Document doc1 = null;
             try{
                 logger.info("trying to parse doc...");
-                doc = builder.parse(new FileInputStream(xmlfile));
+                doc = builder.parse(new FileInputStream(new File(file1.getParent() + "\\fix1.xml")));
                 logger.info("parsing doc success...");
                 logger.info("trying to parse doc1...");
-                doc1 = builder.parse(new FileInputStream(xmlfile2));
+                doc1 = builder.parse(new FileInputStream(new File(file2.getParent() + "\\fix2.xml")));
                 logger.info("parsing doc1 success...");
             }
             catch (Exception ex){
