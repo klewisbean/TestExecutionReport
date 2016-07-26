@@ -108,6 +108,10 @@ public class ScrapeDataXML {
             executedDate1 = doc1.getElementsByTagName("executedOn");
             executionStatus1 = doc1.getElementsByTagName("executedStatus");
 
+            System.out.println(issueKeys);
+            System.out.println(issueKeys.getLength());
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
