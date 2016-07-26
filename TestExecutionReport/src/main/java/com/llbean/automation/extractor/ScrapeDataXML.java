@@ -88,6 +88,9 @@ public class ScrapeDataXML {
             InputSource is1 = new InputSource(new FileInputStream(xmlfile));
             InputSource is2 = new InputSource(new FileInputStream(xmlfile2));
 
+            System.out.println("is1 encoding: " + is1.getEncoding());
+            System.out.println("is2 encoding: " + is2.getEncoding());
+
             is1.setEncoding("UTF-8");
             is2.setEncoding("UTF-8");
 
