@@ -82,8 +82,8 @@
       <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="97" column="73" selection-start-line="97" selection-start-column="73" selection-end-line="97" selection-end-column="73" />
+            <state relative-caret-position="286">
+              <caret line="97" column="62" selection-start-line="97" selection-start-column="62" selection-end-line="97" selection-end-column="62" />
               <folding>
                 <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
                 <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
@@ -926,8 +926,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="97" column="73" selection-start-line="97" selection-start-column="73" selection-end-line="97" selection-end-column="73" />
+        <state relative-caret-position="286">
+          <caret line="97" column="62" selection-start-line="97" selection-start-column="62" selection-end-line="97" selection-end-column="62" />
           <folding>
             <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
