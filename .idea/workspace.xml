@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/pom.xml" afterPath="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
     </list>
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+            <state relative-caret-position="528">
+              <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -44,9 +44,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="594">
               <caret line="33" column="76" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -56,7 +54,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="660">
               <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,7 +66,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
               <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,12 +78,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="484">
               <caret line="36" column="113" selection-start-line="36" selection-start-column="113" selection-end-line="36" selection-end-column="113" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#5080#5081#0" expanded="false" />
+                <element signature="e#5157#5158#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="22">
@@ -145,7 +151,6 @@
         <option value="$PROJECT_DIR$/TestExecutionReport/src/XMLtoSheets.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java" />
-        <option value="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
         <option value="$PROJECT_DIR$/automation.log" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/XMLtoSheets.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java" />
@@ -153,6 +158,7 @@
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" />
+        <option value="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
       </list>
     </option>
   </component>
@@ -743,7 +749,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1929" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -756,7 +762,7 @@
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.035982814" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22126746" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22126746" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -843,21 +849,11 @@
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/ScrapeDataXML.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/XMLtoSheets.java" />
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/Extrator/FindFile.java" />
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="33" column="76" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -865,7 +861,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -873,7 +871,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="36" column="113" selection-start-line="36" selection-start-column="113" selection-end-line="36" selection-end-column="113" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5080#5081#0" expanded="false" />
+            <element signature="e#5157#5158#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -889,7 +891,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -908,6 +912,14 @@
             <element signature="method#filterDeviceclean#0;class#ScrapeDataXML#0" expanded="false" />
             <element signature="method#filterDeviceinit#0;class#ScrapeDataXML#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

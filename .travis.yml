@@ -1,3 +1,3 @@
 language: java
 
-script: mvn exec:java@post
+script: mvn clean test
