@@ -23,7 +23,7 @@
         "description": {
           "value": "Report dashboard item from Kevin - Using Firebase database"
         },
-        "configurable": false,
+        "configurable": true,
         "thumbnailUrl": "/fire.jpg"
       }
 

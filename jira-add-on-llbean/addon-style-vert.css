@@ -14,7 +14,6 @@
   border: 3px solid #a0a0a0;
   padding: .2%;
   margin: .5%;
-  float: left;
   text-align: center;
 }
 
@@ -23,10 +22,9 @@
 }
 
 .right-div {
-  width: 60%;
+  width: 30%;
 }
 
 .right-div > div {
-  width: 50%;
-  float: left;
+  width: 100%;
 }
