@@ -89,10 +89,12 @@ public class ScrapeDataXML {
             Document doc = null;
             Document doc1 = null;
             try{
+                logger.info("trying to parse...");
                 doc = builder.parse(new FileInputStream(xmlfile));
                 doc1 = builder.parse(new FileInputStream(xmlfile2));
             }
             catch (Exception ex){
+                logger.info("parsing failed...");
                 ex.printStackTrace();
             }
 
@@ -119,6 +121,7 @@ public class ScrapeDataXML {
 
 
         } catch (Exception e) {
+            logger.info("outer exception");
             e.printStackTrace();
         }
 
