@@ -67,7 +67,7 @@ public class ScrapeDataXML {
         fixXML(file1.getPath(), file1.getParent() + "\\fix1.xml");
         fixXML(file2.getPath(), file2.getParent() + "\\fix2.xml");
 
-        File directory = new File(System.getProperty("user.dir"));
+        /*File directory = new File(System.getProperty("user.dir"));
 
         File[] filesin = directory.listFiles();
 
@@ -76,7 +76,7 @@ public class ScrapeDataXML {
 
         for(File fil : filesin){
             System.out.println(fil.getName());
-        }
+        }*/
         //sorts through the xml file and refine the file into and array list
         try{
 
@@ -1484,6 +1484,12 @@ public class ScrapeDataXML {
         String amp = "& ";
         for(int i = 0; i < xml.size(); i++){
             if(xml.get(i).contains("<testSummary>")) {
+                xml.remove(i);
+            }
+            if(xml.get(i).contains("<result>")) {
+                xml.remove(i);
+            }
+            if(xml.get(i).contains("<data>")) {
                 xml.remove(i);
             }
 
