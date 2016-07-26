@@ -85,17 +85,6 @@ public class ScrapeDataXML {
 
             File xmlfile = new File(file1.getParent() + "\\fix1.xml");
             File xmlfile2 = new File(file2.getParent() + "\\fix2.xml");
-            InputSource is1 = new InputSource(new FileInputStream(xmlfile));
-            InputSource is2 = new InputSource(new FileInputStream(xmlfile2));
-
-            System.out.println("is1 encoding: " + is1.getEncoding());
-            System.out.println("is2 encoding: " + is2.getEncoding());
-
-            is1.setEncoding("UTF-8");
-            is2.setEncoding("UTF-8");
-
-            System.out.println("is1 encoding: " + is1.getEncoding());
-            System.out.println("is2 encoding: " + is2.getEncoding());
 
             logger.info("file to parse: " + file1.getParent() + "\\fix1.xml");
             logger.info("file to parse: " + file1.getParent() + "\\fix2.xml");
@@ -103,10 +92,10 @@ public class ScrapeDataXML {
             Document doc1 = null;
             try{
                 logger.info("trying to parse doc...");
-                doc = builder.parse(is1);
+                doc = builder.parse(new FileInputStream(xmlfile), "UTF8");
                 logger.info("parsing doc success...");
                 logger.info("trying to parse doc1...");
-                doc1 = builder.parse(is2);
+                doc1 = builder.parse(new FileInputStream(xmlfile2), "UTF8");
                 logger.info("parsing doc1 success...");
             }
             catch (Exception ex){
