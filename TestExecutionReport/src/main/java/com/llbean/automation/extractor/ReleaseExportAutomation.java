@@ -42,7 +42,8 @@ public class ReleaseExportAutomation {
     }
 
     public WebDriver setUpDriver(){
-        logger.info("user dir: " + System.getProperty("user.dir"));
+        logger.info("setting up driver...");
+        logger.info("download path: " + System.getProperty("user.dir"));
         String downloadFilepath = System.getProperty("user.dir");
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -54,11 +55,13 @@ public class ReleaseExportAutomation {
         cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
         cap.setCapability(ChromeOptions.CAPABILITY, options);
         WebDriver driver = new ChromeDriver(cap);
+        logger.info("custom driver has been set up");
         return driver;
     }
 
     public void login(String username, String password){
 
+        logger.info("logging in...");
         driver.manage().window().maximize();
         //enter in the username to login
         driver.findElement(By.id("username")).sendKeys(username);
