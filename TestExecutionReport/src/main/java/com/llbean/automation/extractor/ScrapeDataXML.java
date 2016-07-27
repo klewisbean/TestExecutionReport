@@ -92,10 +92,10 @@ public class ScrapeDataXML {
             Document doc1 = null;
             try{
                 logger.info("trying to parse doc...");
-                doc = builder.parse(new FileInputStream(xmlfile), "UTF8");
+                doc = builder.parse(new FileInputStream(xmlfile), "UTF-8");
                 logger.info("parsing doc success...");
                 logger.info("trying to parse doc1...");
-                doc1 = builder.parse(new FileInputStream(xmlfile2), "UTF8");
+                doc1 = builder.parse(new FileInputStream(xmlfile2), "UTF-8");
                 logger.info("parsing doc1 success...");
             }
             catch (Exception ex){
@@ -127,7 +127,8 @@ public class ScrapeDataXML {
 
         } catch (Exception e) {
             logger.info("outer exception");
-            e.printStackTrace();
+            logger.error(e.getMessage());
+            //e.printStackTrace();
         }
 
         for(int i = 0; i < issueKeys.getLength(); i++){
@@ -177,8 +178,10 @@ public class ScrapeDataXML {
 
         File f = new File(file1.getParent() + "\\fix1.xml");
         f.delete();
+        logger.info("fix1.xml deleted");
         f = new File(file2.getParent() + "\\fix2.xml");
         f.delete();
+        logger.info("fix2.xml deleted");
         logger.info("\n---------------------------------------------------\nfinished");
     }
 
@@ -1493,6 +1496,9 @@ public class ScrapeDataXML {
                 xml.remove(i);
             }
             if(xml.get(i).contains("<data>")) {
+                xml.remove(i);
+            }
+            if(xml.get(i).contains("<step>")) {
                 xml.remove(i);
             }
 
