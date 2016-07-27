@@ -14,19 +14,27 @@ import java.util.HashMap;
 public class AutomateExportGUI {
 
 
-    public ArrayList<String> R60 = new ArrayList<String>();
-    public ArrayList<String> R61 = new ArrayList<String>();
-    public ArrayList<String> R62 = new ArrayList<String>();
-    public ArrayList<String> R63 = new ArrayList<String>();
-    public ArrayList<String> R64 = new ArrayList<String>();
-    public ArrayList<String> R65 = new ArrayList<String>();
-    public ArrayList<String> other = new ArrayList<String>();
+    /**
+     * #################################################
+     * CONFIGURE
+     * #################################################
+     * */
+    private static final String USERNAME = "klewis";
+    private static final String PWD = "A13b62.91";
+
+    /**CONFIGURE FOR NEW RELEASES*/
+    private static final String REL = "64";
+    /**
+     * #################################################
+     * CONFIGURE
+     * #################################################
+     * */
+
+
+
+    public ArrayList<String> relArray = new ArrayList<String>();
     public ArrayList<String> versions = new ArrayList<String>();
-
     public HashMap<String, ArrayList<String>> vMap = new HashMap<>();
-
-    public String[] releases = {"60", "61", "62", "63", "64", "65"};
-
     final static Logger logger = Logger.getLogger(AutomateExportGUI.class);
 
     public static void main(String[] args){
@@ -35,20 +43,9 @@ public class AutomateExportGUI {
 
         AutomateExportGUI main = new AutomateExportGUI();
 
-
-        main.getJiraVersions("klewis", "A13b62.91");
-
-        main.vMap.put("R60", main.R60);
-        main.vMap.put("R61", main.R61);
-        main.vMap.put("R62", main.R62);
-        main.vMap.put("R63", main.R63);
-        main.vMap.put("R64", main.R64);
-        main.vMap.put("R65", main.R65);
-        main.vMap.put("Other", main.other);
-
-
-        //default set to export Release 64
-        main.runReleaseAuto("klewis", "A13b62.91", "R64", main.vMap.get("R64"));
+        main.getJiraVersions(USERNAME, PWD);
+        main.vMap.put(REL, main.relArray);
+        main.runReleaseAuto(USERNAME, PWD, REL, main.vMap.get(REL));
     }
 
 
@@ -107,20 +104,11 @@ public class AutomateExportGUI {
         String output = response.getEntity(String.class);
 
 
-        //System.out.println(output);
-
         organizeData(output);
-        //printVersions();
 
-        R60 = createVersionArray(versions, "60");
-        R61 = createVersionArray(versions, "61");
-        R62 = createVersionArray(versions, "62");
-        R63 = createVersionArray(versions, "63");
-        R64 = createVersionArray(versions, "64");
-        R65 = createVersionArray(versions, "65");
-        other = createOtherVersionArray(versions);
+        relArray = createVersionArray(versions, REL);
 
-        //printArray(R63);
+
 
     }
 
@@ -170,26 +158,5 @@ public class AutomateExportGUI {
         }
     }
 
-    //creates the array that consists of versions without a specified release
-    public ArrayList<String> createOtherVersionArray(ArrayList<String> list) {
-        ArrayList<String> trimmed = new ArrayList<String>();
-
-        Boolean check = false;
-        int count;
-        for(int i = 0; i < list.size(); i++){
-            count = 0;
-            for(int j = 0; j < releases.length; j++){
-                if(!list.get(i).contains(releases[j])){
-                    count++;
-                }
-                if(count == releases.length)
-                {
-                    trimmed.add(list.get(i));
-                }
-            }
-        }
-
-        return trimmed;
-    }
 
 }

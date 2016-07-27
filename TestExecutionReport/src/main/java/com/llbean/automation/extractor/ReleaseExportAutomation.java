@@ -87,8 +87,9 @@ public class ReleaseExportAutomation {
             System.out.println("no such frame");
         }
 
+        logger.info("waiting for element to appear...");
         try {
-            Thread.sleep(40000);
+            Thread.sleep(50000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -107,6 +108,7 @@ public class ReleaseExportAutomation {
 
         //click the advanced search button
         navitatorContainer.click();
+        logger.info("element found");
 
         WebElement advanceInput  = driver.findElement(By.className("navigator-container"))
                                         .findElement(By.id("zqlcomponent"))
@@ -203,7 +205,7 @@ public class ReleaseExportAutomation {
         logger.trace("count:"+COUNT);
         //IJavaScriptExecutor javascript = driver as IJavaScriptExecutor;
         if(COUNT == 1){
-            for(int i = 1; i < 162; i++){
+            for(int i = 1; i < 150; i++){
                 System.out.println((5*i) + " seconds");
                 try {
                     Thread.sleep(5000);
