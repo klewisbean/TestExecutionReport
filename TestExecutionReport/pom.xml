@@ -30,6 +30,7 @@
                 <executions>
                     <execution>
                         <id>automation</id>
+                        <phase>test</phase>
                         <goals>
                             <goal>java</goal>
                         </goals>
@@ -40,7 +41,7 @@
                     </execution>
                     <execution>
                         <id>post</id>
-                        <phase>test</phase>
+
                         <goals>
                             <goal>java</goal>
                         </goals>
