@@ -109,7 +109,6 @@ public class AutomateExportGUI {
         relArray = createVersionArray(versions, REL);
 
 
-
     }
 
 
