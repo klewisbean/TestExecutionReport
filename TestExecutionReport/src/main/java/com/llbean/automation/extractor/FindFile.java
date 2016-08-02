@@ -42,9 +42,6 @@ public class FindFile {
 
         File[] filesin = directory.listFiles();
 
-        //System.out.println("nameToFind: " + nameToFind + "\nfilename: " + filename);
-
-
         for(File fil : filesin){
             System.out.println(fil.getName());
             if(fil.getName().contains(filename)){

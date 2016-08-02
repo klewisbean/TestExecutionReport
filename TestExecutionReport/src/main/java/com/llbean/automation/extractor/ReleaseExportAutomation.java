@@ -203,7 +203,7 @@ public class ReleaseExportAutomation {
 
     public static void waitfordownload(){
         logger.trace("count:"+COUNT);
-        //IJavaScriptExecutor javascript = driver as IJavaScriptExecutor;
+
         if(COUNT == 1){
             for(int i = 1; i < 150; i++){
                 System.out.println((5*i) + " seconds");
