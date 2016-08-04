@@ -1393,7 +1393,7 @@ public class ScrapeDataXML {
 
     public HashMap<String, HashMap<String,Integer>> createStatusTotals(HashMap<String, HashMap<String, Integer>> mws, int total){
         HashMap<String, HashMap<String,Integer>> percmap = new HashMap<>();
-        String[] execstatus = {"Unexecuted", "Pass", "Fail", "WIP", "Blocked"};
+        String[] execstatus = {"Pass", "Unexecuted", "Blocked", "Fail", "WIP"};
         Iterator it = mws.entrySet().iterator();
 
         while(it.hasNext()){
