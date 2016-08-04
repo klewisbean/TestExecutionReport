@@ -44,7 +44,9 @@ public class XMLtoSheets {
         //store the release variable
         rel = release;
 
-
+        logger.trace("-----------map---------");
+        logger.trace(map);
+        logger.trace("-----------map---------");
         ///////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////
         //start the structure of the sheet using a string
