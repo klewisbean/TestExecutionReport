@@ -396,8 +396,8 @@ public class ScrapeDataXML {
             ///////////////////////////////////////////////////////////////
         }
 
-        System.out.println("total cases in filterPriority(): " + total);
-        System.out.println(mapwithstatus);
+        logger.info("total cases in filterPriority(): " + total);
+        logger.info(mapwithstatus);
         TOTAL = total;
         return createStatusTotals(mapwithstatus, total);
     }

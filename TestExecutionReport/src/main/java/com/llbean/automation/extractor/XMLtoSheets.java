@@ -82,7 +82,7 @@ public class XMLtoSheets {
         input += "]}";
         //end structure of the sheet
 
-
+        logger.info(input);
         //call method to post to firebase
         postFB(input, SHEET_URL);
 
