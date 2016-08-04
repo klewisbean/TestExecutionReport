@@ -51,6 +51,7 @@ public class ReleaseExportAutomation {
         chromePrefs.put("safebrowsing.enabled", "true");
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
+        options.addArguments("--no-sandbox");
         DesiredCapabilities cap = DesiredCapabilities.chrome();
         cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
         cap.setCapability(ChromeOptions.CAPABILITY, options);
