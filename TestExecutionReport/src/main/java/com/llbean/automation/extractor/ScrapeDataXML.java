@@ -176,12 +176,12 @@ public class ScrapeDataXML {
             e.printStackTrace();
         }
 
-        /*File f = new File(file1.getParent() + "\\fix1.xml");
+        File f = new File(file1.getParent() + "\\fix1.xml");
         f.delete();
         logger.info("fix1.xml deleted");
         f = new File(file2.getParent() + "\\fix2.xml");
         f.delete();
-        logger.info("fix2.xml deleted");*/
+        logger.info("fix2.xml deleted");
         logger.info("\n---------------------------------------------------\nfinished");
     }
 
