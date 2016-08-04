@@ -23,7 +23,7 @@ public class FindFile {
         logger.info("----------------START------------------");
         FindFile main = new FindFile();
         logger.info("user.dir: " + System.getProperty("user.dir"));
-        main.findFile(main.FILENAME, System.getProperty("user.dir") + "\\TestExecutionReport");
+        main.findFile(main.FILENAME, System.getProperty("user.dir") /*+ "\\TestExecutionReport"*/);
     }
 
     public void findFile(String nameToFind, String directoryToSearch){

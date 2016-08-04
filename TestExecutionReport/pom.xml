@@ -104,5 +104,37 @@
         </dependency>
     </dependencies>
 
+    <repositories>
+      <repository>
+        <id>central</id>
+        <name>Maven Repository Switchboard</name>
+        <layout>default</layout>
+        <url>http://repo1.maven.org/maven2</url>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+      </repository>
+      <repository>
+        <id>localrepository</id>
+        <url>file://C:\Users\klewis\.m2\repository</url>
+      </repository>
+    </repositories>
+
+    <pluginRepositories>
+      <pluginRepository>
+        <id>central</id>
+        <name>Maven Plugin Repository</name>
+        <layout>default</layout>
+        <url>file://C:\Users\klewis\.m2\repository</url>
+      </pluginRepository>
+
+      <pluginRepository>
+        <id>central2</id>
+        <name>Maven Plugin Repository 2</name>
+        <layout>default</layout>
+        <url>http://repo1.maven.org/maven2</url>
+      </pluginRepository>
+    </pluginRepositories>
+
 
 </project>
