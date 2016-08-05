@@ -23,6 +23,9 @@ public class FindFile {
         logger.info("----------------START------------------");
         FindFile main = new FindFile();
         logger.info("user.dir: " + System.getProperty("user.dir"));
+
+        //modify this depending on the environment the program is running in
+        //the directory environment may change when running in different environments
         main.findFile(main.FILENAME, System.getProperty("user.dir") + "\\TestExecutionReport");
     }
 
@@ -42,6 +45,7 @@ public class FindFile {
 
         File[] filesin = directory.listFiles();
 
+        //searches through the user directory for the first latest test execution xml file from zephyr for jira
         for(File fil : filesin){
             System.out.println(fil.getName());
             if(fil.getName().contains(filename)){
@@ -52,6 +56,7 @@ public class FindFile {
             }
         }
 
+        //searches through the user directory for the second latest test execution xml file from zephyr for jira
         for(File fil : filesin){
             System.out.println(fil.getName());
             if(fil.getName().contains(filename)){

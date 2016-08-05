@@ -27,22 +27,12 @@ import org.xml.sax.InputSource;
 public class ScrapeDataXML {
 
     public HashMap<String, ArrayList<String[]>> versionmap = new HashMap<>();
-    public HashMap<String, Integer> phasemap = new HashMap<>();
-    public HashMap<String, Integer> prioritymap = new HashMap<>();
-    public HashMap<String, Integer> devicemap = new HashMap<>();
-    public HashMap<String, HashMap<String, Integer>> phases = new HashMap<>();
     public ArrayList<String[]> list = new ArrayList<>();
-    public HashMap<String, Integer> phasepriority = new HashMap<>();
     public ArrayList<String> versions = new ArrayList<String>();
-
-    public HashMap<String, HashMap<String, Integer>> phasestatus = new HashMap<>();
-    public HashMap<String, HashMap<String, Integer>> devicestatus = new HashMap<>();
-    public HashMap<String, HashMap<String, Integer>> prioritystatus = new HashMap<>();
 
     public String[] execstatus = {"Unexecuted", "Pass", "Fail", "WIP", "Blocked"};
     public String release = "";
     public String tempRelease = "";
-    //public String date = "";
     public static int TOTAL = 0;
 
     final static Logger logger = Logger.getLogger(ScrapeDataXML.class);
@@ -64,23 +54,13 @@ public class ScrapeDataXML {
 
         logger.info("file1 path: " + file1.getPath());
         logger.error("file1 parent: " + file1.getParent());
+
+        //fix the xml file (get rid of special characters and unwanted data)
         fixXML(file1.getPath(), file1.getParent() + "\\fix1.xml");
         fixXML(file2.getPath(), file2.getParent() + "\\fix2.xml");
 
-        /*File directory = new File(System.getProperty("user.dir"));
-
-        File[] filesin = directory.listFiles();
-
-        //System.out.println("nameToFind: " + nameToFind + "\nfilename: " + filename);
-
-
-        for(File fil : filesin){
-            System.out.println(fil.getName());
-        }*/
         //sorts through the xml file and refine the file into and array list
         try{
-
-
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
             File xmlfile = new File(file1.getParent() + "\\fix1.xml");
@@ -128,9 +108,9 @@ public class ScrapeDataXML {
         } catch (Exception e) {
             logger.info("outer exception");
             logger.error(e.getMessage());
-            //e.printStackTrace();
         }
 
+        //add the data in the first xml file to the list
         for(int i = 0; i < issueKeys.getLength(); i++){
             String[] temp = {issueKeys.item(i).getTextContent(),
                     cycleNames.item(i).getTextContent(),
@@ -140,6 +120,8 @@ public class ScrapeDataXML {
                     executionStatus.item(i).getTextContent()};
             list.add(temp);
         }
+
+        //add the data in the second xml file to the list
         for(int i = 0; i < issueKeys1.getLength(); i++){
             String[] temp = {issueKeys1.item(i).getTextContent(),
                     cycleNames1.item(i).getTextContent(),
@@ -150,9 +132,7 @@ public class ScrapeDataXML {
             list.add(temp);
         }
 
-        //printData(list);
-        System.out.println("list size: " + list.size());
-
+        //split list into versions
         versionmap = splitIntoVersions(list);
 
         String first = versionmap.entrySet().iterator().next().getKey();
@@ -170,12 +150,14 @@ public class ScrapeDataXML {
             //filterPhase(list);
             //filterPriority(list);
             //filterDevice(list);
-            //if the GUI is not needed just uncomment this method call
+
+            //post the data into firebase database
             fbpostfunction(date);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        //delete the fix files once they are used
         File f = new File(file1.getParent() + "\\fix1.xml");
         f.delete();
         logger.info("fix1.xml deleted");
@@ -1465,6 +1447,7 @@ public class ScrapeDataXML {
         return versionmap;
     }
 
+    //creates and returns a list from an xml file
     public ArrayList<String> readXmlAsString(File xmlfile){
         ArrayList<String> stringbuilds = new ArrayList<>();
         try(BufferedReader reader = new BufferedReader(new FileReader(xmlfile))){
@@ -1482,6 +1465,7 @@ public class ScrapeDataXML {
         return stringbuilds;
     }
 
+    //given a path of a test execution xml file it removes unwanted data and special characters
     public void fixXML(String path, String toPath) throws FileNotFoundException {
         logger.info("Fixing XML......");
         File xmlfile = new File(path);
@@ -1537,9 +1521,6 @@ public class ScrapeDataXML {
 
         writer.close();
     }
-
-
-
 
 
     //deprecated methods -- could still be useful

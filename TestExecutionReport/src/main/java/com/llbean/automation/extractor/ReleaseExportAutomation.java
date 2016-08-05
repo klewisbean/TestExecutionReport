@@ -44,14 +44,14 @@ public class ReleaseExportAutomation {
     public WebDriver setUpDriver(){
         logger.info("setting up driver...");
         logger.info("download path: " + System.getProperty("user.dir"));
-        String downloadFilepath = System.getProperty("user.dir");
+        String downloadFilepath = System.getProperty("user.dir");//path where files will be download when automating in chrome
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("profile.default_content_settings.popups", 0);
         chromePrefs.put("download.default_directory", downloadFilepath);
         chromePrefs.put("safebrowsing.enabled", "true");
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
-        options.addArguments("--no-sandbox");
+        options.addArguments("--no-sandbox");//fixes the "unable to discover pages error" in jenkins
         DesiredCapabilities cap = DesiredCapabilities.chrome();
         cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
         cap.setCapability(ChromeOptions.CAPABILITY, options);
