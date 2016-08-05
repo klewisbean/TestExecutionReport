@@ -138,6 +138,34 @@
              $('#loz-total-cases-release').text('Total Cases: ' + (total));
              $('h5').text('As of: ' + date);
 
+             if(selection == 'phase'){
+               var a = filterArr[1];
+               filterArr[1] = filterArr[2];
+               filterArr[2] = a;
+
+               var a = passArr[1];
+               passArr[1] = passArr[2];
+               passArr[2] = a;
+             }
+
+             if(selection == 'priority'){
+               var a = filterArr[1];
+               filterArr[1] = filterArr[2];
+               filterArr[2] = a;
+               var a = filterArr[1];
+               filterArr[1] = filterArr[0];
+               filterArr[0] = a;
+
+               var a = passArr[1];
+               passArr[1] = passArr[2];
+               passArr[2] = a;
+               var a = passArr[1];
+               passArr[1] = passArr[0];
+               passArr[0] = a;
+             }
+
+
+
              barData = {
                labels: filterArr,
                datasets: [
@@ -246,6 +274,33 @@
              $('#loz-total-cases-clean').text('Total Cases: ' + (totalclean));
              $('h5').text('As of: ' + date);
 
+             if(selection == 'phase'){
+               var a = filterArr[1];
+               filterArr[1] = filterArr[2];
+               filterArr[2] = a;
+
+               var a = passArr[1];
+               passArr[1] = passArr[2];
+               passArr[2] = a;
+             }
+
+             if(selection == 'priority'){
+               var a = filterArr[1];
+               filterArr[1] = filterArr[2];
+               filterArr[2] = a;
+               var a = filterArr[1];
+               filterArr[1] = filterArr[0];
+               filterArr[0] = a;
+
+               var a = passArr[1];
+               passArr[1] = passArr[2];
+               passArr[2] = a;
+               var a = passArr[1];
+               passArr[1] = passArr[0];
+               passArr[0] = a;
+             }
+
+
              barData2 = {
                labels: filterArr,
                datasets: [
@@ -350,6 +405,33 @@
 
              $('#loz-total-cases-initial').text('Total Cases: ' + (totalinitial));
              $('h5').text('As of: ' + date);
+
+             if(selection == 'phase'){
+               var a = filterArr[1];
+               filterArr[1] = filterArr[2];
+               filterArr[2] = a;
+
+               var a = passArr[1];
+               passArr[1] = passArr[2];
+               passArr[2] = a;
+             }
+
+             if(selection == 'priority'){
+               var a = filterArr[1];
+               filterArr[1] = filterArr[2];
+               filterArr[2] = a;
+               var a = filterArr[1];
+               filterArr[1] = filterArr[0];
+               filterArr[0] = a;
+
+               var a = passArr[1];
+               passArr[1] = passArr[2];
+               passArr[2] = a;
+               var a = passArr[1];
+               passArr[1] = passArr[0];
+               passArr[0] = a;
+             }
+
 
              barData3 = {
                labels: filterArr,
