@@ -43,43 +43,58 @@ public class XMLtoSheets {
 
         //store the release variable
         rel = release;
+        String input = "";
+        if(map.size() == 0){
+            ///////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////
+            //start the structure of the sheet using a string
+            //create the json structure of the rows for the filters and their data
+            input += "{\"rows\": [";
+            input += "{\"Title\": \"" + release + "\"}";
+            input += ",{\"Date\": \"" + date + "\"}";
+            //input += ",{\"Total\": \"" + total + "\"}";
+            input += "]}";
+            //end structure of the sheet
+        }else{
+            ///////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////
+            //start the structure of the sheet using a string
+            //create the json structure of the rows for the filters and their data
+            input += "{\"rows\": [";
+            Iterator it = map.entrySet().iterator();
 
-        ///////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////
-        //start the structure of the sheet using a string
-        //create the json structure of the rows for the filters and their data
-        String input = "{\"rows\": [";
-        Iterator it = map.entrySet().iterator();
+            while(it.hasNext()){
+                Map.Entry pair = (Map.Entry)it.next();
 
-        while(it.hasNext()){
-            Map.Entry pair = (Map.Entry)it.next();
+                input += "{\"Filter\": \"" + pair.getKey() + "\",";
 
-            input += "{\"Filter\": \"" + pair.getKey() + "\",";
-
-            HashMap<String, Integer> temp = (HashMap<String, Integer>) pair.getValue();
-            Iterator it2 = temp.entrySet().iterator();
-            int count = 0;
-            while(it2.hasNext()){
-                Map.Entry pair2 = (Map.Entry)it2.next();
-                input += " \"" + pair2.getKey() + "\": \"" + pair2.getValue();
-                if(count!=0){
-                    input += "\",";
+                HashMap<String, Integer> temp = (HashMap<String, Integer>) pair.getValue();
+                Iterator it2 = temp.entrySet().iterator();
+                int count = 0;
+                while(it2.hasNext()){
+                    Map.Entry pair2 = (Map.Entry)it2.next();
+                    input += " \"" + pair2.getKey() + "\": \"" + pair2.getValue();
+                    if(count!=0){
+                        input += "\",";
+                    }
+                    else{
+                        input += "\",";
+                    }
+                    count++;
                 }
-                else{
-                    input += "\",";
-                }
-                count++;
+                input = input.substring(0, input.length()-1);
+                input += "},";
+
             }
             input = input.substring(0, input.length()-1);
-            input += "},";
-
+            input += ",{\"Title\": \"" + release + "\"}";
+            input += ",{\"Date\": \"" + date + "\"}";
+            //input += ",{\"Total\": \"" + total + "\"}";
+            input += "]}";
+            //end structure of the sheet
         }
-        input = input.substring(0, input.length()-1);
-        input += ",{\"Title\": \"" + release + "\"}";
-        input += ",{\"Date\": \"" + date + "\"}";
-        //input += ",{\"Total\": \"" + total + "\"}";
-        input += "]}";
-        //end structure of the sheet
+
+
 
         logger.info("----------INPUT---------");
         logger.info(input);
