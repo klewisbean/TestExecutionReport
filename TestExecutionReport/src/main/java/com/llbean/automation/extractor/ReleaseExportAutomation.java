@@ -3,11 +3,8 @@ package com.llbean.automation.extractor; /**
  */
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.NoSuchFrameException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
 
 
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -151,7 +148,20 @@ public class ReleaseExportAutomation {
                 e.printStackTrace();
             }
         }
-        advanceSearchButton.click();
+
+        try{
+            advanceSearchButton.click();
+        } catch(WebDriverException e) {
+            WebElement close = driver.findElement(By.cssSelector("#pas-announcement > div > span.aui-icon.icon-close"));
+            close.click();
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e2) {
+                e.printStackTrace();
+            }
+            advanceSearchButton.click();
+        }
+
     }
 
     //click the export xml button which will download the xml file to the local system "downloads" folder
