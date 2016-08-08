@@ -181,7 +181,7 @@ public class ScrapeDataXML {
     there is nothing to return but that can change if necessary
     */
     public HashMap<String, HashMap<String, Integer>> filterDevice(ArrayList<String[]> versionlist){
-
+        logger.info("FILTER DEVICE");
         tempRelease = "";
         int total = 0;
         int totalinit = 1;
@@ -314,6 +314,7 @@ public class ScrapeDataXML {
     there is nothing to return but that can change if necessary
     */
     public HashMap<String, HashMap<String, Integer>> filterPriority(ArrayList<String[]> versionlist){
+        logger.info("FILTER PRIORITY");
         tempRelease = "";
         int total = 0;
         //string array to hold the possible priorities
@@ -393,7 +394,7 @@ public class ScrapeDataXML {
     there is nothing to return but that can change if necessary
      */
     public HashMap<String, HashMap<String, Integer>> filterPhase(ArrayList<String[]> versionlist){
-
+        logger.info("FILTER PHASE");
         tempRelease = "";
         int total = 0;
         //string array to hold the possible phase types
@@ -517,6 +518,7 @@ public class ScrapeDataXML {
      */
 
     public HashMap<String, HashMap<String, Integer>> filterPriorityclean(ArrayList<String[]> versionlist){
+        logger.info("FILTER PRIORITY CLEAN");
         tempRelease = "";
         int total = 0;
         int totalclean = 0;
@@ -614,6 +616,7 @@ public class ScrapeDataXML {
     }
 
     public HashMap<String, HashMap<String, Integer>> filterPriorityinit(ArrayList<String[]> versionlist){
+        logger.info("FILTER PRIORITY INITIAL");
         tempRelease = "";
         int total = 0;
         int totalclean = 0;
@@ -731,7 +734,7 @@ public class ScrapeDataXML {
      */
 
     public HashMap<String, HashMap<String, Integer>> filterPhaseclean(ArrayList<String[]> versionlist){
-
+        logger.info("FILTER PHASE CLEAN");
         tempRelease = "";
         int total = 0;
         int totalclean = 0;
@@ -838,7 +841,7 @@ public class ScrapeDataXML {
     }
 
     public HashMap<String, HashMap<String, Integer>> filterPhaseinit(ArrayList<String[]> versionlist){
-
+        logger.info("FILTER PHASE INITIAL");
         tempRelease = "";
         int total = 0;
         int totalclean = 0;
@@ -986,7 +989,7 @@ public class ScrapeDataXML {
      */
 
     public HashMap<String, HashMap<String, Integer>> filterDeviceclean(ArrayList<String[]> versionlist){
-
+        logger.info("FILTER DEVICE CLEAN");
         tempRelease = "";
         int total = 0;
         int totalinit = 0;
@@ -1104,7 +1107,7 @@ public class ScrapeDataXML {
     }
 
     public HashMap<String, HashMap<String, Integer>> filterDeviceinit(ArrayList<String[]> versionlist){
-
+        logger.info("FILTER DEVICE CLEAN");
         tempRelease = "";
         int total = 0;
         int totalinit = 1;
