@@ -150,9 +150,15 @@ public class ReleaseExportAutomation {
         }
 
         try{
+
             advanceSearchButton.click();
         } catch(WebDriverException e) {
-            WebElement close = driver.findElement(By.cssSelector("#pas-announcement > div > span.aui-icon.icon-close"));
+            logger.info("caught pop up");
+            //catch if there is a JIRA broadcast message present
+            WebElement close = driver.findElement(By.id("aui-flag-container"))
+                    .findElement(By.id("pas-announcement"))
+                    .findElement(By.className("aui-message"))
+                    .findElement(By.className("aui-icon"));
             close.click();
             try {
                 Thread.sleep(2000);
