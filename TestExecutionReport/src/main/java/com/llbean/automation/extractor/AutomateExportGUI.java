@@ -19,11 +19,11 @@ public class AutomateExportGUI {
      * CONFIGURE
      * #################################################
      * */
-    private static final String USERNAME = "klewis";
-    private static final String PWD = "A13b62.91";
+    private static final String USERNAME = "srtester";
+    private static final String PWD = "qatest11";
 
     /**CONFIGURE FOR NEW RELEASES*/
-    private static final String REL = "64";
+    private static final String REL = "65";
     /**
      * #################################################
      * CONFIGURE
