@@ -81,6 +81,7 @@ public class ReleaseExportAutomation {
       //navigate to the "search test execution page"
         driver.get(atlassianllbeanhome + searchtestexecutions);
 
+        logger.info("Title: " + driver.getTitle() + " URL: " + driver.getCurrentUrl());
         try {
             driver.switchTo().frame(0);
         }
