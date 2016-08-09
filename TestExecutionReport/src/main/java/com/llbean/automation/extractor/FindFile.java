@@ -72,6 +72,37 @@ public class FindFile {
         logger.info("Newest file: " + newestfile.getName());
         logger.info("Newest2 file: " + newestfile2.getName());
 
+        if(newestfile.getName().equalsIgnoreCase(filename)){
+            File directory2 = new File(directoryToSearch + "\\TestExecutionReport");
+
+            File[] filesin2 = directory2.listFiles();
+
+            //searches through the user directory for the first latest test execution xml file from zephyr for jira
+            for(File fil : filesin){
+                System.out.println(fil.getName());
+                if(fil.getName().contains(filename)){
+                    if(newest < fil.lastModified()){
+                        newest = fil.lastModified();
+                        newestfile = fil;
+                    }
+                }
+            }
+
+            //searches through the user directory for the second latest test execution xml file from zephyr for jira
+            for(File fil : filesin){
+                System.out.println(fil.getName());
+                if(fil.getName().contains(filename)){
+                    if(newest2 < fil.lastModified() && newest > fil.lastModified()){
+
+                        newest2 = fil.lastModified();
+                        newestfile2 = fil;
+                    }
+                }
+            }
+        }
+
+        logger.info("2Newest file: " + newestfile.getName());
+        logger.info("2Newest2 file: " + newestfile2.getName());
         ScrapeDataXML scrape = new ScrapeDataXML();
         try {
 
