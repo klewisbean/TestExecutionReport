@@ -26,7 +26,7 @@ public class FindFile {
 
         //modify this depending on the environment the program is running in
         //the directory environment may change when running in different environments
-        main.findFile(main.FILENAME, System.getProperty("user.dir") + "\\TestExecutionReport");
+        main.findFile(main.FILENAME, System.getProperty("user.dir") /*+ "\\TestExecutionReport"*/);
     }
 
     public void findFile(String nameToFind, String directoryToSearch){

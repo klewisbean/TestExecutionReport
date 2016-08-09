@@ -30,7 +30,7 @@
                 <executions>
                     <execution>
                         <id>automation</id>
-                        
+
                         <goals>
                             <goal>java</goal>
                         </goals>
