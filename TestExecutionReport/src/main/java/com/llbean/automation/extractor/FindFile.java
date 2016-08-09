@@ -78,7 +78,7 @@ public class FindFile {
             File[] filesin2 = directory2.listFiles();
 
             //searches through the user directory for the first latest test execution xml file from zephyr for jira
-            for(File fil : filesin){
+            for(File fil : filesin2){
                 System.out.println(fil.getName());
                 if(fil.getName().contains(filename)){
                     if(newest < fil.lastModified()){
@@ -89,7 +89,7 @@ public class FindFile {
             }
 
             //searches through the user directory for the second latest test execution xml file from zephyr for jira
-            for(File fil : filesin){
+            for(File fil : filesin2){
                 System.out.println(fil.getName());
                 if(fil.getName().contains(filename)){
                     if(newest2 < fil.lastModified() && newest > fil.lastModified()){
