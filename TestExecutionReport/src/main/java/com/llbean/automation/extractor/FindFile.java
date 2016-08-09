@@ -107,7 +107,7 @@ public class FindFile {
         ScrapeDataXML scrape = new ScrapeDataXML();
         try {
 
-            scrape.run(newestfile, newestfile2, newestd.toString());
+            scrape.run(newestfile, newestfile2, date);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
