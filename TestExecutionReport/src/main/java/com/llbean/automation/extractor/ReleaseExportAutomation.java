@@ -198,7 +198,7 @@ public class ReleaseExportAutomation {
         //click the xml export button
         xmlexport.click();
         waitfordownload();
-
+        driver.quit();
 
     }
 
