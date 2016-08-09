@@ -68,7 +68,8 @@ public class FindFile {
             }
         }
 
-        Date newestd = new Date(newestfile.lastModified());
+        Date newestd = new Date(newestfile.lastModified()*10);
+        logger.info("newestd: " + newestd);
         logger.info("Newest file: " + newestfile.getName());
         logger.info("Newest2 file: " + newestfile2.getName());
 
