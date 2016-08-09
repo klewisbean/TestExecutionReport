@@ -1390,26 +1390,32 @@ public class ScrapeDataXML {
             int totalex = 0;
             int[] exarray = {0,0,0,0,0};
             int count = 0;
+            HashMap<String, Integer> tempdub = new HashMap<>();
             while(it2.hasNext()){
                 Map.Entry pair2 = (Map.Entry)it2.next();
-                //System.out.println(pair2.getKey() + " | " + pair2.getValue());
+                System.out.println(pair2.getKey() + " | " + pair2.getValue());
+
+                for(int i = 0; i < execstatus.length; i++){
+                    if(execstatus[i].equalsIgnoreCase(pair2.getKey().toString())){
+                        tempdub.put(execstatus[i], (Integer)pair2.getValue());
+                    }
+
+                }
 
                 totalex += (Integer)pair2.getValue();
                 exarray[count] = (Integer)pair2.getValue();
                 count++;
             }
 
-            HashMap<String, Integer> tempdub = new HashMap<>();
-            for(int i = 0; i < exarray.length; i++){
 
-                tempdub.put(execstatus[i], exarray[i]);
-            }
+
             tempdub.put("total", totalex);
             percmap.put((String) pair.getKey(), tempdub);
-
+            System.out.println("tempdub: " + tempdub);
         }
 
 
+        System.out.println("percmap: " + percmap);
         return percmap;
     }
 
