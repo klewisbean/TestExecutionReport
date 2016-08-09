@@ -39,6 +39,7 @@ public class ScrapeDataXML {
 
     public void run(File file1, File file2, String date) throws FileNotFoundException {
 
+        logger.info("date in run() scrapedataxml: " + date);
         NodeList issueKeys = null;
         NodeList cycleNames = null;
         NodeList version = null;
@@ -1233,6 +1234,7 @@ public class ScrapeDataXML {
 
     //method to automatically post without GUI if need be
     public void fbpostfunction(String date){
+        logger.info("date in fbpostfunction: " + date);
         //clear the firebase database first
         XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
 

@@ -40,6 +40,7 @@ public class XMLtoSheets {
         //trust all certificates
         trustall();
 
+        logger.info("date in XMLtosheets: " + date);
 
         //store the release variable
         rel = release;
