@@ -116,7 +116,7 @@
       </repository>
       <repository>
         <id>localrepository</id>
-        <url>file://C:\Users\klewis\.m2\repository</url>
+        <url>file://C:\Users\dcorrales\.m2\repository</url>
       </repository>
     </repositories>
 
@@ -125,7 +125,7 @@
         <id>central</id>
         <name>Maven Plugin Repository</name>
         <layout>default</layout>
-        <url>file://C:\Users\klewis\.m2\repository</url>
+        <url>file://C:\Users\dcorrales\.m2\repository</url>
       </pluginRepository>
 
       <pluginRepository>
