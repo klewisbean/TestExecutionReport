@@ -144,7 +144,7 @@ public class ScrapeDataXMLCTRTCM {
     public HashMap<String, HashMap<String, Integer>> filterCycle(ArrayList<String[]> versionlist){
 
         tempRelease = "";
-        int total = 1;
+        int total = 0;
 
         //hash maps to hold the device and the count of the device
         //the hash maps are divided into the cleanup and initial launch phases
@@ -281,7 +281,7 @@ public class ScrapeDataXMLCTRTCM {
     */
     public HashMap<String, HashMap<String, Integer>> filterPriority(ArrayList<String[]> versionlist){
         tempRelease = "";
-        int total = 1;
+        int total = 0;
         //string array to hold the possible priorities
         String[] prioritylist = {"Critical", "Major", "Minor", "No Priority", "Trivial", "Blocker"};
 
@@ -352,7 +352,7 @@ public class ScrapeDataXMLCTRTCM {
     public HashMap<String, Integer> filterStatus(ArrayList<String[]> versionlist){
 
         tempRelease = "";
-        int total = 1;
+        int total = 0;
 
         HashMap<String, Integer> mapwithstatus = new HashMap<>();
 
@@ -436,7 +436,7 @@ public class ScrapeDataXMLCTRTCM {
             for(i = 0; i < phaselist.size(); i++){
                 System.out.print("elem: ");
                 for(j = 0; j < phaselist.get(i).length; j++){
-                    System.out.print(phaselist.get(i)[j]);
+                System.out.print(phaselist.get(i)[j] + " | ");
                 }
                 System.out.println();
             }
