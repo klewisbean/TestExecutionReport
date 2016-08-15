@@ -436,6 +436,7 @@ public class ScrapeDataXMLCTRTCM {
             for(i = 0; i < phaselist.size(); i++){
                 System.out.println("elem: " + phaselist.get(i));
             }
+            System.out.println("phaselist.size: " + phaselist.size());
             /*
         PRIORITY
          */
