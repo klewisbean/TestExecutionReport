@@ -30,7 +30,7 @@
                 <executions>
                     <execution>
                         <id>automation-ctrtcm</id>
-
+                        <phase>test</phase>
                         <goals>
                             <goal>java</goal>
                         </goals>
@@ -41,7 +41,7 @@
                     </execution>
                     <execution>
                         <id>post-ctrtcm</id>
-                        <phase>test</phase>
+
                         <goals>
                             <goal>java</goal>
                         </goals>
