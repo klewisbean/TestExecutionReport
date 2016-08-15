@@ -83,7 +83,7 @@ public class ScrapeDataXMLCTRTCM {
 
         //add the data in the first xml file to the list
         for(int i = 0; i < issueKeys.getLength(); i++){
-            System.out.println(i + " : " + issueKeys.item(i).getTextContent());
+            //System.out.println(i + " : " + issueKeys.item(i).getTextContent());
             String[] temp = {issueKeys.item(i).getTextContent(),
                     cycleNames.item(i).getTextContent(),
                     version.item(i).getTextContent(),
@@ -92,7 +92,7 @@ public class ScrapeDataXMLCTRTCM {
                     executionStatus.item(i).getTextContent()};
             list.add(temp);
         }
-
+        System.out.println("List.size: " + list.size());
         //split list into versions
         versionmap = splitIntoVersions(list);
         logger.info("versionmap: " + versionmap.keySet());
