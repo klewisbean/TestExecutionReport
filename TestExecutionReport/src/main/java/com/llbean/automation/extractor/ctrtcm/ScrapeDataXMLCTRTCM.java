@@ -101,6 +101,7 @@ public class ScrapeDataXMLCTRTCM {
 
 
         mapofphases = getMapOfPhases(list);
+        System.out.println("mapofphases: " + mapofphases);
         //printData(list);
 
         try {

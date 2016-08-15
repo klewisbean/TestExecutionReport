@@ -78,10 +78,12 @@
       <file leaf-file-name="ScrapeDataXMLCTRTCM.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="107" column="40" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
+            <state relative-caret-position="-698">
+              <caret line="104" column="10" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="10" />
               <folding>
-                <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+                <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+                <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+                <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#createStatusPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#createStatusTotals#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
@@ -928,7 +930,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="42" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1107,10 +1109,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="107" column="40" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
+        <state relative-caret-position="-698">
+          <caret line="104" column="10" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="10" />
           <folding>
-            <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+            <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+            <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+            <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#createStatusPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#createStatusTotals#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
