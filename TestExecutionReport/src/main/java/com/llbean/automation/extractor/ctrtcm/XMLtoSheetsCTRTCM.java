@@ -31,10 +31,59 @@ public class XMLtoSheetsCTRTCM {
     //create the client
     public static Client client = Client.create();
 
+    public static void runStatus(HashMap<String, Integer> map, String release, String api, String date) throws IOException {
+        SHEET_URL = api;
+
+        logger.info("map in xmltosheets runstatus: " + map);
+
+        //trust all certificates
+        trustall();
+
+
+        //store the release variable
+        rel = release;
+
+        ///////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+        //start the structure of the sheet using a string
+        //create the json structure of the rows for the filters and their data
+        String input = "{\"status\": {";
+        int count = 0;
+        Iterator it = map.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            //System.out.println("pair key: " + pair.getKey());
+            if(count == 0){
+                input += "\"" + pair.getKey() + "\": \"" + pair.getValue() + "\"";
+                count++;
+            }else{
+                input += ",\"" + pair.getKey() + "\": \"" + pair.getValue() + "\"";
+            }
+        }
+        input += ",\"Title\": \"" + release + "\"";
+        input += ",\"Date\": \"" + date + "\"";
+        //input += ",{\"Total\": \"" + total + "\"}";
+        input += "}}";
+        //end structure of the sheet
+
+        logger.info("----------INPUT---------");
+        logger.info(input);
+        logger.info("----------INPUT---------");
+        //call method to post to firebase
+        postFB(input, SHEET_URL);
+
+
+        ///////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+    }
+
+
     //method to create the json structure of the input
     //posts to firebase
     public static void run(HashMap<String, HashMap<String, Integer>> map, String release, String api, String date) throws IOException {
         SHEET_URL = api;
+
+        logger.info("map in xmltosheets: " + map);
 
         //trust all certificates
         trustall();
@@ -53,6 +102,7 @@ public class XMLtoSheetsCTRTCM {
         while(it.hasNext()){
             Map.Entry pair = (Map.Entry)it.next();
 
+            //System.out.println("pair key: " + pair.getKey());
             input += "{\"Filter\": \"" + pair.getKey() + "\",";
 
             HashMap<String, Integer> temp = (HashMap<String, Integer>) pair.getValue();
@@ -100,7 +150,7 @@ public class XMLtoSheetsCTRTCM {
         trustall();
 
         //database roots
-        String[] selArr = {"device", "phase", "priority"};
+        String[] selArr = {"cycle", "status", "priority"};
 
         //iterate through the database roots to delete each entry
         for(int i = 0; i < selArr.length; i++){

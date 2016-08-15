@@ -1,0 +1,24 @@
+
+.border-div {
+  text-align: center;
+  border-width: thin;
+  border: solid #000000 3px;
+}
+
+.radio {
+  text-align: center;
+  clear: both;
+}
+
+.radio input {
+  margin: 0 5px;
+}
+
+.graph-div {
+  border: 3px solid #a0a0a0;
+  padding: .2%;
+  margin: .5%;
+  float: left;
+  text-align: center;
+  width: 30%;
+}

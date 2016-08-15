@@ -1,0 +1,32 @@
+{
+  "key": "kevins-addon-github-url-ctrtcm",
+  "name": "Report Add-on for CTRTCM Project",
+  "version": "0.1",
+  "description": "Atlassian Connect add-on",
+  "baseUrl": "https://rawgit.com/klewisbean/TestExecutionReport/test-k/jira-add-on-llbean-ctrtcm",
+  "vendor": {
+    "name": "Kevin @ L.L.Bean",
+    "url": "http://www.llbean.com"
+  },
+  "authentication": {
+    "type": "none"
+  },
+  "apiVersion": 1,
+  "modules": {
+    "jiraDashboardItems":[
+      {
+        "url": "/view.html",
+        "key": "dashboard-item-ctrtcm",
+        "name": {
+          "value": "Report Tool Add-On for CTRTCM"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin - ctrtcm"
+        },
+        "configurable": true,
+        "thumbnailUrl": "/spgbb.jpg"
+      }
+
+  ]
+  }
+}

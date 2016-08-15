@@ -26,12 +26,12 @@ public class FindFileCTRTCM {
 
         //modify this depending on the environment the program is running in
         //the directory environment may change when running in different environments
-        main.findFile(main.FILENAME, System.getProperty("user.dir") + "\\TestExecutionReport");
+        main.findFile(main.FILENAME, System.getProperty("user.dir") /*+ "\\TestExecutionReport"*/);
     }
 
     public void findFile(String nameToFind, String directoryToSearch){
         long newest = 0;
-        long newest2 = 0;
+
         Date date = new Date();
         logger.info("date: " + dateformat.format(date));
         //directoryToSearch = directoryToSearch.substring(0, directoryToSearch.lastIndexOf("\\"));
@@ -39,7 +39,6 @@ public class FindFileCTRTCM {
         String dateStr = dateformat.format(date);
         String filename = nameToFind;
         File newestfile = new File(filename);
-        File newestfile2 = new File(filename);
 
         File directory = new File(directoryToSearch);
 
@@ -56,26 +55,13 @@ public class FindFileCTRTCM {
             }
         }
 
-        //searches through the user directory for the second latest test execution xml file from zephyr for jira
-        for(File fil : filesin){
-            System.out.println(fil.getName());
-            if(fil.getName().contains(filename)){
-                if(newest2 < fil.lastModified() && newest > fil.lastModified()){
-
-                    newest2 = fil.lastModified();
-                    newestfile2 = fil;
-                }
-            }
-        }
-
         Date newestd = new Date(newestfile.lastModified());
         logger.info("Newest file: " + newestfile.getName());
-        logger.info("Newest2 file: " + newestfile2.getName());
 
         ScrapeDataXMLCTRTCM scrape = new ScrapeDataXMLCTRTCM();
         try {
 
-            scrape.run(newestfile, newestfile2, newestd.toString());
+            scrape.run(newestfile, date.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

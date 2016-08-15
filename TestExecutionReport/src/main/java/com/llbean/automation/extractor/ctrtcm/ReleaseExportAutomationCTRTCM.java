@@ -202,7 +202,7 @@ public class ReleaseExportAutomationCTRTCM {
         logger.trace("count:"+COUNT);
 
         if(COUNT == 1){
-            for(int i = 1; i < 150; i++){
+            for(int i = 1; i < 45; i++){
                 System.out.println((5*i) + " seconds");
                 try {
                     Thread.sleep(5000);

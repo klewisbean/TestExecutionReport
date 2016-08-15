@@ -20,9 +20,10 @@ public class AutomateExportCTRTCM {
      * */
     private static final String USERNAME = "klewis";
     private static final String PWD = "A13b62.91";
+    private static String zql = "project = \"CT Retail Test Case Management\"";
 
     /**CONFIGURE FOR NEW RELEASES*/
-    private static final String REL = "64";
+    private static final String REL = "10.7";
     /**
      * #################################################
      * CONFIGURE
@@ -48,8 +49,8 @@ public class AutomateExportCTRTCM {
         main.vMap.put(REL, main.relArray);
 
         logger.info("vmap: " + main.vMap);
-        System.exit(0);
-        main.runReleaseAuto(USERNAME, PWD, REL, main.vMap.get(REL));
+
+        main.runReleaseAuto(USERNAME, PWD, main.createZQLSearch(main.vMap.get(REL)));
     }
 
 
@@ -58,24 +59,11 @@ public class AutomateExportCTRTCM {
     POST: returns nothing
     BRIEF: creates an instance of the java.Extrator.ReleaseExportAutomation class
      */
-    public void runReleaseAuto(String username, String password, String release, ArrayList<String> releaseList){
-        ArrayList<String> half1 = new ArrayList<>();
-        ArrayList<String> half2 = new ArrayList<>();
+    public void runReleaseAuto(String username, String password, String zql){
 
-        for(int i = 0; i < releaseList.size(); i++){
-            if(i < releaseList.size()/2-1){
-                half1.add(releaseList.get(i));
-            }
-            else{
-                half2.add(releaseList.get(i));
-            }
-        }
 
-        //creates 2 zqlsearches/exports so that the export sizes do not reach the limit of 5000
-        String zqlsearch1 = createZQLSearch(half1);
-        String zqlsearch2 = createZQLSearch(half2);
-        ReleaseExportAutomationCTRTCM releaseAuto1 = new ReleaseExportAutomationCTRTCM(username, password, zqlsearch1, 1);
-        ReleaseExportAutomationCTRTCM releaseAuto2 = new ReleaseExportAutomationCTRTCM(username, password, zqlsearch2, 2);
+        ReleaseExportAutomationCTRTCM releaseAuto1 = new ReleaseExportAutomationCTRTCM(username, password, zql, 1);
+
     }
 
     //creates a zql string in order to search zql given a list of versions
