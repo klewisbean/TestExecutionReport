@@ -97,14 +97,14 @@ public class ScrapeDataXMLCTRTCM {
         versionmap = splitIntoVersions(list);
         logger.info("versionmap: " + versionmap.keySet());
         String first = versionmap.entrySet().iterator().next().getKey();
-        System.out.println("first: " + first);
+        System.out.println("Release 10.7 - Go Live size: " + versionmap.get("Release 10.7 - Go Live").size());
+        System.out.println("Release 10.7 - Regression size: " + versionmap.get("Release 10.7 - Regression").size());
         release = first.substring(0, first.lastIndexOf("-"));
         release = release.trim();
 
         logger.info("issuekeys size: " + issueKeys.getLength());
 
         mapofphases = getMapOfPhases(list);
-        System.out.println("mapofphases size: " + mapofphases.size());
         Iterator it = mapofphases.entrySet().iterator();
         while(it.hasNext()){
             Map.Entry pair = (Map.Entry)it.next();
@@ -424,7 +424,7 @@ public class ScrapeDataXMLCTRTCM {
                 }
 
             } catch(ArrayIndexOutOfBoundsException e){
-                logger.error("No release version: " + cycle);
+                //logger.error("No release version: " + cycle);
             }
         }
         return mapofphases;

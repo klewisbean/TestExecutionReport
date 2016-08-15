@@ -78,18 +78,16 @@
       <file leaf-file-name="ScrapeDataXMLCTRTCM.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="94" column="56" selection-start-line="94" selection-start-column="56" selection-end-line="94" selection-end-column="56" />
+            <state relative-caret-position="286">
+              <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
               <folding>
                 <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-                <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#createStatusPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#createStatusTotals#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#createPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-                <element signature="method#splitIntoVersions#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#readXmlAsString#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#fixXML#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#writeFile#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
@@ -99,6 +97,39 @@
                 <element signature="method#readURLxmlAsString#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#getVersions#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#printNestedMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScrapeDataXML.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4206">
+              <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+              <folding>
+                <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterPriorityclean#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterPriorityinit#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterPhaseclean#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterPhaseinit#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterDeviceclean#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#filterDeviceinit#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
+                <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1020,37 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2376">
-          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-          <folding>
-            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriorityclean#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPriorityinit#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhaseclean#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterPhaseinit#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterDeviceclean#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#filterDeviceinit#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#splitIntoVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
-            <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom2.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -1108,20 +1108,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4206">
+          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+          <folding>
+            <element signature="method#filterDevice#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPriority#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPhase#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPriorityclean#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPriorityinit#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPhaseclean#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterPhaseinit#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterDeviceclean#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#filterDeviceinit#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#combineHashMap#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#createStatusPercentages#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#createStatusTotals#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#createPercentages#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#readXmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#fixXML#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#writeFile#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#printData#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#printMapDouble#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#printMap#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#readURLxmlAsString#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#getVersions#0;class#ScrapeDataXML#0" expanded="false" />
+            <element signature="method#printNestedMap#0;class#ScrapeDataXML#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="94" column="56" selection-start-line="94" selection-start-column="56" selection-end-line="94" selection-end-column="56" />
+        <state relative-caret-position="286">
+          <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
           <folding>
             <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-            <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#createStatusPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#createStatusTotals#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#createPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-            <element signature="method#splitIntoVersions#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#readXmlAsString#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#fixXML#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#writeFile#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
