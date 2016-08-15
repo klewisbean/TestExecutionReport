@@ -57,7 +57,7 @@ public class FindFileCTRTCM {
 
         Date newestd = new Date(newestfile.lastModified());
         logger.info("Newest file: " + newestfile.getName());
-        
+
         if(newestfile.getName().equalsIgnoreCase(filename)){
             File directory2 = new File(directoryToSearch + "\\TestExecutionReport");
 

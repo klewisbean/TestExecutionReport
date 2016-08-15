@@ -147,8 +147,6 @@ public class ScrapeDataXMLCTRTCM {
 
         tempRelease = "";
         int total = 0;
-        int totalinit = 1;
-        int totalcleanup = 1;
 
         //hash maps to hold the device and the count of the device
         //the hash maps are divided into the cleanup and initial launch phases
@@ -162,7 +160,6 @@ public class ScrapeDataXMLCTRTCM {
         String[] cyclelist = {"Regression", "GoLive", "SystemDown", "Draw999", "CustomerCollection"};
 
         tempRelease = release + " Cycle";
-        int count = 0;
 
         //loop to iterate through all of the test executions in a given list
         for(int i = 0; i < versionlist.size(); i++){
@@ -172,7 +169,6 @@ public class ScrapeDataXMLCTRTCM {
             String status = versionlist.get(i)[5];
 
 
-            //System.out.println(cycle);
             try{
                 cyclemap.put(cycle, cyclemap.get(cycle) + 1);
             }
@@ -269,6 +265,8 @@ public class ScrapeDataXMLCTRTCM {
         System.out.println("total cases in filterCycle(): " + total);
         System.out.println("CYCLE\n" + mapwithstatus);
         printMap(cyclemap);
+        logger.info("cyclemap.size: " + cyclemap.size());
+        logger.info("mapwithstatus.size: " + mapwithstatus.size());
         logger.info("---------mapofphases");
         logger.info(getMapOfPhases(versionlist).keySet());
         logger.info("---------mapofphases");
@@ -290,14 +288,7 @@ public class ScrapeDataXMLCTRTCM {
         //string array to hold the possible priorities
         String[] prioritylist = {"Critical", "Major", "Minor", "No Priority", "Trivial", "Blocker"};
 
-        //hashmaps to hold the data according by the priority and the corresponding count value
-        HashMap<String, Integer> prioritymap = new HashMap<>();
-        HashMap<String, Integer> cleanprioritymap = new HashMap<>();
-        HashMap<String, Integer> initprioritymap = new HashMap<>();
-
         HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
-        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
-        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
 
         tempRelease = release + " Priority";
 
@@ -306,7 +297,6 @@ public class ScrapeDataXMLCTRTCM {
             total++;
             //strings to hold the values of the priority and the cycle
             String priority = versionlist.get(i)[3];
-            String cycle = versionlist.get(i)[1];
             String status = versionlist.get(i)[5];
 
             ///////////////////////////////////////////////////////////////
@@ -367,8 +357,6 @@ public class ScrapeDataXMLCTRTCM {
 
         tempRelease = "";
         int total = 0;
-        //string array to hold the possible phase types
-        String[] phasetype = {"PLS", "TestingWeeks", "Stage", "Launch"};
 
         HashMap<String, Integer> mapwithstatus = new HashMap<>();
 
@@ -378,15 +366,9 @@ public class ScrapeDataXMLCTRTCM {
         //iterate through the test executions
         for(int i = 0; i < versionlist.size(); i++){
             total++;
-            //string to hold the cycle name
-            String cycle = versionlist.get(i)[1];
+
             String status = versionlist.get(i)[5];
-            //System.out.println("cycle: " + cycle);
-            int cycount = StringUtils.countMatches(cycle, "-");
-            String[] cyclesplit = cycle.split("-");
-            /*for(int j = 0; j < cyclesplit.length; j++){
-                System.out.println(j + " : " + cyclesplit[j]);
-            }*/
+
 
             for(int r = 0; r < execstatus.length; r++){
 
@@ -410,7 +392,6 @@ public class ScrapeDataXMLCTRTCM {
         System.out.println(mapwithstatus);
         mapwithstatus.put("total", total);
         TOTAL = total;
-        //return createStatusTotals(mapwithstatus, total);
         return mapwithstatus;
     }
 
