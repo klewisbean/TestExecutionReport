@@ -78,11 +78,13 @@
       <file leaf-file-name="ScrapeDataXMLCTRTCM.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="163" column="62" selection-start-line="163" selection-start-column="62" selection-end-line="163" selection-end-column="62" />
+            <state relative-caret-position="311">
+              <caret line="434" column="51" selection-start-line="434" selection-start-column="51" selection-end-line="434" selection-end-column="51" />
               <folding>
+                <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+                <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+                <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-                <element signature="method#fbpostfunction#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#createStatusPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#createStatusTotals#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
@@ -105,7 +107,7 @@
       <file leaf-file-name="XMLtoSheetsCTRTCM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="2266">
               <caret line="160" column="40" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
               <folding>
                 <element signature="method#runStatus#0;class#XMLtoSheetsCTRTCM#0" expanded="false" />
@@ -1049,17 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="160" column="40" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
-          <folding>
-            <element signature="method#runStatus#0;class#XMLtoSheetsCTRTCM#0" expanded="false" />
-            <element signature="method#trustall#0;class#XMLtoSheetsCTRTCM#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom2.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -1106,13 +1097,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2266">
+          <caret line="160" column="40" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
+          <folding>
+            <element signature="method#runStatus#0;class#XMLtoSheetsCTRTCM#0" expanded="false" />
+            <element signature="method#trustall#0;class#XMLtoSheetsCTRTCM#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="163" column="62" selection-start-line="163" selection-start-column="62" selection-end-line="163" selection-end-column="62" />
+        <state relative-caret-position="311">
+          <caret line="434" column="51" selection-start-line="434" selection-start-column="51" selection-end-line="434" selection-end-column="51" />
           <folding>
+            <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+            <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+            <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-            <element signature="method#fbpostfunction#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#createStatusPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#createStatusTotals#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />

@@ -26,8 +26,6 @@ public class ScrapeDataXMLCTRTCM {
     public String[] execstatus = {"Unexecuted", "Pass", "Fail", "WIP", "Blocked"};
     public String release = "";
     public String tempRelease = "";
-    public static int TOTAL = 0;
-
     final static Logger logger = Logger.getLogger(ScrapeDataXMLCTRTCM.class);
 
     public void run(File file1, String date) throws FileNotFoundException {
@@ -267,12 +265,9 @@ public class ScrapeDataXMLCTRTCM {
         System.out.println("total cases in filterCycle(): " + total);
         System.out.println("CYCLE\n" + mapwithstatus);
         printMap(cyclemap);
-        logger.info("cyclemap.size: " + cyclemap.size());
-        logger.info("mapwithstatus.size: " + mapwithstatus.size());
         logger.info("---------mapofphases");
         logger.info(getMapOfPhases(versionlist).keySet());
         logger.info("---------mapofphases");
-        TOTAL = total;
         return createStatusTotals(mapwithstatus, total);
 
     }
@@ -343,7 +338,6 @@ public class ScrapeDataXMLCTRTCM {
 
         logger.info("total cases in filterPriority(): " + total);
         logger.info(mapwithstatus);
-        TOTAL = total;
         return createStatusTotals(mapwithstatus, total);
     }
 
@@ -393,7 +387,6 @@ public class ScrapeDataXMLCTRTCM {
         System.out.println("total cases in filterStatus(): " + total);
         System.out.println(mapwithstatus);
         mapwithstatus.put("total", total);
-        TOTAL = total;
         return mapwithstatus;
     }
 
@@ -439,7 +432,7 @@ public class ScrapeDataXMLCTRTCM {
             Map.Entry pair = (Map.Entry)it.next();
             String phase = (String)pair.getKey();
             ArrayList<String[]> phaselist = (ArrayList)pair.getValue();
-
+            logger.info("phaselist: " + phaselist);
             /*
         PRIORITY
          */
