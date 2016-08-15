@@ -78,12 +78,13 @@
       <file leaf-file-name="ScrapeDataXMLCTRTCM.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-698">
-              <caret line="104" column="10" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="10" />
+            <state relative-caret-position="418">
+              <caret line="109" column="74" selection-start-line="109" selection-start-column="74" selection-end-line="109" selection-end-column="74" />
               <folding>
                 <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+                <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#createStatusPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#createStatusTotals#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
@@ -1109,12 +1110,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-698">
-          <caret line="104" column="10" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="10" />
+        <state relative-caret-position="418">
+          <caret line="109" column="74" selection-start-line="109" selection-start-column="74" selection-end-line="109" selection-end-column="74" />
           <folding>
             <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
+            <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#createStatusPercentages#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#createStatusTotals#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />

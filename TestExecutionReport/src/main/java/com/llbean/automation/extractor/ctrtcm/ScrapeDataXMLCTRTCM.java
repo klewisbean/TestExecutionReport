@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilder;
 import org.apache.log4j.Logger;
 import org.w3c.dom.*;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -101,7 +102,13 @@ public class ScrapeDataXMLCTRTCM {
 
 
         mapofphases = getMapOfPhases(list);
-        System.out.println("mapofphases: " + mapofphases);
+        System.out.println("mapofphases size: " + mapofphases.size());
+        Iterator it = mapofphases.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            ArrayList<String[]> temp = (ArrayList)pair.getValue();
+            System.out.println(pair.getKey() + " | size: " + temp.size());
+        }
         //printData(list);
 
         try {
