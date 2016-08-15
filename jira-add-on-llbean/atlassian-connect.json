@@ -15,7 +15,7 @@
   "modules": {
     "jiraDashboardItems":[
       {
-        "url": "/view-fb.html",
+        "url": "jira-add-on-llbean/view-fb.html",
         "key": "dashboard-item-cttcm",
         "name": {
           "value": "Report Tool Add-On for cttcm"
@@ -27,7 +27,7 @@
         "thumbnailUrl": "/fire.jpg"
       },
       {
-        "url": "/view.html",
+        "url": "jira-add-on-llbean-ctrtcm/view.html",
         "key": "dashboard-item-ctrtcm",
         "name": {
           "value": "Report Tool Add-On for CTRTCM"
