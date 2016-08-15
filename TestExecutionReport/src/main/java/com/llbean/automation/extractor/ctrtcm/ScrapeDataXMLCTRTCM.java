@@ -95,6 +95,12 @@ public class ScrapeDataXMLCTRTCM {
         System.out.println("List.size: " + list.size());
         //split list into versions
         versionmap = splitIntoVersions(list);
+        Iterator iter = versionmap.entrySet().iterator();
+        while(iter.hasNext()){
+            Map.Entry pair = (Map.Entry)iter.next();
+            ArrayList<String[]> temp = (ArrayList)pair.getValue();
+            System.out.println(pair.getKey() + " : " + temp.size());
+        }
         logger.info("versionmap: " + versionmap.keySet());
         String first = versionmap.entrySet().iterator().next().getKey();
         System.out.println("Release 10.7 - Go Live size: " + versionmap.get("Release 10.7 - Go Live").size());
