@@ -15,7 +15,7 @@
   "modules": {
     "jiraDashboardItems":[
       {
-        "url": "jira-add-on-llbean/view-fb.html",
+        "url": "/jira-add-on-llbean/view-fb.html",
         "key": "dashboard-item-cttcm",
         "name": {
           "value": "Report Tool Add-On for cttcm"
@@ -24,10 +24,10 @@
           "value": "Report dashboard item from Kevin - cttcm"
         },
         "configurable": true,
-        "thumbnailUrl": "/fire.jpg"
+        "thumbnailUrl": "/jira-add-on-llbean/fire.jpg"
       },
       {
-        "url": "jira-add-on-llbean-ctrtcm/view.html",
+        "url": "/jira-add-on-llbean-ctrtcm/view.html",
         "key": "dashboard-item-ctrtcm",
         "name": {
           "value": "Report Tool Add-On for CTRTCM"
@@ -36,7 +36,7 @@
           "value": "Report dashboard item from Kevin - ctrtcm"
         },
         "configurable": true,
-        "thumbnailUrl": "/spgbb.jpg"
+        "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/spgbb.jpg"
       }
     ]
   }
