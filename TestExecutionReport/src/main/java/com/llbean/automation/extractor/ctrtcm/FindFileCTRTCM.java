@@ -57,7 +57,25 @@ public class FindFileCTRTCM {
 
         Date newestd = new Date(newestfile.lastModified());
         logger.info("Newest file: " + newestfile.getName());
+        
+        if(newestfile.getName().equalsIgnoreCase(filename)){
+            File directory2 = new File(directoryToSearch + "\\TestExecutionReport");
 
+            File[] filesin2 = directory2.listFiles();
+
+            //searches through the user directory for the first latest test execution xml file from zephyr for jira
+            for(File fil : filesin2){
+                System.out.println(fil.getName());
+                if(fil.getName().contains(filename)){
+                    if(newest < fil.lastModified()){
+                        newest = fil.lastModified();
+                        newestfile = fil;
+                    }
+                }
+            }
+        }
+
+        logger.info("2Newest file: " + newestfile.getName());
         ScrapeDataXMLCTRTCM scrape = new ScrapeDataXMLCTRTCM();
         try {
 
