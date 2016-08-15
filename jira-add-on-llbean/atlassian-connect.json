@@ -25,23 +25,19 @@
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean/fire.jpg"
+      },
+      {
+        "url": "/jira-add-on-llbean-ctrtcm/view.html",
+        "key": "dashboard-item-ctrtcm",
+        "name": {
+          "value": "Report Tool Add-On for CTRTCM"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin - ctrtcm"
+        },
+        "configurable": true,
+        "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/spgbb.jpg"
       }
-
-  ],
-  "jiraDashboardItems":[
-    {
-      "url": "/jira-add-on-llbean/view.html",
-      "key": "dashboard-item-ctrtcm",
-      "name": {
-        "value": "Report Tool Add-On for CTRTCM"
-      },
-      "description": {
-        "value": "Report dashboard item from Kevin - ctrtcm"
-      },
-      "configurable": true,
-      "thumbnailUrl": "/jira-add-on-llbean/spgbb.jpg"
-    }
-
-]
+    ]
   }
 }
