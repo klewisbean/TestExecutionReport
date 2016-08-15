@@ -3,7 +3,7 @@
   "name": "Report Add-on for CTRTCM Project",
   "version": "0.1",
   "description": "Atlassian Connect add-on",
-  "baseUrl": "https://rawgit.com/klewisbean/TestExecutionReport/test-k/jira-add-on-llbean-ctrtcm",
+  "baseUrl": "https://cdn.rawgit.com/klewisbean/TestExecutionReport/test-k/jira-add-on-llbean-ctrtcm",
   "vendor": {
     "name": "Kevin @ L.L.Bean",
     "url": "http://www.llbean.com"

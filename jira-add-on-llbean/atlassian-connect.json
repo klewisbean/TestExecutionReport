@@ -3,7 +3,7 @@
   "name": "Report Add-on",
   "version": "0.3",
   "description": "Atlassian Connect add-on",
-  "baseUrl": "https://rawgit.com/klewisbean/TestExecutionReport/test-k/jira-add-on-llbean",
+  "baseUrl": "https://rawgit.com/klewisbean/TestExecutionReport/test-k",
   "vendor": {
     "name": "Kevin @ L.L.Bean",
     "url": "http://www.llbean.com"
@@ -15,18 +15,33 @@
   "modules": {
     "jiraDashboardItems":[
       {
-        "url": "/view-fb.html",
-        "key": "dashboard-item-release",
+        "url": "/jira-add-on-llbean/view-fb.html",
+        "key": "dashboard-item-cttcm",
         "name": {
-          "value": "Report Tool Add-On for Release"
+          "value": "Report Tool Add-On for cttcm"
         },
         "description": {
-          "value": "Report dashboard item from Kevin - Using Firebase database"
+          "value": "Report dashboard item from Kevin - cttcm"
         },
         "configurable": true,
-        "thumbnailUrl": "/fire.jpg"
+        "thumbnailUrl": "/jira-add-on-llbean/fire.jpg"
       }
 
-  ]
+  ],
+  "jiraDashboardItems":[
+    {
+      "url": "/jira-add-on-llbean/view.html",
+      "key": "dashboard-item-ctrtcm",
+      "name": {
+        "value": "Report Tool Add-On for CTRTCM"
+      },
+      "description": {
+        "value": "Report dashboard item from Kevin - ctrtcm"
+      },
+      "configurable": true,
+      "thumbnailUrl": "/jira-add-on-llbean/spgbb.jpg"
+    }
+
+]
   }
 }

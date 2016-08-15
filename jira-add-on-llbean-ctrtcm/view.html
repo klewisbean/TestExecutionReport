@@ -12,7 +12,7 @@
       <script src="utils.js" type="text/javascript"></script>
       <script src="https://d3js.org/d3.v3.min.js"></script>
 
-      <link rel="stylesheet" href="addon-style.css"></link>
+      <link rel="stylesheet" href="jira-add-on-llbean-ctrtcm/addon-style.css"></link>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
 
@@ -56,7 +56,6 @@
        var $filterDiv = $('#filter-div');
 
        var obj = run('10.7.0');
-       //console.log(obj);
 
        function run(selection) {
          $.ajax({
@@ -94,9 +93,6 @@
              }
            });
 
-           //console.log(cyclearr);
-           //console.log(priorityarr);
-           //console.log(statusarr);
            $.each(statusarr, function(i, e) {
              phases.push(e.title);
            });
@@ -140,14 +136,6 @@
          .fail(function(e) {
            console.log(e.message);
          });
-
-         /*$.ajax({
-           type: "GET",
-           dataType: 'jsonp',
-           url: api + '.json',
-           success: ,//end success function
-           error: //end error function
-         })//end ajax call*/
        }//end run
 
        function addRadiobuttons(phases) {
@@ -174,7 +162,6 @@
            for(var val2 in obj[val]){
              var object = obj[val][val2];
              var phaseObj = new Object();
-             //console.log(object);
              if(object.Filter == undefined){
                if (object.Date == undefined) {
                  phaseObj.phase  = object.Title;
@@ -203,7 +190,6 @@
            for(var val2 in obj[val]){
              var object = obj[val][val2];
              var phaseObj = new Object();
-             //console.log(object);
              if(object.Filter == undefined){
                if (object.Date == undefined) {
                  phaseObj.phase  = object.Title;
@@ -227,7 +213,6 @@
        }
 
        function status(obj){
-         console.log(obj);
          var statusObj = new Object();
          for(var val in obj){
            var temp = obj[val];
@@ -434,10 +419,6 @@
 
             var parsed = parseInt(temp.total);
             total = parsed;
-
-            //console.log(temp);
-
-
 
            barData3 = {
              labels: filterArr,
