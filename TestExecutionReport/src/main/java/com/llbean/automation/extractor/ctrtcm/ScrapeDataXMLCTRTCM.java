@@ -161,6 +161,8 @@ public class ScrapeDataXMLCTRTCM {
 
         tempRelease = release + " Cycle";
 
+        logger.info("versionlist.size: " + versionlist.size());
+
         //loop to iterate through all of the test executions in a given list
         for(int i = 0; i < versionlist.size(); i++){
             total++;
