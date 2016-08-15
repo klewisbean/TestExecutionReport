@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/FindFileCTRTCM.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/FindFileCTRTCM.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java" />
     </list>
     <ignored path="JiraReportGadget.iws" />
@@ -79,11 +78,9 @@
       <file leaf-file-name="ScrapeDataXMLCTRTCM.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="268" column="65" selection-start-line="268" selection-start-column="65" selection-end-line="268" selection-end-column="65" />
+            <state relative-caret-position="179">
+              <caret line="358" column="21" selection-start-line="358" selection-start-column="21" selection-end-line="358" selection-end-column="21" />
               <folding>
-                <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-                <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#fbpostfunction#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
@@ -1111,11 +1108,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="268" column="65" selection-start-line="268" selection-start-column="65" selection-end-line="268" selection-end-column="65" />
+        <state relative-caret-position="179">
+          <caret line="358" column="21" selection-start-line="358" selection-start-column="21" selection-end-line="358" selection-end-column="21" />
           <folding>
-            <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-            <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#fbpostfunction#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
