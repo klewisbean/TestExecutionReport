@@ -83,7 +83,6 @@ public class ScrapeDataXMLCTRTCM {
 
         //add the data in the first xml file to the list
         for(int i = 0; i < issueKeys.getLength(); i++){
-            //System.out.println(i + " : " + issueKeys.item(i).getTextContent());
             String[] temp = {issueKeys.item(i).getTextContent(),
                     cycleNames.item(i).getTextContent(),
                     version.item(i).getTextContent(),
@@ -92,31 +91,15 @@ public class ScrapeDataXMLCTRTCM {
                     executionStatus.item(i).getTextContent()};
             list.add(temp);
         }
-        System.out.println("List.size: " + list.size());
         //split list into versions
         versionmap = splitIntoVersions(list);
-        Iterator iter = versionmap.entrySet().iterator();
-        while(iter.hasNext()){
-            Map.Entry pair = (Map.Entry)iter.next();
-            ArrayList<String[]> temp = (ArrayList)pair.getValue();
-            System.out.println(pair.getKey() + " : " + temp.size());
-        }
+
         logger.info("versionmap: " + versionmap.keySet());
         String first = versionmap.entrySet().iterator().next().getKey();
-        System.out.println("Release 10.7 - Go Live size: " + versionmap.get("Release 10.7 - Go Live").size());
-        System.out.println("Release 10.7 - Regression size: " + versionmap.get("Release 10.7 - Regression").size());
         release = first.substring(0, first.lastIndexOf("-"));
         release = release.trim();
 
-        logger.info("issuekeys size: " + issueKeys.getLength());
-
         mapofphases = getMapOfPhases(list);
-        Iterator it = mapofphases.entrySet().iterator();
-        while(it.hasNext()){
-            Map.Entry pair = (Map.Entry)it.next();
-            ArrayList<String[]> temp = (ArrayList)pair.getValue();
-            System.out.println(pair.getKey() + " | size: " + temp.size());
-        }
         //printData(list);
 
         try {
