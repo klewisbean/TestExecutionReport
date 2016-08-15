@@ -432,7 +432,10 @@ public class ScrapeDataXMLCTRTCM {
             Map.Entry pair = (Map.Entry)it.next();
             String phase = (String)pair.getKey();
             ArrayList<String[]> phaselist = (ArrayList)pair.getValue();
-            logger.info("phaselist: " + phaselist);
+            int i;
+            for(i = 0; i < phaselist.size(); i++){
+                System.out.println("elem: " + phaselist.get(i));
+            }
             /*
         PRIORITY
          */
