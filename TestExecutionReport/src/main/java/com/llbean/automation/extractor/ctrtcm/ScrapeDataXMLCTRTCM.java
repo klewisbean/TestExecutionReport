@@ -83,6 +83,7 @@ public class ScrapeDataXMLCTRTCM {
 
         //add the data in the first xml file to the list
         for(int i = 0; i < issueKeys.getLength(); i++){
+            System.out.println(i + " : " + issueKeys.item(i).getTextContent());
             String[] temp = {issueKeys.item(i).getTextContent(),
                     cycleNames.item(i).getTextContent(),
                     version.item(i).getTextContent(),
