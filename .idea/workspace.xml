@@ -79,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
-              <caret line="101" column="68" selection-start-line="101" selection-start-column="68" selection-end-line="101" selection-end-column="68" />
+              <caret line="625" column="43" selection-start-line="625" selection-start-column="43" selection-end-line="625" selection-end-column="43" />
               <folding>
                 <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
@@ -1142,7 +1142,7 @@
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
-          <caret line="101" column="68" selection-start-line="101" selection-start-column="68" selection-end-line="101" selection-end-column="68" />
+          <caret line="625" column="43" selection-start-line="625" selection-start-column="43" selection-end-line="625" selection-end-column="43" />
           <folding>
             <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
