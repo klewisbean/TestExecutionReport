@@ -420,6 +420,7 @@ public class ScrapeDataXMLCTRTCM {
                     mapofphases.put(phase, templist);
                 }catch (Exception err){
                     ArrayList<String[]> templist = new ArrayList<>();
+                    templist.add(versionlist.get(i));
                     mapofphases.put(phase, templist);
                 }
 
