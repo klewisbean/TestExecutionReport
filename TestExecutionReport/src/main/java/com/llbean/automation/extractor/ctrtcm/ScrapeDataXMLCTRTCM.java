@@ -100,6 +100,7 @@ public class ScrapeDataXMLCTRTCM {
         release = first.substring(0, first.lastIndexOf("-"));
         release = release.trim();
 
+        logger.info("issuekeys size: " + issueKeys.getLength());
 
         mapofphases = getMapOfPhases(list);
         System.out.println("mapofphases size: " + mapofphases.size());
