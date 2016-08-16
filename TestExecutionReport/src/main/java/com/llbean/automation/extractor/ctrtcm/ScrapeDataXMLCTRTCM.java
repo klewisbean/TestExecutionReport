@@ -306,24 +306,18 @@ public class ScrapeDataXMLCTRTCM {
                     for(int r = 0; r < execstatus.length; r++){
                         //if the test execution status matches
                         if(StringUtils.containsIgnoreCase(status, execstatus[r])){
-                            //see if the priority key already exists
+                            //try to put \]
                             try{
-                                //if the map already exists then see if the status map already exists
                                 HashMap<String, Integer> temp = mapwithstatus.get(priority);
                                 try{
-                                    //if the status does exist then increment it's count
                                     temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
                                 }
                                 catch(Exception e){
-                                    //if the status does not already exist then add that status to the map
                                     temp.put(execstatus[r], 1);
                                 }
-                                //the priority must exist so update the map to the new one
                                 mapwithstatus.put(priority, temp);
                             }catch(Exception e){
-                                //the priority is not already in the map so create a new map to put in place
                                 HashMap<String, Integer> temp = new HashMap<>();
-                                //put the status in place
                                 try{
                                     temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
                                 }
@@ -361,7 +355,6 @@ public class ScrapeDataXMLCTRTCM {
         tempRelease = "";
         int total = 0;
 
-        //map to return
         HashMap<String, Integer> mapwithstatus = new HashMap<>();
 
         tempRelease = release + " Phase";
@@ -371,14 +364,13 @@ public class ScrapeDataXMLCTRTCM {
         for(int i = 0; i < versionlist.size(); i++){
             total++;
 
-            //get the status from the test execution
             String status = versionlist.get(i)[5];
 
-            //iterate throught the possible execution statuses
+
             for(int r = 0; r < execstatus.length; r++){
-                //if the test execution status matches
+
                 if(StringUtils.containsIgnoreCase(status, execstatus[r])){
-                    //attempt to add it to the map
+
                     try{
                         int temp = mapwithstatus.get(status);
                         mapwithstatus.put(status, temp + 1);
@@ -405,7 +397,6 @@ public class ScrapeDataXMLCTRTCM {
     #########################################################################################################
      */
 
-    //this function returns the map of phases
     public HashMap<String, ArrayList<String[]>> getMapOfPhases(ArrayList<String[]> versionlist){
         HashMap<String, ArrayList<String[]>> mapofphases = new HashMap<>();
         int len = versionlist.size();

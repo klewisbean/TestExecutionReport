@@ -1,7 +1,7 @@
 {
   "key": "kevins-addon-github-url",
-  "name": "Report Add-on",
-  "version": "0.3",
+  "name": "Report Add-on Package",
+  "version": "1.0",
   "description": "Atlassian Connect add-on",
   "baseUrl": "https://rawgit.com/klewisbean/TestExecutionReport/test-k",
   "vendor": {
