@@ -23,7 +23,7 @@ public class AutomateExportCTRTCM {
     private static String zql = "project = \"CT Retail Test Case Management\"";
 
     /**CONFIGURE FOR NEW RELEASES*/
-    private static final String REL = "10.7";
+    private static final String REL = "10.6";
     /**
      * #################################################
      * CONFIGURE
