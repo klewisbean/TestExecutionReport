@@ -96,8 +96,13 @@ public class ScrapeDataXMLCTRTCM {
 
         logger.info("versionmap: " + versionmap.keySet());
         String first = versionmap.entrySet().iterator().next().getKey();
-        release = first.substring(0, first.lastIndexOf("-"));
-        release = release.trim();
+        logger.info("first: " + first);
+        try{
+            release = first.substring(0, first.lastIndexOf("-"));
+            release = release.trim();
+        }catch (Exception e) {
+            logger.error(e.getMessage());
+        }
 
         mapofphases = getMapOfPhases(list);
         //printData(list);

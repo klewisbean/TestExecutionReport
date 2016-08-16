@@ -23,7 +23,7 @@ public class AutomateExportCTRTCM {
     private static String zql = "project = \"CT Retail Test Case Management\"";
 
     /**CONFIGURE FOR NEW RELEASES*/
-    private static final String REL = "10.6";
+    private static final String REL = "10.7";
     /**
      * #################################################
      * CONFIGURE
@@ -38,7 +38,7 @@ public class AutomateExportCTRTCM {
     final static Logger logger = Logger.getLogger(AutomateExportCTRTCM.class);
 
     public static void main(String[] args){
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\TestExecutionReport\\drivers\\chromedriver.exe");
         logger.error("user.dir in main: " + System.getProperty("user.dir"));
 
         AutomateExportCTRTCM main = new AutomateExportCTRTCM();
