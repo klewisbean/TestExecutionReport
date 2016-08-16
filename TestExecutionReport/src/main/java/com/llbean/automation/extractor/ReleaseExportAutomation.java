@@ -18,6 +18,7 @@ import java.util.HashMap;
 public class ReleaseExportAutomation {
 
     public static int COUNT;
+    //variable to hold the driver
     public WebDriver driver = setUpDriver();
 
     public String atlassianllbeanhome = "https://llbean.atlassian.net/";
@@ -27,17 +28,25 @@ public class ReleaseExportAutomation {
     public ReleaseExportAutomation(String username, String password, String zqlsearch, int count){
 
         COUNT = count;
+
+        //open the login page
         driver.get("https://llbean.atlassian.net/login");
+
+        //store the zql search in a variable
         ZQL_SEARCH = zqlsearch;
 
+        //run the function to automate the login
         login(username, password);
 
-
+        //runs the function to navigate to the desired test executions
         testExecutionNav();
+
+        //runs the function to export the desired test executions
         exportData();
 
     }
 
+    //sets up the chromedriver with custom options and capabilities
     public WebDriver setUpDriver(){
         logger.info("setting up driver...");
         logger.info("download path: " + System.getProperty("user.dir"));
@@ -57,6 +66,7 @@ public class ReleaseExportAutomation {
         return driver;
     }
 
+    //logs in to atlassian jira
     public void login(String username, String password){
 
         logger.info("logging in...");
@@ -72,10 +82,11 @@ public class ReleaseExportAutomation {
 
     }
 
+    //automates the test execution page
     public void testExecutionNav(){
         logger.info("Login Successful");
         logger.info("Title: " + driver.getTitle() + " URL: " + driver.getCurrentUrl());
-      //navigate to the "search test execution page"
+        //navigate to the "search test execution page"
         driver.get(atlassianllbeanhome + searchtestexecutions);
 
         logger.info("Title: " + driver.getTitle() + " URL: " + driver.getCurrentUrl());
@@ -202,6 +213,7 @@ public class ReleaseExportAutomation {
 
     }
 
+    //wait until the download is complete before you close the chromedriver
     public static void waitfordownload(){
         logger.trace("count:"+COUNT);
 

@@ -33,9 +33,11 @@ public class AutomateExportGUI {
      * */
 
 
-
+    //array to hold the releases
     public ArrayList<String> relArray = new ArrayList<String>();
+    //array that holds all the possible versions for the CTTCM project
     public ArrayList<String> versions = new ArrayList<String>();
+    //version map that holds the versions and their test executions
     public HashMap<String, ArrayList<String>> vMap = new HashMap<>();
     final static Logger logger = Logger.getLogger(AutomateExportGUI.class);
 
@@ -45,8 +47,13 @@ public class AutomateExportGUI {
 
         AutomateExportGUI main = new AutomateExportGUI();
 
+        //gets the versions from the jira api for the CTTCM project
         main.getJiraVersions(USERNAME, PWD);
+
+        //adds the desired release into the vmap
         main.vMap.put(REL, main.relArray);
+
+        //runs the automation
         main.runReleaseAuto(USERNAME, PWD, REL, main.vMap.get(REL));
     }
 

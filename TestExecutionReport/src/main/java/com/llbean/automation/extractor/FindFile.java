@@ -29,6 +29,7 @@ public class FindFile {
         main.findFile(main.FILENAME, System.getProperty("user.dir") /*+ "\\TestExecutionReport"*/);
     }
 
+    //finds the two latest exported test execution xml files
     public void findFile(String nameToFind, String directoryToSearch){
         long newest = 0;
         long newest2 = 0;
@@ -41,8 +42,10 @@ public class FindFile {
         File newestfile = new File(filename);
         File newestfile2 = new File(filename);
 
+        //variable to hold the directory to search
         File directory = new File(directoryToSearch);
 
+        //list of the files in the desired directory
         File[] filesin = directory.listFiles();
 
         //searches through the user directory for the first latest test execution xml file from zephyr for jira
