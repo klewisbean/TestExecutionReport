@@ -389,17 +389,20 @@ public class ScrapeDataXML {
         //string array to hold the possible phase types
         String[] phasetype = {"PLS", "TestingWeeks", "Stage", "Launch"};
 
-        //the map to return
+
+
         HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
 
         tempRelease = release + " Phase";
 
-        //correct the cycle names if they are not with the standards
         for(int i = 0; i < versionlist.size(); i++){
             String phase = versionlist.get(i)[1];
             if(StringUtils.containsIgnoreCase(phase, "PROD")){
                 versionlist.get(i)[1] = phase.replace("PROD", "Launch");
             }
+
             if(StringUtils.containsIgnoreCase(phase, "testing weeks")){
                 versionlist.get(i)[1] = phase.replace(" ", "");
             }
@@ -417,15 +420,13 @@ public class ScrapeDataXML {
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
-            //loop through the possible phases
+
             for(int l = 0; l < phasetype.length; l++){
-                //check if the test execution contains a phase
                 if(StringUtils.containsIgnoreCase(phase, phasetype[l])){
-                    //loop through the possible execution statuses
                     for(int r = 0; r < execstatus.length; r++){
-                        //check if the test execution contains a status
+
                         if(StringUtils.containsIgnoreCase(status, execstatus[r])){
-                            //add the test execution to map or create the variables if needed
+
                             try{
                                 HashMap<String, Integer> temp = mapwithstatus.get(phasetype[l]);
                                 try{
@@ -514,9 +515,15 @@ public class ScrapeDataXML {
         String[] prioritylist = {"Critical", "Major", "Minor", "No Priority", "Trivial", "Blocker"};
 
         //hashmaps to hold the data according by the priority and the corresponding count value
+        HashMap<String, Integer> prioritymap = new HashMap<>();
         HashMap<String, Integer> cleanprioritymap = new HashMap<>();
+        HashMap<String, Integer> initprioritymap = new HashMap<>();
 
+
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
         HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
 
         tempRelease = release + " Priority";
 
@@ -607,8 +614,13 @@ public class ScrapeDataXML {
 
         //hashmaps to hold the data according by the priority and the corresponding count value
         HashMap<String, Integer> prioritymap = new HashMap<>();
+        HashMap<String, Integer> cleanprioritymap = new HashMap<>();
         HashMap<String, Integer> initprioritymap = new HashMap<>();
 
+
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
         HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
 
         tempRelease = release + " Priority";
@@ -625,8 +637,12 @@ public class ScrapeDataXML {
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
 
+
+
+
             //check if the cycle is cleanup
             if(StringUtils.containsIgnoreCase(cycle, "Cleanup") || StringUtils.containsIgnoreCase(cycle, "Clean-up")) {
+
                 totalclean++;
             }
             //when the cycle is an initial launch
@@ -706,10 +722,17 @@ public class ScrapeDataXML {
     public HashMap<String, HashMap<String, Integer>> filterPhaseclean(ArrayList<String[]> versionlist){
         logger.info("FILTER PHASE CLEAN");
         tempRelease = "";
+        int total = 0;
         int totalclean = 0;
+        int totalinit = 0;
         //string array to hold the possible phase types
         String[] phasetype = {"PLS", "TestingWeeks", "Stage", "Launch"};
 
+        //hashmaps to keep track of the phase counts depending on if
+        //the cycle is clean up or initial
+        HashMap<String, Integer> cleanupphasemap = new HashMap<>();
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
         HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
 
         tempRelease = release + " Phase";
@@ -725,6 +748,8 @@ public class ScrapeDataXML {
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
+
+
 
             //if the test execution is cleanup
             if(StringUtils.containsIgnoreCase(phase, "Cleanup") || StringUtils.containsIgnoreCase(phase, "Clean-up")){
@@ -804,11 +829,19 @@ public class ScrapeDataXML {
     public HashMap<String, HashMap<String, Integer>> filterPhaseinit(ArrayList<String[]> versionlist){
         logger.info("FILTER PHASE INITIAL");
         tempRelease = "";
+        int total = 0;
         int totalclean = 0;
         int totalinit = 0;
         //string array to hold the possible phase types
         String[] phasetype = {"PLS", "TestingWeeks", "Stage", "Launch"};
 
+        //hashmaps to keep track of the phase counts depending on if
+        //the cycle is clean up or initial
+        HashMap<String, Integer> cleanupphasemap = new HashMap<>();
+        HashMap<String, Integer> initialphasemap = new HashMap<>();
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
         HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
 
         tempRelease = release + " Phase";
@@ -945,9 +978,20 @@ public class ScrapeDataXML {
         logger.info("FILTER DEVICE CLEAN");
         tempRelease = "";
         int total = 0;
+        int totalinit = 0;
         int totalcleanup = 0;
 
+        //hash maps to hold the device and the count of the device
+        //the hash maps are divided into the cleanup and initial launch phases
+        //and then one map for a combination of both cleanup and initial
+        HashMap<String, Integer> cleandevicemap = new HashMap<>();
+        HashMap<String, Integer> initdevicemap = new HashMap<>();
+        HashMap<String, Integer> devicemap = new HashMap<>();
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
         HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
+
         //list of all possible device names
         String[] devicelist = {"Tablet", "Desktop", "Mobile App", "Mobile Web", "mweb", "app"};
 
@@ -1053,8 +1097,17 @@ public class ScrapeDataXML {
         tempRelease = "";
         int total = 0;
         int totalinit = 1;
-        int totalcleanup = 0;
+        int totalcleanup = 1;
 
+        //hash maps to hold the device and the count of the device
+        //the hash maps are divided into the cleanup and initial launch phases
+        //and then one map for a combination of both cleanup and initial
+        HashMap<String, Integer> cleandevicemap = new HashMap<>();
+        HashMap<String, Integer> initdevicemap = new HashMap<>();
+        HashMap<String, Integer> devicemap = new HashMap<>();
+
+        HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> cleanmapwithstatus = new HashMap<>();
         HashMap<String, HashMap<String, Integer>> initmapwithstatus = new HashMap<>();
 
         //list of all possible device names
