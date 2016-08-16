@@ -18,6 +18,15 @@
   text-align: center;
 }
 
+.one-div {
+  width: 100%;
+  border: 3px solid #a0a0a0;
+  padding: .2%;
+  margin: .5%;
+  float: left;
+  text-align: center;
+}
+
 .left-div {
   width: 30%;
 }

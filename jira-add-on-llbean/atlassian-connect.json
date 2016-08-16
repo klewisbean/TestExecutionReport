@@ -49,6 +49,30 @@
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean/pat.gif"
+      },
+      {
+        "url": "/jira-add-on-llbean/view-initial.html",
+        "key": "dashboard-gadget-initial",
+        "name": {
+          "value": "Initial Report Gadget"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin"
+        },
+        "configurable": true,
+        "thumbnailUrl": "/jira-add-on-llbean/mrkrabs.jpg"
+      },
+      {
+        "url": "/jira-add-on-llbean/view-clean.html",
+        "key": "dashboard-gadget-clean",
+        "name": {
+          "value": "Clean Report Gadget"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin"
+        },
+        "configurable": true,
+        "thumbnailUrl": "/jira-add-on-llbean/sqdwrd.png"
       }
     ]
   }

@@ -31,17 +31,16 @@
          <h5 class="aui-badge">As of: </h5>
        </header>
        <div class="one-div">
-          <canvas id="chart" width="500" height="500"></canvas>
-          <h4 id="loz-total-cases-release" class="aui-lozenge">Total Cases: 0</h4>
-          <div class="radio">
-            <div id="filter-div" style="text-align:center;">
-              <input type="radio" id="phase" name="filter" onclick="check(this.value)" value="phase" checked="checked">Phase
-              <input type="radio" id="priority" name="filter" onclick="check(this.value)" value="priority">Priority
-              <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device
-            </div>
-          </div>
+         <canvas id="chart-initial" width="500" height="500"></canvas>
+         <h4 id="loz-total-cases-initial" class="aui-lozenge">Total Cases: 0</h4>
+         <div class="radio">
+           <div id="filter-div" style="text-align:center;">
+             <input type="radio" id="phase" name="filter" onclick="check(this.value)" value="phase" checked="checked">Phase
+             <input type="radio" id="priority" name="filter" onclick="check(this.value)" value="priority">Priority
+             <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device
+           </div>
+         </div>
        </div>
-
      </div>
 
 
@@ -71,12 +70,8 @@
          $.ajax({
            type: "GET",
            dataType: 'jsonp',
-           url: api + selection + '.json',
+           url: api + selection + "/initial" + '.json',
            success: function(data) {
-             //console.log(data);
-
-             var title;
-             var date;
              var totarr = [];
              var filterArr = [];
              var totalArr = [];
@@ -89,73 +84,70 @@
              var len = 0;
              var i;
 
-             //var obj;
+             for(var key in data){
+               var value = data[key];
+               for(var key in value){
+                 var value2 = value[key];
+                 cnt = 0;
+                 for(var key in value2){
 
-             for(var value in data){
-               if(len == 0){
-                 //console.log(data[value]);
-                 for(var val in data[value]){
-                   //console.log(data[value][val]);
-                   for(var v in data[value][val]){
-
-                     var obj = data[value][val][v];
-                     if(obj.Filter == undefined){
-                       if(obj.Title == undefined){
-                         date = obj.Date;
-                       } else {
-                         title = obj.Title;
-                       }
-                     } else {
-                       filterArr.push(obj.Filter);
-
-                       passArr.push(obj.Pass);
-                       failArr.push(obj.Fail);
-                       blockedArr.push(obj.Blocked);
-                       wipArr.push(obj.WIP);
-                       unexecutedArr.push(obj.Unexecuted);
-
-                       var parsed = parseInt(obj.total);
-
-                       total = total + parsed;
+                   var value3 = value2[key];
+                   if(value3.Filter === undefined){
+                     if(value3.Title === undefined){
+                       date = value3.Date;
                      }
+                     if(value3.Date === undefined){
+                       title = value3.Title;
+                     }
+                   } else {
+                     cnt++;
+                     filterArr.push(value3.Filter);
+
+                     passArr.push(value3.Pass);
+                     failArr.push(value3.Fail);
+                     blockedArr.push(value3.Blocked);
+                     wipArr.push(value3.WIP);
+                     unexecutedArr.push(value3.Unexecuted);
+
+                     var parsed = parseInt(value3.total);
+
+                     totalinitial = totalinitial + parsed;
                    }
                  }
-                 break;
-               }
-             }
+               }//end key in value for loop
+             }//end key in data for loop
 
-             $('#loz-total-cases-release').text('Total Cases: ' + (total));
+             $('#loz-total-cases-initial').text('Total Cases: ' + (totalinitial));
              $('h5').text('As of: ' + date);
 
-             /*if(selection == 'phase'){
-               var a = filterArr[1];
-               filterArr[1] = filterArr[2];
-               filterArr[2] = a;
+            //  if(selection == 'phase'){
+            //    var a = filterArr[1];
+            //    filterArr[1] = filterArr[2];
+            //    filterArr[2] = a;
+             //
+            //    var a = passArr[1];
+            //    passArr[1] = passArr[2];
+            //    passArr[2] = a;
+            //  }
+             //
+            //  if(selection == 'priority'){
+            //    var a = filterArr[1];
+            //    filterArr[1] = filterArr[2];
+            //    filterArr[2] = a;
+            //    var a = filterArr[1];
+            //    filterArr[1] = filterArr[0];
+            //    filterArr[0] = a;
+             //
+            //    var a = passArr[1];
+            //    passArr[1] = passArr[2];
+            //    passArr[2] = a;
+            //    var a = passArr[1];
+            //    passArr[1] = passArr[0];
+            //    passArr[0] = a;
+            //  }
 
-               var a = passArr[1];
-               passArr[1] = passArr[2];
-               passArr[2] = a;
-             }
 
-             if(selection == 'priority'){
-               var a = filterArr[1];
-               filterArr[1] = filterArr[2];
-               filterArr[2] = a;
-               var a = filterArr[1];
-               filterArr[1] = filterArr[0];
-               filterArr[0] = a;
-
-               var a = passArr[1];
-               passArr[1] = passArr[2];
-               passArr[2] = a;
-               var a = passArr[1];
-               passArr[1] = passArr[0];
-               passArr[0] = a;
-             }*/
-
-
-
-             barData = {
+             barData3 = {
                labels: filterArr,
                datasets: [
                  {
@@ -186,15 +178,14 @@
                ]
              }
 
-
-             var context = document.getElementById('chart').getContext('2d');
-             if (chart && typeof chart === 'object') {
-               chart.destroy();
+             var context3 = document.getElementById('chart-initial').getContext('2d');
+             if (chart3 && typeof chart3 === 'object') {
+               chart3.destroy();
              }
 
-             chart = new Chart(context, {
+             chart3 = new Chart(context3, {
                type: 'bar',
-               data: barData,
+               data: barData3,
                options: {
                  title: {
                    display: true,
@@ -204,13 +195,9 @@
                  responsive: true
                }
              });
-
-
-
-
            }//end success function
-         })//end first ajax call
-       }
+         })//end third ajax call
+       }//end check()
 
      </script>
    </body>
