@@ -6,31 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/images/Sandy.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/images/gary_the_snail.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/images/plankton.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/html/view-cycle-ret.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/html/view-priority-ret.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/html/view-status-ret.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/spgbb.jpg" afterPath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/images/spgbb.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/view.html" afterPath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/html/view.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean/fire.jpg" afterPath="$PROJECT_DIR$/jira-add-on-llbean/images/fire.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean/mrkrabs.jpg" afterPath="$PROJECT_DIR$/jira-add-on-llbean/images/mrkrabs.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean/pat.gif" afterPath="$PROJECT_DIR$/jira-add-on-llbean/images/pat.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean/sqdwrd.png" afterPath="$PROJECT_DIR$/jira-add-on-llbean/images/sqdwrd.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean/view-clean.html" afterPath="$PROJECT_DIR$/jira-add-on-llbean/html/view-clean.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean/view-fb.html" afterPath="$PROJECT_DIR$/jira-add-on-llbean/html/view-fb.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean/view-initial.html" afterPath="$PROJECT_DIR$/jira-add-on-llbean/html/view-initial.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/jira-add-on-llbean/view-rel.html" afterPath="$PROJECT_DIR$/jira-add-on-llbean/html/view-rel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/target/classes/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.class" afterPath="$PROJECT_DIR$/TestExecutionReport/target/classes/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ScrapeDataXML.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/addon-style.css" afterPath="$PROJECT_DIR$/jira-add-on-llbean-ctrtcm/addon-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jira-add-on-llbean/addon-style.css" afterPath="$PROJECT_DIR$/jira-add-on-llbean/addon-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jira-add-on-llbean/atlassian-connect.json" afterPath="$PROJECT_DIR$/jira-add-on-llbean/atlassian-connect.json" />
-    </list>
+    <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="" />
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -921,7 +897,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1932" height="1050" extended-state="0" />
+    <frame x="-9" y="-9" width="1932" height="1050" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
