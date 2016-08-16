@@ -15,7 +15,7 @@
   "modules": {
     "jiraDashboardItems":[
       {
-        "url": "/jira-add-on-llbean/view-fb.html",
+        "url": "/jira-add-on-llbean/html/view-fb.html",
         "key": "dashboard-item-cttcm",
         "name": {
           "value": "Report Tool Add-On for CTTCM"
@@ -24,10 +24,10 @@
           "value": "Report dashboard item from Kevin - cttcm"
         },
         "configurable": true,
-        "thumbnailUrl": "/jira-add-on-llbean/fire.jpg"
+        "thumbnailUrl": "/jira-add-on-llbean/images/fire.jpg"
       },
       {
-        "url": "/jira-add-on-llbean-ctrtcm/view.html",
+        "url": "/jira-add-on-llbean-ctrtcm/html/view.html",
         "key": "dashboard-item-ctrtcm",
         "name": {
           "value": "Report Tool Add-On for CTRTCM"
@@ -36,10 +36,10 @@
           "value": "Report dashboard item from Kevin - ctrtcm"
         },
         "configurable": true,
-        "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/spgbb.jpg"
+        "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/images/spgbb.jpg"
       },
       {
-        "url": "/jira-add-on-llbean/view-rel.html",
+        "url": "/jira-add-on-llbean/html/view-rel.html",
         "key": "dashboard-gadget-rel",
         "name": {
           "value": "Release Report Gadget"
@@ -48,10 +48,10 @@
           "value": "Report dashboard item from Kevin"
         },
         "configurable": true,
-        "thumbnailUrl": "/jira-add-on-llbean/pat.gif"
+        "thumbnailUrl": "/jira-add-on-llbean/images/pat.gif"
       },
       {
-        "url": "/jira-add-on-llbean/view-initial.html",
+        "url": "/jira-add-on-llbean/html/view-initial.html",
         "key": "dashboard-gadget-initial",
         "name": {
           "value": "Initial Report Gadget"
@@ -60,10 +60,10 @@
           "value": "Report dashboard item from Kevin"
         },
         "configurable": true,
-        "thumbnailUrl": "/jira-add-on-llbean/mrkrabs.jpg"
+        "thumbnailUrl": "/jira-add-on-llbean/images/mrkrabs.jpg"
       },
       {
-        "url": "/jira-add-on-llbean/view-clean.html",
+        "url": "/jira-add-on-llbean/html/view-clean.html",
         "key": "dashboard-gadget-clean",
         "name": {
           "value": "Clean Report Gadget"
@@ -72,7 +72,43 @@
           "value": "Report dashboard item from Kevin"
         },
         "configurable": true,
-        "thumbnailUrl": "/jira-add-on-llbean/sqdwrd.png"
+        "thumbnailUrl": "/jira-add-on-llbean/images/sqdwrd.png"
+      },
+      {
+        "url": "/jira-add-on-llbean-ctrtcm/html/view-cycle-ret.html",
+        "key": "dashboard-gadget-ctrtcm-cycle",
+        "name": {
+          "value": "Cycle Report Gadget Retail"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin - ctrtcm"
+        },
+        "configurable": true,
+        "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/images/gary-the-snail.png"
+      },
+      {
+        "url": "/jira-add-on-llbean-ctrtcm/html/view-priority-ret.html",
+        "key": "dashboard-gadget-ctrtcm-priority",
+        "name": {
+          "value": "Priority Report Gadget Retail"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin - ctrtcm"
+        },
+        "configurable": true,
+        "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/images/plankton.jpg"
+      },
+      {
+        "url": "/jira-add-on-llbean-ctrtcm/html/view-status-ret.html",
+        "key": "dashboard-gadget-ctrtcm-status",
+        "name": {
+          "value": "Status Report Gadget Retail"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin - ctrtcm"
+        },
+        "configurable": true,
+        "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/images/Sandy.jpg"
       }
     ]
   }

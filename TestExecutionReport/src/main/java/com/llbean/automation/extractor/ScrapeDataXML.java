@@ -139,6 +139,8 @@ public class ScrapeDataXML {
         //split list into versions
         versionmap = splitIntoVersions(list);
 
+        logger.info("versionmap keyset: " + versionmap.keySet());
+
         String first = versionmap.entrySet().iterator().next().getKey();
         release = first.substring(0,3);
 

@@ -17,8 +17,8 @@
 .graph-div {
   border: 3px solid #a0a0a0;
   padding: .2%;
-  margin: .5%;
-  float: left;
+  margin: auto;
   text-align: center;
-  width: 30%;
+  width: 90%;
+  height: 90%;
 }
