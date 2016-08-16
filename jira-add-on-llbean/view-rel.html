@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+      <!-- Atlassian User Interface (AUI) -->
+      <link rel="stylesheet" href="https://aui-cdn.atlassian.com/aui-adg/5.9.24/css/aui.min.css" media="all">
+      <script src="https://aui-cdn.atlassian.com/aui-adg/5.9.24/js/aui.min.js"></script>
+
+      <!-- Helper Javascript lib -->
+      <script src="utils.js" type="text/javascript"></script>
+      <script src="https://d3js.org/d3.v3.min.js"></script>
+
+      <link rel="stylesheet" href="addon-style.css"></link>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
+
+      <script>
+        $(document).ready(function () {
+           var allJS = Utils.getBaseUrl() + '/all.js';
+           $.getScript(allJS, function () {});
+        });
+      </script>
+   </head>
+
+
+   <body id="main-body">
+     <div id="container">
+       <header>
+         <h5 class="aui-badge">As of: </h5>
+       </header>
+       <div class="left-div">
+          <canvas id="chart" width="500" height="500"></canvas>
+          <h4 id="loz-total-cases-release" class="aui-lozenge">Total Cases: 0</h4>
+          <div class="radio">
+            <div id="filter-div" style="text-align:center;">
+              <input type="radio" id="phase" name="filter" onclick="check(this.value)" value="phase" checked="checked">Phase
+              <input type="radio" id="priority" name="filter" onclick="check(this.value)" value="priority">Priority
+              <input type="radio" id="device" name="filter" onclick="check(this.value)" value="device">Device
+            </div>
+          </div>
+       </div>
+
+     </div>
+
+
+     <script type="text/javascript">
+       var chart;
+       var chart2;
+       var chart3;
+       var datanew;
+
+       var selArr = ['device', 'phase', 'priority'];
+       var api = 'https://test-execution-report.firebaseio.com/';
+
+       //$('#button-tooltip').tooltip();
+       check('phase');
+
+       function check(filter){
+
+         var total = 0;
+         var totalclean = 0;
+         var totalinitial = 0;
+         var cnt;
+         var barData;
+         var barData2;
+         var barData3;
+         var selection = filter;
+         console.log(api + selection + '.json');
+         $.ajax({
+           type: "GET",
+           dataType: 'jsonp',
+           url: api + selection + '.json',
+           success: function(data) {
+             //console.log(data);
+
+             var title;
+             var date;
+             var totarr = [];
+             var filterArr = [];
+             var totalArr = [];
+             var passArr = [];
+             var failArr = [];
+             var blockedArr = [];
+             var wipArr = [];
+             var unexecutedArr = [];
+             var rows = [];
+             var len = 0;
+             var i;
+
+             //var obj;
+
+             for(var value in data){
+               if(len == 0){
+                 //console.log(data[value]);
+                 for(var val in data[value]){
+                   //console.log(data[value][val]);
+                   for(var v in data[value][val]){
+
+                     var obj = data[value][val][v];
+                     if(obj.Filter == undefined){
+                       if(obj.Title == undefined){
+                         date = obj.Date;
+                       } else {
+                         title = obj.Title;
+                       }
+                     } else {
+                       filterArr.push(obj.Filter);
+
+                       passArr.push(obj.Pass);
+                       failArr.push(obj.Fail);
+                       blockedArr.push(obj.Blocked);
+                       wipArr.push(obj.WIP);
+                       unexecutedArr.push(obj.Unexecuted);
+
+                       var parsed = parseInt(obj.total);
+
+                       total = total + parsed;
+                     }
+                   }
+                 }
+                 break;
+               }
+             }
+
+             $('#loz-total-cases-release').text('Total Cases: ' + (total));
+             $('h5').text('As of: ' + date);
+
+             /*if(selection == 'phase'){
+               var a = filterArr[1];
+               filterArr[1] = filterArr[2];
+               filterArr[2] = a;
+
+               var a = passArr[1];
+               passArr[1] = passArr[2];
+               passArr[2] = a;
+             }
+
+             if(selection == 'priority'){
+               var a = filterArr[1];
+               filterArr[1] = filterArr[2];
+               filterArr[2] = a;
+               var a = filterArr[1];
+               filterArr[1] = filterArr[0];
+               filterArr[0] = a;
+
+               var a = passArr[1];
+               passArr[1] = passArr[2];
+               passArr[2] = a;
+               var a = passArr[1];
+               passArr[1] = passArr[0];
+               passArr[0] = a;
+             }*/
+
+
+
+             barData = {
+               labels: filterArr,
+               datasets: [
+                 {
+                   label: 'Pass',
+                   backgroundColor: 'rgba(117,176,0,1)',
+                   data: passArr
+                 },
+                 {
+                   label: 'Fail',
+                   backgroundColor: 'rgba(204,51,0,1)',
+                   data: failArr
+                 },
+                 {
+                   label: 'Blocked',
+                   backgroundColor: 'rgba(102,147,176,1)',
+                   data: blockedArr
+                 },
+                 {
+                   label: 'WIP',
+                   backgroundColor: 'rgba(242,176,0,1)',
+                   data: wipArr
+                 },
+                 {
+                   label: 'Unexecuted',
+                   backgroundColor: 'rgba(160,160,160,1)',
+                   data: unexecutedArr
+                 }
+               ]
+             }
+
+
+             var context = document.getElementById('chart').getContext('2d');
+             if (chart && typeof chart === 'object') {
+               chart.destroy();
+             }
+
+             chart = new Chart(context, {
+               type: 'bar',
+               data: barData,
+               options: {
+                 title: {
+                   display: true,
+                   text: title,
+                   fontSize: 22
+                 },
+                 responsive: true
+               }
+             });
+
+
+
+
+           }//end success function
+         })//end first ajax call
+       }
+
+     </script>
+   </body>
+</html>

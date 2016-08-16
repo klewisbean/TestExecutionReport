@@ -37,6 +37,18 @@
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/spgbb.jpg"
+      },
+      {
+        "url": "/jira-add-on-llbean/view-rel.html",
+        "key": "dashboard-gadget-rel",
+        "name": {
+          "value": "Release Report Gadget"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin"
+        },
+        "configurable": true,
+        "thumbnailUrl": "/jira-add-on-llbean/pat.gif"
       }
     ]
   }
