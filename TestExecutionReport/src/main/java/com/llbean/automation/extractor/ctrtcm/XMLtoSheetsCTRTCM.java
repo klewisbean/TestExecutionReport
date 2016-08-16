@@ -31,6 +31,8 @@ public class XMLtoSheetsCTRTCM {
     //create the client
     public static Client client = Client.create();
 
+    //method to run for the status since the status map is a higher level than the other maps
+    //therefore the JSON structure will be simpler
     public static void runStatus(HashMap<String, Integer> map, String release, String api, String date) throws IOException {
         SHEET_URL = api;
 

@@ -8,6 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fd5c64a8-4e98-4beb-9cf7-b5f90faa7d6b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/AutomateExportCTRTCM.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/AutomateExportCTRTCM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/FindFileCTRTCM.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/FindFileCTRTCM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ReleaseExportAutomationCTRTCM.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ReleaseExportAutomationCTRTCM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java" afterPath="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java" />
     </list>
     <ignored path="JiraReportGadget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +33,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="163">
@@ -49,12 +53,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AutomateExportCTRTCM.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AutomateExportCTRTCM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/AutomateExportCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="40" column="88" selection-start-line="40" selection-start-column="88" selection-end-line="40" selection-end-column="88" />
+            <state relative-caret-position="-1">
+              <caret line="59" column="28" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
               <folding>
+                <element signature="method#runReleaseAuto#0;class#AutomateExportCTRTCM#0" expanded="false" />
+                <element signature="method#createZQLSearch#0;class#AutomateExportCTRTCM#0" expanded="false" />
                 <element signature="method#getJiraVersions#0;class#AutomateExportCTRTCM#0" expanded="false" />
                 <element signature="method#organizeData#0;class#AutomateExportCTRTCM#0" expanded="false" />
                 <element signature="method#createVersionArray#0;class#AutomateExportCTRTCM#0" expanded="false" />
@@ -65,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReleaseExportAutomationCTRTCM.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ReleaseExportAutomationCTRTCM.java">
+      <file leaf-file-name="FindFileCTRTCM.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/FindFileCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="204" column="33" selection-start-line="204" selection-start-column="33" selection-end-line="204" selection-end-column="33" />
+            <state relative-caret-position="-264">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -78,12 +84,10 @@
       <file leaf-file-name="ScrapeDataXMLCTRTCM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-331">
-              <caret line="103" column="39" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
+            <state relative-caret-position="2317">
+              <caret line="407" column="20" selection-start-line="407" selection-start-column="20" selection-end-line="407" selection-end-column="20" />
               <folding>
-                <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-                <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#fbpostfunction#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
@@ -101,6 +105,28 @@
                 <element signature="method#getVersions#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
                 <element signature="method#printNestedMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XMLtoSheetsCTRTCM.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1705">
+              <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+              <folding>
+                <element signature="method#trustall#0;class#XMLtoSheetsCTRTCM#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReleaseExportAutomationCTRTCM.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ReleaseExportAutomationCTRTCM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="781">
+              <caret line="200" column="41" selection-start-line="200" selection-start-column="41" selection-end-line="200" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -158,13 +184,13 @@
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/FindFile.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/pom.xml" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/pom.xml" />
-        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/pom2.xml" />
-        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/FindFileCTRTCM.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/AutomateExportGUI.java" />
+        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/AutomateExportCTRTCM.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ReleaseExportAutomationCTRTCM.java" />
         <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java" />
-        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/AutomateExportCTRTCM.java" />
+        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/FindFileCTRTCM.java" />
+        <option value="$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java" />
       </list>
     </option>
   </component>
@@ -176,10 +202,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1929" />
+    <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1938" />
-    <option name="height" value="1098" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -897,8 +923,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1929" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -907,12 +933,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2867804" sideWeight="0.50429183" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096258" sideWeight="0.49570817" order="5" side_tool="false" content_ui="tabs" x="-1633" y="511" width="1044" height="445" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27508456" sideWeight="0.49570817" order="5" side_tool="false" content_ui="tabs" x="-1633" y="511" width="1044" height="445" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.037593983" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19871107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19871107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -946,7 +972,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="43" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1027,36 +1053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#runStatus#0;class#XMLtoSheetsCTRTCM#0" expanded="false" />
-            <element signature="method#trustall#0;class#XMLtoSheetsCTRTCM#0" expanded="false" />
-            <element signature="e#7055#7056#0" expanded="false" />
-            <element signature="e#7132#7133#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/FindFileCTRTCM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom2.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="583">
@@ -1103,14 +1099,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/AutomateExportCTRTCM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="59" column="28" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
+          <folding>
+            <element signature="method#runReleaseAuto#0;class#AutomateExportCTRTCM#0" expanded="false" />
+            <element signature="method#createZQLSearch#0;class#AutomateExportCTRTCM#0" expanded="false" />
+            <element signature="method#getJiraVersions#0;class#AutomateExportCTRTCM#0" expanded="false" />
+            <element signature="method#organizeData#0;class#AutomateExportCTRTCM#0" expanded="false" />
+            <element signature="method#createVersionArray#0;class#AutomateExportCTRTCM#0" expanded="false" />
+            <element signature="method#printVersions#0;class#AutomateExportCTRTCM#0" expanded="false" />
+            <element signature="method#printArray#0;class#AutomateExportCTRTCM#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ReleaseExportAutomationCTRTCM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="781">
+          <caret line="200" column="41" selection-start-line="200" selection-start-column="41" selection-end-line="200" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ScrapeDataXMLCTRTCM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-331">
-          <caret line="103" column="39" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
+        <state relative-caret-position="2317">
+          <caret line="407" column="20" selection-start-line="407" selection-start-column="20" selection-end-line="407" selection-end-column="20" />
           <folding>
-            <element signature="method#filterCycle#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#filterPriority#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
-            <element signature="method#filterStatus#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#getMapOfPhases#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#fbpostfunction#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
             <element signature="method#combineHashMap#0;class#ScrapeDataXMLCTRTCM#0" expanded="false" />
@@ -1131,25 +1149,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/ReleaseExportAutomationCTRTCM.java">
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/FindFileCTRTCM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="204" column="33" selection-start-line="204" selection-start-column="33" selection-end-line="204" selection-end-column="33" />
+        <state relative-caret-position="-264">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/AutomateExportCTRTCM.java">
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/src/main/java/com/llbean/automation/extractor/ctrtcm/XMLtoSheetsCTRTCM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="40" column="88" selection-start-line="40" selection-start-column="88" selection-end-line="40" selection-end-column="88" />
+        <state relative-caret-position="-1705">
+          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
           <folding>
-            <element signature="method#getJiraVersions#0;class#AutomateExportCTRTCM#0" expanded="false" />
-            <element signature="method#organizeData#0;class#AutomateExportCTRTCM#0" expanded="false" />
-            <element signature="method#createVersionArray#0;class#AutomateExportCTRTCM#0" expanded="false" />
-            <element signature="method#printVersions#0;class#AutomateExportCTRTCM#0" expanded="false" />
-            <element signature="method#printArray#0;class#AutomateExportCTRTCM#0" expanded="false" />
+            <element signature="method#trustall#0;class#XMLtoSheetsCTRTCM#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestExecutionReport/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>

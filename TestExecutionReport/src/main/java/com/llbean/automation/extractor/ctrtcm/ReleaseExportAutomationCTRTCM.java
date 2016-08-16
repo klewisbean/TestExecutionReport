@@ -199,8 +199,6 @@ public class ReleaseExportAutomationCTRTCM {
 
 
     public static void waitfordownload(){
-        logger.trace("count:"+COUNT);
-
         if(COUNT == 1){
             for(int i = 1; i < 65; i++){
                 System.out.println((5*i) + " seconds");
@@ -212,24 +210,5 @@ public class ReleaseExportAutomationCTRTCM {
             }
             System.out.println("done");
         }
-        else if(COUNT == 2){
-            for(int i = 1; i < 48; i++){
-                System.out.println((5*i) + " seconds");
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            System.out.println("done");
-        }
-
     }
-
-
-
-
-
-
-
 }

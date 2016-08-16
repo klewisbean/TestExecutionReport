@@ -34,14 +34,14 @@ public class FindFileCTRTCM {
 
         Date date = new Date();
         logger.info("date: " + dateformat.format(date));
-        //directoryToSearch = directoryToSearch.substring(0, directoryToSearch.lastIndexOf("\\"));
-        //logger.info("new directoryToSearch: " + directoryToSearch);
         String dateStr = dateformat.format(date);
         String filename = nameToFind;
         File newestfile = new File(filename);
 
+        //variable to hold the directory
         File directory = new File(directoryToSearch);
 
+        //list of files withing the directory
         File[] filesin = directory.listFiles();
 
         //searches through the user directory for the first latest test execution xml file from zephyr for jira
@@ -55,7 +55,6 @@ public class FindFileCTRTCM {
             }
         }
 
-        Date newestd = new Date(newestfile.lastModified());
         logger.info("Newest file: " + newestfile.getName());
 
         if(newestfile.getName().equalsIgnoreCase(filename)){

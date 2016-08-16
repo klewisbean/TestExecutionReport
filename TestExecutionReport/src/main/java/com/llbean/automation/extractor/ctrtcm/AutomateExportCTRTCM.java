@@ -31,25 +31,33 @@ public class AutomateExportCTRTCM {
      * */
 
 
-
+    //variables
     public ArrayList<String> relArray = new ArrayList<String>();
+
+    //array that holds all possible versions for the CTRTCM project
     public ArrayList<String> versions = new ArrayList<String>();
+
+    //map that holds the versions for the desired release
     public HashMap<String, ArrayList<String>> vMap = new HashMap<>();
+
+    //logger
     final static Logger logger = Logger.getLogger(AutomateExportCTRTCM.class);
 
     public static void main(String[] args){
+        //sets the location of the chromedriver
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
-        logger.error("user.dir in main: " + System.getProperty("user.dir"));
+        logger.info("user.dir in main: " + System.getProperty("user.dir"));
 
         AutomateExportCTRTCM main = new AutomateExportCTRTCM();
 
         //get the versions from the jira api
         main.getJiraVersions(USERNAME, PWD);
 
+        //put the versions in a map
         main.vMap.put(REL, main.relArray);
-
         logger.info("vmap: " + main.vMap);
 
+        //run the automation
         main.runReleaseAuto(USERNAME, PWD, main.createZQLSearch(main.vMap.get(REL)));
     }
 

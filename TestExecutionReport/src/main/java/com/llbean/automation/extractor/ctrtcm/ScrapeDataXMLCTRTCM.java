@@ -19,11 +19,15 @@ import org.apache.commons.lang3.StringUtils;
 
 public class ScrapeDataXMLCTRTCM {
 
+
     public HashMap<String, ArrayList<String[]>> versionmap = new HashMap<>();
+    //map of the phases with a value of the test executions
     public HashMap<String, ArrayList<String[]>> mapofphases = new HashMap<>();
+    //arraylist to hold all test executions
     public ArrayList<String[]> list = new ArrayList<>();
     public ArrayList<String> versions = new ArrayList<String>();
 
+    //array that holds the possible execution status
     public String[] execstatus = {"Unexecuted", "Pass", "Fail", "WIP", "Blocked"};
     public String release = "";
     public String tempRelease = "";
@@ -108,17 +112,6 @@ public class ScrapeDataXMLCTRTCM {
         //printData(list);
 
         try {
-            //setUpGUI();
-            //filterPriorityclean(list);
-            //filterPriorityinit(list);
-            //filterPhaseclean(list);
-            //filterPhaseinit(list);
-            //filterDeviceclean(list);
-            //filterDeviceinit(list);
-            //filterPhase(list);
-            //filterPriority(list);
-            //filterCycle(list);
-
             //post the data into firebase database
             fbpostfunction(date);
         } catch (Exception e) {
@@ -150,15 +143,13 @@ public class ScrapeDataXMLCTRTCM {
         tempRelease = "";
         int total = 0;
 
-        //hash maps to hold the device and the count of the device
-        //the hash maps are divided into the cleanup and initial launch phases
-        //and then one map for a combination of both cleanup and initial
-
+        //map to hold the cycles and their count
         HashMap<String, Integer> cyclemap = new HashMap<>();
 
+        //map that holds the cycles along with their status count
         HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
 
-        //list of all possible device names
+        //list of all possible cycle names for retail
         String[] cyclelist = {"Regression", "GoLive", "SystemDown", "Draw999", "CustomerCollection"};
 
         tempRelease = release + " Cycle";
@@ -183,13 +174,16 @@ public class ScrapeDataXMLCTRTCM {
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
 
+            //loop through the possible cycles
             for(int l = 0; l < cyclelist.length; l++){
+                //if the cycle name contains one of the strings in the cyclelist
                 if(StringUtils.containsIgnoreCase(cycle, cyclelist[l])){
-
+                    //loop through the possible execution status
                     for(int r = 0; r < execstatus.length; r++){
-
+                        //if the status for the test execution matches
                         if(StringUtils.containsIgnoreCase(status, execstatus[r])){
-
+                            //try putting that execution status into the map value then put that map
+                            //into the mapwithstatus that holds the cycles
                             try{
                                 HashMap<String, Integer> temp = mapwithstatus.get(cyclelist[l]);
                                 try{
@@ -289,6 +283,7 @@ public class ScrapeDataXMLCTRTCM {
         //string array to hold the possible priorities
         String[] prioritylist = {"Critical", "Major", "Minor", "No Priority", "Trivial", "Blocker"};
 
+        //map to return with the <priority(string) <statusmap(string, integer)>>
         HashMap<String, HashMap<String, Integer>> mapwithstatus = new HashMap<>();
 
         tempRelease = release + " Priority";
@@ -303,24 +298,32 @@ public class ScrapeDataXMLCTRTCM {
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////////////
-
+            //loop through the possible priorities
             for(int l = 0; l < prioritylist.length; l++){
+                //if the test execution priority matches
                 if(StringUtils.containsIgnoreCase(priority, prioritylist[l])){
-
+                    //loop through the possible statuses
                     for(int r = 0; r < execstatus.length; r++){
-
+                        //if the test execution status matches
                         if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+                            //see if the priority key already exists
                             try{
+                                //if the map already exists then see if the status map already exists
                                 HashMap<String, Integer> temp = mapwithstatus.get(priority);
                                 try{
+                                    //if the status does exist then increment it's count
                                     temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
                                 }
                                 catch(Exception e){
+                                    //if the status does not already exist then add that status to the map
                                     temp.put(execstatus[r], 1);
                                 }
+                                //the priority must exist so update the map to the new one
                                 mapwithstatus.put(priority, temp);
                             }catch(Exception e){
+                                //the priority is not already in the map so create a new map to put in place
                                 HashMap<String, Integer> temp = new HashMap<>();
+                                //put the status in place
                                 try{
                                     temp.put(execstatus[r], temp.get(execstatus[r]) + 1);
                                 }
@@ -358,6 +361,7 @@ public class ScrapeDataXMLCTRTCM {
         tempRelease = "";
         int total = 0;
 
+        //map to return
         HashMap<String, Integer> mapwithstatus = new HashMap<>();
 
         tempRelease = release + " Phase";
@@ -367,13 +371,14 @@ public class ScrapeDataXMLCTRTCM {
         for(int i = 0; i < versionlist.size(); i++){
             total++;
 
+            //get the status from the test execution
             String status = versionlist.get(i)[5];
 
-
+            //iterate throught the possible execution statuses
             for(int r = 0; r < execstatus.length; r++){
-
+                //if the test execution status matches
                 if(StringUtils.containsIgnoreCase(status, execstatus[r])){
-
+                    //attempt to add it to the map
                     try{
                         int temp = mapwithstatus.get(status);
                         mapwithstatus.put(status, temp + 1);
@@ -400,6 +405,7 @@ public class ScrapeDataXMLCTRTCM {
     #########################################################################################################
      */
 
+    //this function returns the map of phases
     public HashMap<String, ArrayList<String[]>> getMapOfPhases(ArrayList<String[]> versionlist){
         HashMap<String, ArrayList<String[]>> mapofphases = new HashMap<>();
         int len = versionlist.size();
