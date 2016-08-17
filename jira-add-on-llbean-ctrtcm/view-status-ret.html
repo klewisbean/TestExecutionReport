@@ -46,7 +46,6 @@
        var chart;
        var chart2;
        var chart3;
-       var phases = [];
        var api = 'https://test-execution-report-ctrtcm.firebaseio.com/';
 
        var $filterDiv = $('#filter-div');
@@ -64,6 +63,7 @@
            var cyclearr = [];
            var priorityarr = [];
            var statusarr = [];
+           var phases = [];
 
 
            $.each(data, function(obj, v) {
@@ -114,6 +114,7 @@
            var cyclearr = [];
            var priorityarr = [];
            var statusarr = [];
+           var phases = [];
 
            $.each(data, function(obj, v) {
              if (obj === 'status') {
