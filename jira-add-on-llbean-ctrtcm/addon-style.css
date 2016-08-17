@@ -17,8 +17,17 @@
 .graph-div {
   border: 3px solid #a0a0a0;
   padding: .2%;
-  margin: auto;
+  margin: .5%;;
+  float: left;
   text-align: center;
+  width: 30%;
+}
+
+.one-div {
   width: 90%;
   height: 90%;
+  border: 3px solid #a0a0a0;
+  padding: .2%;
+  margin: auto;
+  text-align: center;
 }
