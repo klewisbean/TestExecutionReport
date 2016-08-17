@@ -35,3 +35,11 @@
 div {
   display: block;
 }
+
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
+}
