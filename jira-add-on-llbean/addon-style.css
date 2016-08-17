@@ -37,6 +37,7 @@ div {
   display: block;
 }
 
-canvas {
+.chart-canvas {
+  display: block;
   margin: auto;
 }
