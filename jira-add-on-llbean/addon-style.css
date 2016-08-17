@@ -36,3 +36,7 @@
 div {
   display: block;
 }
+
+canvas {
+  margin: auto;
+}
