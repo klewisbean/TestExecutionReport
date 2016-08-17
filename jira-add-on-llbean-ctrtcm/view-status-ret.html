@@ -14,6 +14,7 @@
       <script src="https://d3js.org/d3.v3.min.js"></script>
 
       <link rel="stylesheet" href="addon-style.css"></link>
+      <link rel="stylesheet" href="reset.css"></link>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
 
@@ -47,11 +48,61 @@
        var chart;
        var chart2;
        var chart3;
+       var phases = [];
        var api = 'https://test-execution-report-ctrtcm.firebaseio.com/';
 
        var $filterDiv = $('#filter-div');
 
-       var obj = run('10.7.0');
+       before();
+
+       function before() {
+         $.ajax({
+           type: 'GET',
+           dataType: 'jsonp',
+           url: api + '.json'
+         })
+         .done(function(data) {
+           var temp;
+           var cyclearr = [];
+           var priorityarr = [];
+           var statusarr = [];
+
+
+           $.each(data, function(obj, v) {
+             if (obj === 'status') {
+               $.each(data[obj], function(k, v) {
+                 temp = status(v);
+                 statusarr.push(temp);
+               });
+             }
+           });
+
+           $.each(statusarr, function(i, e) {
+             phases.push(e.title);
+           });
+
+           var phaseo = {};
+           var statusobj = {};
+           var priorityobj = {};
+           var cycleobj = {};
+
+           for(var i in phases){
+             for(var k in statusarr){
+               if(statusarr[k].title === phases[i]){
+                 //var statusobj = new Object();
+                 statusobj[phases[i]] = statusarr[k];
+               }
+             }
+             phaseo.status = statusobj;
+           }
+           console.log(phases[0]);
+           createGraphs(phaseo, phases[0]);
+         })
+         .fail(function(e) {
+           console.log(e.message);
+         });
+       }
+
 
        function run(selection) {
          $.ajax({
@@ -64,7 +115,6 @@
            var cyclearr = [];
            var priorityarr = [];
            var statusarr = [];
-           var phases = [];
 
            $.each(data, function(obj, v) {
              if (obj === 'status') {

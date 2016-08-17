@@ -14,6 +14,7 @@
       <script src="https://d3js.org/d3.v3.min.js"></script>
 
       <link rel="stylesheet" href="addon-style.css"></link>
+      <link rel="stylesheet" href="reset.css"></link>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
 
@@ -46,10 +47,67 @@
        var chart2;
        var chart3;
        var api = 'https://test-execution-report-ctrtcm.firebaseio.com/';
+       var phases = [];
+
 
        var $filterDiv = $('#filter-div');
 
-       var obj = run('10.7.0');
+       before();
+
+       function before() {
+         $.ajax({
+           type: 'GET',
+           dataType: 'jsonp',
+           url: api + '.json'
+         })
+         .done(function(data) {
+           var temp;
+           var cyclearr = [];
+           var priorityarr = [];
+           var statusarr = [];
+
+
+           $.each(data, function(obj, v) {
+             if (obj === 'priority') {
+               $.each(data[obj], function(k, v) {
+                 temp = priority(v);
+                 priorityarr.push(temp);
+               });
+             }
+           });
+
+           $.each(priorityarr, function(i, e) {
+             $.each(e, function(i, e) {
+               if(e.phase === undefined){
+                 //do nothing
+               } else {
+                 phases.push(e.phase);
+               }
+             })
+           });
+
+           var phaseo = {};
+           var statusobj = {};
+           var priorityobj = {};
+           var cycleobj = {};
+
+           for(var i in phases){
+             for(var k in priorityarr){
+               for(var obj in priorityarr[k]){
+                 if(priorityarr[k][obj].phase === phases[i]){
+                   priorityobj[phases[i]] = priorityarr[k];
+                 }
+               }
+             }
+             phaseo.priority = priorityobj;
+           }
+           console.log(phases[0]);
+           createGraphs(phaseo, phases[0]);
+         })
+         .fail(function(e) {
+           console.log(e.message);
+         });
+       }
 
        function run(selection) {
          $.ajax({
@@ -62,7 +120,6 @@
            var cyclearr = [];
            var priorityarr = [];
            var statusarr = [];
-           var phases = [];
 
            $.each(data, function(obj, v) {
              if (obj === 'priority') {
@@ -127,11 +184,11 @@
        }
 
        function priority(obj){
-         var cycleObj = new Array();
+         var cycleObj = [];
          for(var val in obj){
            for(var val2 in obj[val]){
              var object = obj[val][val2];
-             var phaseObj = new Object();
+             var phaseObj = {};
              if(object.Filter == undefined){
                if (object.Date == undefined) {
                  phaseObj.phase  = object.Title;
