@@ -126,10 +126,10 @@
         "url": "/jira-add-on-llbean-versions/view-rbuttons.html",
         "key": "dashboard-gadget-version-filtered",
         "name": {
-          "value": "One graph that displays a report for specific fix versions. Able to filter by phase, priority, and device and then choose a specific version/project. Filtered Report Gadget CTTCM with Version Selection"
+          "value": "Filtered Report Gadget CTTCM with Version Selection"
         },
         "description": {
-          "value": "Report dashboard item from Kevin - cttcm"
+          "value": "One graph that displays a report for specific fix versions. Able to filter by phase, priority, and device and then choose a specific version/project. Report dashboard item from Kevin - cttcm"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean-versions/heart.png"
