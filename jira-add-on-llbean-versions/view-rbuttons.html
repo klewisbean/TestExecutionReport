@@ -39,13 +39,13 @@
        <div class='one-div'>
           <canvas id="chart" width="575" height="500" class="chart-canvas"></canvas>
           <h4 id="loz-total-cases" class="aui-lozenge">Total Cases: 0</h4>
-          <div class="radio" id="filter-div" name="raddiv">
+          <div class="radio" id="filter-div" name="raddiv" data-toggle="tooltip" data-placement="top" title="Select the filter first and then select the version">
             <label><input type="radio" id="phase" name="filter" value="phase" checked="checked">Phase</label>
             <label><input type="radio" id="priority" name="filter" value="priority">Priority</label>
             <label><input type="radio" id="device" name="filter" value="device">Device</label>
           </div>
        </div>
-       <div class="dropup">
+       <div class="dropup" data-toggle="tooltip" data-placement="top" title="Select the filter first and then select the version">
          <button id="dd-button" class="btn btn-default dropdown-toggle aui-button aui-button-primary" data-toggle="dropdown">Versions
          <span class="caret"></span></button>
          <ul id="myDropdown" class="dropdown-menu"></ul>

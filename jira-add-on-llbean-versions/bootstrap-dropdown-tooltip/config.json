@@ -382,10 +382,12 @@
     "@hr-border": "@gray-lighter"
   },
   "css": [
-    "dropdowns.less"
+    "dropdowns.less",
+    "tooltip.less"
   ],
   "js": [
-    "dropdown.js"
+    "dropdown.js",
+    "tooltip.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=86ab9ec03bbfbf390447ee817db68c8b"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=01465dd2013fef8cd9106e22b01cdded"
 }
