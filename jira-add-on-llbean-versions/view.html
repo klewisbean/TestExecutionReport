@@ -55,7 +55,24 @@
        var $filterdiv = $('#filter-div');
        var $mydd = $('#myDropdown');
        var chart;
-       run('R65-Smoke');
+       before();
+
+       function before() {
+         $.ajax({
+           type: 'GET',
+           dataType: 'jsonp',
+           url: api + '.json'
+         })
+         .done(function(data) {
+           $.each(data, function(k, v) {
+             run(k);
+             return false;
+           })
+         })
+         .fail(function(e) {
+           console.log(e.message);
+         })
+       }
 
        function run(selection) {
          var filterArr = ['Pass', 'Fail', 'Blocked', 'WIP', 'Unexecuted'];
@@ -122,7 +139,7 @@
              options: {
                title: {
                  display: true,
-                 text: title,
+                 text: title + ' Status',
                  fontSize: 22
                },
                responsive: false

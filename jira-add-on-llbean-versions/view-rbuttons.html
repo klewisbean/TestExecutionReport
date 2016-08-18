@@ -62,7 +62,24 @@
        var chart;
        var radsel = null;
 
-       run('R65-Smoke');
+       before();
+
+       function before() {
+         $.ajax({
+           type: 'GET',
+           dataType: 'jsonp',
+           url: api + '.json'
+         })
+         .done(function(data) {
+           $.each(data, function(k, v) {
+             run(k);
+             return false;
+           })
+         })
+         .fail(function(e) {
+           console.log(e.message);
+         })
+       }
 
        function run(selection) {
          var versions = [];
