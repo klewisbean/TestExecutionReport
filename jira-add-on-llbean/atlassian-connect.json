@@ -109,6 +109,18 @@
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/Sandy.jpg"
+      },
+      {
+        "url": "/jira-add-on-llbean-versions/view.html",
+        "key": "dashboard-gadget-version-status",
+        "name": {
+          "value": "Status Report Gadget CTTCM with Version Selection"
+        },
+        "description": {
+          "value": "Report dashboard item from Kevin - cttcm"
+        },
+        "configurable": true,
+        "thumbnailUrl": "/jira-add-on-llbean-versions/spg.jpg"
       }
     ]
   }

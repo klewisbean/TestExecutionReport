@@ -1,0 +1,81 @@
+.radio {
+  text-align: center;
+  clear: both;
+}
+
+.radio input {
+  margin: 0 5px;
+}
+
+.graph-div {
+  border: 3px solid #a0a0a0;
+  padding: .2%;
+  margin: .5%;;
+  float: left;
+  text-align: center;
+  width: 30%;
+}
+
+.one-div {
+  width: 85%;
+  height: 75%;
+  border: 3px solid #a0a0a0;
+  padding: .2%;
+  margin: auto;
+  text-align: center;
+}
+
+div {
+  display: block;
+}
+
+.chart-canvas {
+  display: block;
+  margin: auto;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #205081;
+    color: white;
+    padding: 6px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    width: 250px;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2e3d54;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    text-align: center;
+    clear: both;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}

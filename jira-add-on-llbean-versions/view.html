@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+      <!-- Atlassian User Interface (AUI) -->
+      <link rel="stylesheet" href="https://aui-cdn.atlassian.com/aui-adg/5.9.24/css/aui.min.css" media="all">
+      <script src="https://aui-cdn.atlassian.com/aui-adg/5.9.24/js/aui.min.js"></script>
+
+      <!-- Helper Javascript lib -->
+      <script src="utils.js" type="text/javascript"></script>
+      <script src="https://d3js.org/d3.v3.min.js"></script>
+
+      <link rel="stylesheet" href="addon-style.css"></link>
+      <link rel="stylesheet" href="reset.css"></link>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
+
+      <script>
+        $(document).ready(function () {
+           var allJS = Utils.getBaseUrl() + '/all.js';
+           $.getScript(allJS, function () {});
+        });
+      </script>
+   </head>
+
+
+   <body id="main-body">
+     <div id="container">
+       <header>
+         <h5 class="aui-badge">As of: </h5>
+       </header>
+       <div class='graph-div'>
+          <canvas id="chart" width="575" height="500"></canvas>
+          <h4 id="loz-total-cases" class="aui-lozenge">Total Cases: 0</h4>
+          <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content"></div>
+          </div>
+       </div>
+       <div id="filter-div" class="radio"></div>
+     </div>
+
+
+
+
+     <script type="text/javascript">
+       var api = 'https://test-execution-report-versions.firebaseio.com/';
+       var $filterdiv = $('#filter-div');
+       var $mydd = $('#myDropdown');
+       var chart;
+       run('R65-Smoke');
+
+       function run(selection) {
+         var filterArr = ['Pass', 'Fail', 'Blocked', 'WIP', 'Unexecuted'];
+         var pass;
+         var fail;
+         var blocked;
+         var wip;
+         var unexecuted;
+         var date;
+         var title;
+         var total = 0;
+         var versions = [];
+
+         $.ajax({
+           type: 'GET',
+           dataType: 'jsonp',
+           url: api + '.json'
+         })
+         .done(function(data) {
+           $.each(data, function(k, v) {
+             versions.push(k);
+             if(k === selection) {
+               $.each(v, function(k2, v2) {
+                 $.each(v2, function(k3, v3) {
+                   pass = v3.PASS;
+                   fail = v3.FAIL;
+                   blocked = v3.BLOCKED;
+                   wip = v3.WIP;
+                   unexecuted = v3.UNEXECUTED;
+                   title = v3.Title;
+                   date = v3.Date;
+                   total = parseInt(v3.total);
+
+                 })
+               })
+             }
+           })
+
+           addRadiobuttons(versions);
+
+           barData = {
+             labels: filterArr,
+             datasets: [
+               {
+                 label: 'Cases',
+                 backgroundColor: ['rgba(117,176,0,1)','rgba(204,51,0,1)','rgba(102,147,176,1)','rgba(242,176,0,1)','rgba(160,160,160,1)'],
+                 data: [pass, fail, blocked, wip, unexecuted]
+               }
+             ]
+           }
+
+
+           $('#loz-total-cases').text('Total Cases: ' + (total));
+           $('h5').text('As of: ' + date);
+
+           var context = document.getElementById('chart').getContext('2d');
+           if (chart && typeof chart === 'object') {
+             chart.destroy();
+           }
+
+           chart = new Chart(context, {
+             type: 'bar',
+             data: barData,
+             options: {
+               title: {
+                 display: true,
+                 text: title,
+                 fontSize: 22
+               },
+               responsive: false
+             }
+           });
+
+
+         })
+         .fail(function(e) {
+           console.log(e.message);
+         });
+       }
+
+
+       function addRadiobuttons(versions) {
+         $filterdiv.empty();
+         $mydd.empty();
+
+         $.each(versions, function(i, p) {
+
+           var $newddelement = $('<a>');
+           $newddelement.attr({
+             'onclick': 'run(this.value)'
+           })
+           $newddelement.val(p);
+           $newddelement.text(p);
+
+           $mydd.append($newddelement);
+         });
+       }
+
+       /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+     </script>
+   </body>
+</html>

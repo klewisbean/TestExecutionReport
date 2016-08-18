@@ -148,6 +148,7 @@ public class ScrapeDataXML {
         try {
             //post the data into firebase database
             fbpostfunction(date);
+            pfunction(date);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1219,6 +1220,47 @@ public class ScrapeDataXML {
     #########################################################################################################
      */
 
+    public HashMap<String, Integer> filterStatus(ArrayList<String[]> versionlist){
+
+        tempRelease = "";
+        int total = 0;
+
+        HashMap<String, Integer> mapwithstatus = new HashMap<>();
+
+        tempRelease = release + " Phase";
+
+
+        //iterate through the test executions
+        for(int i = 0; i < versionlist.size(); i++){
+            total++;
+
+            String status = versionlist.get(i)[5];
+
+
+            for(int r = 0; r < execstatus.length; r++){
+
+                if(StringUtils.containsIgnoreCase(status, execstatus[r])){
+
+                    try{
+                        int temp = mapwithstatus.get(status);
+                        mapwithstatus.put(status, temp + 1);
+                    }catch(Exception e){
+                        mapwithstatus.put(status, 1);
+                    }
+
+                }
+            }
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////
+
+        }
+        System.out.println("total cases in filterStatus(): " + total);
+        System.out.println(mapwithstatus);
+        mapwithstatus.put("total", total);
+        return mapwithstatus;
+    }
+
     //method to automatically post without GUI if need be
     public void fbpostfunction(String date){
         logger.info("date in fbpostfunction: " + date);
@@ -1299,6 +1341,16 @@ public class ScrapeDataXML {
         /*
         DEVICE
          */
+
+        /*
+        #########################################################################################################
+        #########################################################################################################
+        #########################################################################################################
+         */
+
+
+
+
     }
 
     /*
@@ -1307,6 +1359,21 @@ public class ScrapeDataXML {
     #########################################################################################################
      */
 
+    public void pfunction(String date) {
+        XMLtoSheets.clearFBv("https://test-execution-report-versions.firebaseio.com/");
+        Iterator it = versionmap.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            //try posting each filter
+            try {
+                String temp = (String)pair.getKey();
+                temp = temp.replace(" ", "%20");
+                XMLtoSheets.runStatus(filterStatus((ArrayList)pair.getValue()), (String)pair.getKey(), "https://test-execution-report-versions.firebaseio.com/" + temp, date);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
 
     public HashMap<String, Integer> combineHashMap(HashMap<String, Integer> map1, HashMap<String, Integer> map2){
         HashMap<String, Integer> newmap = new HashMap<>();
