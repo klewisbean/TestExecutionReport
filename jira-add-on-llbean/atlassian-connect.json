@@ -21,7 +21,7 @@
           "value": "Report Tool Add-On for CTTCM"
         },
         "description": {
-          "value": "Report dashboard item from Kevin - cttcm"
+          "value": "3 graphs side by side. Specifically for the CTTCM test executions. Displays full release, initial, and clean-up graphs. Able to choose between phase, priority, and device filters. Report dashboard item from Kevin - cttcm"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean/fire.jpg"
@@ -33,7 +33,7 @@
           "value": "Report Tool Add-On for CTRTCM"
         },
         "description": {
-          "value": "Report dashboard item from Kevin - ctrtcm"
+          "value": "3 graphs side by side. Specifically for the CTRTCM test executions. Displays status, cycle, and priority graphs. Able to choose between phase filters. Report dashboard item from Kevin - ctrtcm"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/spgbb.jpg"
@@ -45,7 +45,7 @@
           "value": "Release Report Gadget"
         },
         "description": {
-          "value": "Report dashboard item from Kevin"
+          "value": "One graph that displays the full release for CTTCM test executions. Able to filter by phase, priority, and device. Report dashboard item from Kevin"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean/pat.gif"
@@ -57,7 +57,7 @@
           "value": "Initial Report Gadget"
         },
         "description": {
-          "value": "Report dashboard item from Kevin"
+          "value": "One graph that displays the initial report for CTTCM test executions. Able to filter by phase, priority, and device. Report dashboard item from Kevin"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean/mrkrabs.jpg"
@@ -69,7 +69,7 @@
           "value": "Clean Report Gadget"
         },
         "description": {
-          "value": "Report dashboard item from Kevin"
+          "value": "One graph that displays the clean up report for CTTCM test executions. Able to filter by phase, priority, and device. Report dashboard item from Kevin"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean/sqdwrd.png"
@@ -81,7 +81,7 @@
           "value": "Cycle Report Gadget Retail"
         },
         "description": {
-          "value": "Report dashboard item from Kevin - ctrtcm"
+          "value": "One graph that displays the cycle report for CTRTCM test executions. Able to filter by specific phases. Report dashboard item from Kevin - ctrtcm"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/gary_the_snail.png"
@@ -93,7 +93,7 @@
           "value": "Priority Report Gadget Retail"
         },
         "description": {
-          "value": "Report dashboard item from Kevin - ctrtcm"
+          "value": "One graph that displays the priority report for CTRTCM test executions. Able to filter by specific phases. Report dashboard item from Kevin - ctrtcm"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/plankton.jpg"
@@ -105,7 +105,7 @@
           "value": "Status Report Gadget Retail"
         },
         "description": {
-          "value": "Report dashboard item from Kevin - ctrtcm"
+          "value": "One graph that displays the status report for CTRTCM test executions. Able to filter by specific phases. Report dashboard item from Kevin - ctrtcm"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/Sandy.jpg"
@@ -117,7 +117,7 @@
           "value": "Status Report Gadget CTTCM with Version Selection"
         },
         "description": {
-          "value": "Report dashboard item from Kevin - cttcm"
+          "value": "One graph that displays the status report for specific versions/projects within CTTCM. Able to filter by specific fix versions. Report dashboard item from Kevin - cttcm"
         },
         "configurable": true,
         "thumbnailUrl": "/jira-add-on-llbean-versions/spg.jpg"
@@ -126,7 +126,7 @@
         "url": "/jira-add-on-llbean-versions/view-rbuttons.html",
         "key": "dashboard-gadget-version-filtered",
         "name": {
-          "value": "Filtered Report Gadget CTTCM with Version Selection"
+          "value": "One graph that displays a report for specific fix versions. Able to filter by phase, priority, and device and then choose a specific version/project. Filtered Report Gadget CTTCM with Version Selection"
         },
         "description": {
           "value": "Report dashboard item from Kevin - cttcm"
