@@ -149,6 +149,7 @@ public class ScrapeDataXML {
             //post the data into firebase database
             fbpostfunction(date);
             pfunction(date);
+            pfunction2(date);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1369,6 +1370,38 @@ public class ScrapeDataXML {
                 String temp = (String)pair.getKey();
                 temp = temp.replace(" ", "%20");
                 XMLtoSheets.runStatus(filterStatus((ArrayList)pair.getValue()), (String)pair.getKey(), "https://test-execution-report-versions.firebaseio.com/" + temp, date);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    public void pfunction2(String date) {
+        XMLtoSheets.clearFBv("https://test-execution-report-v.firebaseio.com/");
+        Iterator it = versionmap.entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry pair = (Map.Entry)it.next();
+            //try posting each filter
+            try {
+                String temp = (String)pair.getKey();
+                temp = temp.replace(" ", "%20");
+                XMLtoSheets.run(filterPhase((ArrayList)pair.getValue()), (String)pair.getKey(), "https://test-execution-report-v.firebaseio.com/" + temp + "/phase", date);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+            try {
+                String temp = (String)pair.getKey();
+                temp = temp.replace(" ", "%20");
+                XMLtoSheets.run(filterDevice((ArrayList)pair.getValue()), (String)pair.getKey(), "https://test-execution-report-v.firebaseio.com/" + temp + "/device", date);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+            try {
+                String temp = (String)pair.getKey();
+                temp = temp.replace(" ", "%20");
+                XMLtoSheets.run(filterPriority((ArrayList)pair.getValue()), (String)pair.getKey(), "https://test-execution-report-v.firebaseio.com/" + temp + "/priority", date);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

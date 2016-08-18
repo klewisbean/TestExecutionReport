@@ -111,7 +111,7 @@
         "thumbnailUrl": "/jira-add-on-llbean-ctrtcm/Sandy.jpg"
       },
       {
-        "url": "/jira-add-on-llbean-versions/view.html",
+        "url": "/jira-add-on-llbean-versions/view-rbuttons.html",
         "key": "dashboard-gadget-version-status",
         "name": {
           "value": "Status Report Gadget CTTCM with Version Selection"
