@@ -77,7 +77,6 @@
          var barData2;
          var barData3;
          var selection = filter;
-         console.log(api + selection + '.json');
          $.ajax({
            type: "GET",
            dataType: 'jsonp',
@@ -483,25 +482,6 @@
            }//end success function
          })//end third ajax call
        }//end check()
-
-
-       function del() {
-         var i;
-         var len = selArr.length;
-         for(i = 0; i < len; i++){
-           console.log(api + selArr[i] + '.json');
-           $.ajax({
-             type: "DELETE",
-             url: api + selArr[i] + '.json',
-             success: function(result) {
-               console.log('result: ' + result);
-             }
-           })
-         }
-       }
-
-
-
      </script>
    </body>
 </html>

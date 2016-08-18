@@ -93,7 +93,6 @@
              }
              phaseo.status = statusobj;
            }
-           console.log(phases[0]);
            addRadiobuttons(phases);
            createGraphs(phaseo, phases[0]);
          })
@@ -171,7 +170,7 @@
        }
 
        function status(obj){
-         var statusObj = new Object();
+         var statusObj = {};
          for(var val in obj){
            var temp = obj[val];
            statusObj.pass = temp.PASS;

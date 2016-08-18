@@ -183,11 +183,11 @@
        }
 
        function cycle(obj){
-         var cycleObj = new Array();
+         var cycleObj = [];
          for(var val in obj){
            for(var val2 in obj[val]){
              var object = obj[val][val2];
-             var phaseObj = new Object();
+             var phaseObj = {};
              if(object.Filter == undefined){
                if (object.Date == undefined) {
                  phaseObj.phase  = object.Title;
