@@ -124,7 +124,7 @@
       },
       {
         "url": "/jira-add-on-llbean-versions/view-rbuttons.html",
-        "key": "dashboard-gadget-version-status",
+        "key": "dashboard-gadget-version-filtered",
         "name": {
           "value": "Filtered Report Gadget CTTCM with Version Selection"
         },
