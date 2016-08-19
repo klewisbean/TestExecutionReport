@@ -27,6 +27,7 @@ public class ReleaseExportAutomation {
     final static Logger logger = Logger.getLogger(ReleaseExportAutomation.class);
     public ReleaseExportAutomation(String username, String password, String zqlsearch, int count){
 
+        logger.info("zql search: " + zqlsearch);
         COUNT = count;
 
         //open the login page
@@ -49,8 +50,8 @@ public class ReleaseExportAutomation {
     //sets up the chromedriver with custom options and capabilities
     public WebDriver setUpDriver(){
         logger.info("setting up driver...");
-        logger.info("download path: " + System.getProperty("user.dir"));
-        String downloadFilepath = System.getProperty("user.dir");//path where files will be download when automating in chrome
+        logger.info("download path: " + System.getProperty("user.dir") + "\\xml-content");
+        String downloadFilepath = System.getProperty("user.dir") + "\\xml-content";//path where files will be download when automating in chrome
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("profile.default_content_settings.popups", 0);
         chromePrefs.put("download.default_directory", downloadFilepath);

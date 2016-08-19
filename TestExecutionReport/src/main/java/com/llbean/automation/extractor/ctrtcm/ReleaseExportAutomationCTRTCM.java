@@ -39,8 +39,8 @@ public class ReleaseExportAutomationCTRTCM {
 
     public WebDriver setUpDriver(){
         logger.info("setting up driver...");
-        logger.info("download path: " + System.getProperty("user.dir"));
-        String downloadFilepath = System.getProperty("user.dir");//path where files will be download when automating in chrome
+        logger.info("download path: " + System.getProperty("user.dir") + "\\xml-retail");
+        String downloadFilepath = System.getProperty("user.dir") + "\\xml-retail";//path where files will be download when automating in chrome
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("profile.default_content_settings.popups", 0);
         chromePrefs.put("download.default_directory", downloadFilepath);
