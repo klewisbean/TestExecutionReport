@@ -50,6 +50,8 @@ public class AutomateExportGUI {
         //gets the versions from the jira api for the CTTCM project
         main.getJiraVersions(USERNAME, PWD);
 
+        logger.info("versions: " + main.versions);
+
         //adds the desired release into the vmap
         main.vMap.put(REL, main.relArray);
 
