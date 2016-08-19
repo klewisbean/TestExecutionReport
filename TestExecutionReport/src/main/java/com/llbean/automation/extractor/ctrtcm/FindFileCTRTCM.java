@@ -26,7 +26,7 @@ public class FindFileCTRTCM {
 
         //modify this depending on the environment the program is running in
         //the directory environment may change when running in different environments
-        main.findFile(main.FILENAME, System.getProperty("user.dir") /*+ "\\TestExecutionReport"*/);
+        main.findFile(main.FILENAME, System.getProperty("user.dir") + "\\xml-retail");
     }
 
     public void findFile(String nameToFind, String directoryToSearch){
@@ -58,7 +58,7 @@ public class FindFileCTRTCM {
         logger.info("Newest file: " + newestfile.getName());
 
         if(newestfile.getName().equalsIgnoreCase(filename)){
-            File directory2 = new File(directoryToSearch + "\\TestExecutionReport");
+            File directory2 = new File(directoryToSearch + "\\TestExecutionReport\\xml-retail");
 
             File[] filesin2 = directory2.listFiles();
 
