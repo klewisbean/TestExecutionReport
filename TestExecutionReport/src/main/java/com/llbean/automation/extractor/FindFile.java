@@ -26,7 +26,7 @@ public class FindFile {
 
         //modify this depending on the environment the program is running in
         //the directory environment may change when running in different environments
-        main.findFile(main.FILENAME, System.getProperty("user.dir") + "\\xml-content");
+        main.findFile(main.FILENAME, System.getProperty("user.dir") + "\\TestExecutionReport\\xml-content");
     }
 
     //finds the two latest exported test execution xml files
@@ -50,7 +50,6 @@ public class FindFile {
 
         //searches through the user directory for the first latest test execution xml file from zephyr for jira
         for(File fil : filesin){
-            System.out.println(fil.getName());
             if(fil.getName().contains(filename)){
                 if(newest < fil.lastModified()){
                     newest = fil.lastModified();
@@ -61,10 +60,8 @@ public class FindFile {
 
         //searches through the user directory for the second latest test execution xml file from zephyr for jira
         for(File fil : filesin){
-            System.out.println(fil.getName());
             if(fil.getName().contains(filename)){
                 if(newest2 < fil.lastModified() && newest > fil.lastModified()){
-
                     newest2 = fil.lastModified();
                     newestfile2 = fil;
                 }
