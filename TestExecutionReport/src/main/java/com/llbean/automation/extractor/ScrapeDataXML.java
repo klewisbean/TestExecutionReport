@@ -1537,6 +1537,7 @@ public class ScrapeDataXML {
             }
             catch (NullPointerException e){
                 ArrayList<String[]> temp = new ArrayList<>();
+                temp.add(listsplit.get(i));
                 versionmap.put(version, temp);
             }
 
