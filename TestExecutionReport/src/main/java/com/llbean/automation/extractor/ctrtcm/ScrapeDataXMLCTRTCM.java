@@ -422,10 +422,11 @@ public class ScrapeDataXMLCTRTCM {
         return mapofphases;
     }
 
-
+    /** MODIFY THIS FUNCTION IF FIREBASE PROJECTS CHANGE*/
     //method to automatically post without GUI if need be
     public void fbpostfunction(String date){
         //clear the firebase database first
+        /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
         XMLtoSheetsCTRTCM.clearFB("https://test-execution-report-ctrtcm.firebaseio.com/");
 
         //try posting each filter
@@ -438,6 +439,7 @@ public class ScrapeDataXMLCTRTCM {
         PRIORITY
          */
             try {
+                /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
                 XMLtoSheetsCTRTCM.run(filterPriority(phaselist), phase, "https://test-execution-report-ctrtcm.firebaseio.com/priority/", date);
             } catch (IOException e1) {
                 e1.printStackTrace();
@@ -451,6 +453,7 @@ public class ScrapeDataXMLCTRTCM {
         CYCLE
          */
             try {
+                /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
                 XMLtoSheetsCTRTCM.run(filterCycle(phaselist), phase, "https://test-execution-report-ctrtcm.firebaseio.com/cycle", date);
             } catch (IOException e1) {
                 e1.printStackTrace();
@@ -465,6 +468,7 @@ public class ScrapeDataXMLCTRTCM {
          */
             try {
                 //filterStatus(phaselist);
+                /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
                 XMLtoSheetsCTRTCM.runStatus(filterStatus(phaselist), phase, "https://test-execution-report-ctrtcm.firebaseio.com/status", date);
             } catch (Exception e1) {
                 e1.printStackTrace();

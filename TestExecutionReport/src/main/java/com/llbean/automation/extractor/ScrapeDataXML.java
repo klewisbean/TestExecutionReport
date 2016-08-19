@@ -1262,10 +1262,12 @@ public class ScrapeDataXML {
         return mapwithstatus;
     }
 
+    /** MODIFY THIS FUNCTION IF FIREBASE PROJECTS CHANGE*/
     //method to automatically post without GUI if need be
     public void fbpostfunction(String date){
         logger.info("date in fbpostfunction: " + date);
         //clear the firebase database first
+        /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
         XMLtoSheets.clearFB("https://test-execution-report.firebaseio.com/");
 
         //try posting each filter
@@ -1273,18 +1275,21 @@ public class ScrapeDataXML {
         PHASE
          */
         try {
+            /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
             XMLtoSheets.run(filterPhase(list), tempRelease, "https://test-execution-report.firebaseio.com/phase", date);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
         try {
+            /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
             XMLtoSheets.run(filterPhaseclean(list), tempRelease + " Clean", "https://test-execution-report.firebaseio.com/phase/clean", date);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
         try {
+            /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
             XMLtoSheets.run(filterPhaseinit(list), tempRelease + " Initial", "https://test-execution-report.firebaseio.com/phase/initial", date);
         } catch (IOException e1) {
             e1.printStackTrace();
@@ -1298,18 +1303,21 @@ public class ScrapeDataXML {
         PRIORITY
          */
         try {
+            /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
             XMLtoSheets.run(filterPriority(list), tempRelease, "https://test-execution-report.firebaseio.com/priority", date);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
         try {
+            /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
             XMLtoSheets.run(filterPriorityclean(list), tempRelease + " Clean", "https://test-execution-report.firebaseio.com/priority/clean", date);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
         try {
+            /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
             XMLtoSheets.run(filterPriorityinit(list), tempRelease + " Initial", "https://test-execution-report.firebaseio.com/priority/initial", date);
         } catch (IOException e1) {
             e1.printStackTrace();
@@ -1323,18 +1331,21 @@ public class ScrapeDataXML {
         DEVICE
          */
         try {
+            /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
             XMLtoSheets.run(filterDevice(list), tempRelease, "https://test-execution-report.firebaseio.com/device", date);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
         try {
+            /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
             XMLtoSheets.run(filterDeviceclean(list), tempRelease + " Clean", "https://test-execution-report.firebaseio.com/device/clean", date);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
 
         try {
+            /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
             XMLtoSheets.run(filterDeviceinit(list), tempRelease + " Initial", "https://test-execution-report.firebaseio.com/device/initial", date);
         } catch (IOException e1) {
             e1.printStackTrace();
@@ -1359,8 +1370,9 @@ public class ScrapeDataXML {
     #########################################################################################################
     #########################################################################################################
      */
-
+    /** MODIFY THIS FUNCTION IF FIREBASE PROJECTS CHANGE*/
     public void pfunction(String date) {
+        /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
         XMLtoSheets.clearFBv("https://test-execution-report-versions.firebaseio.com/");
         Iterator it = versionmap.entrySet().iterator();
         while(it.hasNext()){
@@ -1369,6 +1381,7 @@ public class ScrapeDataXML {
             try {
                 String temp = (String)pair.getKey();
                 temp = temp.replace(" ", "%20");
+                /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
                 XMLtoSheets.runStatus(filterStatus((ArrayList)pair.getValue()), (String)pair.getKey(), "https://test-execution-report-versions.firebaseio.com/" + temp, date);
             } catch (IOException e1) {
                 e1.printStackTrace();
@@ -1376,7 +1389,14 @@ public class ScrapeDataXML {
         }
     }
 
+    /*
+    #########################################################################################################
+    #########################################################################################################
+    #########################################################################################################
+     */
+    /** MODIFY THIS FUNCTION IF FIREBASE PROJECTS CHANGE*/
     public void pfunction2(String date) {
+        /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
         XMLtoSheets.clearFBv("https://test-execution-report-v.firebaseio.com/");
         Iterator it = versionmap.entrySet().iterator();
         while(it.hasNext()){
@@ -1385,6 +1405,7 @@ public class ScrapeDataXML {
             try {
                 String temp = (String)pair.getKey();
                 temp = temp.replace(" ", "%20");
+                /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
                 XMLtoSheets.run(filterPhase((ArrayList)pair.getValue()), (String)pair.getKey(), "https://test-execution-report-v.firebaseio.com/" + temp + "/phase", date);
             } catch (IOException e1) {
                 e1.printStackTrace();
@@ -1393,6 +1414,7 @@ public class ScrapeDataXML {
             try {
                 String temp = (String)pair.getKey();
                 temp = temp.replace(" ", "%20");
+                /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
                 XMLtoSheets.run(filterDevice((ArrayList)pair.getValue()), (String)pair.getKey(), "https://test-execution-report-v.firebaseio.com/" + temp + "/device", date);
             } catch (IOException e1) {
                 e1.printStackTrace();
@@ -1401,12 +1423,19 @@ public class ScrapeDataXML {
             try {
                 String temp = (String)pair.getKey();
                 temp = temp.replace(" ", "%20");
+                /** MODIFY THIS URL IF FIREBASE PROJECTS CHANGE*/
                 XMLtoSheets.run(filterPriority((ArrayList)pair.getValue()), (String)pair.getKey(), "https://test-execution-report-v.firebaseio.com/" + temp + "/priority", date);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
         }
     }
+
+    /*
+    #########################################################################################################
+    #########################################################################################################
+    #########################################################################################################
+     */
 
     public HashMap<String, Integer> combineHashMap(HashMap<String, Integer> map1, HashMap<String, Integer> map2){
         HashMap<String, Integer> newmap = new HashMap<>();
