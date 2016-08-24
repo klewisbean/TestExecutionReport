@@ -10,10 +10,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 
 import java.io.IOException;
 import java.util.HashMap;
+//import java.util.function.Function;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ReleaseExportAutomation {
 
@@ -105,6 +110,13 @@ public class ReleaseExportAutomation {
             e.printStackTrace();
         }
 
+        // Waiting 30 seconds for an element to be present on the page, checking
+        // for its presence once every 5 seconds.
+        Wait wait = new FluentWait(driver)
+                .withTimeout(400, SECONDS)
+                .pollingEvery(5, SECONDS)
+                .ignoring(NoSuchElementException.class);
+
 
         WebElement navitatorContainer = driver.findElement(By.className("navigator-container"))
                                             .findElement(By.id("zqlcomponent"))
@@ -117,6 +129,7 @@ public class ReleaseExportAutomation {
                                             .findElement(By.className("mode-switcher"))
                                             .findElement(By.id("search-mode-advanced"));
 
+        wait.until(ExpectedConditions.elementToBeClickable(navitatorContainer));
         //click the advanced search button
         navitatorContainer.click();
         logger.info("element found");

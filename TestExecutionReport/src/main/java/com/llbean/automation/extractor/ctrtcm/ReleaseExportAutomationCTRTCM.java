@@ -3,16 +3,18 @@ package com.llbean.automation.extractor.ctrtcm; /**
  */
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.NoSuchFrameException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
 import java.util.HashMap;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class ReleaseExportAutomationCTRTCM {
 
@@ -91,6 +93,10 @@ public class ReleaseExportAutomationCTRTCM {
             e.printStackTrace();
         }
 
+        Wait wait = new FluentWait(driver)
+                .withTimeout(400, SECONDS)
+                .pollingEvery(5, SECONDS)
+                .ignoring(NoSuchElementException.class);
 
         WebElement navitatorContainer = driver.findElement(By.className("navigator-container"))
                 .findElement(By.id("zqlcomponent"))
@@ -103,6 +109,7 @@ public class ReleaseExportAutomationCTRTCM {
                 .findElement(By.className("mode-switcher"))
                 .findElement(By.id("search-mode-advanced"));
 
+        wait.until(ExpectedConditions.elementToBeClickable(navitatorContainer));
         //click the advanced search button
         navitatorContainer.click();
         logger.info("element found");

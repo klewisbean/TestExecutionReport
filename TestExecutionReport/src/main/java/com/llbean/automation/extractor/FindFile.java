@@ -26,7 +26,7 @@ public class FindFile {
 
         //modify this depending on the environment the program is running in
         //the directory environment may change when running in different environments
-        main.findFile(main.FILENAME, System.getProperty("user.dir") + "\\TestExecutionReport\\xml-content");
+        main.findFile(main.FILENAME, System.getProperty("user.dir") + "\\xml-content");
     }
 
     //finds the two latest exported test execution xml files
