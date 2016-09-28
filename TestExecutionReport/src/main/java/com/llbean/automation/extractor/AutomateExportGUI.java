@@ -25,7 +25,7 @@ public class AutomateExportGUI {
     private static final String PWD = "A13b62.91";
 
     /**CONFIGURE FOR NEW RELEASES*/
-    private static final String REL = "65";
+    private static final String REL = "66";
     /**
      * #################################################
      * CONFIGURE
